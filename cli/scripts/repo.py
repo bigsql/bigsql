@@ -15,7 +15,7 @@ PGDG_REPO_LIST="json-pgdg-repo-list"
 YUM_LIST = ['el6', 'el7']
 APT_LIST = ['trusty', 'xenial', 'bionic']
 
-my_logger = logging.getLogger('apg_logger')
+my_logger = logging.getLogger('dpg_logger')
 
 
 def discover(p_ver, p_isSILENT=False, p_isJSON=False, p_isYES=False):
@@ -41,7 +41,7 @@ def discover(p_ver, p_isSILENT=False, p_isJSON=False, p_isYES=False):
     repo = "pgdg" + p_ver.replace(".","")
     if not p_isYES and not p_isJSON:
       try:
-        p_install = raw_input("Do you want to install apg controller for existing {0} instance:(y/n)".format(repo))
+        p_install = raw_input("Do you want to install dpg controller for existing {0} instance:(y/n)".format(repo))
         if p_install in ("y", "Y"):
           p_isYES=True
       except Exception as e:
@@ -131,7 +131,7 @@ def get_json_file(p_file, p_isJSON):
   json_file = p_file + ".txt"
   repo = util.get_value("GLOBAL", "REPO")
   repo_file = repo + "/" + json_file
-  out_dir = os.getenv("APG_HOME") + os.sep + "conf" + os.sep + "cache"
+  out_dir = os.getenv("DPG_HOME") + os.sep + "conf" + os.sep + "cache"
 
   if util.http_get_file(False, json_file, repo, out_dir, False, ""):
     out_file = out_dir + os.sep + json_file

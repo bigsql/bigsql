@@ -21,7 +21,7 @@ else
   PYTHON=python3
 fi
 
-if [ "$OUT" == "" ] || [ "$APG" == "" ]; then
+if [ "$OUT" == "" ] || [ "$DPG" == "" ]; then
   echo "ERROR: Environment is not set"
   exit 1
 fi
@@ -87,7 +87,7 @@ writeSettRow() {
   pKey="$2"
   pValue="$3"
   pVerbose="$4"
-  dbLocal="$out/conf/apg_local.db"
+  dbLocal="$out/conf/dpg_local.db"
   cmdPy="$PYTHON $HUB/src/conf/insert_setting.py"
   $cmdPy "$dbLocal"  "$pSection" "$pKey" "$pValue"
   if [ "$pVerbose" == "-v" ]; then
@@ -118,7 +118,7 @@ writeCompRow() {
     return
   fi
 
-  dbLocal="$out/conf/apg_local.db"
+  dbLocal="$out/conf/dpg_local.db"
   cmdPy="$PYTHON $HUB/src/conf/insert_component.py"
   $cmdPy "$dbLocal"  "$pComp" "$pProj" "$pVer" "$pPlat" "$pPort" "$pStatus"
 }
@@ -426,9 +426,9 @@ setupOutdir () {
   mkdir conf/cache
   conf="$SRC/conf"
 
-  cp $conf/apg_local.db  conf/.
+  cp $conf/dpg_local.db  conf/.
   cp $conf/versions.sql  conf/.
-  sqlite3 conf/apg_local.db < conf/versions.sql
+  sqlite3 conf/dpg_local.db < conf/versions.sql
 }
 
 
@@ -446,7 +446,7 @@ do
             outDir="$OPTARG"
             setupOutdir
             OS_TYPE="POSIX"
-            cp $CLI/apg.sh apg
+            cp $CLI/dpg.sh dpg
             if [ "$outDir" == "posix" ]; then
               OS="???"
               platx="posix"

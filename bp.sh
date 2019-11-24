@@ -5,7 +5,7 @@ outp="out/posix"
 
 if [ -d $outp ]; then
   echo "Removing current '$outp' directory..."
-  $outp/apg stop
+  $outp/dpg stop
   sleep 2
   rm -rf $outp
 fi
@@ -14,7 +14,7 @@ fi
 
 cd $outp
 
-./apg set GLOBAL REPO http://localhost:8000
+./dpg set GLOBAL REPO http://localhost:8000
 
-./apg --version
+./dpg --version
 

@@ -6,7 +6,7 @@
 import os
 import sys
 
-LOG_FILENAME = os.getenv('APG_LOGS')
+LOG_FILENAME = os.getenv('DPG_LOGS')
 
 
 class ConsoleLogger(object):

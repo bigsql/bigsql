@@ -24,15 +24,15 @@ except Exception as e:
 import logging, logging.handlers, errno
 try:
     ## Globals and other Initializations ##############################
-    LOG_FILENAME = os.getenv('APG_LOGS', 
-      '..' + os.sep + '..' + os.sep + 'logs' + os.sep + 'apg_log.out')
+    LOG_FILENAME = os.getenv('DPG_LOGS', 
+      '..' + os.sep + '..' + os.sep + 'logs' + os.sep + 'dpg_log.out')
     LOG_DIRECTORY = os.path.split(LOG_FILENAME)[0]
 
     if not os.path.isdir(LOG_DIRECTORY):
       os.mkdir(LOG_DIRECTORY)
 
     # Set up a specific logger with our desired output level
-    my_logger = logging.getLogger('apg_logger')
+    my_logger = logging.getLogger('dpg_logger')
     COMMAND = 9
     logging.addLevelName(COMMAND, "COMMAND")
     my_logger.setLevel(logging.DEBUG)

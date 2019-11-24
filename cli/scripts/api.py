@@ -52,13 +52,13 @@ def get_pip_ver():
   return("None")
 
 
-def apg_unicode(p_str,p_encoding,errors="ignore"):
+def dpg_unicode(p_str,p_encoding,errors="ignore"):
   return str(p_str)
 
 try:
     test_unicode = unicode("test")
 except NameError as e:
-    unicode = apg_unicode
+    unicode = dpg_unicode
 
 
 def check_output_wmic (p_cmds):
@@ -313,7 +313,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
   arch = os_arch.replace("x86_64", "x64")
   arch = arch.replace("AMD64", "x64")
 
-  ver = util.get_apg_version()
+  ver = util.get_dpg_version()
   [last_update_utc, last_update_local, unique_id] = util.read_hosts('localhost')
   if last_update_local:
     last_upd_dt = datetime.strptime(last_update_local, "%Y-%m-%d %H:%M:%S")
@@ -362,7 +362,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     admin_display = ""
 
   print(style_start + ("#" * 70) + style_end)
-  print(style_start + "#             APG: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#             DPG: " + style_end + "v" + ver + "  " + p_home)
   print(style_start + "#     User & Host: " + style_end + p_user + admin_display + "  " + host_display)
   print(style_start + "#              OS: " + style_end + os.rstrip() + " - " + str(plat))
   print(style_start + "#    Python & PIP: " + style_end + python_ver + " | " + pip_ver)

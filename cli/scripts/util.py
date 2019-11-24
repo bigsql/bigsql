@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-APG_VERSION = "0.1"
+DPG_VERSION = "0.1"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -35,19 +35,19 @@ if os.path.exists(platform_lib_path):
     sys.path.append(platform_lib_path)
 
 import semver
-import apglog
+import dpglog
 
-my_logger = logging.getLogger('apg_logger')
-APG_HOME = os.getenv('APG_HOME', '..' + os.sep + '..')
-pid_file = os.path.join(APG_HOME, 'conf', 'apg.pid')
+my_logger = logging.getLogger('dpg_logger')
+DPG_HOME = os.getenv('DPG_HOME', '..' + os.sep + '..')
+pid_file = os.path.join(DPG_HOME, 'conf', 'dpg.pid')
 
 
 def run_regress (p_ver):
   ver = "pg" + str(p_ver)
 
   cmd = ""
-  cmd = cmd + "./apg install " + ver
-  cmd = cmd + "; ./apg start " + ver + " -y -d regression"
+  cmd = cmd + "./dpg install " + ver
+  cmd = cmd + "; ./dpg start " + ver + " -y -d regression"
 
   try:
     c = cL.cursor()
@@ -58,11 +58,11 @@ def run_regress (p_ver):
     c.execute(sql, [ver])
     data = c.fetchall()
     for row in data:
-      cmd = cmd + "; ./apg install " + str(row[0]) + " -d regression"
+      cmd = cmd + "; ./dpg install " + str(row[0]) + " -d regression"
   except Exception as e:
     fatal_sql_error(e, sql, "run_regress()")
 
-  cmd = cmd + "; ./apg stop " + ver
+  cmd = cmd + "; ./dpg stop " + ver
 
   print("\n" + cmd + "\n")
   rc = os.system(cmd)
@@ -70,8 +70,8 @@ def run_regress (p_ver):
   return(rc)
   
 
-def run_apg_cmd (p_cmd, p_display=False):
-  cmd = APG_HOME + os.sep + p_cmd
+def run_dpg_cmd (p_cmd, p_display=False):
+  cmd = DPG_HOME + os.sep + p_cmd
 
   if p_display:
     print ("  " + cmd)
@@ -93,7 +93,7 @@ def run_sql_cmd(p_pg, p_sql, p_display=False):
   if p_display:
     print ("$ " + cmd)
 
-  cmd = os.path.join(APG_HOME, cmd)
+  cmd = os.path.join(DPG_HOME, cmd)
   rc = os.system(cmd)
   return(rc)
 
@@ -111,9 +111,9 @@ def create_extension(p_pg, p_ext, p_reboot=False, p_extension="", p_cascade=Fals
 
   if p_reboot:
     print("")
-    run_apg_cmd (p_pg + os.sep + "stop-" + p_pg + ".py", False )
+    run_dpg_cmd (p_pg + os.sep + "stop-" + p_pg + ".py", False )
     time.sleep(3)
-    run_apg_cmd (p_pg + os.sep + "start-" + p_pg + ".py", False )
+    run_dpg_cmd (p_pg + os.sep + "start-" + p_pg + ".py", False )
     time.sleep(4)
 
   print("")
@@ -135,7 +135,7 @@ def create_virtualenv():
 
 
 def install_pgadmin4_server():
-  pgadmin4_wheel = os.path.join(APG_HOME, 'pgadmin4', '*.whl')
+  pgadmin4_wheel = os.path.join(DPG_HOME, 'pgadmin4', '*.whl')
 
   rc = system(PIP + " install --user " + pgadmin4_wheel, is_display=True)
 
@@ -160,11 +160,11 @@ def confirm_pip():
 
 
 def secure_win_dir(p_dir, p_is_exe, p_user):
-  CLI = os.path.join(APG_HOME, 'hub', 'scripts') 
+  CLI = os.path.join(DPG_HOME, 'hub', 'scripts') 
   cmnd = os.path.join(CLI, "PsExec.exe -accepteula -nobanner -s /c ")
   cmnd = cmnd + os.path.join(CLI, 'secure-win-dir.bat') + ' "' +  p_dir + '" '
   cmnd = cmnd + '"' + p_is_exe + '" "' + p_user + '" >> '
-  cmnd = cmnd + os.path.join(APG_HOME, 'logs', 'fix-security.log') + ' 2>&1'
+  cmnd = cmnd + os.path.join(DPG_HOME, 'logs', 'fix-security.log') + ' 2>&1'
   system(cmnd, is_display=True)
 
 
@@ -439,7 +439,7 @@ def is_postgres(p_comp):
 def get_owner_name(p_path=None):
   file_path = p_path
   if not p_path:
-      file_path = os.getenv("APG_HOME")
+      file_path = os.getenv("DPG_HOME")
   import pwd
   st = os.stat(file_path)
   uid = st.st_uid
@@ -563,7 +563,7 @@ def get_relnotes(p_comp, p_ver=""):
     file = "relnotes-" + comp_name + "-" + ver + ".txt"
   repo = get_value("GLOBAL", "REPO")
   repo_file = repo + "/" + file
-  out_dir = APG_HOME + os.sep + "conf" + os.sep + "cache"
+  out_dir = DPG_HOME + os.sep + "conf" + os.sep + "cache"
 
   if http_is_file(repo_file) == 1:
     return("not available")
@@ -605,7 +605,7 @@ def update_hosts(p_host, p_unique_id, updated=False):
 
   current_time = last_update_utc
 
-  cmd = os.path.abspath(APG_HOME) + os.sep + "apg update"
+  cmd = os.path.abspath(DPG_HOME) + os.sep + "dpg update"
 
   if p_unique_id:
     unique_id = p_unique_id
@@ -680,25 +680,25 @@ def unset_value (p_section, p_key):
   return
 
 
-def get_apg_hosts_file_name():
+def get_dpg_hosts_file_name():
   pw_file=""
-  apg_host_dir = os.path.join(APG_HOME, "conf")
-  pw_file = os.path.join(apg_host_dir, ".apg_hosts")
+  dpg_host_dir = os.path.join(DPG_HOME, "conf")
+  pw_file = os.path.join(dpg_host_dir, ".dpg_hosts")
   return(pw_file)
 
 
-def get_apg_host(p_host):
+def get_dpg_host(p_host):
   host_dict = {}
   try:
     c = cL.cursor()
-    sql = "SELECT host, name, apg_home FROM hosts where name=?"
+    sql = "SELECT host, name, dpg_home FROM hosts where name=?"
     c.execute(sql, [p_host])
     data = c.fetchone()
     if data:
       host_dict = {}
       host_dict['host'] = str(data[0])
       host_dict['host_name'] = str(data[1])
-      host_dict['apg_home'] = str(data[2])
+      host_dict['dpg_home'] = str(data[2])
   except Exception as e:
     print("ERROR: Retrieving host info")
     exit_message(str(e), 1)
@@ -771,7 +771,7 @@ def is_password_less_ssh():
 def read_env_file(component):
   if str(platform.system()) == "Windows":
     from subprocess import check_output
-    script = os.path.join(APG_HOME, component, component+'-env.bat')
+    script = os.path.join(DPG_HOME, component, component+'-env.bat')
     if os.path.isfile(script):
       try:
         vars = check_output([script, '&&', 'set'], shell=True)
@@ -784,7 +784,7 @@ def read_env_file(component):
         my_logger.error(traceback.format_exc())
         pass
   else:
-    script = os.path.join(APG_HOME, component, component+'.env')
+    script = os.path.join(DPG_HOME, component, component+'.env')
     if os.path.isfile(script):
         try:
           pipe1 = Popen(". %s; env" % script, stdout=PIPE, shell=True, executable="/bin/bash")
@@ -1039,7 +1039,7 @@ def update_postgresql_conf(p_pgver, p_port, is_new=True,update_listen_addr=True)
       ns = ns + "\n" + "logging_collector = on"
 
     elif is_new and line.startswith("#log_directory"):
-      log_directory = os.path.join(APG_HOME, "data", "logs", p_pgver).replace("\\", "/")
+      log_directory = os.path.join(DPG_HOME, "data", "logs", p_pgver).replace("\\", "/")
       ns = ns + "\n" + "log_directory = '" + log_directory + "'"
 
     elif is_new and line.startswith("#log_filename"):
@@ -1209,7 +1209,7 @@ def write_pgenv_file(p_pghome, p_pgver, p_pgdata, p_pguser, p_pgdatabase, p_pgpo
     file.write(export + 'PGPORT=' + p_pgport + '\n')
     if p_pgpassfile:
       file.write(export + 'PGPASSFILE=' + p_pgpassfile + '\n')
-    file.write(export + 'PYTHONPATH=' + os.path.join(APG_HOME, p_pgver, "python", "site-packages") + '\n')
+    file.write(export + 'PYTHONPATH=' + os.path.join(DPG_HOME, p_pgver, "python", "site-packages") + '\n')
     file.write(export + 'GDAL_DATA=' + os.path.join(p_pghome, "share", "gdal") + '\n')
     file.write('if [ -f /usr/lib64/perl5/CORE/libperl.so ]; then \n')
     file.write('    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/perl5/CORE \n')
@@ -1316,8 +1316,8 @@ def pretty_rounder(p_num, p_scale):
   return rounded
 
 
-def get_apg_version():
-  return (APG_VERSION)
+def get_dpg_version():
+  return (DPG_VERSION)
 
 
 ####################################################################
@@ -1366,7 +1366,7 @@ def process_sql_file(p_file, p_json):
       if ("hub" in cmd) and ("INSERT INTO versions" in cmd) and ("1," in cmd):
         cmdList = cmd.split(',')
         newHubV = cmdList[1].strip().replace("'", "")
-        oldHubV = get_apg_version()
+        oldHubV = get_dpg_version()
         msg_frag = "'hub' from v" + oldHubV + " to v" + newHubV + "."
         if newHubV == oldHubV:
           msg = "'hub' is v" + newHubV
@@ -1765,19 +1765,19 @@ def has_platform(p_platform):
 # set the env variables
 ####################################################################################
 def set_lang_path():
-  perl_home = APG_HOME + os.sep + 'perl5' + os.sep + 'perl'
+  perl_home = DPG_HOME + os.sep + 'perl5' + os.sep + 'perl'
   if os.path.exists(perl_home):
     os.environ['PERL_HOME'] = perl_home
     path = os.getenv('PATH')
     os.environ['PATH'] = perl_home + os.sep + 'site' + os.sep + 'bin' + os.pathsep + \
         perl_home + os.sep + 'bin' + os.pathsep + \
-        APG_HOME + os.sep + 'perl5' + os.sep + 'c' + os.sep + 'bin' + os.pathsep + path
-  tcl_home = APG_HOME + os.sep + 'tcl86'
+        DPG_HOME + os.sep + 'perl5' + os.sep + 'c' + os.sep + 'bin' + os.pathsep + path
+  tcl_home = DPG_HOME + os.sep + 'tcl86'
   if os.path.exists(tcl_home):
     os.environ['TCL_HOME'] = tcl_home
     path = os.getenv('PATH')
     os.environ['PATH'] = tcl_home + os.sep + 'bin' + os.pathsep + path
-  java_home = APG_HOME + os.sep + 'java8'
+  java_home = DPG_HOME + os.sep + 'java8'
   if os.path.exists(java_home):
     os.environ['JAVA_HOME'] = java_home
     path = os.getenv('PATH')
@@ -1902,7 +1902,7 @@ def urlEncodeNonAscii(b):
 
 
 def http_headers():
-  user_agent = 'APG/' + get_apg_version() + " " + get_anonymous_info()
+  user_agent = 'DPG/' + get_dpg_version() + " " + get_anonymous_info()
   headers = { 'User-Agent' : urlEncodeNonAscii(user_agent) }
   return(headers)
 
@@ -1949,7 +1949,7 @@ def http_get_file(p_json, p_file_name, p_url, p_out_dir, p_display_status, p_msg
     while True:
       if not p_file_name.endswith(".txt") \
               and not p_file_name.startswith("install.py") \
-              and not p_file_name.startswith("bigsql-apg") \
+              and not p_file_name.startswith("bigsql-dpg") \
               and not os.path.isfile(pid_file):
         raise KeyboardInterrupt("No lock file exists.")
       buffer = u.read(block_sz)
@@ -2321,8 +2321,8 @@ def get_files_recursively(directory):
 
 # create the manifest file for the extension
 def create_manifest(ext_comp, parent_comp,upgrade=None):
-  PARENT_DIR = os.path.join(APG_HOME, parent_comp)
-  COMP_DIR = os.path.join(APG_HOME, ext_comp)
+  PARENT_DIR = os.path.join(DPG_HOME, parent_comp)
+  COMP_DIR = os.path.join(DPG_HOME, ext_comp)
   if upgrade:
       COMP_DIR=os.path.join(COMP_DIR+"_new", ext_comp)
 
@@ -2341,7 +2341,7 @@ def create_manifest(ext_comp, parent_comp,upgrade=None):
 
   manifest_file_name = ext_comp + ".manifest"
 
-  manifest_file_path = os.path.join(APG_HOME, "conf", manifest_file_name)
+  manifest_file_path = os.path.join(DPG_HOME, "conf", manifest_file_name)
 
   try:
     with open(manifest_file_path, 'w') as f:
@@ -2372,8 +2372,8 @@ def copy_extension_files(ext_comp, parent_comp,upgrade=None):
   validate_distutils_click()
   from distutils.dir_util import copy_tree
 
-  PARENT_DIR = os.path.join(APG_HOME, parent_comp)
-  COMP_DIR = os.path.join(APG_HOME, ext_comp)
+  PARENT_DIR = os.path.join(DPG_HOME, parent_comp)
+  COMP_DIR = os.path.join(DPG_HOME, ext_comp)
 
   if upgrade:
       COMP_DIR=os.path.join(COMP_DIR+"_new", ext_comp)
@@ -2621,4 +2621,4 @@ def delete_shortlink_osx(short_link):
 
 
 ## MAINLINE ################################################################
-cL = sqlite3.connect(APG_HOME + os.sep + "conf" + os.sep + "apg_local.db", check_same_thread=False)
+cL = sqlite3.connect(DPG_HOME + os.sep + "conf" + os.sep + "dpg_local.db", check_same_thread=False)

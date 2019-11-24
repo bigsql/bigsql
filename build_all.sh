@@ -25,7 +25,7 @@ if [ ! "$2" == "" ]; then
   outDir="$2"
 fi
 
-if [ "$OUT" == "" ] || [ "$APG" == "" ]; then
+if [ "$OUT" == "" ] || [ "$DPG" == "" ]; then
   echo "ERROR: Environment is not set"
   exit 1
 fi
@@ -70,8 +70,8 @@ buildONE () {
 
 echo "############### Build Package Manager ###################"
 rm -f $OUT/hub-$hubV*
-rm -f $OUT/bigsql-apg-$hubV*
-./build.sh -X posix   -c bigsql-apg -N $hubV
+rm -f $OUT/bigsql-dpg-$hubV*
+./build.sh -X posix   -c bigsql-dpg -N $hubV
 
 buildALL $majorV $minorV
 

@@ -548,4 +548,4 @@ def fatal_sql_error(err, sql, func):
 
 
 ## MAINLINE ################################################################
-con = sqlite3.connect(os.getenv("APG_HOME") + os.sep + "conf" + os.sep + "apg_local.db", check_same_thread=False)
+con = sqlite3.connect(os.getenv("DPG_HOME") + os.sep + "conf" + os.sep + "dpg_local.db", check_same_thread=False)

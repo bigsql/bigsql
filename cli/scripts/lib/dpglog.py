@@ -38,12 +38,12 @@ def command(self, message, *args, **kws):
 ########                    MAINLINE                      ##########
 ####################################################################
 try:
-    LOG_FILENAME = os.getenv('APG_LOGS')
+    LOG_FILENAME = os.getenv('DPG_LOGS')
     if not LOG_FILENAME:
-        APG_HOME = os.getenv("APG_HOME")
-        LOG_FILENAME = os.path.join(APG_HOME,"logs","apg_log.out")
+        DPG_HOME = os.getenv("DPG_HOME")
+        LOG_FILENAME = os.path.join(DPG_HOME,"logs","dpg_log.out")
     LOG_DIRECTORY = os.path.split(LOG_FILENAME)[0]
-    LOG_LEVEL = int(os.getenv('APG_DEBUG_LEVEL', '-1'))
+    LOG_LEVEL = int(os.getenv('DPG_DEBUG_LEVEL', '-1'))
 
     if LOG_LEVEL is None or LOG_LEVEL == -1:
         LOG_LEVEL = COMMAND
@@ -52,7 +52,7 @@ try:
       os.mkdir(LOG_DIRECTORY)
 
     # Set up a specific logger with our desired output level
-    my_logger = logging.getLogger('apg_logger')
+    my_logger = logging.getLogger('dpg_logger')
 
     logging.addLevelName(COMMAND, "COMMAND")
     logging.Logger.command = command

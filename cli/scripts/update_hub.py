@@ -66,11 +66,11 @@ def mainline():
     sys.exit(0)
 
   if (p_from_ver < "3.2.1") and (p_to_ver >= "3.2.1"):
-    APG_HOME = os.getenv('APG_HOME', '')
+    DPG_HOME = os.getenv('DPG_HOME', '')
     try:
       import shutil
-      src = os.path.join(os.path.dirname(__file__), "apg.sh")
-      dst = os.path.join(APG_HOME, "apg")
+      src = os.path.join(os.path.dirname(__file__), "dpg.sh")
+      dst = os.path.join(DPG_HOME, "dpg")
       shutil.copy(src, dst)
     except Exception as e:
       pass
@@ -92,13 +92,13 @@ def mainline():
 ###################################################################
 #  MAINLINE
 ###################################################################
-APG_HOME = os.getenv('APG_HOME', '')
-if APG_HOME == '':
-  print ("ERROR: Missing APG_HOME envionment variable")
+DPG_HOME = os.getenv('DPG_HOME', '')
+if DPG_HOME == '':
+  print ("ERROR: Missing DPG_HOME envionment variable")
   sys.exit(1)
 
 ## gotta have a sqlite database to update
-db_local = APG_HOME + os.sep + "conf" + os.sep + "apg_local.db"
+db_local = DPG_HOME + os.sep + "conf" + os.sep + "dpg_local.db"
 cL = sqlite3.connect(db_local)
 
 if __name__ == '__main__':
