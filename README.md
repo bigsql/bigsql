@@ -16,7 +16,7 @@ sudo yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
 mkdir ~/dev
 mkdir ~/dev/in
 mkdir ~/dev/out
-mkdir ~/dev/apg_history
+mkdir ~/dev/dpg_history
 
 # pull in from git the DPG project
 cd ~/dev
