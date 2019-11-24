@@ -1,1 +1,1 @@
-cp -p $APG/devel/pgbin/build/*.sh .
+cp -p $DPG/devel/pgbin/build/*.sh .

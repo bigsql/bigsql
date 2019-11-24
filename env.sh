@@ -3,7 +3,7 @@
 #      Copyright (c) 2015-2019 BigSQL, all rights reserved      #
 #----------------------------------------------------------------#
 
-hubV=5.0.3
+hubV=0.1
 
 P12=12.1-4
 P11=11.6-4
@@ -18,7 +18,6 @@ omniV=2.16-1
 hypoV=1.1.3-1
 timescaleV=1.5.1-1
 logicalV=2.3.0-1
-#spockV=2.3.1-1
 profV=4.1-1
 cstarV=3.1.4-1
 athenafdwV=3.1-2
