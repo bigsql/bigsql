@@ -11,7 +11,7 @@ sudo yum install -y net-tools zip unix2dos wget bzip2 python-pip
 sudo yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
 
 ## Setup dev environment ####################################
-```
+
 # make the basic APG directory structure under your $HOME directory
 mkdir ~/dev
 mkdir ~/dev/in
