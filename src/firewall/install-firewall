@@ -1,0 +1,9 @@
+
+sudo yum update
+
+sudo yum install firewalld
+rc=$?
+
+echo "rc=$rc"
+exit $rc
+

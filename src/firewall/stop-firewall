@@ -1,0 +1,6 @@
+
+cmd="sudo systemctl stop firewalld"
+echo $cmd
+$cmd
+rc=$?
+exit $rc

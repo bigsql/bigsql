@@ -1,0 +1,4 @@
+
+sudo yum remove -y salt-master salt-minion salt-ssh salt-syndic salt-cloud
+
+exit 0

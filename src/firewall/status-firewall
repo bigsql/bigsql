@@ -1,0 +1,13 @@
+
+cmd="sudo systemctl status firewalld"
+#echo $cmd
+OUTPUT=$($cmd 2>&1)
+rc=$?
+
+if [[ $OUTPUT == *"inactive"* ]]; then
+  echo "stopped"
+else
+  echo "running"
+fi
+
+exit $rc
