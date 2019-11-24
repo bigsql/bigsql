@@ -24,7 +24,7 @@ git clone https://github.com/dockpg/dpg
 
 # edit your ~/.bashrc to set env variables
 export DEV=$HOME/dev
-export HIST=$DEV/apg_history
+export HIST=$DEV/dpg_history
 export IN=$DEV/in
 export OUT=$DEV/out
 
@@ -36,8 +36,8 @@ export PGBIN=$DEVEL/pgbin
 export SRC=$IN/sources
 export BLD=/opt/pgbin-build/pgbin/bin
 
-export CLI=$APG/cli/scripts
-export PSX=$APG/out/posix
+export CLI=$DPG/cli/scripts
+export PSX=$DPG/out/posix
 export REPO=http://localhost:8000
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
@@ -62,5 +62,5 @@ mkdir /opt/pgbin-build/pgbin/bin
 sudo mkdir /opt/pgcomponent
 sudo chmod 777 /opt/pgcomponent
 sudo chown $USER:$USER /opt/pgcomponent
-
+```
 
