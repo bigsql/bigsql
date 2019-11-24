@@ -101,45 +101,38 @@ CREATE TABLE versions (
   FOREIGN KEY (component) REFERENCES releases(component)
 );
 
-INSERT INTO versions VALUES ('hub', '5.0.3', '', 1, '20191117', '');
-INSERT INTO versions VALUES ('hub', '5.0.2', '', 0, '20191117', '');
-INSERT INTO versions VALUES ('hub', '5.0.1', '', 0, '20191112', '');
+INSERT INTO versions VALUES ('hub', '0.1', '', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg94', '9.4.25-4',  'linux64, arm64', 1, '20191122', '');
+INSERT INTO versions VALUES ('pg94', '9.4.25-4',  'linux64, arm64', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg95', '9.5.20-4',  'linux64, arm64', 1, '20191122', '');
+INSERT INTO versions VALUES ('pg95', '9.5.20-4',  'linux64, arm64', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg96', '9.6.16-4',  'linux64, arm64', 1, '20191122', '');
+INSERT INTO versions VALUES ('pg96', '9.6.16-4',  'linux64, arm64', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg10', '10.11-4',   'linux64, arm64', 1, '20191122', '');
-INSERT INTO versions VALUES ('pg10', '10.11-1',   'linux64, arm64', 0, '20191114', '');
+INSERT INTO versions VALUES ('pg10', '10.11-4',   'linux64, arm64', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg11', '11.6-4',    'linux64, arm64', 1, '20191122', '');
-INSERT INTO versions VALUES ('pg11', '11.6-3',    'linux64, arm64', 0, '20191121', '');
-INSERT INTO versions VALUES ('pg11', '11.6-1',    'linux64, arm64', 0, '20191114', '');
+INSERT INTO versions VALUES ('pg11', '11.6-4',    'linux64, arm64', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg12', '12.1-4',    'linux64, arm64', 1, '20191122', '');
-INSERT INTO versions VALUES ('pg12', '12.1-3',    'linux64, arm64', 0, '20191121', '');
-INSERT INTO versions VALUES ('pg12', '12.1-1',    'linux64, arm64', 0, '20191114', '');
+INSERT INTO versions VALUES ('pg12', '12.1-4',    'linux64, arm64', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',        'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',        'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1',          'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1',          'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',     'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',     'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1',      'linux64, arm64', 1, '20191121', 'pg12');
-INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1',      'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1',      'linux64, arm64', 1, '20200101', 'pg12');
+INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1',      'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1',           'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1',           'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1',          'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1',          'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',   'linux64, arm64', 1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',   'linux64, arm64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1', 'linux64', 1, '20190808', 'pg11');
+INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1', 'linux64', 1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('athena_fdw-pg11', '3.1-2',      'linux64', 1, '20190708', 'pg11');
+INSERT INTO versions VALUES ('athena_fdw-pg11', '3.1-2',      'linux64', 1, '20200101', 'pg11');
 
 
 INSERT INTO versions VALUES ('salt',    '2019pp', 'linux64', 0, '20190912', '');
