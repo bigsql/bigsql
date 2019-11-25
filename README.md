@@ -6,16 +6,20 @@
 YUM="sudo yum -y"
 
 $YUM update
+
+$YUM install git net-tools zip unix2dos wget bzip2 python-pip \
+ epel-release java-1.8.0-openjdk java-1.8.0-openjdk-devel
+
 $YUM groupinstall 'Development Tools'
+
 $YUM install bison-devel readline-devel zlib-devel openssl-devel \
  libxml2-devel libxslt-devel sqlite-devel wget openjade \
  pam-devel openldap-devel uuid-devel python-devel \
  unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath \
  docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight \
  perl-ExtUtils-Embed libevent-devel postgresql-devel \
- git net-tools zip unix2dos wget bzip2 python-pip \
- epel-release java-1.8.0-openjdk java-1.8.0-openjdk-devel \
- centos-release-scl llvm-toolset-7 llvm-toolset-7-llvm-devel
+
+$YUM install centos-release-scl llvm-toolset-7 llvm-toolset-7-llvm-devel
 
 sudo mkdir /opt/pgbin-build
 sudo chmod 777 /opt/pgbin-build
