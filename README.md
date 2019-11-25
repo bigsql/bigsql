@@ -4,11 +4,14 @@
 
 ```
 YUM="sudo yum -y"
-
 $YUM update
 
 $YUM install git net-tools zip unix2dos wget bzip2 python-pip \
  epel-release java-1.8.0-openjdk java-1.8.0-openjdk-devel
+
+git config --global user.name "Denis Lussier"
+git config --global user.email "denis@lussier.io"
+git config --global push.default simple
 
 $YUM groupinstall 'Development Tools'
 
