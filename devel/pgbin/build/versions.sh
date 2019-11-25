@@ -10,7 +10,7 @@ pg11BuildV=4
 pg10V="10.11"
 pg10BuildV=4
 
-pg96V="9.6.15"
+pg96V="9.6.16"
 pg96BuildV=4
 
 pg95V="9.5.20"

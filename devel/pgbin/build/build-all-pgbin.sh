@@ -84,6 +84,9 @@ cp /usr/lib64/libevent-2.0.so.5.1.9 $shared_lib/libevent-2.0.so.5
 cp /usr/local/lib/libgss.so.3       $shared_lib/.
 
 if [ "$majorV" == "all" ]; then
+  runPgBin "$binBld" "$pgSrc-$pg95V.tar.gz" "$pg95BuildV"
+  runPgBin "$binBld" "$pgSrc-$pg96V.tar.gz" "$pg96BuildV"
+  runPgBin "$binBld" "$pgSrc-$pg10V.tar.gz" "$pg10BuildV"
   runPgBin "$binBld" "$pgSrc-$pg11V.tar.gz" "$pg11BuildV"
   runPgBin "$binBld" "$pgSrc-$pg12V.tar.gz" "$pg12BuildV"
 else

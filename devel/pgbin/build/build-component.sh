@@ -952,11 +952,8 @@ if [ $? != 0 ] ; then
 	exit 1
 fi
 
-#eval set -- "$TEMP"
 copyBin=false
 compDir="$8"
-
-##echo "XXX $1 $2 $3 $4 $5 $6 $7 $8"
 
 while true; do
   case "$1" in

@@ -9,12 +9,12 @@ $YUM bison-devel readline-devel zlib-devel openssl-devel
 $YUM libxml2-devel libxslt-devel sqlite-devel wget openjade 
 $YUM pam-devel openldap-devel uuid-devel python-devel
 
-$YUM llvm-devel clang-devel protobuf-c-devel chrpath
+$YUM unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath
 
 $YUM docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight
-$YUM perl-ExtUtils-Embed libevent-devel 
+$YUM perl-ExtUtils-Embed libevent-devel postgresql-devel
 
-## skip the below for Amazon Linux 2
+## skip the below for EL8 #####################
 
 $YUM centos-release-scl
 $YUM llvm-toolset-7 llvm-toolset-7-llvm-devel.x86_64

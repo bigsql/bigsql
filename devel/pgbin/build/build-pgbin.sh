@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# This script generates a relocatable build for BigSQL Postgres & optionall
-#   builds pgbouncer, psqlodbc, and pgbackrest
+# This script generates a relocatable build for PostgreSQL that includes
+#   pgBouncer, psqlODBC, and pgBackrest
 #
 
 #set -x
@@ -102,31 +102,30 @@ function checkPostgres {
 	fi
 }
 
+
 function checkBackrest {
 	echo "# checkBackrest()"
-
 	cd $baseDir
 	mkdir -p $workDir
+
 	cd $baseDir/$workDir
 
 	backrestSourceDir=`dirname $(tar -tf $backrestTar | grep Makefile.in)`
 
 	tar -xf $backrestTar
 
-	echo "#    srcDir=$backrestSourceDir"
-
 	return 0
 }
 
+
 function checkBouncer {
 	echo "# checkBouncer()"
-
 	cd $baseDir
 	mkdir -p $workDir
+
 	cd $baseDir/$workDir
 	
 	pgBouncerSourceDir=`dirname $(tar -tf $pgBouncerTar | grep AUTHORS)`
-	echo "#    srcDir=$pgBouncerSourceDir"
 	
 	tar -xzf $pgBouncerTar
 
@@ -142,12 +141,10 @@ function checkODBC {
         cd $baseDir/$workDir
 
         odbcSourceDir=`dirname $(tar -tf $odbcSourceTar | grep "odbcapi.c")`
-	echo "#    srcDir=$odbcSourceDir"
 
         tar -xzf $odbcSourceTar
 
         return 0
-
 }
 
 
@@ -340,15 +337,17 @@ function buildODBC {
 }
 
 
-# This function adds the required libs to the build
 function copySharedLibs {
+	echo "#"
 	echo "# copySharedLibs()"
 	cp -p $sharedLibs/* $buildLocation/lib/
 	return
 }
 
+
 function updateSharedLibPaths {
         libPathLog=$baseDir/$workDir/logs/libPath.log
+	echo "#"
 	echo "# updateSharedLibPaths()"
 
 	cd $buildLocation/bin
@@ -378,10 +377,11 @@ function updateSharedLibPaths {
 
 
 function createBundle {
+	echo "#"
 	echo "# createBundle()"
 
-	bldDir="$baseDir/$workDir/build"
-	cd $bldDir
+	cd $baseDir/$workDir/build
+
 	Tar="pg$pgShortV-$pgSrcV-$pgBldV-$OS"
 	Cmd="tar -cjf $Tar.tar.bz2 $Tar pg$pgShortV-$pgSrcV-$pgBldV-$OS" 
 	tar_log=$baseDir/$workDir/logs/tar.log
