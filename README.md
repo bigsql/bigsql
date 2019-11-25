@@ -1,25 +1,37 @@
 # README for DockPG ( http://dockpg.io ) #
 
-Recipe for making the "Dock PG" distro.
+# EL7 setup
 
-## Pre-reqs for CentOS 7 #####################################
 ```
-sudo yum update -y
-sudo yum install -y git 
-sudo yum install -y epel-release
-sudo yum install -y net-tools zip unix2dos wget bzip2 python-pip
-sudo yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
+YUM="sudo yum -y"
 
-## Setup dev environment ####################################
+$YUM update
+$YUM groupinstall 'Development Tools'
+$YUM install bison-devel readline-devel zlib-devel openssl-devel \
+ libxml2-devel libxslt-devel sqlite-devel wget openjade \
+ pam-devel openldap-devel uuid-devel python-devel \
+ unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath \
+ docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight \
+ perl-ExtUtils-Embed libevent-devel postgresql-devel \
+ git net-tools zip unix2dos wget bzip2 python-pip \
+ epel-release java-1.8.0-openjdk java-1.8.0-openjdk-devel \
+ centos-release-scl llvm-toolset-7 llvm-toolset-7-llvm-devel
 
-# make the basic DPG directory structure under your $HOME directory
+sudo mkdir /opt/pgbin-build
+sudo chmod 777 /opt/pgbin-build
+sudo chown $USER:$USER /opt/pgbin-build
+mkdir /opt/pgbin-build/pgbin
+mkdir /opt/pgbin-build/pgbin/bin
+sudo mkdir /opt/pgcomponent
+sudo chmod 777 /opt/pgcomponent
+sudo chown $USER:$USER /opt/pgcomponent
+
 mkdir ~/dev
-mkdir ~/dev/in
-mkdir ~/dev/out
-mkdir ~/dev/dpg_history
-
-# pull in from git the DPG project
 cd ~/dev
+mkdir in
+mkdir out
+mkdir dpg_history
+
 git clone https://github.com/dockpg/dpg
 
 # edit your ~/.bashrc to set env variables
@@ -43,24 +55,7 @@ export REPO=http://localhost:8000
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 
-## Steps to configure new components ######################################
+export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
 
-* Update env.sh with the current (new) version #
-* Update versions.sql to include the new version #'s and mark prior version as not current
-* Ensure file in $IN
-* Remove files from $OUT (including the checksum file for the component)
-* run build_all.sh
-
-## Steps to setup an environment to compile components ###############
-sudo mkdir /opt/pgbin-build
-sudo chmod 777 /opt/pgbin-build
-sudo chown $USER:$USER /opt/pgbin-build
-
-mkdir /opt/pgbin-build/pgbin
-mkdir /opt/pgbin-build/pgbin/bin
-
-sudo mkdir /opt/pgcomponent
-sudo chmod 777 /opt/pgcomponent
-sudo chown $USER:$USER /opt/pgcomponent
 ```
 
