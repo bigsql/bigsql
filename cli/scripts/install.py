@@ -1,9 +1,9 @@
 import sys, os
-DPG_VER="0.1"
+DPG_VER="1.0"
 DPG_REPO=os.getenv("DPG_REPO", "https://dockpg-download.s3.amazonaws.com/REPO")
   
-if sys.version_info < (3, 6):
-  print("ERROR: DockPG requires Python 3.6 or greater")
+if sys.version_info < (2, 7):
+  print("ERROR: DockPG requires Python 2.7 or greater")
   sys.exit(1)
 
 try:
@@ -53,7 +53,7 @@ print("\nSetting REPO to " + DPG_REPO)
 dpg_cmd = "dockpg" + os.sep + "dpg"
 os.system(dpg_cmd + " set GLOBAL REPO " + DPG_REPO)
 
-print("\nDockPG DPG installed.  Try '" + dpg_cmd + " help' to get started.\n")
+print("\nDockPG installed.  Try '" + dpg_cmd + " help' to get started.\n")
 
 sys.exit(0)
 

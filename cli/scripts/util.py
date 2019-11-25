@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-DPG_VERSION = "0.1"
+DPG_VERSION = "1.0"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -1949,7 +1949,7 @@ def http_get_file(p_json, p_file_name, p_url, p_out_dir, p_display_status, p_msg
     while True:
       if not p_file_name.endswith(".txt") \
               and not p_file_name.startswith("install.py") \
-              and not p_file_name.startswith("bigsql-dpg") \
+              and not p_file_name.startswith("dockpg-dpg") \
               and not os.path.isfile(pid_file):
         raise KeyboardInterrupt("No lock file exists.")
       buffer = u.read(block_sz)

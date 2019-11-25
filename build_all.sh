@@ -8,16 +8,20 @@ if [ ! "$rc" == "0" ]; then
 fi;
 
 majorV="$1"
-if [ "$majorV" == "10" ]; then
+if [ "$majorV" == "95" ]; then
+  minorV=$P95
+elif [ "$majorV" == "96" ]; then
+  minorV=$P96
+elif [ "$majorV" == "10" ]; then
   minorV=$P10
 elif [ "$majorV" == "11" ]; then
   minorV=$P11
 elif [ "$majorV" == "12" ]; then
   minorV=$P12
 elif [ "$majorV" == "all" ]; then
-  echo "Hello ALL"
+  minorV=all
 else
-  echo "ERROR: must supply pg version of 10, 11, 12 or all"
+  echo "ERROR: pg must be 95, 96, 10, 11, 12 or all"
   exit 1
 fi
 
@@ -38,6 +42,8 @@ buildALL () {
   echo "################## BUILD_ALL $bigV $fullV ###################"
 
   if [ "$bigV" == "all" ]; then
+    buildONE $outDir "95" $P95
+    buildONE $outDir "96" $P96
     buildONE $outDir "10" $P10
     buildONE $outDir "11" $P11
     buildONE $outDir "12" $P12
@@ -56,8 +62,7 @@ buildONE () {
   if [ "$4" == "false" ]; then
     return
   fi
-  #parms="-X $vPlat -c bigsql -N $vFull -p $vBig -Bb"
-  parms="-X $vPlat -c bigsql -N $vFull -p $vBig -b"
+  parms="-X $vPlat -c $bundle -N $vFull -p $vBig -b"
   echo ""
   echo "### BUILD_ONE $parms ###"
   ./build.sh $parms
@@ -70,8 +75,8 @@ buildONE () {
 
 echo "############### Build Package Manager ###################"
 rm -f $OUT/hub-$hubV*
-rm -f $OUT/bigsql-dpg-$hubV*
-./build.sh -X posix   -c bigsql-dpg -N $hubV
+rm -f $OUT/$bundle-dpg-$hubV*
+./build.sh -X posix -c $bundle-dpg -N $hubV
 
 buildALL $majorV $minorV
 

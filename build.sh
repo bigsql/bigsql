@@ -11,7 +11,7 @@ else
   repo="$REPO"
 fi
 
-bundle="bigsql"
+bundle="dockpg"
 
 `python --version  > /dev/null 2>&1`
 rc=$?
@@ -29,15 +29,18 @@ fi
 
 printUsageMessage () {
   echo "#--------------------------------------------------------#"
-  echo "# -p $P12  $P11  $P10  cassandra_fdw-$cstarV"
-  echo "#    timescale-$timescaleV  athenafdw-$athenafdwV"
+  echo "# -p $P12  $P11  $P10  $P96  $P95"
+  echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV"
   echo "#    plprofiler-$profV  pgtsql-$tsqlV  patroni-$patroniV"
-  echo "# -B pip-$pipV  salt-$saltV"
+  ##echo "# -B pip-$pipV  salt-$saltV"
   echo "# -b hub-$hubV"
   echo "#--------------------------------------------------------#"
-  echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
-  echo "# ./build.sh -X l64 -c $bundle -N $P12 -p 12 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P95 -p 95 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P96 -p 96 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P10  -p 10 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P11   -p 11 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P12   -p 12 -b"
   echo "#---------------------------------------------------#"
 }
 
@@ -200,7 +203,6 @@ initDir () {
   fi
 
   copy-pgXX "pglogical"
-  copy-pgXX "pgspock"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
   copy-pgXX "cassandra_fdw"
@@ -369,7 +371,11 @@ initC () {
 
 
 initPG () {
-  if [ "$pgM" == "10" ]; then
+  if [ "$pgM" == "95" ]; then
+    pgV=$P95
+  elif [ "$pgM" == "96" ]; then
+    pgV=$P96
+  elif [ "$pgM" == "10" ]; then
     pgV=$P10
   elif [ "$pgM" == "11" ]; then
     pgV=$P11
@@ -395,10 +401,6 @@ initPG () {
 
   initC "patroni" "patroni" "$patroniV"  "" "postgres/patroni" "" "" "nil"
 
-  if [ "$pgM" == "12" ]; then 
-    initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
-  fi
-
   if [ "$pgM" == "11" ]; then 
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
@@ -408,7 +410,6 @@ initPG () {
     initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
 
-    ##initC "pgspock-pg$pgM" "pgspock" "$spockV" "$plat" "postgres/spock" "" "" "nil"
     ##initC "athena_fdw-pg$pgM" "athena_fdw" "$athenafdwV" "$plat" "postgres/athenafdw" "" "" "nil"
     ##initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV" "$plat" "postgres/cstar" "" "" "nil"
   fi
