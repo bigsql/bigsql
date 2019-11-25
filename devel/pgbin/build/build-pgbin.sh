@@ -91,13 +91,16 @@ function checkPostgres {
 			pgLLVM="--with--llvm"
 		elif [[ "${pgSrcV/rc}" =~ ^10.* ]]; then
 			pgShortV="10"
+		elif [[ "${pgSrcV/rc}" =~ ^9.6.* ]]; then
+			pgShortV="96"
+		elif [[ "${pgSrcV/rc}" =~ ^9.5.* ]]; then
+			pgShortV="95"
 		else
 			echo "ERROR: Could not determine Postgres Version for '$pgSrcV'"
 			exit 1
 		fi
 	fi
 }
-
 
 function checkBackrest {
 	echo "# checkBackrest()"
@@ -111,8 +114,6 @@ function checkBackrest {
 	tar -xf $backrestTar
 
 	echo "#    srcDir=$backrestSourceDir"
-
-	cd $backrestSourceDir
 
 	return 0
 }
@@ -129,16 +130,7 @@ function checkBouncer {
 	
 	tar -xzf $pgBouncerTar
 
-	cd $pgBouncerSourceDir
-
-	isBouncerConf=`./configure --version | head -1 | grep -i "pgbouncer configure" | wc -l`
-
-	if [[ $isBouncerConf -ne 1 ]]; then
-		echo "$pgbouncerTar is not a valid PGBouncer source tarball .... "
-		return 1
-	else
-		pgBouncerSourceVersion=`./configure --version | head -1 | awk '{print $3}'`
-	fi
+	return 0
 }
 
 
@@ -154,16 +146,8 @@ function checkODBC {
 
         tar -xzf $odbcSourceTar
 
-        cd $odbcSourceDir
+        return 0
 
-        isODBCConfigure=`./configure --version | head -1 | grep "psqlodbc configure" | wc -l`
-
-        if [[ $isODBCConfigure -ne 1 ]]; then
-            echo "$odbcSourceTar is not a valid Postgres ODBC source tarball .... "
-            return 1
-        else
-            odbcSourceVersion=`./configure --version | head -1 | awk '{print $3}'`
-        fi
 }
 
 
@@ -214,7 +198,7 @@ function buildPostgres {
 	echo "#   make -j 5 contrib"
 	make -j5 > $baseDir/$workDir/logs/contrib_make.log 2>&1
 	if [[ $? -eq 0 ]]; then
-		echo "#    make install contrib"
+		echo "#   make install contrib"
 		make install > $baseDir/$workDir/logs/contrib_install.log 2>&1
 		if [[ $? -ne 0 ]]; then
 			echo "Failed to install contrib modules ...."
@@ -245,28 +229,34 @@ function buildPostgres {
 
 function buildBouncer {
 	echo "# buildBouncer()"
+	cd $baseDir/$workDir/$pgBouncerSourceDir
+	
+	echo "#   configure" 
 
-	srcDir="$baseDir/$workDir/$pgBouncerSourceDir"
-	echo "#    srcDir=$srcDir"
-        cd $srcDir
-	
-	./configure --prefix=$buildLocation --disable-rpath --with-libevent=$sharedLibs/../ --with-openssl=$sharedLibs/../ LDFLAGS="-Wl,-rpath,$sharedLibs" > $baseDir/$workDir/logs/pgbouncer_configure.log 2>&1
-	
+	opt="--prefix=$buildLocation --disable-rpath"
+	opt="$opt --with-libevent=$sharedLibs/../ --with-openssl=$sharedLibs/../"
+
+	log=$baseDir/$workDir/logs/pgbouncer_configure.log
+
+	./configure $opt LDFLAGS="-Wl,-rpath,$sharedLibs" > $log 2>&1
 	if [[ $? -ne 0 ]]; then
-		echo "PG Bouncer configure failed, check config.log for details ...."
+		echo "Failed: check $log"
 		return 1
 	fi
 
-	make > $baseDir/$workDir/logs/pgbouncer_make.log 2>&1
+	echo "#   make"
+	log=$baseDir/$workDir/logs/pgbouncer_make.log
+	make > $log 2>&1
 	if [[ $? -ne 0 ]]; then
-		echo "PG Bouncer make failed, check logs ...."
-
+		echo "Failed: check $log"
 		return 1
 	fi
 
-	make install > $baseDir/$workDir/logs/pgbouncer_install.log 2>&1
+	echo "#   make install"
+	log=$baseDir/$workDir/logs/pgbouncer_install.log
+	make install > $log 2>&1
 	if [[ $? -ne 0 ]]; then
-		echo "Failed to install pgbouncer ...."
+		echo "Failed: check $log"
 		return 1
 	fi
 
@@ -276,13 +266,11 @@ function buildBouncer {
 
 function buildBackrest {
 	echo "# buildBackrest()"
+        cd $baseDir/$workDir/$backrestSourceDir
+	
+	export LD_LIBRARY_PATH=$buildLocation/lib
 
-        srcDir="$baseDir/$workDir/$backrestSourceDir"
-	echo "#    srcDir=$srcDir"
-        cd $srcDir
-	pwd
-
-	echo "#    configure" 
+	echo "#   configure" 
 	log="$baseDir/$workDir/logs/backrest_configure.log"
 	./configure --prefix=$buildLocation > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -290,7 +278,7 @@ function buildBackrest {
 		return 1
 	fi
 
-	echo "#    make"
+	echo "#   make"
 	log="$baseDir/$workDir/logs/backrest_make.log"
 	make > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -298,31 +286,27 @@ function buildBackrest {
 		return 1
 	fi
 
-	echo "#    make install"
+	echo "#   make install"
 	log="$baseDir/$workDir/logs/backrest_install.log"
 	make install > $log 2>&1
         if [[ $? -ne 0 ]]; then
                 echo "FATAL ERROR: check $log"
 		return 1
 	fi
+
+	unset LD_LIBRARY_PATH
 }
 
 
 function buildODBC {
         echo "# buildODBC()"
-	
-	if [[ ! -e $baseDir/$workDir/$odbcSourceDir ]]; then
-		echo "Unable to build ODBC, source directory not found, check logs ...."
-		return 1
-	fi
-
         cd $baseDir/$workDir/$odbcSourceDir
 
 	export LD_LIBRARY_PATH=$sharedLibs:$buildLocation/lib
         export OLD_PATH=`echo $PATH`
         export PATH=$sharedBins:$PATH
        
-	echo "#    configure" 
+	echo "#   configure" 
 	log="$baseDir/$workDir/logs/odbc_configure.log"
         ./configure --prefix=$buildLocation --with-libpq=$buildLocation LDFLAGS="-Wl,-rpath,$sharedLibs -L$sharedLibs" CFLAGS=-I$includePath > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -331,7 +315,7 @@ function buildODBC {
                 return 1
         fi
 
-	echo "#    make"
+	echo "#   make"
         log="$baseDir/$workDir/logs/odbc_make.log"
         make > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -341,7 +325,7 @@ function buildODBC {
                 return 1
         fi
 
-	echo "#    make-install"
+	echo "#   make-install"
         make install > $baseDir/$workDir/logs/odbc_install.log 2>&1
         if [[ $? -ne 0 ]]; then
                 echo "Failed to install ODBC Driver ...."
@@ -499,32 +483,30 @@ while getopts "t:a:b:k:o:n:hc" opt; do
 			archiveLocationPassed=1
 			echo "# -a $archiveDir"
 		;;
-		##b) 	if [[ $OPTARG = -* ]]; then
-		##		((OPTIND--))
-		##		continue
-		##	fi
-		##	pgBouncerTar=$OPTARG
-		##	buildBouncer=1
-		##	echo "# -b $pgBouncerTar"
-		##;;
-		##k) 	if [[ $OPTARG = -* ]]; then
-		##		((OPTIND--))
-		##		continue
-		##	fi
-		##	backrestTar=$OPTARG
-		##	buildBackrest=1
-		##	echo "# -k $backrestTar"
-		##	##buildBackrest=0
-		##	##echo "# -k $backrestTar (IGNORING THIS FOR NOW)"
-		##;;
-		##o) 	if [[ OPTARG = -* ]]; then
-		##		((OPTIND--))
-		##		continue
-		##	fi
-		##	buildODBC=1
-		##	odbcSourceTar=$OPTARG
-		##	echo "# -o $odbcSourceTar"
-		##;;
+		b) 	if [[ $OPTARG = -* ]]; then
+				((OPTIND--))
+				continue
+			fi
+			pgBouncerTar=$OPTARG
+			buildBouncer=1
+			echo "# -b $pgBouncerTar"
+		;;
+		k) 	if [[ $OPTARG = -* ]]; then
+				((OPTIND--))
+				continue
+			fi
+			backrestTar=$OPTARG
+			buildBackrest=1
+			echo "# -k $backrestTar"
+		;;
+		o) 	if [[ OPTARG = -* ]]; then
+				((OPTIND--))
+				continue
+			fi
+			buildODBC=1
+			odbcSourceTar=$OPTARG
+			echo "# -o $odbcSourceTar"
+		;;
 		n)	
 			pgBldV=$OPTARG
 			echo "# -n $pgBldV"
@@ -549,17 +531,17 @@ isPassed "$sourceTarPassed" "Postgres source tarball (-t)"
 checkCmd "checkPostgres"
 checkCmd "buildPostgres"
 
-##if [ "$buildBouncer" == "1" ]; then
-##  buildApp "checkBouncer" "buildBouncer"
-##fi
+if [ "$buildBouncer" == "1" ]; then
+  buildApp "checkBouncer" "buildBouncer"
+fi
 
-##if [ "$buildODBC" == "1" ]; then
-##  buildApp "checkODBC" "buildODBC"
-##fi
+if [ "$buildODBC" == "1" ]; then
+  buildApp "checkODBC" "buildODBC"
+fi
 
-##if [ "$buildBackrest" == "1" ]; then
-##  buildApp "checkBackrest" "buildBackrest"
-##fi
+if [ "$buildBackrest" == "1" ]; then
+  buildApp "checkBackrest" "buildBackrest"
+fi
 
 checkCmd "copySharedLibs"
 checkCmd "updateSharedLibPaths"

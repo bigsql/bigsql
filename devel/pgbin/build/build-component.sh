@@ -165,37 +165,6 @@ function buildCassandraFDWComponent {
 }
 
 
-function buildOrafceComponent {
-
-	componentName="orafce$orafceShortVersion-pg$pgShortVersion-$orafceFullVersion-$orafceBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir orafce && tar -xf $orafceSource --strip-components=1 -C orafce
-	cd orafce
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-
-	PATH=$buildLocation/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/orafce_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/orafce_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "Orafce install failed, check logs for details."
-		fi
-	else
-		echo "Orafce Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
-
 function buildPgBouncerComponent {
 
 	componentName="bouncer$bouncerShortVersion-pg$pgShortVersion-$bouncerFullVersion-$bouncerBuildV-$buildOS"
