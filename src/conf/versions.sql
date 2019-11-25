@@ -116,7 +116,7 @@ INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',     'linux64, arm64', 1, 
 
 INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1',       'linux64, arm64', 1, '20191114', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical-pg11',  '2.3.0-1', 'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg11',  '2.2.2-1', 'linux64, arm64', 1, '20191114', 'pg11');
 
 INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1',   'linux64, arm64', 1, '20191114', 'pg11');
 
