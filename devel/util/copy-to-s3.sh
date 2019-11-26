@@ -33,7 +33,7 @@ fi
 
 cd $newOutDir
 
-copyToS3 "us-west-2" "bigsql-download/REPO" ""
+copyToS3 "us-west-2" "dockpg-download/REPO" ""
 
 exit 0
 
