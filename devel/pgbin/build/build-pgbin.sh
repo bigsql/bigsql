@@ -165,8 +165,8 @@ function buildPostgres {
 	configCmnd="./configure --prefix=$buildLocation $conf" 
 
 	export LD_LIBRARY_PATH=$sharedLibs
-	export LDFLAGS="-Wl,-rpath,'$sharedLibs' -L$sharedLibs"
-	export CPPFLAGS="-I$includePath"
+	export LDFLAGS="$LDFLAGS -Wl,-rpath,'$sharedLibs' -L$sharedLibs"
+	export CPPFLAGS="$CPPFLAGS -I$includePath"
 
 	log=$baseDir/$workDir/logs/configure.log
 	$configCmnd > $log 2>&1
@@ -235,7 +235,7 @@ function buildBouncer {
 
 	log=$baseDir/$workDir/logs/pgbouncer_configure.log
 
-	./configure $opt LDFLAGS="-Wl,-rpath,$sharedLibs" > $log 2>&1
+	./configure $opt LDFLAGS="$LDFLAGS -Wl,-rpath,$sharedLibs" > $log 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "Failed: check $log"
 		return 1
