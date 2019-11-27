@@ -80,8 +80,11 @@ myReplace () {
     return 1
   fi
 
-  osName=`uname`
-  sed -i "s#$oldVal#$newVal#g" "$fileName"
+  if [ `uname` == "Darwin" ]; then
+    sed -i "" "s#$oldVal#$newVal#g" "$fileName"
+  else
+    sed -i "s#$oldVal#$newVal#g" "$fileName"
+  fi
 }
 
 ## write Setting row to SETTINGS config table
