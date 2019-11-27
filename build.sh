@@ -305,7 +305,9 @@ finalizeOutput () {
   if [ ! "$zipOut" == "off" ] &&  [ ! "$zipOut" == "" ]; then
     zipExtension="tar.bz2"
     options=""
-    options="--owner=0 --group=0"
+    if [ "$osName" == "Linux" ]; then
+      options="--owner=0 --group=0"
+    fi
     zipCommand="tar $options -cjf"
     zipCompressProg=""
 
@@ -388,6 +390,8 @@ initPG () {
 
   if [ "$outDir" == "a64" ]; then
     outPlat="arm64"
+  elif [ "$outDir" == "m64" ]; then
+    outPlat="osx64"
   else
     outPlat="linux64"
   fi
@@ -401,7 +405,7 @@ initPG () {
 
   initC "patroni" "patroni" "$patroniV"  "" "postgres/patroni" "" "" "nil"
 
-  if [ "$pgM" == "11" ]; then 
+  if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
@@ -443,7 +447,7 @@ while getopts "c:X:N:Ep:RBbh" opt
 do
     case "$opt" in
       X)  if [ "$OPTARG" == "l64" ] || [ "$OPTARG" == "posix" ] ||
-	     [ "$OPTARG" == "a64" ]; then
+	     [ "$OPTARG" == "a64" ] || [ "$OPTARG" == "m64" ]; then
             outDir="$OPTARG"
             setupOutdir
             OS_TYPE="POSIX"
@@ -452,6 +456,9 @@ do
               OS="???"
               platx="posix"
               plat="posix"
+            elif [ "$outDir" == "posix" ]; then
+              OS="OSX"
+              platx=osx64
             else
               OS="LINUX"
               platx=$plat

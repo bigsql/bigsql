@@ -108,7 +108,7 @@ INSERT INTO versions VALUES ('pg96', '9.6.16-4',           'linux64, arm64', 1, 
 
 INSERT INTO versions VALUES ('pg10', '10.11-4',            'linux64, arm64', 1, '20191114', '');
 
-INSERT INTO versions VALUES ('pg11', '11.6-4',             'linux64, arm64', 1, '20191114', '');
+INSERT INTO versions VALUES ('pg11', '11.6-4',             'linux64, arm64, osx64', 1, '20191114', '');
 
 INSERT INTO versions VALUES ('pg12', '12.1-4',             'linux64, arm64', 1, '20191114', '');
 
