@@ -403,7 +403,7 @@ function createBundle {
 	fi
 	tarFile="$archiveDir/$workDir/$Tar.tar.bz2"
 	if [ "$optional" == "-c" ]; then
-		cmd="cp -p $tarFile $IN/postgres/$pgShortV/."
+		cmd="cp -p $tarFile $IN/postgres/pg$pgShortV/."
 		echo $cmd
 		$cmd
 	else
