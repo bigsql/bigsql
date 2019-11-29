@@ -14,7 +14,7 @@ if autostart != "on":
   sys.exit(0)
 
 dotver = pgver[2] + "." + pgver[3]
-APG_HOME = os.getenv('APG_HOME', '')
+MY_HOME = os.getenv('MY_HOME', '')
 svcname   = util.get_column('svcname', pgver, 'PostgreSQL ' + dotver + ' Server')
 
 if util.get_platform() == "Windows":

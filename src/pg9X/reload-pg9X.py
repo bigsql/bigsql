@@ -16,8 +16,8 @@ if autostart == "on" and util.get_platform() == "Linux":
   rc = startup.reload_linux("postgresql" + pgver[2:4])
   sys.exit(rc)
 
-APG_HOME = os.getenv('APG_HOME', '')
-homedir = os.path.join(APG_HOME, pgver)
+MY_HOME = os.getenv('MY_HOME', '')
+homedir = os.path.join(MY_HOME, pgver)
 datadir = util.get_column('datadir', pgver)
 
 pg_ctl = os.path.join(homedir, "bin", "pg_ctl")

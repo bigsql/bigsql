@@ -30,14 +30,14 @@ import errno
 import traceback
 import argparse
 
-DPG_HOME=os.getenv('DPG_HOME')
+MY_HOME=os.getenv('MY_HOME')
 
 ## Our own library files ##########################################
 sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
 
-if os.path.exists(os.path.join(DPG_HOME, "python37")):
-  sys.path.append(os.path.join(DPG_HOME, "hub", "sripts"))
-  sys.path.append(os.path.join(DPG_HOME, "hub", "sripts", "lib"))
+if os.path.exists(os.path.join(MY_HOME, "python37")):
+  sys.path.append(os.path.join(MY_HOME, "hub", "sripts"))
+  sys.path.append(os.path.join(MY_HOME, "hub", "sripts", "lib"))
 
 this_platform_system = str(platform.system())
 platform_lib_path = os.path.join(os.path.dirname(__file__), 'lib', this_platform_system)
@@ -51,7 +51,7 @@ import logging.handlers
 from semantic_version import Version
 import mistune
 
-if not util.is_writable(os.path.join(os.getenv('DPG_HOME'), 'conf')):
+if not util.is_writable(os.path.join(os.getenv('MY_HOME'), 'conf')):
   print("You must run as administrator/root.")
   exit()
 
@@ -97,12 +97,12 @@ installed_comp_list = []
 global check_sum_match
 check_sum_match = True
 
-backup_dir = os.path.join(os.getenv('DPG_HOME'), 'conf', 'backup')
+backup_dir = os.path.join(os.getenv('MY_HOME'), 'conf', 'backup')
 backup_target_dir = os.path.join(backup_dir, time.strftime("%Y%m%d%H%M"))
 
-pid_file = os.path.join(os.getenv('DPG_HOME'), 'conf', 'dpg.pid')
+pid_file = os.path.join(os.getenv('MY_HOME'), 'conf', 'cli.pid')
 
-DPG_ISJSON = os.environ.get("DPG_ISJSON", "False")
+ISJSON = os.environ.get("ISJSON", "False")
 
 
 ###################################################################
@@ -148,7 +148,7 @@ def run_script(componentName, scriptName, scriptParm):
   componentDir = componentName
 
   cmd=""
-  scriptFile = os.path.join(DPG_HOME, componentDir, scriptName)
+  scriptFile = os.path.join(MY_HOME, componentDir, scriptName)
 
   if (os.path.isfile(scriptFile)):
     cmd = "bash"
@@ -159,12 +159,12 @@ def run_script(componentName, scriptName, scriptParm):
   rc = 0
   compState = util.get_comp_state(componentName)
   if compState == "Enabled" and os.path.isfile(scriptFile):
-    run_cmd = cmd + ' ' + scriptFile + ' ' + scriptParm
+    run = cmd + ' ' + scriptFile + ' ' + scriptParm
     if str(platform.system()) == "Windows" and ' ' in scriptFile:
-      run_cmd = '%s "%s" %s' % (cmd, scriptFile, scriptParm)
-      rc = subprocess.Popen(run_cmd).wait()
+      run = '%s "%s" %s' % (cmd, scriptFile, scriptParm)
+      rc = subprocess.Popen(run).wait()
     else:
-      rc = os.system(run_cmd)
+      rc = os.system(run)
 
   if rc != 0:
     print('Error running ' + scriptName)
@@ -339,7 +339,7 @@ def install_comp(p_app, p_ver=0, p_rver=None, p_re_install=False):
     try:
       tar.extractall(path=".")
     except KeyboardInterrupt as e:
-      temp_tar_dir = os.path.join(DPG_HOME, p_app)
+      temp_tar_dir = os.path.join(MY_HOME, p_app)
       util.delete_dir(temp_tar_dir)
       msg = "Unpacking cancelled for file %s" % file
       my_logger.error(msg)
@@ -354,7 +354,7 @@ def install_comp(p_app, p_ver=0, p_rver=None, p_re_install=False):
         return_code = 0
       util.exit_message(msg, return_code)
     except Exception as e:
-      temp_tar_dir = os.path.join(DPG_HOME, p_app)
+      temp_tar_dir = os.path.join(MY_HOME, p_app)
       util.delete_dir(temp_tar_dir)
       msg = "Unpacking failed for file %s" % str(e)
       my_logger.error(msg)
@@ -471,7 +471,7 @@ def upgrade_component(p_comp):
 
   if util.is_postgres(p_comp) and util.get_platform() == "Windows":
     print("Securing Windows directories...")
-    util.secure_win_dir(os.path.join(DPG_HOME, p_comp), "True", util.get_user())
+    util.secure_win_dir(os.path.join(MY_HOME, p_comp), "True", util.get_user())
     util.secure_win_dir(util.get_column("datadir", p_comp), "False", util.get_user())
     util.secure_win_dir(util.get_column("logdir", p_comp), "False", util.get_user())
 
@@ -500,7 +500,7 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
   base_name = p_app + "-" + meta.get_latest_ver_plat(p_app, p_new_ver)
 
   file = base_name + ".tar.bz2"
-  bz2_file = os.path.join(DPG_HOME, 'conf', 'cache', file)
+  bz2_file = os.path.join(MY_HOME, 'conf', 'cache', file)
 
   if os.path.exists(bz2_file) and is_downloaded(base_name, p_app):
     msg = "File is already downloaded."
@@ -578,9 +578,9 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
       parent = util.get_parent_component(p_app,0)
       if not os.path.exists(os.path.join(backup_target_dir, parent)):
         my_logger.info("backing up the parent component %s " % parent)
-        copytree(os.path.join(DPG_HOME, parent), os.path.join(backup_target_dir, parent))
+        copytree(os.path.join(MY_HOME, parent), os.path.join(backup_target_dir, parent))
       manifest_file_name = p_app + ".manifest"
-      manifest_file_path = os.path.join(DPG_HOME, "conf", manifest_file_name)
+      manifest_file_path = os.path.join(MY_HOME, "conf", manifest_file_name)
       my_logger.info("backing up current manifest file " + manifest_file_path)
       copy2(manifest_file_path, backup_target_dir)
       my_logger.info("deleting existing extension files from " + parent)
@@ -612,14 +612,14 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
         os.mkdir(backup_target_dir)
       if not os.path.exists(os.path.join(backup_target_dir, p_app)):
         my_logger.info("backing up the old version of %s " % p_app)
-        copytree(os.path.join(DPG_HOME, p_app), os.path.join(backup_target_dir, p_app))
+        copytree(os.path.join(MY_HOME, p_app), os.path.join(backup_target_dir, p_app))
       msg = p_app + " upgrade staged for completion."
       my_logger.info(msg)
       if p_app in ('hub'):
         if util.get_platform() == "Windows":
-          copy2(os.path.join(DPG_HOME, "dpg.bat"), backup_target_dir)
+          copy2(os.path.join(MY_HOME, "dpg.bat"), backup_target_dir)
         else:
-          copy2(os.path.join(DPG_HOME, "dpg"), backup_target_dir)
+          copy2(os.path.join(MY_HOME, "dpg"), backup_target_dir)
         os.rename(new_comp_dir, "hub_new")
         ## run the update_hub script in the _new directory
         upd_hub_cmd = sys.executable + " hub_new" + os.sep + "hub" + os.sep + "scripts" + os.sep + "update_hub.py "
@@ -628,9 +628,9 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
         my_logger.info("renaming the existing folder %s" % p_app)
         os.rename(p_app, p_app+"_old")
         my_logger.info("copying the new files to folder %s" % p_app)
-        copytree(os.path.join(DPG_HOME, new_comp_dir, p_app), os.path.join(DPG_HOME, p_app))
+        copytree(os.path.join(MY_HOME, new_comp_dir, p_app), os.path.join(MY_HOME, p_app))
         my_logger.info("Restoring the conf and extension files if any")
-        util.restore_conf_ext_files(os.path.join(DPG_HOME, p_app+"_old"), os.path.join(DPG_HOME, p_app))
+        util.restore_conf_ext_files(os.path.join(MY_HOME, p_app+"_old"), os.path.join(MY_HOME, p_app))
         my_logger.info(p_app + " upgrade completed.")
     except Exception as upgrade_exception:
       error_msg = "Error while upgrading the " + p_app + " : " + str(upgrade_exception)
@@ -646,10 +646,10 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
         print(error_msg)
       return_value = 1
 
-  if os.path.exists(os.path.join(DPG_HOME, new_comp_dir)):
-    util.delete_dir(os.path.join(DPG_HOME, new_comp_dir))
-  if os.path.exists(os.path.join(DPG_HOME, old_comp_dir)):
-    util.delete_dir(os.path.join(DPG_HOME, old_comp_dir))
+  if os.path.exists(os.path.join(MY_HOME, new_comp_dir)):
+    util.delete_dir(os.path.join(MY_HOME, new_comp_dir))
+  if os.path.exists(os.path.join(MY_HOME, old_comp_dir)):
+    util.delete_dir(os.path.join(MY_HOME, old_comp_dir))
 
   return return_value
 
@@ -668,7 +668,7 @@ def remove_comp(p_comp):
   if meta.is_extension(p_comp):
     run_script(meta.get_extension_parent(p_comp), script_name, "")
     manifest_file_name = p_comp + ".manifest"
-    manifest_file_path = os.path.join(DPG_HOME, "conf", manifest_file_name)
+    manifest_file_path = os.path.join(MY_HOME, "conf", manifest_file_name)
     util.delete_extension_files(manifest_file_path)
     my_logger.info("deleted manifest file : " + manifest_file_name )
     os.remove(manifest_file_path)
@@ -826,8 +826,8 @@ def retrieve_remote():
     os.mkdir(backup_dir)
   if not os.path.exists(backup_target_dir):
     os.mkdir(backup_target_dir)
-  recent_version_sql = os.path.join(DPG_HOME, 'conf', 'versions.sql')
-  recent_dpg_local_db = os.path.join(DPG_HOME, 'conf', 'dpg_local.db')
+  recent_version_sql = os.path.join(MY_HOME, 'conf', 'versions.sql')
+  recent_dpg_local_db = os.path.join(MY_HOME, 'conf', 'dpg_local.db')
   if os.path.exists(recent_dpg_local_db):
     copy2(recent_dpg_local_db, backup_target_dir)
   if os.path.exists(recent_version_sql):
@@ -1065,18 +1065,18 @@ def dpg_lock():
   try:
     fd = os.open(pid_file, os.O_RDONLY)
     ret = os.read(fd,12)
-    dpg_pid = ret.decode()
+    cli.pid = ret.decode()
     os.close(fd)
   except IOError as e:
     return False
   except OSError as e:
     return False
 
-  if not dpg_pid:
+  if not cli.pid:
     return False
 
   try:
-    os.kill(int(dpg_pid), 0)
+    os.kill(int(cli.pid), 0)
   except OSError as e:
     return False
 
@@ -1090,7 +1090,7 @@ def dpg_lock():
 ## Initialize Globals ##############################################
 REPO=util.get_value('GLOBAL', 'REPO')
 
-os.chdir(DPG_HOME)
+os.chdir(MY_HOME)
 
 db_local = "conf" + os.sep + "dpg_local.db"
 connL = sqlite3.connect(db_local)
@@ -1106,7 +1106,7 @@ full_cmd_line = " ".join(args[1:])
 
 ## validate inputs ###########################################
 if len(args) == 1:
-  api.info(False, DPG_HOME, REPO)
+  api.info(False, MY_HOME, REPO)
   print(" ")
   print(get_help_text())
   exit_cleanly(0)
@@ -1251,9 +1251,9 @@ if p_mode in lock_commands:
     if isJSON:
       msg = '[{"state":"locked","msg":"' + msg + '"}]'
     util.exit_message(msg, 0)
-  dpg_pid_fd = open(pid_file, 'w')
-  dpg_pid_fd.write(str(os.getpid()))
-  dpg_pid_fd.close()
+  cli.pid_fd = open(pid_file, 'w')
+  cli.pid_fd.write(str(os.getpid()))
+  cli.pid_fd.close()
 
 p_comp_list=[]
 extra_args=""
@@ -1324,9 +1324,9 @@ try:
       if rc in (0,4):
         pgdg_comps.append({'version': v, 'comp': comp})
         if rc == 0:
-          dpg_pid_fd = open(pid_file, 'w')
-          dpg_pid_fd.write(str(os.getpid()))
-          dpg_pid_fd.close()
+          cli.pid_fd = open(pid_file, 'w')
+          cli.pid_fd.write(str(os.getpid()))
+          cli.pid_fd.close()
           msg = "Installing dpg controller for existing {0} instance.".format(comp)
           if not isJSON:
             print (msg)
@@ -1440,7 +1440,7 @@ try:
   ## INFO ######################################################################################
   if (p_mode == 'info'):
     if(p_comp=="all" and info_arg==0):
-      api.info(isJSON, DPG_HOME, REPO)
+      api.info(isJSON, MY_HOME, REPO)
     else:
       try:
         c = connL.cursor()
@@ -1591,7 +1591,7 @@ try:
               is_running = check_comp(comp, port, 0, True)
               if is_running == "NotInitialized":
                 compDict['available_port'] = util.get_avail_port("PG Port", port, comp, isJSON=True)
-                compDict['available_datadir'] = os.path.join(DPG_HOME, "data", comp)
+                compDict['available_datadir'] = os.path.join(MY_HOME, "data", comp)
                 compDict['port'] = 0
               compDict['status'] = is_running
               compDict['current_logfile'] = ""
@@ -1616,7 +1616,7 @@ try:
 
   ## CLEAN ####################################################
   if (p_mode == 'clean'):
-    conf_cache = DPG_HOME + os.sep + "conf" + os.sep + "cache" + os.sep + "*"
+    conf_cache = MY_HOME + os.sep + "conf" + os.sep + "cache" + os.sep + "*"
     files = glob.glob(conf_cache)
     for f in files:
       os.remove(f)
@@ -1763,7 +1763,7 @@ try:
           component_installed = True
           installed_commponents.append(c)
           if isExt:
-            util.delete_dir(os.path.join(DPG_HOME, c))
+            util.delete_dir(os.path.join(MY_HOME, c))
         else:
           dependent_components.append(c)
 
@@ -1771,7 +1771,7 @@ try:
 
 
   # Verify data & log directories ############################
-  data_home = DPG_HOME + os.sep + 'data'
+  data_home = MY_HOME + os.sep + 'data'
   if not os.path.exists(data_home):
     os.mkdir(data_home)
     data_logs = data_home + os.sep + 'logs'

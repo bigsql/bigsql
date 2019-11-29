@@ -93,7 +93,7 @@ writeSettRow() {
   pKey="$2"
   pValue="$3"
   pVerbose="$4"
-  dbLocal="$out/conf/dpg_local.db"
+  dbLocal="$out/conf/db_local.db"
   cmdPy="$PYTHON $HUB/src/conf/insert_setting.py"
   $cmdPy "$dbLocal"  "$pSection" "$pKey" "$pValue"
   if [ "$pVerbose" == "-v" ]; then
@@ -124,7 +124,7 @@ writeCompRow() {
     return
   fi
 
-  dbLocal="$out/conf/dpg_local.db"
+  dbLocal="$out/conf/db_local.db"
   cmdPy="$PYTHON $HUB/src/conf/insert_component.py"
   $cmdPy "$dbLocal"  "$pComp" "$pProj" "$pVer" "$pPlat" "$pPort" "$pStatus"
 }
@@ -434,9 +434,9 @@ setupOutdir () {
   mkdir conf/cache
   conf="$SRC/conf"
 
-  cp $conf/dpg_local.db  conf/.
+  cp $conf/db_local.db  conf/.
   cp $conf/versions.sql  conf/.
-  sqlite3 conf/dpg_local.db < conf/versions.sql
+  sqlite3 conf/db_local.db < conf/versions.sql
 }
 
 

@@ -8,9 +8,9 @@ import subprocess
 import os
 import sys
 
-APG_HOME = os.getenv("APG_HOME", "")
-sys.path.append(os.path.join(APG_HOME, 'hub', 'scripts'))
-sys.path.append(os.path.join(APG_HOME, 'hub', 'scripts', 'lib'))
+MY_HOME = os.getenv("MY_HOME", "")
+sys.path.append(os.path.join(MY_HOME, 'hub', 'scripts'))
+sys.path.append(os.path.join(MY_HOME, 'hub', 'scripts', 'lib'))
 
 import util
 
@@ -26,7 +26,7 @@ logdir = util.get_column('logdir', pgver)
 
 autostart = util.get_column('autostart', pgver)
 
-pg_ctl = os.path.join(APG_HOME, pgver, "bin", "pg_ctl")
+pg_ctl = os.path.join(MY_HOME, pgver, "bin", "pg_ctl")
 logfile = util.get_column('logdir', pgver) + os.sep + "postgres.log"
 
 util.read_env_file(pgver)
@@ -35,7 +35,7 @@ if util.get_platform() == "Windows":
   cmd = pg_ctl + ' start -s -w -D "' + datadir + '" '
   util.system(cmd)
 elif util.get_platform() == "Darwin" and autostart == "on":
-  postgres = os.path.join(APG_HOME , pgver, "bin", "postgres")
+  postgres = os.path.join(MY_HOME , pgver, "bin", "postgres")
   util.system(postgres +' -D ' + datadir + ' -r ' + logfile)  
 else:
   cmd = pg_ctl + ' start -s -w -D "' + datadir + '" ' + '-l "' + logfile + '"'

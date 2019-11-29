@@ -7,9 +7,9 @@ from __future__ import print_function, division
 import argparse, util, os, sys, shutil, subprocess, getpass, json
 import startup
 
-APG_HOME = os.getenv('APG_HOME', '')
+MY_HOME = os.getenv('MY_HOME', '')
 
-sys.path.append(os.path.join(APG_HOME, 'hub', 'scripts', 'lib'))
+sys.path.append(os.path.join(MY_HOME, 'hub', 'scripts', 'lib'))
 
 from ConsoleLogger import ConsoleLogger
 
@@ -53,7 +53,7 @@ sys.stdout = ConsoleLogger()
 
 isJson = os.getenv("isJson", None)
 
-pg_home = os.path.join(APG_HOME, pgver)
+pg_home = os.path.join(MY_HOME, pgver)
 
 print(" ")
 print("## Initializing " + pgver + " #######################")
@@ -65,7 +65,7 @@ else:
   i_port =  util.get_avail_port("PG Port", 5432, pgver)
 
 ## DATA ###############################################
-data_root = os.path.join(APG_HOME, "data")
+data_root = os.path.join(MY_HOME, "data")
 if not os.path.isdir(data_root):
   os.mkdir(data_root)
 
@@ -211,13 +211,13 @@ if util.get_platform() == "Windows":
   print("Securing log directory")
   util.secure_win_dir(pg_log, "False", util.get_user())
   print("Securing postgres directory")
-  util.secure_win_dir(os.path.join(APG_HOME, pgver), "True", util.get_user())
+  util.secure_win_dir(os.path.join(MY_HOME, pgver), "True", util.get_user())
 
 if util.get_platform() == 'Linux' and util.is_admin():
   systemsvc = 'postgresql' + pgver[2:4]
   start_lvl = '85'
   kill_lvl  = '15'
-  pg_ctl = os.path.join(APG_HOME, pgver, 'bin', 'pg_ctl')
+  pg_ctl = os.path.join(MY_HOME, pgver, 'bin', 'pg_ctl')
   cmd_start  = pg_ctl + ' start  -D ' + pg_data + ' -s -w -t 300'
   cmd_stop   = pg_ctl + ' stop   -D ' + pg_data + ' -s -m fast'
   cmd_reload = pg_ctl + ' reload -D ' + pg_data + ' -s'

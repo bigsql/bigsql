@@ -24,7 +24,7 @@ except Exception as e:
 import logging, logging.handlers, errno
 try:
     ## Globals and other Initializations ##############################
-    LOG_FILENAME = os.getenv('DPG_LOGS', 
+    LOG_FILENAME = os.getenv('MY_LOGS', 
       '..' + os.sep + '..' + os.sep + 'logs' + os.sep + 'dpg_log.out')
     LOG_DIRECTORY = os.path.split(LOG_FILENAME)[0]
 

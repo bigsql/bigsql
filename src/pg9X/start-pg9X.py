@@ -10,8 +10,8 @@ import util, startup, time
 pgver = "pg9X"
 dotver = pgver[2] + "." + pgver[3]
 
-APG_HOME = os.getenv('APG_HOME', '')
-homedir = os.path.join(APG_HOME, pgver)
+MY_HOME = os.getenv('MY_HOME', '')
+homedir = os.path.join(MY_HOME, pgver)
 logdir = os.path.join(homedir, pgver)
 datadir = util.get_column('datadir', pgver)
 isJson = os.getenv("isJson", None)
@@ -59,6 +59,6 @@ if ((pgName > "") and (isYes == "True")):
    cmd = cmd + " -U postgres -w -e -p " + str(port) + " " + str(pgName)
    print("\n # " + cmd)
 
-   cmd = os.path.join(APG_HOME, cmd)
+   cmd = os.path.join(MY_HOME, cmd)
    os.system(cmd)
 

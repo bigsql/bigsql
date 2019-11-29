@@ -6,9 +6,9 @@ from __future__ import print_function, division
 
 import os, sys, util
 
-APG_HOME = os.getenv('APG_HOME', '')
+MY_HOME = os.getenv('MY_HOME', '')
 
-sys.path.append(os.path.join(APG_HOME, 'hub', 'scripts', 'lib'))
+sys.path.append(os.path.join(MY_HOME, 'hub', 'scripts', 'lib'))
 
 from PgInstance import PgInstance
 import json

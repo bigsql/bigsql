@@ -1,9 +1,9 @@
 import sys, os
-DPG_VER="21.01.15-1"
-DPG_REPO=os.getenv("DPG_REPO", "https://dockpg-download.s3.amazonaws.com/REPO")
+MY_VER="21.01.15-1"
+MY_REPO=os.getenv("MY_REPO", "https://pglts-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
-  print("ERROR: DockPG requires Python 2.7 or greater")
+  print("ERROR: PostgreLTS requires Python 2.7 or greater")
   sys.exit(1)
 
 try:
@@ -17,21 +17,21 @@ import tarfile
 
 IS_64BITS = sys.maxsize > 2**32
 if not IS_64BITS:
-  print("ERROR: This is a 32bit machine and DockPG packages are 64bit.")
+  print("ERROR: This is a 32bit machine and PostgresLTS packages are 64bit.")
   sys.exit(1)
 
-if os.path.exists("dockpg"):
-  print("ERROR: Cannot install over an existing 'dockpg' directory.")
+if os.path.exists("pglts"):
+  print("ERROR: Cannot install over an existing 'pglts' directory.")
   sys.exit(1)
 
-dpg_file="dockpg-dpg-" + DPG_VER + ".tar.bz2"
-f = DPG_REPO + "/" + dpg_file
+my_file="pglts-cli-" + MY_VER + ".tar.bz2"
+f = MY_REPO + "/" + my_file
 
-if not os.path.exists(dpg_file):
-  print("\nDownloading DockPG DPG " + DPG_VER + " ...")
+if not os.path.exists(my_file):
+  print("\nDownloading PostgresLTS CLI " + MY_VER + " ...")
   try:
     fu = urllib2.urlopen(f)
-    local_file = open(dpg_file, "wb")
+    local_file = open(my_file, "wb")
     local_file.write(fu.read())
     local_file.close()
   except Exception as e:
@@ -40,20 +40,20 @@ if not os.path.exists(dpg_file):
 
 print("\nUnpacking ...")
 try:
-  tar = tarfile.open(dpg_file)
+  tar = tarfile.open(my_file)
   tar.extractall(path=".")
   print("\nCleaning up")
   tar.close()
-  os.remove(dpg_file)
+  os.remove(my_file)
 except Exception as e:
   print("ERROR: Unable to unpack \n" + str(e))
   sys.exit(1)
 
-print("\nSetting REPO to " + DPG_REPO)
-dpg_cmd = "dockpg" + os.sep + "dpg"
-os.system(dpg_cmd + " set GLOBAL REPO " + DPG_REPO)
+print("\nSetting REPO to " + MY_REPO)
+cmd = "postgres" + os.sep + "lts"
+os.system(cmd + " set GLOBAL REPO " + MY_REPO)
 
-print("\nDockPG installed.  Try '" + dpg_cmd + " help' to get started.\n")
+print("\nPostgresLTS CLI installed.  Try '" + cmd + " help' to get started.\n")
 
 sys.exit(0)
 

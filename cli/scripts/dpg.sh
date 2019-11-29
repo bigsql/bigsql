@@ -10,33 +10,33 @@ this="$common_bin/$script"
 # convert relative path to absolute path
 config_bin=`dirname "$this"`
 script=`basename "$this"`
-dpg_home=`cd "$config_bin"; pwd`
+my_home=`cd "$config_bin"; pwd`
 
-export DPG_HOME="$dpg_home"
-export DPG_LOGS="$dpg_home/logs/dpg_log.out"
+export MY_HOME="$my_home"
+export MY_LOGS="$my_home/logs/lts_log.out"
 
-cd "$DPG_HOME"
+cd "$MY_HOME"
 
-hub_new="$DPG_HOME/hub_new"
+hub_new="$MY_HOME/hub_new"
 if [ -d "$hub_new" ];then
-  `mv $DPG_HOME/hub_new $DPG_HOME/hub_upgrade`
+  `mv $MY_HOME/hub_new $MY_HOME/hub_upgrade`
   log_time=`date +"%Y-%m-%d %H:%M:%S"`
-  echo "$log_time [INFO] : completing hub upgrade" >> $DPG_LOGS
-  `mv $DPG_HOME/hub $DPG_HOME/hub_old`
-  `cp -rf $DPG_HOME/hub_upgrade/* $DPG_HOME/`
-  `rm -rf $DPG_HOME/hub_upgrade`
-  `rm -rf $DPG_HOME/hub_old`
+  echo "$log_time [INFO] : completing hub upgrade" >> $MY_LOGS
+  `mv $MY_HOME/hub $MY_HOME/hub_old`
+  `cp -rf $MY_HOME/hub_upgrade/* $MY_HOME/`
+  `rm -rf $MY_HOME/hub_upgrade`
+  `rm -rf $MY_HOME/hub_old`
   log_time=`date +"%Y-%m-%d %H:%M:%S"`
-  echo "$log_time [INFO] : hub upgrade completed" >> $DPG_LOGS
+  echo "$log_time [INFO] : hub upgrade completed" >> $MY_LOGS
 fi
 
 declare -a array
-array[0]="$DPG_HOME/hub/scripts"
-array[1]="$DPG_HOME/hub/scripts/lib"
+array[0]="$MY_HOME/hub/scripts"
+array[1]="$MY_HOME/hub/scripts/lib"
 
 export PYTHONPATH=$(printf "%s:${PYTHONPATH}" ${array[@]})
 
-pydir="$DPG_HOME/python37"
+pydir="$MY_HOME/python37"
 if [ -d "$pydir" ]; then
   export PYTHON="$pydir/python"		
   export PATH="$pydir/bin:$PATH"
@@ -71,4 +71,4 @@ if [ -f /usr/lib64/perl5/CORE/libperl.so ]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/perl5/CORE 
 fi
 
-$PYTHON -u "$DPG_HOME/hub/scripts/dpg.py" "$@"
+$PYTHON -u "$MY_HOME/hub/scripts/lts.py" "$@"
