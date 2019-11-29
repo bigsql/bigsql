@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-DPG_VERSION = "1.0"
+MY_VERSION = "21.01.15-1" 
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -680,18 +680,18 @@ def unset_value (p_section, p_key):
   return
 
 
-def get_dpg_hosts_file_name():
+def get_hosts_file_name():
   pw_file=""
-  dpg_host_dir = os.path.join(DPG_HOME, "conf")
-  pw_file = os.path.join(dpg_host_dir, ".dpg_hosts")
+  host_dir = os.path.join(DPG_HOME, "conf")
+  pw_file = os.path.join(host_dir, ".hosts")
   return(pw_file)
 
 
-def get_dpg_host(p_host):
+def get_host(p_host):
   host_dict = {}
   try:
     c = cL.cursor()
-    sql = "SELECT host, name, dpg_home FROM hosts where name=?"
+    sql = "SELECT host, name, dir_home FROM hosts where name=?"
     c.execute(sql, [p_host])
     data = c.fetchone()
     if data:
@@ -1316,8 +1316,8 @@ def pretty_rounder(p_num, p_scale):
   return rounded
 
 
-def get_dpg_version():
-  return (DPG_VERSION)
+def get_version():
+  return (MY_VERSION)
 
 
 ####################################################################
@@ -1366,7 +1366,7 @@ def process_sql_file(p_file, p_json):
       if ("hub" in cmd) and ("INSERT INTO versions" in cmd) and ("1," in cmd):
         cmdList = cmd.split(',')
         newHubV = cmdList[1].strip().replace("'", "")
-        oldHubV = get_dpg_version()
+        oldHubV = get_version()
         msg_frag = "'hub' from v" + oldHubV + " to v" + newHubV + "."
         if newHubV == oldHubV:
           msg = "'hub' is v" + newHubV
@@ -1902,7 +1902,7 @@ def urlEncodeNonAscii(b):
 
 
 def http_headers():
-  user_agent = 'DPG/' + get_dpg_version() + " " + get_anonymous_info()
+  user_agent = 'DPG/' + get_version() + " " + get_anonymous_info()
   headers = { 'User-Agent' : urlEncodeNonAscii(user_agent) }
   return(headers)
 

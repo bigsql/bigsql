@@ -1112,7 +1112,7 @@ if len(args) == 1:
   exit_cleanly(0)
 
 if ((args[1] == "--version") or (args[1] == "-v")):
-  print("v" + util.get_dpg_version())
+  print("v" + util.get_version())
   exit_cleanly(0)
 
 p_mode = ""

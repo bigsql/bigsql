@@ -313,7 +313,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
   arch = os_arch.replace("x86_64", "x64")
   arch = arch.replace("AMD64", "x64")
 
-  ver = util.get_dpg_version()
+  ver = util.get_version()
   [last_update_utc, last_update_local, unique_id] = util.read_hosts('localhost')
   if last_update_local:
     last_upd_dt = datetime.strptime(last_update_local, "%Y-%m-%d %H:%M:%S")

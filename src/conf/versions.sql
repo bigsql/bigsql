@@ -28,24 +28,50 @@ CREATE TABLE projects (
   port      	 INTEGER NOT NULL,
   depends   	 TEXT    NOT NULL,
   start_order    INTEGER NOT NULL,
-  homepage_url   TEXT    NOT NULL,
+  sources_url    TEXT    NOT NULL,
+  short_name     TEXT    NOT NULL,
   short_desc     TEXT    NOT NULL,
+  image_file     TEXT    NOT NULL,
+  description    TEXT    NOT NULL,
   FOREIGN KEY (category) REFERENCES categories(category)
 );
-INSERT INTO projects VALUES ('hub',           0, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('pg',            1, 5432, 'hub', 1, '', '');
-INSERT INTO projects VALUES ('plprofiler',    2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('athena_fdw',    2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('pglogical',     2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('timescaledb',   2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('ddlx',          2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('anon',          2, 0,    'ddlx', 0, '', '');
-INSERT INTO projects VALUES ('pgspock',       2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('pgtsql',        2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('hypopg',        2, 0,    'hub', 0, '', '');
-INSERT INTO projects VALUES ('omnidb',        3, 8000, 'hub', 0, '', '');
-INSERT INTO projects VALUES ('patroni',       3, 1234, 'hub', 0, '', '');
+INSERT INTO projects VALUES ('hub', 0, 0, 'hub', 0, 'https://github.com/', '',  '', '', '');
+
+INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://git.postgresql.org/', 'postgres', 'PostgreSQL', '', 
+  '');
+
+INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler', 'pl_profiler', 'plProfiler', '',
+  '');
+
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw', 'cassandra_fdw', 'CassandraFDW', '',
+  '');
+
+INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw', 'athena_fdw', 'AthenaFDW', '',
+  '');
+
+INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical', 'pg_logical', 'pgLogical', '',
+  '');
+
+INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/', 'timescaledb', 'TimescaleDB', '',
+  '');
+
+INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/', 'DDLeXtractor', '', '',
+  '');
+
+INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://github.com/', 'Anonymizer', 'anon.png', '',
+  '');
+
+INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/', '', '', '',
+  '');
+
+INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/', '', '', '',
+  '');
+
+INSERT INTO projects VALUES ('omnidb', 3, 8000, 'hub', 0, 'https://github.com/', '', '', '',
+  '');
+
+INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/', '', '', '',
+  '');
 
 
 CREATE TABLE releases (
@@ -61,11 +87,13 @@ CREATE TABLE releases (
 );
 INSERT INTO releases VALUES ('hub', 'hub', 'Hidden', 'Hidden', '',  '', 'prod');
 
+INSERT INTO releases VALUES ('pg94', 'pg', 'PostgreSQL 9.4', 'PG Server', '', '/docs/9.4/', 'prod');
 INSERT INTO releases VALUES ('pg95', 'pg', 'PostgreSQL 9.5', 'PG Server', '', '/docs/9.5/', 'prod');
 INSERT INTO releases VALUES ('pg96', 'pg', 'PostgreSQL 9.6', 'PG Server', '', '/docs/9.6/', 'prod');
 INSERT INTO releases VALUES ('pg10', 'pg', 'PostgreSQL 10',  'PG Server', '', '/docs/10/',  'prod');
 INSERT INTO releases VALUES ('pg11', 'pg', 'PostgreSQL 11',  'PG Server', '', '/docs/11/',  'prod');
 INSERT INTO releases VALUES ('pg12', 'pg', 'PostgreSQL 12',  'PG Server', '', '/docs/12/',  'prod');
+INSERT INTO releases VALUES ('pg13', 'pg', 'PostgreSQL 13',  'PG Server', '', '/docs/13/',  'test');
 
 INSERT INTO releases VALUES ('hypopg-pg11', 'hypopg', 'hypoPG', 'Hypothetical Indexes', '', '', 'prod');
 
@@ -100,11 +128,13 @@ CREATE TABLE versions (
   FOREIGN KEY (component) REFERENCES releases(component)
 );
 
-INSERT INTO versions VALUES ('hub', '1.0', '', 1, '20191201', '');
+INSERT INTO versions VALUES ('hub', '21.01.15-1', '', 1, '20210115', '');
 
-INSERT INTO versions VALUES ('pg95', '9.5.20-4',           'linux64, arm64', 1, '20191114', '');
+INSERT INTO versions VALUES ('pg94', '9.4.25-1',           'linux64, arm64', 1, '20191114', '');
 
-INSERT INTO versions VALUES ('pg96', '9.6.16-4',           'linux64, arm64', 1, '20191114', '');
+INSERT INTO versions VALUES ('pg95', '9.5.20-1',           'linux64, arm64', 1, '20191114', '');
+
+INSERT INTO versions VALUES ('pg96', '9.6.16-1',           'linux64, arm64', 1, '20191114', '');
 
 INSERT INTO versions VALUES ('pg10', '10.11-4',            'linux64, arm64', 1, '20191114', '');
 

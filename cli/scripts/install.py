@@ -1,5 +1,5 @@
 import sys, os
-DPG_VER="1.0"
+DPG_VER="21.01.15-1"
 DPG_REPO=os.getenv("DPG_REPO", "https://dockpg-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
