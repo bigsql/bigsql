@@ -1,15 +1,21 @@
 
 OS=`uname`
-if [ ! "$OS" == "Darwin"] && [ ! "$OS" == "$Linux" ]; then
+if [ ! "$OS" == "Darwin" ] && [ ! "$OS" == "$Linux" ]; then
   echo "ERROR: OS must be 'Linux' or 'OSX'"
   exit 1
 fi
 
+function runCmd () {
+  echo "$1"
+  $1
+  rc=$?
+}
+
 if [ "$OS" == "Darwin" ]; then
-  brew install nginx
-  brew services start nginx
-  brew service enable nginx"
-  brew service restart nginx"
+  runCmd "brew install nginx" 
+  runCmd "brew services start nginx" 
+  runCmd "brew services enable nginx" 
+  runCmd "brew services restart nginx" 
 elif [ "$OS" == "Linux" ]; then
   yum --version
   rc=$?
