@@ -5,7 +5,7 @@
 
 bundle=postgres
 api=lts
-hubV=21.04.01-1
+hubV=19.12-1
 
 P12=12.1-4
 P11=11.6-4

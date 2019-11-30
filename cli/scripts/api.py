@@ -361,25 +361,27 @@ def info(p_json, p_home, p_repo, print_flag=True):
   else:
     admin_display = ""
 
-  print(style_start + ("#" * 70) + style_end)
-  print(style_start + "#           PGLTS: " + style_end + "v" + ver + "  " + p_home)
-  print(style_start + "#     User & Host: " + style_end + p_user + admin_display + "  " + host_display)
-  print(style_start + "#              OS: " + style_end + os.rstrip() + " - " + str(plat))
-  print(style_start + "#    Python & PIP: " + style_end + python_ver + " | " + pip_ver)
-  print(style_start + "#        Hardware: " + style_end + mem + ", " + cores + " " + cpu)
+  print(style_start + ("#" * 65) + style_end)
+  print(style_start + "#          LTS: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#  User & Host: " + style_end + p_user + admin_display + "  " + host_display)
+  print(style_start + "#           OS: " + style_end + os.rstrip() + " - " + str(plat))
+  print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
+  print(style_start + "#     Hardware: " + style_end + mem + ", " + cores + " " + cpu)
 
   default_repo = "https://pglts-download.s3.amazonaws.com/REPO"
   if p_repo != default_repo:
-    print(style_start + "#        Repo URL: " + style_end + p_repo)
+    print(style_start + "#     Repo URL: " + style_end + p_repo)
 
   if versions_sql == "versions.sql":
     pass
   else:
-    print(style_start + "#    Versions SQL: " + style_end + versions_sql)
+    print(style_start + "# Versions SQL: " + style_end + versions_sql)
+
   if not last_update_local:
     last_update_local="None"
-  print(style_start + "#     Last Update: " + style_end + str(last_update_local))
-  print(style_start + ("#" * 70) + style_end)
+
+  print(style_start + "#  Last Update: " + style_end + str(last_update_local))
+  print(style_start + ("#" * 65) + style_end)
 
 
 def info_component(p_comp_dict, p_kount):

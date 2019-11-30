@@ -1,9 +1,9 @@
 import sys, os
-MY_VER="21.01.15-1"
+MY_VER="19.12-1"
 MY_REPO=os.getenv("MY_REPO", "https://pglts-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
-  print("ERROR: PostgreLTS requires Python 2.7 or greater")
+  print("ERROR: LTS requires Python 2.7 or greater")
   sys.exit(1)
 
 try:
@@ -17,7 +17,7 @@ import tarfile
 
 IS_64BITS = sys.maxsize > 2**32
 if not IS_64BITS:
-  print("ERROR: This is a 32bit machine and PostgresLTS packages are 64bit.")
+  print("ERROR: This is a 32-bit machine and LTS packages are 64-bit.")
   sys.exit(1)
 
 if os.path.exists("pglts"):
@@ -28,7 +28,7 @@ my_file="pglts-cli-" + MY_VER + ".tar.bz2"
 f = MY_REPO + "/" + my_file
 
 if not os.path.exists(my_file):
-  print("\nDownloading PostgresLTS CLI " + MY_VER + " ...")
+  print("\nDownloading LTS " + MY_VER + " ...")
   try:
     fu = urllib2.urlopen(f)
     local_file = open(my_file, "wb")
@@ -53,7 +53,7 @@ print("\nSetting REPO to " + MY_REPO)
 cmd = "postgres" + os.sep + "lts"
 os.system(cmd + " set GLOBAL REPO " + MY_REPO)
 
-print("\nPostgresLTS CLI installed.  Try '" + cmd + " help' to get started.\n")
+print("\nLTS installed.  Try '" + cmd + " help' to get started.\n")
 
 sys.exit(0)
 

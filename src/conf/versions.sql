@@ -128,18 +128,13 @@ CREATE TABLE versions (
   FOREIGN KEY (component) REFERENCES releases(component)
 );
 
-INSERT INTO versions VALUES ('hub', '21.01.15-1', '', 1, '20210115', '');
+INSERT INTO versions VALUES ('hub', '19.12-1', '', 1, '20210115', '');
 
 INSERT INTO versions VALUES ('pg94', '9.4.25-1',           'linux64, arm64', 1, '20191114', '');
-
 INSERT INTO versions VALUES ('pg95', '9.5.20-1',           'linux64, arm64', 1, '20191114', '');
-
 INSERT INTO versions VALUES ('pg96', '9.6.16-1',           'linux64, arm64', 1, '20191114', '');
-
 INSERT INTO versions VALUES ('pg10', '10.11-4',            'linux64, arm64', 1, '20191114', '');
-
 INSERT INTO versions VALUES ('pg11', '11.6-4',             'linux64, arm64, osx64', 1, '20191114', '');
-
 INSERT INTO versions VALUES ('pg12', '12.1-4',             'linux64, arm64', 1, '20191114', '');
 
 INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',     'linux64, arm64', 1, '20191114', 'pg11');

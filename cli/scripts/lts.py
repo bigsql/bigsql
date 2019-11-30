@@ -1092,7 +1092,7 @@ REPO=util.get_value('GLOBAL', 'REPO')
 
 os.chdir(MY_HOME)
 
-db_local = "conf" + os.sep + "lts_local.db"
+db_local = "conf" + os.sep + "db_local.db"
 connL = sqlite3.connect(db_local)
 
 ## eliminate empty parameters #################
@@ -1251,9 +1251,9 @@ if p_mode in lock_commands:
     if isJSON:
       msg = '[{"state":"locked","msg":"' + msg + '"}]'
     util.exit_message(msg, 0)
-  cli.pid_fd = open(pid_file, 'w')
-  cli.pid_fd.write(str(os.getpid()))
-  cli.pid_fd.close()
+  pid_fd = open(pid_file, 'w')
+  pid_fd.write(str(os.getpid()))
+  pid_fd.close()
 
 p_comp_list=[]
 extra_args=""
@@ -1324,9 +1324,9 @@ try:
       if rc in (0,4):
         pgdg_comps.append({'version': v, 'comp': comp})
         if rc == 0:
-          cli.pid_fd = open(pid_file, 'w')
-          cli.pid_fd.write(str(os.getpid()))
-          cli.pid_fd.close()
+          pid_fd = open(pid_file, 'w')
+          pid_fd.write(str(os.getpid()))
+          pid_fd.close()
           msg = "Installing lts controller for existing {0} instance.".format(comp)
           if not isJSON:
             print (msg)
