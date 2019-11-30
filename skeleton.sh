@@ -1,33 +1,35 @@
 
+source env.sh
+
 function test12 {
   source bp.sh
-  ./dpg install pg12; ./dpg start pg12 -y -d demo; ./dpg status
+  ./$api install pg12; ./$api start pg12 -y -d demo; ./$api status
 }
 
 function test11 {
   source bp.sh
-  ./dpg install pg11; ./dpg start pg11 -y -d demo; ./dpg status
-  ./dpg install pgtsql-pg11      -d demo; ./dpg status
-  ./dpg install anon-pg11        -d demo; ./dpg status
-  ./dpg install timescaledb-pg11 -d demo; ./dpg status
-  ./dpg install plprofiler-pg11  -d demo; ./dpg status
-  ./dpg install hypopg-pg11      -d demo; ./dpg status
-  ./dpg install pglogical-pg11   -d demo; ./dpg status
+  ./$api install pg11; ./$api start pg11 -y -d demo; ./$api status
+  ./$api install pgtsql-pg11      -d demo; ./$api status
+  ./$api install anon-pg11        -d demo; ./$api status
+  ./$api install timescaledb-pg11 -d demo; ./$api status
+  ./$api install plprofiler-pg11  -d demo; ./$api status
+  ./$api install hypopg-pg11      -d demo; ./$api status
+  ./$api install pglogical-pg11   -d demo; ./$api status
 }
 
 function test10 {
   source bp.sh
-  ./dpg install pg10; ./dpg start pg10 -y -d demo; ./dpg status
+  ./$api install pg10; ./$api start pg10 -y -d demo; ./$api status
 }
 
 function test96 {
   source bp.sh
-  ./dpg install pg96; ./dpg start pg96 -y -d demo; ./dpg status
+  ./$api install pg96; ./$api start pg96 -y -d demo; ./$api status
 }
 
 function test95 {
   source bp.sh
-  ./dpg install pg95; ./dpg start pg95 -y -d demo; ./dpg status
+  ./$api install pg95; ./$api start pg95 -y -d demo; ./$api status
 }
 
 if [ "$1" == "12" ] || [ "$1" == "all" ]; then

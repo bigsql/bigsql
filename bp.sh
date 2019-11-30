@@ -1,3 +1,4 @@
+source env.sh 
 
 echo "########## Build POSIX Sandbox ##########"
 
@@ -5,7 +6,7 @@ outp="out/posix"
 
 if [ -d $outp ]; then
   echo "Removing current '$outp' directory..."
-  $outp/dpg stop
+  $outp/$api stop
   sleep 2
   rm -rf $outp
 fi
@@ -14,7 +15,7 @@ fi
 
 cd $outp
 
-./dpg set GLOBAL REPO http://localhost:8000
+./$api set GLOBAL REPO http://localhost:8000
 
-./dpg --version
+./$api --version
 

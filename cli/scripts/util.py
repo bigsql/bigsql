@@ -1682,6 +1682,18 @@ def get_os():
   return ("linux64")
 
 
+def get_pkg_mgr():
+  p = Popen("yum --version") 
+  (stdout, stderr) = p.communicate()
+
+  if p.returncode==0:
+      return "yum"
+
+  return "apt"
+
+  
+
+
 
 ####################################################################################
 # return if the user has admin rights
@@ -1902,7 +1914,7 @@ def urlEncodeNonAscii(b):
 
 
 def http_headers():
-  user_agent = 'DPG/' + get_version() + " " + get_anonymous_info()
+  user_agent = 'LTS/' + get_version() + " " + get_anonymous_info()
   headers = { 'User-Agent' : urlEncodeNonAscii(user_agent) }
   return(headers)
 

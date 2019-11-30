@@ -29,8 +29,8 @@ if [ ! "$2" == "" ]; then
   outDir="$2"
 fi
 
-if [ "$OUT" == "" ] || [ "$DPG" == "" ]; then
-  echo "ERROR: Environment is not set"
+if [ "$OUT" == "" ]; then
+  echo "ERROR: Environment is not set..."
   exit 1
 fi
 
@@ -75,8 +75,8 @@ buildONE () {
 
 echo "############### Build Package Manager ###################"
 rm -f $OUT/hub-$hubV*
-rm -f $OUT/$bundle-dpg-$hubV*
-./build.sh -X posix -c $bundle-dpg -N $hubV
+rm -f $OUT/$bundle-$api-$hubV*
+./build.sh -X posix -c $bundle-$api -N $hubV
 
 buildALL $majorV $minorV
 

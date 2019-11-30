@@ -61,8 +61,8 @@ update_hub.verify_metadata()
 if util.get_value("GLOBAL", "PLATFORM", "") in ("", "posix", "windoze"):
   util.set_value("GLOBAL", "PLATFORM", util.get_default_pf())
 
-import dpglog
-my_logger = logging.getLogger('dpg_logger')
+import ltslog
+my_logger = logging.getLogger('lts_logger')
 
 if not util.is_admin() and util.get_platform() == "Windows":
   if meta.is_any_autostart():
@@ -437,7 +437,7 @@ def upgrade_component(p_comp):
     run_script(p_comp, "stop-" + p_comp, "stop")
 
   if p_comp == "hub":
-    msg = "updating dpg from v" + present_version + "  to  v" + update_version
+    msg = "updating lts from v" + present_version + "  to  v" + update_version
   else:
     msg = "upgrading " + p_comp + " from (" + present_version + ") to (" + update_version + ")"
 
@@ -617,9 +617,9 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
       my_logger.info(msg)
       if p_app in ('hub'):
         if util.get_platform() == "Windows":
-          copy2(os.path.join(MY_HOME, "dpg.bat"), backup_target_dir)
+          copy2(os.path.join(MY_HOME, "lts.bat"), backup_target_dir)
         else:
-          copy2(os.path.join(MY_HOME, "dpg"), backup_target_dir)
+          copy2(os.path.join(MY_HOME, "lts"), backup_target_dir)
         os.rename(new_comp_dir, "hub_new")
         ## run the update_hub script in the _new directory
         upd_hub_cmd = sys.executable + " hub_new" + os.sep + "hub" + os.sep + "scripts" + os.sep + "update_hub.py "
@@ -827,9 +827,9 @@ def retrieve_remote():
   if not os.path.exists(backup_target_dir):
     os.mkdir(backup_target_dir)
   recent_version_sql = os.path.join(MY_HOME, 'conf', 'versions.sql')
-  recent_dpg_local_db = os.path.join(MY_HOME, 'conf', 'dpg_local.db')
-  if os.path.exists(recent_dpg_local_db):
-    copy2(recent_dpg_local_db, backup_target_dir)
+  recent_local_db = os.path.join(MY_HOME, 'conf', 'db_local.db')
+  if os.path.exists(recent_local_db):
+    copy2(recent_local_db, backup_target_dir)
   if os.path.exists(recent_version_sql):
     copy2(recent_version_sql, backup_target_dir)
   remote_file = util.get_versions_sql()
@@ -1061,7 +1061,7 @@ def exit_cleanly(p_rc):
   sys.exit(p_rc)
 
 
-def dpg_lock():
+def lts_lock():
   try:
     fd = os.open(pid_file, os.O_RDONLY)
     ret = os.read(fd,12)
@@ -1092,7 +1092,7 @@ REPO=util.get_value('GLOBAL', 'REPO')
 
 os.chdir(MY_HOME)
 
-db_local = "conf" + os.sep + "dpg_local.db"
+db_local = "conf" + os.sep + "lts_local.db"
 connL = sqlite3.connect(db_local)
 
 ## eliminate empty parameters #################
@@ -1136,13 +1136,13 @@ if "--json" in args:
 if "--debug" in args:
   args.remove('--debug')
   my_logger.info("Enabling DEBUG mode")
-  logging.getLogger('dpg_logger').setLevel(logging.DEBUG)
+  logging.getLogger('lts_logger').setLevel(logging.DEBUG)
   my_logger.debug("DEBUG enabled")
 
 if "--debug2" in args:
   args.remove('--debug2')
   my_logger.info("Enabling DEBUG2 mode")
-  logging.getLogger('dpg_logger').setLevel(dpglog.DEBUG2)
+  logging.getLogger('lts_logger').setLevel(ltslog.DEBUG2)
   my_logger.debug("DEBUG enabled")
   my_logger.debug2("DEBUG2 enabled")
 
@@ -1238,15 +1238,15 @@ if (p_mode in no_log_commands) and (isJSON == True):
   pass
 else:
   #my_logger.setLevel(COMMAND)
-  #my_logger.log(COMMAND,"dpg %s ", full_cmd_line)
-  my_logger.command("dpg %s", full_cmd_line)
+  #my_logger.log(COMMAND,"lts %s ", full_cmd_line)
+  my_logger.command("lts %s", full_cmd_line)
 
 if not is_valid_mode(p_mode):
   util.exit_message("Invalid option or command", 1, isJSON)
 
 if p_mode in lock_commands:
-  if dpg_lock():
-    msg = "Unable to execute '{0}', another dpg instance may be running. \n" \
+  if lts_lock():
+    msg = "Unable to execute '{0}', another lts instance may be running. \n" \
           "HINT: Delete the lock file: '{1}' if no other instance is running.".format(p_mode, pid_file)
     if isJSON:
       msg = '[{"state":"locked","msg":"' + msg + '"}]'
@@ -1311,7 +1311,7 @@ try:
     elif len(args) == 3:
       verList = [args[2]]
     else:
-      util.exit_message("try:  dpg discover [ " + str(vList) + " ]", 1, isJSON)
+      util.exit_message("try:  lts discover [ " + str(vList) + " ]", 1, isJSON)
 
     pgdg_comps = []
     for v in verList:
@@ -1327,7 +1327,7 @@ try:
           cli.pid_fd = open(pid_file, 'w')
           cli.pid_fd.write(str(os.getpid()))
           cli.pid_fd.close()
-          msg = "Installing dpg controller for existing {0} instance.".format(comp)
+          msg = "Installing lts controller for existing {0} instance.".format(comp)
           if not isJSON:
             print (msg)
           install_comp(comp, p_re_install=True)
@@ -1357,8 +1357,8 @@ try:
       if args[3] == "remove":
         exit_cleanly(repo.remove_packages(args[2], args[4:], isJSON))
 
-    error_msg = "try: ./dpg repo-pkgs <repo-id> list\n" + \
-                "            ./dpg repo-pkgs <repo-id> [install | remove] <pkg-list>"
+    error_msg = "try: ./lts repo-pkgs <repo-id> list\n" + \
+                "            ./lts repo-pkgs <repo-id> [install | remove] <pkg-list>"
     util.exit_message(error_msg, 1, isJSON)
 
 
@@ -1388,8 +1388,8 @@ try:
     args = unknown_args
 
     mode_types = "REPO"
-    bad_reg_msg = "try: dpg " + p_mode + " [" + mode_types + \
-      "] [id dpg_home [name] [group]]"
+    bad_reg_msg = "try: lts " + p_mode + " [" + mode_types + \
+      "] [id lts_home [name] [group]]"
 
     try:
       reg = str(args[2]).upper()

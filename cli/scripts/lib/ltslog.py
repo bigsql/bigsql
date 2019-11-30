@@ -38,21 +38,21 @@ def command(self, message, *args, **kws):
 ########                    MAINLINE                      ##########
 ####################################################################
 try:
-    LOG_FILENAME = os.getenv('DPG_LOGS')
+    LOG_FILENAME = os.getenv('MY_LOGS')
     if not LOG_FILENAME:
-        DPG_HOME = os.getenv("DPG_HOME")
-        LOG_FILENAME = os.path.join(DPG_HOME,"logs","dpg_log.out")
+      MY_HOME = os.getenv("MY_HOME")
+      LOG_FILENAME = os.path.join(MY_HOME,"logs","lts_log.out")
     LOG_DIRECTORY = os.path.split(LOG_FILENAME)[0]
-    LOG_LEVEL = int(os.getenv('DPG_DEBUG_LEVEL', '-1'))
+    LOG_LEVEL = int(os.getenv('MY_DEBUG_LEVEL', '-1'))
 
     if LOG_LEVEL is None or LOG_LEVEL == -1:
-        LOG_LEVEL = COMMAND
+      LOG_LEVEL = COMMAND
 
     if not os.path.isdir(LOG_DIRECTORY):
       os.mkdir(LOG_DIRECTORY)
 
     # Set up a specific logger with our desired output level
-    my_logger = logging.getLogger('dpg_logger')
+    my_logger = logging.getLogger('lts_logger')
 
     logging.addLevelName(COMMAND, "COMMAND")
     logging.Logger.command = command

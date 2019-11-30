@@ -1,17 +1,16 @@
 #!/bin/bash 
 
 #----------------------------------------------------------------#
-#             Copyright (c) 2015-2019 BigSQL                     #
+#             Copyright (c) 2015-2017 BigSQL                     #
 #----------------------------------------------------------------#
 
 source env.sh
+
 if [ "x$REPO" == "x" ]; then
   repo="http://localhost"
 else
   repo="$REPO"
 fi
-
-bundle="dockpg"
 
 `python --version  > /dev/null 2>&1`
 rc=$?
@@ -21,7 +20,7 @@ else
   PYTHON=python3
 fi
 
-if [ "$OUT" == "" ] || [ "$DPG" == "" ]; then
+if [ "$OUT" == "" ]; then
   echo "ERROR: Environment is not set"
   exit 1
 fi
@@ -454,7 +453,7 @@ do
             outDir="$OPTARG"
             setupOutdir
             OS_TYPE="POSIX"
-            cp $CLI/dpg.sh dpg
+            cp $CLI/$api.sh $api
             if [ "$outDir" == "posix" ]; then
               OS="???"
               platx="posix"
