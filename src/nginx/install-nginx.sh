@@ -1,41 +1,45 @@
 
 OS=`uname`
-if [ ! "$OS" == "Darwin" ] && [ ! "$OS" == "$Linux" ]; then
-  echo "ERROR: OS must be 'Linux' or 'OSX'"
-  exit 1
-fi
 
 function runCmd () {
-  echo "$1"
+  echo "#"
+  echo "# $1"
   $1
-  rc=$?
+  RC=$?
+  if [ ! "$RC" == "0" ]; then
+    echo "ERROR: rc=$RC"
+    exit $RC
+  fi
 }
 
 if [ "$OS" == "Darwin" ]; then
-  runCmd "brew install nginx" 
-  runCmd "brew services start nginx" 
-  runCmd "brew services enable nginx" 
-  runCmd "brew services restart nginx" 
-elif [ "$OS" == "Linux" ]; then
-  yum --version
-  rc=$?
-  if [ $rc .eq 0 ]; then
-    YUM="sudo yum -y"
-    $YUM update
-    $YUM install epel-release
-    $YUM install nginx
-    $YUM enable nginx
-    $YUM restart nginx
+  brew --version 2>&1
+  RC=$?
+
+  if [ "$RC" == "0" ]; then
+    runCmd "brew install nginx" 
   else
-    GET="sudo apt-get -y"
-    $GET update
-    $GET upgrade
-    $GET install nginx
-    $GET enable nginx
-    $GET restart nginx
+    echo "ERROR: You must install brew first (http://brew.sh)"
   fi
-fi 
+  
+  exit $RC
+fi
 
+yum --version 2>&1
+rc=$?
+if [ $rc .eq 0 ]; then
+  YUM="sudo yum -y"
+  runCmd "$YUM update"
+  runCmd "$YUM install epel-release"
+  runCmd "$YUM install nginx"
+else
+  GET="sudo apt-get -y"
+  runCmd "$GET update"
+  runCmd "$GET upgrade"
+  runCmd "$GET install nginx"
+fi
 
+runCmd "sudo systemctl enable nginx"
 
- 
+exit 0
+
