@@ -2,3 +2,7 @@ out/
 devel/pg/src
 devel/pg/1*
 devel/pg/9*
+cli/scripts/*.out
+cli/scripts/conf
+.DS_STORE
+__pycache__
