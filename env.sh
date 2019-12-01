@@ -13,6 +13,7 @@ P10=10.11-4
 P96=9.6.16-4
 P95=9.5.20-4
 P94=9.4.25-4
+P93=9.3.27-4
 
 anonV=0.5.0-1
 ddlxV=0.15-1
@@ -24,9 +25,11 @@ profV=4.1-1
 cstarV=3.1.4-1
 athenafdwV=3.1-2
 tsqlV=3.0-1
+minishiftV=1.34.1
 patroniV=1.6.1
 saltV=2019pp
 pipV=19pp
+
 
 mysqlV=8.0.18-1
 mysqlfdwV=2.0.5-1
