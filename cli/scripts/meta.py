@@ -244,9 +244,9 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     "       coalesce((select is_current from versions where c.component = component AND c.version = version),0), \n" + \
     "       c.datadir, p.short_desc, \n" + \
     "       coalesce((select parent from versions where c.component = component and c.version = version),'') as parent, \n" + \
-    "       coalesce((select release_date from versions where c.component = component and c.version = version),'20160101'), \n" + \
+    "       coalesce((select release_date from versions where c.component = component and c.version = version),'20200101'), \n" + \
     "       c.install_dt, r.disp_name, r.short_desc, \n" + \
-    "       coalesce((select release_date from versions where c.component = component and is_current = 1),'20160101') \n" + \
+    "       coalesce((select release_date from versions where c.component = component and is_current = 1),'20200101') \n" + \
     "  FROM components c, releases r, projects p, categories g \n" + \
     " WHERE c.component = r.component AND r.project = p.project \n" + \
     "   AND p.category = g.category \n"  + \
@@ -256,7 +256,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
     "       r.stage, v.is_current, '', p.short_desc, v.parent as parent, v.release_date, '', \n" + \
     "       r.disp_name, r.short_desc, \n" + \
-    "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20160101') \n" + \
+    "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
     "  FROM versions v, releases r, projects p, categories c \n" + \
     " WHERE v.component = r.component AND r.project = p.project \n" + \
     "   AND p.category = c.category \n" + \
@@ -267,7 +267,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
     "       r.stage, v.is_current, '', p.short_desc, v.parent as parent, v.release_date, '', \n" + \
     "       r.disp_name, r.short_desc, \n" + \
-    "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20160101') \n" + \
+    "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
     "  FROM versions v, releases r, projects p, categories c \n" + \
     " WHERE v.component = r.component AND r.project = p.project \n" + \
     "   AND p.category = 2 AND p.category = c.category \n" + \
@@ -321,7 +321,9 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       if stage == "prod" and p_isJSON == False:
         stage = ""
       if stage == "test" and status in ("", "NotInstalled"):
-        if not p_isTEST:
+        if p_isTEST:
+          comp = comp + "(test)"
+        else:
           continue
 
       is_current = str(row[7])

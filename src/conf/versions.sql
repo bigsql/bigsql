@@ -67,7 +67,13 @@ INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/', ''
 INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/', '', '', '',
   '');
 
-INSERT INTO projects VALUES ('omnidb', 3, 8000, 'hub', 0, 'https://github.com/', '', '', '',
+INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/', '', '', '',
+  '');
+
+INSERT INTO projects VALUES ('nginx', 3, 8080, 'hub', 0, 'https://github.com/', '', '', '',
+  '');
+
+INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com/', '', '', '',
   '');
 
 INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/', '', '', '',
@@ -112,7 +118,9 @@ INSERT INTO releases VALUES ('timescaledb-pg11', 'timescaledb', 'TimescaleDB', '
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 'cassandra_fdw', 'CassandraFDW', 'C* Interoperability', '', '', 'test');
 INSERT INTO releases VALUES ('athena_fdw-pg11', 'athena_fdw', 'AthenaFDW', 'Hive Queries', '', '', 'test');
 
-INSERT INTO releases VALUES ('patroni', 'patroni',  '', '', '', '', 'prod');
+INSERT INTO releases VALUES ('patroni', 'patroni',  '', '', '', '', 'test');
+INSERT INTO releases VALUES ('docker',  'docker',   '', '', '', '', 'test');
+INSERT INTO releases VALUES ('nginx',   'nginx',    '', '', '', '', 'test');
 INSERT INTO releases VALUES ('omnidb',  'omnidb',   '', '', '', '', 'test');
 INSERT INTO releases VALUES ('salt',    'salt',     '', '', '', '', 'test');
 
@@ -128,7 +136,7 @@ CREATE TABLE versions (
   FOREIGN KEY (component) REFERENCES releases(component)
 );
 
-INSERT INTO versions VALUES ('hub', '19.12-1', '', 1, '20210115', '');
+INSERT INTO versions VALUES ('hub', '19.12-1', '', 1, '20191201', '');
 
 INSERT INTO versions VALUES ('pg94', '9.4.25-1',           'linux64, arm64', 1, '20191114', '');
 INSERT INTO versions VALUES ('pg95', '9.5.20-1',           'linux64, arm64', 1, '20191114', '');
@@ -155,7 +163,9 @@ INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1', 'linux64', 0, '201
 
 INSERT INTO versions VALUES ('athena_fdw-pg11', '3.1-2',      'linux64', 0, '20101114', 'pg11');
 
-INSERT INTO versions VALUES ('salt',    '2019pp', 'linux64', 0, '20190912', '');
-INSERT INTO versions VALUES ('omnidb',  '2.16-1', 'linux64', 0, '20191112', '');
-INSERT INTO versions VALUES ('patroni', '1.6.1',  '',        0, '20191118', '');
+INSERT INTO versions VALUES ('docker',  '1',      '', 1, '20191201', '');
+INSERT INTO versions VALUES ('nginx' ,  '1',      '', 1, '20191201', '');
+INSERT INTO versions VALUES ('salt',    '1',      '', 1, '20191201', '');
+INSERT INTO versions VALUES ('omnidb',  '2.16-1', '', 1, '20191201', '');
+INSERT INTO versions VALUES ('patroni', '1.6.1',  '', 1, '20191201', '');
 
