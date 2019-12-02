@@ -100,7 +100,7 @@ check_sum_match = True
 backup_dir = os.path.join(os.getenv('MY_HOME'), 'conf', 'backup')
 backup_target_dir = os.path.join(backup_dir, time.strftime("%Y%m%d%H%M"))
 
-pid_file = os.path.join(os.getenv('MY_HOME'), 'conf', 'cli.pid')
+pid_file = os.path.join(os.getenv('MY_HOME'), 'conf', 'lts.pid')
 
 ISJSON = os.environ.get("ISJSON", "False")
 
@@ -1065,18 +1065,18 @@ def lts_lock():
   try:
     fd = os.open(pid_file, os.O_RDONLY)
     ret = os.read(fd,12)
-    cli.pid = ret.decode()
+    pid = ret.decode()
     os.close(fd)
   except IOError as e:
     return False
   except OSError as e:
     return False
 
-  if not cli.pid:
+  if not pid:
     return False
 
   try:
-    os.kill(int(cli.pid), 0)
+    os.kill(int(pid), 0)
   except OSError as e:
     return False
 

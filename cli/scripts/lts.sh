@@ -36,39 +36,18 @@ array[1]="$MY_HOME/hub/scripts/lib"
 
 export PYTHONPATH=$(printf "%s:${PYTHONPATH}" ${array[@]})
 
-pydir="$MY_HOME/python37"
-if [ -d "$pydir" ]; then
-  export PYTHON="$pydir/python"		
-  export PATH="$pydir/bin:$PATH"
-  if [ `uname` == "Darwin" ]; then
-    export DYLD_LIBRARY_PATH="$pydir/lib/python2.7:$DYLD_LIBRARY_PATH"
-  else
-    export LD_LIBRARY_PATH="$pydir/lib/python2.7:$LD_LIBRARY_PATH"
-  fi
+pyver=`python3 --version > /dev/null 2>&1`
+rc=$?   
+if [ $rc == 0 ];then
+  export PYTHON=python3
 else
- export PYTHON="python3.7"
- pyver=`python3.7 --version  > /dev/null 2>&1`
- rc=$?
- if [ ! $rc == 0 ];then
-   pyver=`python3 --version > /dev/null 2>&1`
-   rc=$?   
-   if [ ! $rc == 0 ];then
-     export PYTHON=python
-     pyver=`python --version > /dev/null 2>&1`
-     rc=$?   
-     if [ ! $rc == 0 ];then
-       export PYTHON=python2
-     else
-       export PYTHON=python2
-     fi
-   else
-     export PYTHON=python3
-   fi
- fi
-fi
-
-if [ -f /usr/lib64/perl5/CORE/libperl.so ]; then 
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/perl5/CORE 
+  pyver=`python --version > /dev/null 2>&1`
+  rc=$?   
+  if [ $rc == 0 ];then
+    export PYTHON=python
+  else
+    export PYTHON=python2
+  fi
 fi
 
 $PYTHON -u "$MY_HOME/hub/scripts/lts.py" "$@"
