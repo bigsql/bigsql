@@ -105,16 +105,20 @@ INSERT INTO releases VALUES ('pg12', 'pg', 'PostgreSQL 12',  'PG Server', '', '/
 INSERT INTO releases VALUES ('pg13', 'pg', 'PostgreSQL 13',  'PG Server', '', '/docs/13/',  'test');
 
 INSERT INTO releases VALUES ('hypopg-pg11', 'hypopg', 'hypoPG', 'Hypothetical Indexes', '', '', 'prod');
+INSERT INTO releases VALUES ('hypopg-pg12', 'hypopg', 'hypoPG', 'Hypothetical Indexes', '', '', 'prod');
 
 INSERT INTO releases VALUES ('pgtsql-pg11', 'pgtsql', 'pgTSQL', 'Transact SQL like', '', '', 'prod');
 
 INSERT INTO releases VALUES ('pglogical-pg11', 'pglogical', 'pgLogical', 'Logical Replication', '', '', 'prod');
 
 INSERT INTO releases VALUES ('plprofiler-pg11', 'plprofiler', 'plProfiler', 'PL Performance Profiler', '', 'https://github.com/bigsql/plprofiler', 'prod');
+INSERT INTO releases VALUES ('plprofiler-pg12', 'plprofiler', 'plProfiler', 'PL Performance Profiler', '', 'https://github.com/bigsql/plprofiler', 'prod');
 
 INSERT INTO releases VALUES ('ddlx-pg11', 'ddlx', 'DDL Extractor', '', '', '', 'prod');
+INSERT INTO releases VALUES ('ddlx-pg12', 'ddlx', 'DDL Extractor', '', '', '', 'prod');
 
 INSERT INTO releases VALUES ('anon-pg11', 'anon', 'Anonymizer', '', '', '', 'prod');
+INSERT INTO releases VALUES ('anon-pg12', 'anon', 'Anonymizer', '', '', '', 'prod');
 
 INSERT INTO releases VALUES ('timescaledb-pg11', 'timescaledb', 'TimescaleDB', '', '', '', 'prod');
 
@@ -142,36 +146,40 @@ CREATE TABLE versions (
 
 INSERT INTO versions VALUES ('hub', '20.01.01', '', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg94', '9.4.25-1',           'linux64, arm64', 1, '20191114', '');
-INSERT INTO versions VALUES ('pg95', '9.5.20-1',           'linux64, arm64', 1, '20191114', '');
-INSERT INTO versions VALUES ('pg96', '9.6.16-1',           'linux64, arm64', 1, '20191114', '');
-INSERT INTO versions VALUES ('pg10', '10.11-4',            'linux64, arm64', 1, '20191114', '');
-INSERT INTO versions VALUES ('pg11', '11.6-4',             'linux64, arm64, osx64', 1, '20191114', '');
-INSERT INTO versions VALUES ('pg12', '12.1-4',             'linux64, arm64', 1, '20191114', '');
+INSERT INTO versions VALUES ('pg94',               '9.4.25-1', 'linux64, arm64',        1, '20200101', '');
+INSERT INTO versions VALUES ('pg95',               '9.5.20-1', 'linux64, arm64',        1, '20200101', '');
+INSERT INTO versions VALUES ('pg96',               '9.6.16-1', 'linux64, arm64',        1, '20200101', '');
+INSERT INTO versions VALUES ('pg10',               '10.11-4',  'linux64, arm64',        1, '20200101', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, osx64', 1, '20200101', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64',        1, '20200101', '');
 
-INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1', 'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64, arm64',        1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('hypopg-pg12',        '1.1.3-1',  'linux64, arm64',        1, '20200101', 'pg12');
 
-INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',   'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64, arm64',        1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1', 'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64, arm64',        1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',   'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64, arm64',        1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('plprofiler-pg12',    '4.1-1',    'linux64, arm64',        1, '20200101', 'pg12');
 
-INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',  'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64, arm64',        1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg12',          '0.15-1',   'linux64, arm64',        1, '20200101', 'pg12');
 
-INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1', 'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64, arm64',        1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('anon-pg12',          '0.5.0-1',  'linux64, arm64',        1, '20200101', 'pg12');
 
-INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1', 'linux64, arm64', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',        1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1', 'linux64',        0, '20191114', 'pg11');
+INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',               0, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',   'linux64',        0, '20101114', 'pg11');
+INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',               0, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('minishift',          '1.34.1',  'linux64, osx64', 1, '20191201', '');
+INSERT INTO versions VALUES ('minishift',          '1.34.1',   'linux64, osx64',        1, '20200101', '');
 
-INSERT INTO versions VALUES ('docker',             '1',       '',               1, '20191201', '');
-INSERT INTO versions VALUES ('nginx' ,             '1',       '',               1, '20191201', '');
-INSERT INTO versions VALUES ('salt',               '1',       '',               1, '20191201', '');
-INSERT INTO versions VALUES ('omnidb',             '2.16-1',  '',               1, '20191201', '');
-INSERT INTO versions VALUES ('patroni',            '1.6.1',   '',               1, '20191201', '');
+INSERT INTO versions VALUES ('docker',             '1',        '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('nginx' ,             '1',        '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('salt',               '1',        '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('omnidb',             '2.16-1',   '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      1, '20200101', '');
 
