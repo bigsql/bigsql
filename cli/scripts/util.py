@@ -37,9 +37,9 @@ if os.path.exists(platform_lib_path):
 import semver
 import ltslog
 
-my_logger = logging.getLogger('lts_logger')
+my_logger = logging.getLogger('cli_logger')
 MY_HOME = os.getenv('MY_HOME', '..' + os.sep + '..')
-pid_file = os.path.join(MY_HOME, 'conf', 'lts.pid')
+pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
 
 
 def run_regress (p_ver):

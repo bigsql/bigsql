@@ -17,14 +17,14 @@ import tarfile
 
 IS_64BITS = sys.maxsize > 2**32
 if not IS_64BITS:
-  print("ERROR: This is a 32-bit machine and LTS packages are 64-bit.")
+  print("ERROR: This is a 32-bit machine and our packages are 64-bit.")
   sys.exit(1)
 
-if os.path.exists("pglts"):
-  print("ERROR: Cannot install over an existing 'pglts' directory.")
+if os.path.exists("bigsql"):
+  print("ERROR: Cannot install over an existing 'bigsql' directory.")
   sys.exit(1)
 
-my_file="pglts-cli-" + MY_VER + ".tar.bz2"
+my_file="bigsql-apg-" + MY_VER + ".tar.bz2"
 f = MY_REPO + "/" + my_file
 
 if not os.path.exists(my_file):

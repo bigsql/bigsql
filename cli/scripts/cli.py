@@ -1,4 +1,4 @@
-from __future__ import print_function, division
+from __future__ import print_function, divisio/cli_logger/cli_clooger
 
 import sys
 if sys.version_info <= (2, 6):
@@ -62,7 +62,7 @@ if util.get_value("GLOBAL", "PLATFORM", "") in ("", "posix", "windoze"):
   util.set_value("GLOBAL", "PLATFORM", util.get_default_pf())
 
 import ltslog
-my_logger = logging.getLogger('lts_logger')
+my_logger = logging.getLogger('cli_logger')
 
 if not util.is_admin() and util.get_platform() == "Windows":
   if meta.is_any_autostart():
@@ -100,7 +100,7 @@ check_sum_match = True
 backup_dir = os.path.join(os.getenv('MY_HOME'), 'conf', 'backup')
 backup_target_dir = os.path.join(backup_dir, time.strftime("%Y%m%d%H%M"))
 
-pid_file = os.path.join(os.getenv('MY_HOME'), 'conf', 'lts.pid')
+pid_file = os.path.join(os.getenv('MY_HOME'), 'conf', 'cli.pid')
 
 ISJSON = os.environ.get("ISJSON", "False")
 
@@ -1136,13 +1136,13 @@ if "--json" in args:
 if "--debug" in args:
   args.remove('--debug')
   my_logger.info("Enabling DEBUG mode")
-  logging.getLogger('lts_logger').setLevel(logging.DEBUG)
+  logging.getLogger('cli_logger').setLevel(logging.DEBUG)
   my_logger.debug("DEBUG enabled")
 
 if "--debug2" in args:
   args.remove('--debug2')
   my_logger.info("Enabling DEBUG2 mode")
-  logging.getLogger('lts_logger').setLevel(ltslog.DEBUG2)
+  logging.getLogger('cli_logger').setLevel(ltslog.DEBUG2)
   my_logger.debug("DEBUG enabled")
   my_logger.debug2("DEBUG2 enabled")
 

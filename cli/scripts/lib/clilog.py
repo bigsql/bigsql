@@ -1,5 +1,5 @@
 ####################################################################
-########       Copyright (c) 2015-2017 OpenSCG          ############
+########       Copyright (c) 2013-2020 BigSQL           ############
 ####################################################################
 
 import os
@@ -41,7 +41,7 @@ try:
     LOG_FILENAME = os.getenv('MY_LOGS')
     if not LOG_FILENAME:
       MY_HOME = os.getenv("MY_HOME")
-      LOG_FILENAME = os.path.join(MY_HOME,"logs","lts_log.out")
+      LOG_FILENAME = os.path.join(MY_HOME,"logs","cli_log.out")
     LOG_DIRECTORY = os.path.split(LOG_FILENAME)[0]
     LOG_LEVEL = int(os.getenv('MY_DEBUG_LEVEL', '-1'))
 
@@ -52,7 +52,7 @@ try:
       os.mkdir(LOG_DIRECTORY)
 
     # Set up a specific logger with our desired output level
-    my_logger = logging.getLogger('lts_logger')
+    my_logger = logging.getLogger('cli_logger')
 
     logging.addLevelName(COMMAND, "COMMAND")
     logging.Logger.command = command

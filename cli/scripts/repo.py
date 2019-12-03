@@ -15,7 +15,7 @@ PGDG_REPO_LIST="json-pgdg-repo-list"
 YUM_LIST = ['el7', 'el8']
 APT_LIST = ['trusty', 'xenial', 'bionic']
 
-my_logger = logging.getLogger('lts_logger')
+my_logger = logging.getLogger('cli_logger')
 
 
 def discover(p_ver, p_isSILENT=False, p_isJSON=False, p_isYES=False):
@@ -352,7 +352,7 @@ def list_packages(p_repo, p_SHOWDUPS, p_isJSON, p_isEXTRA):
 
 
 def list_apt_packages(p_repo, p_isJSON):
-  lts_ver = get_lts_ver(p_repo)
+  cli_ver = get_cli_ver(p_repo)
   raw_list = util.read_file_string(get_apt_repo_file_name())
   repoList = []
   repoDict = {}
@@ -367,7 +367,7 @@ def list_apt_packages(p_repo, p_isJSON):
       
     if data[0] == "Filename:":
       repoDict['filename'] = data[1]
-      p1 =  version.find(".pgdg" + lts_ver)
+      p1 =  version.find(".pgdg" + cli_ver)
       if p1 > 0:
         repoDict['version'] = version[0:p1]
         repoList.append(repoDict)
@@ -384,7 +384,7 @@ def list_apt_packages(p_repo, p_isJSON):
   return(0)
 
 
-def get_lts_ver(p_repo):
+def get_cli_ver(p_repo):
   if p_repo.startswith("xenial"):
     return("16.04")
 
