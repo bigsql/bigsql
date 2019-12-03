@@ -39,7 +39,7 @@ import ltslog
 
 my_logger = logging.getLogger('lts_logger')
 MY_HOME = os.getenv('MY_HOME', '..' + os.sep + '..')
-pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
+pid_file = os.path.join(MY_HOME, 'conf', 'lts.pid')
 
 
 def run_regress (p_ver):
