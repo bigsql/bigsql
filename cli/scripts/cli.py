@@ -61,7 +61,7 @@ update_hub.verify_metadata()
 if util.get_value("GLOBAL", "PLATFORM", "") in ("", "posix", "windoze"):
   util.set_value("GLOBAL", "PLATFORM", util.get_default_pf())
 
-import ltslog
+import clilog
 my_logger = logging.getLogger('cli_logger')
 
 if not util.is_admin() and util.get_platform() == "Windows":
@@ -73,7 +73,7 @@ ansi_escape = re.compile(r'\x1b[^m]*m')
 
 dep9 = util.get_depend()
 mode_list = ["start", "stop", "restart", "status", "list", "info", "update",
-             "upgrade", "enable", "disable", "install", "tune", "regress",
+             "upgrade", "enable", "disable", "install", "tune",
              "remove", "reload", "activity", "help", "get", "set", "unset",
              "repolist", "repo-pkgs", "discover", "cloud",
              "register", "top", "--autostart", "--relnotes",
@@ -85,7 +85,7 @@ mode_list_advanced = ['kill', 'config', 'deplist', 'download', 'cancel',
                       'verify', 'init', 'clean', 'useradd', 'provision']
 
 ignore_comp_list = [ "get", "set", "unset", "register", "repolist", 
-                     "repo-pkgs", "discover", "useradd", "regress", "cloud"]
+                     "repo-pkgs", "discover", "useradd", "cloud"]
 
 no_log_commands = ['status', 'info', 'list', 'activity', 'top', 'register',
                    'cancel', 'get']
@@ -437,7 +437,7 @@ def upgrade_component(p_comp):
     run_script(p_comp, "stop-" + p_comp, "stop")
 
   if p_comp == "hub":
-    msg = "updating lts from v" + present_version + "  to  v" + update_version
+    msg = "updating from v" + present_version + "  to  v" + update_version
   else:
     msg = "upgrading " + p_comp + " from (" + present_version + ") to (" + update_version + ")"
 
@@ -617,9 +617,9 @@ def unpack_comp(p_app, p_old_ver, p_new_ver):
       my_logger.info(msg)
       if p_app in ('hub'):
         if util.get_platform() == "Windows":
-          copy2(os.path.join(MY_HOME, "lts.bat"), backup_target_dir)
+          copy2(os.path.join(MY_HOME, "cli.bat"), backup_target_dir)
         else:
-          copy2(os.path.join(MY_HOME, "lts"), backup_target_dir)
+          copy2(os.path.join(MY_HOME, "cli"), backup_target_dir)
         os.rename(new_comp_dir, "hub_new")
         ## run the update_hub script in the _new directory
         upd_hub_cmd = sys.executable + " hub_new" + os.sep + "hub" + os.sep + "scripts" + os.sep + "update_hub.py "
@@ -1061,7 +1061,7 @@ def exit_cleanly(p_rc):
   sys.exit(p_rc)
 
 
-def lts_lock():
+def cli_lock():
   try:
     fd = os.open(pid_file, os.O_RDONLY)
     ret = os.read(fd,12)
@@ -1142,7 +1142,7 @@ if "--debug" in args:
 if "--debug2" in args:
   args.remove('--debug2')
   my_logger.info("Enabling DEBUG2 mode")
-  logging.getLogger('cli_logger').setLevel(ltslog.DEBUG2)
+  logging.getLogger('cli_logger').setLevel(clilog.DEBUG2)
   my_logger.debug("DEBUG enabled")
   my_logger.debug2("DEBUG2 enabled")
 
@@ -1237,15 +1237,13 @@ p_mode = args[1]
 if (p_mode in no_log_commands) and (isJSON == True):
   pass
 else:
-  #my_logger.setLevel(COMMAND)
-  #my_logger.log(COMMAND,"lts %s ", full_cmd_line)
-  my_logger.command("lts %s", full_cmd_line)
+  my_logger.command(api + " %s", full_cmd_line)
 
 if not is_valid_mode(p_mode):
   util.exit_message("Invalid option or command", 1, isJSON)
 
 if p_mode in lock_commands:
-  if lts_lock():
+  if cli_lock():
     msg = "Unable to execute '{0}', another lts instance may be running. \n" \
           "HINT: Delete the lock file: '{1}' if no other instance is running.".format(p_mode, pid_file)
     if isJSON:
@@ -2013,15 +2011,6 @@ try:
       print("ERROR: The UNSET command must have 2 parameters.")
       exit_cleanly(1)
     exit_cleanly(0)
-
-
-  ## REGRESS ############################################
-  if p_mode == 'regress':
-    if len(args) == 3:
-      exit_cleanly(util.run_regress(args[2]))
-    else:
-      print("ERROR: The REGRESS command must have 1 parameter (pgver).")
-      exit_cleanly(1)
 
 
   ## USERADD ############################################

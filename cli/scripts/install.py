@@ -3,7 +3,7 @@ MY_VER="20.01.01"
 MY_REPO=os.getenv("MY_REPO", "https://pglts-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
-  print("ERROR: LTS requires Python 2.7 or greater")
+  print("ERROR: BigSQL requires Python 2.7 or greater")
   sys.exit(1)
 
 try:
@@ -28,7 +28,7 @@ my_file="bigsql-apg-" + MY_VER + ".tar.bz2"
 f = MY_REPO + "/" + my_file
 
 if not os.path.exists(my_file):
-  print("\nDownloading LTS " + MY_VER + " ...")
+  print("\nDownloading CLI " + MY_VER + " ...")
   try:
     fu = urllib2.urlopen(f)
     local_file = open(my_file, "wb")
@@ -50,10 +50,10 @@ except Exception as e:
   sys.exit(1)
 
 print("\nSetting REPO to " + MY_REPO)
-cmd = "postgres" + os.sep + "lts"
+cmd = "bigsql" + os.sep + "dpg"
 os.system(cmd + " set GLOBAL REPO " + MY_REPO)
 
-print("\nLTS installed.  Try '" + cmd + " help' to get started.\n")
+print("\nBigSQL installed.  Try '" + cmd + " help' to get started.\n")
 
 sys.exit(0)
 

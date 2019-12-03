@@ -35,40 +35,12 @@ if os.path.exists(platform_lib_path):
     sys.path.append(platform_lib_path)
 
 import semver
-import ltslog
+import clilog
 
 my_logger = logging.getLogger('cli_logger')
 MY_HOME = os.getenv('MY_HOME', '..' + os.sep + '..')
 pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
 
-
-def run_regress (p_ver):
-  ver = "pg" + str(p_ver)
-
-  cmd = ""
-  cmd = cmd + "./lts install " + ver
-  cmd = cmd + "; ./lts start " + ver + " -y -d regression"
-
-  try:
-    c = cL.cursor()
-    sql = "SELECT component" + \
-          "  FROM versions" + \
-          " WHERE parent = ?" + \
-          "   AND is_current = 1"
-    c.execute(sql, [ver])
-    data = c.fetchall()
-    for row in data:
-      cmd = cmd + "; ./lts install " + str(row[0]) + " -d regression"
-  except Exception as e:
-    fatal_sql_error(e, sql, "run_regress()")
-
-  cmd = cmd + "; ./lts stop " + ver
-
-  print("\n" + cmd + "\n")
-  rc = os.system(cmd)
-
-  return(rc)
-  
 
 def run_cmd (p_cmd, p_display=False):
   cmd = MY_HOME + os.sep + p_cmd
@@ -1914,7 +1886,7 @@ def urlEncodeNonAscii(b):
 
 
 def http_headers():
-  user_agent = 'LTS/' + get_version() + " " + get_anonymous_info()
+  user_agent = 'CLI/' + get_version() + " " + get_anonymous_info()
   headers = { 'User-Agent' : urlEncodeNonAscii(user_agent) }
   return(headers)
 
@@ -1961,7 +1933,7 @@ def http_get_file(p_json, p_file_name, p_url, p_out_dir, p_display_status, p_msg
     while True:
       if not p_file_name.endswith(".txt") \
               and not p_file_name.startswith("install.py") \
-              and not p_file_name.startswith("postgres-lts") \
+              and not p_file_name.startswith("bigsql-apg") \
               and not os.path.isfile(pid_file):
         raise KeyboardInterrupt("No lock file exists.")
       buffer = u.read(block_sz)

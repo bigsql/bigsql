@@ -52,13 +52,13 @@ def get_pip_ver():
   return("None")
 
 
-def lts_unicode(p_str,p_encoding,errors="ignore"):
+def cli_unicode(p_str,p_encoding,errors="ignore"):
   return str(p_str)
 
 try:
     test_unicode = unicode("test")
 except NameError as e:
-    unicode = lts_unicode
+    unicode = cli_unicode
 
 
 def check_output_wmic (p_cmds):
@@ -362,7 +362,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     admin_display = ""
 
   print(style_start + ("#" * 65) + style_end)
-  print(style_start + "#          LTS: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#       BIGSQL: " + style_end + "v" + ver + "  " + p_home)
   print(style_start + "#  User & Host: " + style_end + p_user + admin_display + "  " + host_display)
   print(style_start + "#           OS: " + style_end + os.rstrip() + " - " + str(plat))
   print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
