@@ -1,5 +1,5 @@
 import sys, os
-MY_VER="19.12-1"
+MY_VER="20.01.01"
 MY_REPO=os.getenv("MY_REPO", "https://pglts-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
