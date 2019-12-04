@@ -3,9 +3,9 @@
 #      Copyright (c) 2013-2020 BigSQL         #
 #---------------------------------------------#
 
-bundle=postgres
+bundle=bigsql
 api=apg
-hubV=20.01.01
+hubV=20.01
 
 P12=12.1-4
 P11=11.6-4

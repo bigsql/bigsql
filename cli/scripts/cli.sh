@@ -13,7 +13,8 @@ script=`basename "$this"`
 my_home=`cd "$config_bin"; pwd`
 
 export MY_HOME="$my_home"
-export MY_LOGS="$my_home/logs/lts_log.out"
+export MY_LOGS="$my_home/logs/cli_log.out"
+export MY_CMD="apg"
 
 cd "$MY_HOME"
 
@@ -50,4 +51,4 @@ else
   fi
 fi
 
-$PYTHON -u "$MY_HOME/hub/scripts/lts.py" "$@"
+$PYTHON -u "$MY_HOME/hub/scripts/cli.py" "$@"

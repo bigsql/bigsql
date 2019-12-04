@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-MY_VERSION = "20.01.01"
+MY_VERSION = "20.01"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -38,6 +38,7 @@ import semver
 import clilog
 
 my_logger = logging.getLogger('cli_logger')
+MY_CMD = os.getenv('MY_CMD')
 MY_HOME = os.getenv('MY_HOME', '..' + os.sep + '..')
 pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
 
@@ -577,7 +578,7 @@ def update_hosts(p_host, p_unique_id, updated=False):
 
   current_time = last_update_utc
 
-  cmd = os.path.abspath(MY_HOME) + os.sep + "lts update"
+  cmd = os.path.abspath(MY_HOME) + os.sep + MY_CMD + " update"
 
   if p_unique_id:
     unique_id = p_unique_id
@@ -670,7 +671,7 @@ def get_host(p_host):
       host_dict = {}
       host_dict['host'] = str(data[0])
       host_dict['host_name'] = str(data[1])
-      host_dict['lts_home'] = str(data[2])
+      host_dict['my_home'] = str(data[2])
   except Exception as e:
     print("ERROR: Retrieving host info")
     exit_message(str(e), 1)

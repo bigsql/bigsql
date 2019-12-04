@@ -69,8 +69,8 @@ def mainline():
     MY_HOME = os.getenv('MY_HOME', '')
     try:
       import shutil
-      src = os.path.join(os.path.dirname(__file__), "lts.sh")
-      dst = os.path.join(MY_HOME, "lts")
+      src = os.path.join(os.path.dirname(__file__), "cli.sh")
+      dst = os.path.join(MY_HOME, "dpg")
       shutil.copy(src, dst)
     except Exception as e:
       pass

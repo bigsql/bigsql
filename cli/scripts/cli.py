@@ -1,7 +1,7 @@
-from __future__ import print_function, divisio/cli_logger/cli_clooger
+from __future__ import print_function, division
 
 import sys
-if sys.version_info <= (2, 6):
+if sys.version_info < (2, 7):
   print("Currently we run on Python 2.7 or 3.6+")
   sys.exit(1)
 
@@ -30,7 +30,8 @@ import errno
 import traceback
 import argparse
 
-MY_HOME=os.getenv('MY_HOME')
+MY_HOME = os.getenv('MY_HOME')
+MY_CMD =  os.getenv('MY_CMD')
 
 ## Our own library files ##########################################
 sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
@@ -1237,14 +1238,14 @@ p_mode = args[1]
 if (p_mode in no_log_commands) and (isJSON == True):
   pass
 else:
-  my_logger.command(api + " %s", full_cmd_line)
+  my_logger.command(MY_CMD + " %s", full_cmd_line)
 
 if not is_valid_mode(p_mode):
   util.exit_message("Invalid option or command", 1, isJSON)
 
 if p_mode in lock_commands:
   if cli_lock():
-    msg = "Unable to execute '{0}', another lts instance may be running. \n" \
+    msg = "Unable to execute '{0}', another instance may be running. \n" \
           "HINT: Delete the lock file: '{1}' if no other instance is running.".format(p_mode, pid_file)
     if isJSON:
       msg = '[{"state":"locked","msg":"' + msg + '"}]'
@@ -1309,7 +1310,7 @@ try:
     elif len(args) == 3:
       verList = [args[2]]
     else:
-      util.exit_message("try:  lts discover [ " + str(vList) + " ]", 1, isJSON)
+      util.exit_message("try:  ./" + MY_CMD + " discover [ " + str(vList) + " ]", 1, isJSON)
 
     pgdg_comps = []
     for v in verList:
@@ -1325,7 +1326,7 @@ try:
           pid_fd = open(pid_file, 'w')
           pid_fd.write(str(os.getpid()))
           pid_fd.close()
-          msg = "Installing lts controller for existing {0} instance.".format(comp)
+          msg = "Installing controller for existing {0} instance.".format(comp)
           if not isJSON:
             print (msg)
           install_comp(comp, p_re_install=True)
@@ -1355,8 +1356,8 @@ try:
       if args[3] == "remove":
         exit_cleanly(repo.remove_packages(args[2], args[4:], isJSON))
 
-    error_msg = "try: ./lts repo-pkgs <repo-id> list\n" + \
-                "            ./lts repo-pkgs <repo-id> [install | remove] <pkg-list>"
+    error_msg = "try: ./" + MY_CMD + " repo-pkgs <repo-id> list\n" + \
+                "            ./" + MY_CMD + " repo-pkgs <repo-id> [install | remove] <pkg-list>"
     util.exit_message(error_msg, 1, isJSON)
 
 
@@ -1386,8 +1387,8 @@ try:
     args = unknown_args
 
     mode_types = "REPO"
-    bad_reg_msg = "try: lts " + p_mode + " [" + mode_types + \
-      "] [id lts_home [name] [group]]"
+    bad_reg_msg = "try: " + MY_CMD +  " " + p_mode + " [" + mode_types + \
+        "] [id my_home [name] [group]]"
 
     try:
       reg = str(args[2]).upper()

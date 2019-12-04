@@ -1,9 +1,9 @@
 import sys, os
-MY_VER="20.01.01"
+MY_VER="20.01"
 MY_REPO=os.getenv("MY_REPO", "https://pglts-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
-  print("ERROR: BigSQL requires Python 2.7 or greater")
+  print("ERROR: Requires Python 2.7 or greater")
   sys.exit(1)
 
 try:
