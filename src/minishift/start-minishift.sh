@@ -1,0 +1,2 @@
+./minishift start
+
