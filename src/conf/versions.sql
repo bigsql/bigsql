@@ -44,46 +44,46 @@ INSERT INTO projects VALUES ('hub', 0, 0, 'hub', 0, 'https://github.com/', '',  
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 'PostgreSQL', '', 
   'Advanced RDBMS', 'https://postgresql.org');
 
-INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 'plProfiler', '',
+INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 'plProfiler', 'plprofiler.png',
   'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cassandra_fdw', 'CassandraFDW', '',
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cassandra_fdw', 'CassandraFDW', 'cstar_fdw.png',
   '', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
-INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases', 'athena_fdw', 'AthenaFDW', '',
+INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases', 'athena_fdw', 'AthenaFDW', 'athena_fdw.png',
   '', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
-INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 'pgLogical', '',
+INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 'pgLogical', 'pglogical.png',
   '', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 
-INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 'TimescaleDB', '',
+INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 'TimescaleDB', 'timescaledb.png',
   '', 'https://github.com/timescale/timescaledb/timescaledb#timescaledb');
 
-INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  'DDLeXtractor', '',
+INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  'DDLeXtractor', 'ddlx.png',
   '', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 
-INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'Anonymizer', 'anon.png', '',
+INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 'Anonymizer', 'anon.png', 
   '', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
-INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', '', '', '',
+INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 'pgTSQL', 'pgtsql.png',
   '', 'https://github.com/bigsq/pgtsql#pgtsqll');
 
-INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases', '', '', '',
+INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 'HypoPG', 'hypopg.png',
   '', 'https://hypopg.readthedocs.io/en/latest/');
 
-INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases', '', '', '',
+INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases', 'docker', 'Docker', 'docker.png',
   '', 'https://github.com/docker/docker-ce/#docker-ce');
 
 INSERT INTO projects VALUES ('nginx', 3, 8080, 'hub', 0, '', '', '', '',
   '', '');
 
-INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases', '', '', '',
+INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 'OmniDB', 'omnidb.png',
   '', 'https://github.com/omnidb/omnidb/#omnidb');
 
-INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', '', '', '',
+INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'patroni', 'Patroni', 'patroni.png',
   '', 'https://github.com/zalando/patroni');
 
-INSERT INTO projects VALUES ('minishift', 3, 0, 'hub', 0, 'https://github.com/minishift/minishift/releases', '', '', '',
+INSERT INTO projects VALUES ('minishift', 3, 0, 'hub', 0, 'https://github.com/minishift/minishift/releases', 'minishift', 'MiniShift', 'kubernetes.png',
   '', 'https://github.com/minishift/minishift');
 
 
