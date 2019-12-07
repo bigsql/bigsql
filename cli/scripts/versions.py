@@ -7,7 +7,8 @@ c = con.cursor()
 sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
       "       version, sources_url, project_url, platform, release_date \n" + \
       "  FROM v_versions \n" + \
-      " WHERE is_current = 1 and stage = 'prod'"
+      " WHERE is_current = 1 and stage = 'prod'" + \
+      "ORDER BY cat, project, release_name"
 
 c.execute(sql)
 data = c.fetchall()
