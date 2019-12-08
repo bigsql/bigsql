@@ -11,6 +11,7 @@ CREATE TABLE stages (
 );
 INSERT INTO stages VALUES ('prod');
 INSERT INTO stages VALUES ('test');
+INSERT INTO stages VALUES ('deprecated');
 
 
 CREATE TABLE categories (
@@ -38,103 +39,122 @@ CREATE TABLE projects (
   project_url    TEXT    NOT NULL,
   FOREIGN KEY (category) REFERENCES categories(category)
 );
-INSERT INTO projects VALUES ('hub', 0, 0, 'hub', 0, 'https://github.com/', '',  '', '',
-  '', '');
 
-INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 'PostgreSQL', '', 
-  'Advanced RDBMS', 'https://postgresql.org');
+INSERT INTO projects VALUES ('hub', 0, 0, 'hub', 0, 'https://github.com/',
+ '',  '', '',
+ '', '');
 
-INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 'plProfiler', 'plprofiler.png',
-  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
+INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 
+ 'postgres', 'PostgreSQL', 'postgres.png', 
+ 'Advanced RDBMS', 'https://postgresql.org');
+
+INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases',
+ 'plprofiler', 'plProfiler', 'plprofiler.png',
+ 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
 INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cassandra_fdw', 'CassandraFDW', 'cstar_fdw.png',
-  '', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
+ 'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
-INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases', 'athena_fdw', 'AthenaFDW', 'athena_fdw.png',
-  '', 'https://github.com/bigsql/athena_fdw#athena_fdw');
+INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases',
+ 'athena_fdw', 'AthenaFDW', 'athena_fdw.png',
+ 'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
-INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 'pgLogical', 'pglogical.png',
-  '', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
+INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
+ 'pglogical', 'pgLogical', 'logical.png',
+ 'Logical & Bi-Directional Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 
-INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 'TimescaleDB', 'timescaledb.png',
-  '', 'https://github.com/timescale/timescaledb/timescaledb#timescaledb');
+INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
+ 'timescaledb', 'TimescaleDB', 'timescaledb.png',
+ 'Time Series Extension', 'https://github.com/timescale/timescaledb/timescaledb#timescaledb');
 
-INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  'DDLeXtractor', 'ddlx.png',
-  '', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases',
+ 'ddlx',  'DDLeXtractor', 'ddlx.png',
+ 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 
-INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 'Anonymizer', 'anon.png', 
-  '', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
+ 'anon', 'Anonymizer', 'anon.png', 
+ 'PostgreSQL Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
-INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 'pgTSQL', 'pgtsql.png',
-  '', 'https://github.com/bigsq/pgtsql#pgtsqll');
+INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
+ 'pgtsql', 'pgTSQL', 'tsql.png',
+ 'SQL Server & Sybase COmpatible Stored Procs', 'https://github.com/bigsq/pgtsql#pgtsqll');
 
-INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 'HypoPG', 'hypopg.png',
-  '', 'https://hypopg.readthedocs.io/en/latest/');
+INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
+ 'hypopg', 'HypoPG', 'hypopg.png',
+ 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
 
-INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases', 'docker', 'Docker', 'docker.png',
-  '', 'https://github.com/docker/docker-ce/#docker-ce');
+INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases',
+ 'docker', 'Docker', 'docker.png',
+ 'Standalone container to run an application', 'https://github.com/docker/docker-ce/#docker-ce');
 
-INSERT INTO projects VALUES ('nginx', 3, 8080, 'hub', 0, '', '', '', '',
-  '', '');
+INSERT INTO projects VALUES ('nginx', 3, 8080, 'hub', 0, '',
+ '', '', '',
+ 'HTTP Server', 'https://nginx.org');
 
-INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 'OmniDB', 'omnidb.png',
-  '', 'https://github.com/omnidb/omnidb/#omnidb');
+INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases',
+ 'omnidb', 'OmniDB', 'omnidb.png',
+ 'DB Admin & Monitoring for PG, Oracle, SQL Server, Sybase, and MySQL', 'https://github.com/omnidb/omnidb/#omnidb');
 
-INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'patroni', 'Patroni', 'patroni.png',
-  '', 'https://github.com/zalando/patroni');
+INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
+ 'patroni', 'Patroni', 'patroni.png',
+ 'HA Template for Kubernetes', 'https://github.com/zalando/patroni');
 
-INSERT INTO projects VALUES ('minishift', 3, 0, 'hub', 0, 'https://github.com/minishift/minishift/releases', 'minishift', 'MiniShift', 'kubernetes.png',
-  '', 'https://github.com/minishift/minishift');
+INSERT INTO projects VALUES ('minishift', 3, 0, 'hub', 0, 'https://github.com/minishift/minishift/releases',
+ 'minishift', 'MiniShift', 'kubernetes.png',
+ 'Run Kubernetes Origin cluster locally inside a VM', 'https://github.com/minishift/minishift');
 
 
 CREATE TABLE releases (
-  component  TEXT    NOT NULL PRIMARY KEY,
-  project    TEXT    NOT NULL,
-  disp_name  TEXT    NOT NULL,
-  short_desc TEXT    NOT NULL,
-  sup_plat   TEXT    NOT NULL,
-  doc_url    TEXT    NOT NULL,
-  stage      TEXT    NOT NULL,
+  component  TEXT     NOT NULL PRIMARY KEY,
+  sort_order SMALLINT NOT NULL,
+  project    TEXT     NOT NULL,
+  disp_name  TEXT     NOT NULL,
+  doc_url    TEXT     NOT NULL,
+  stage      TEXT     NOT NULL,
   FOREIGN KEY (project) REFERENCES projects(project),
   FOREIGN KEY (stage)   REFERENCES stages(stage)
 );
-INSERT INTO releases VALUES ('hub', 'hub', 'Hidden', 'Hidden', '',  '', 'prod');
+INSERT INTO releases VALUES ('hub',                1, 'hub',           'Hidden',       '', 'prod');
 
-INSERT INTO releases VALUES ('pg94', 'pg', 'PostgreSQL 9.4', 'PG Server', '', '/docs/9.4/', 'prod');
-INSERT INTO releases VALUES ('pg95', 'pg', 'PostgreSQL 9.5', 'PG Server', '', '/docs/9.5/', 'prod');
-INSERT INTO releases VALUES ('pg96', 'pg', 'PostgreSQL 9.6', 'PG Server', '', '/docs/9.6/', 'prod');
-INSERT INTO releases VALUES ('pg10', 'pg', 'PostgreSQL 10',  'PG Server', '', '/docs/10/',  'prod');
-INSERT INTO releases VALUES ('pg11', 'pg', 'PostgreSQL 11',  'PG Server', '', '/docs/11/',  'prod');
-INSERT INTO releases VALUES ('pg12', 'pg', 'PostgreSQL 12',  'PG Server', '', '/docs/12/',  'prod');
-INSERT INTO releases VALUES ('pg13', 'pg', 'PostgreSQL 13',  'PG Server', '', '/docs/13/',  'test');
+INSERT INTO releases VALUES ('pg90',               7, 'pg',            'Postgres 9.0', '/docs/9.0/', 'deprecated');
+INSERT INTO releases VALUES ('pg91',               8, 'pg',            'Postgres 9.1', '/docs/9.1/', 'deprecated');
+INSERT INTO releases VALUES ('pg92',               9, 'pg',            'Postgres 9.2', '/docs/9.4/', 'deprecated');
+INSERT INTO releases VALUES ('pg93',              10, 'pg',            'Postgres 9.3', '/docs/9.3/', 'deprecated');
+INSERT INTO releases VALUES ('pg94',              11, 'pg',            'Postgres 9.4', '/docs/9.4/', 'prod');
+INSERT INTO releases VALUES ('pg95',              12, 'pg',            'Postgres 9.5', '/docs/9.5/', 'prod');
+INSERT INTO releases VALUES ('pg96',              13, 'pg',            'Postgres 9.6', '/docs/9.6/', 'prod');
+INSERT INTO releases VALUES ('pg10',              14, 'pg',            'Postgres 10',  '/docs/10/',  'prod');
+INSERT INTO releases VALUES ('pg11',              15, 'pg',            'Postgres 11',  '/docs/11/',  'prod');
+INSERT INTO releases VALUES ('pg12',              16, 'pg',            'Postgres 12',  '/docs/12/',  'prod');
 
-INSERT INTO releases VALUES ('hypopg-pg11', 'hypopg', 'hypoPG', 'Hypothetical Indexes', '', '', 'prod');
-INSERT INTO releases VALUES ('hypopg-pg12', 'hypopg', 'hypoPG', 'Hypothetical Indexes', '', '', 'prod');
+INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',       '', 'prod');
+INSERT INTO releases VALUES ('hypopg-pg12',        2, 'hypopg',        'HypoPG',       '', 'prod');
 
-INSERT INTO releases VALUES ('pgtsql-pg11', 'pgtsql', 'pgTSQL', 'Transact SQL like', '', '', 'prod');
+INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'pgTSQL',       '', 'prod');
 
-INSERT INTO releases VALUES ('pglogical-pg11', 'pglogical', 'pgLogical', 'Logical Replication', '', '', 'prod');
+INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
-INSERT INTO releases VALUES ('plprofiler-pg11', 'plprofiler', 'plProfiler', 'PL Performance Profiler', '', 'https://github.com/bigsql/plprofiler', 'prod');
-INSERT INTO releases VALUES ('plprofiler-pg12', 'plprofiler', 'plProfiler', 'PL Performance Profiler', '', 'https://github.com/bigsql/plprofiler', 'prod');
+INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
+INSERT INTO releases VALUES ('plprofiler-pg12',    2, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
-INSERT INTO releases VALUES ('ddlx-pg11', 'ddlx', 'DDL Extractor', '', '', '', 'prod');
-INSERT INTO releases VALUES ('ddlx-pg12', 'ddlx', 'DDL Extractor', '', '', '', 'prod');
+INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor', '', 'prod');
+INSERT INTO releases VALUES ('ddlx-pg12',          2, 'ddlx',          'DDLeXtractor', '', 'prod');
 
-INSERT INTO releases VALUES ('anon-pg11', 'anon', 'Anonymizer', '', '', '', 'prod');
-INSERT INTO releases VALUES ('anon-pg12', 'anon', 'Anonymizer', '', '', '', 'prod');
+INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',   '', 'prod');
+INSERT INTO releases VALUES ('anon-pg12',          2, 'anon',          'Anonymizer',   '', 'prod');
 
-INSERT INTO releases VALUES ('timescaledb-pg11', 'timescaledb', 'TimescaleDB', '', '', '', 'prod');
+INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',  '', 'prod');
 
-INSERT INTO releases VALUES ('cassandra_fdw-pg11', 'cassandra_fdw', 'CassandraFDW', 'C* Interoperability', '', '', 'test');
-INSERT INTO releases VALUES ('athena_fdw-pg11', 'athena_fdw', 'AthenaFDW', 'Hive Queries', '', '', 'test');
+INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'CassandraFDW', '', 'test');
 
-INSERT INTO releases VALUES ('minishift', 'minishift',  '', '', '', '', 'test');
-INSERT INTO releases VALUES ('patroni',   'patroni',    '', '', '', '', 'test');
-INSERT INTO releases VALUES ('docker',    'docker',     '', '', '', '', 'test');
-INSERT INTO releases VALUES ('nginx',     'nginx',      '', '', '', '', 'test');
-INSERT INTO releases VALUES ('omnidb',    'omnidb',     '', '', '', '', 'test');
-INSERT INTO releases VALUES ('salt',      'salt',       '', '', '', '', 'test');
+INSERT INTO releases VALUES ('athena_fdw-pg11',    1, 'athena_fdw',    'AthenaFDW',    '', 'test');
+
+INSERT INTO releases VALUES ('minishift',          1, 'minishift',     'MiniShift',    '', 'prod');
+INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',      '', 'prod');
+INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker CE',    '', 'prod');
+INSERT INTO releases VALUES ('nginx',              1, 'nginx',         'NgInx',        '', 'prod');
+INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',       '', 'prod');
+INSERT INTO releases VALUES ('salt',               1, 'salt',          'SaltStack',    '', 'test');
 
 
 CREATE TABLE versions (
@@ -175,9 +195,9 @@ INSERT INTO versions VALUES ('anon-pg12',          '0.5.0-1',  'linux64',       
 
 INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64',                      1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',               0, '20200101', 'pg11');
+INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',               1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',               0, '20200101', 'pg11');
+INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',               1, '20200101', 'pg11');
 
 INSERT INTO versions VALUES ('minishift',          '1.34.1',   'linux64',               1, '20200101', '');
 
