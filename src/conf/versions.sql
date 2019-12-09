@@ -52,11 +52,11 @@ INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/b
  'plprofiler', 'plProfiler', 'plprofiler.png',
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cassandra_fdw', 'CassandraFDW', 'cstar_fdw.png',
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cassandra_fdw', 'CassandraFDW', 'cassandra.png',
  'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
 INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases',
- 'athena_fdw', 'AthenaFDW', 'athena_fdw.png',
+ 'athena_fdw', 'AthenaFDW', 'athena.png',
  'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
@@ -194,7 +194,8 @@ INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',              
 CREATE VIEW v_versions AS
   SELECT p.category as cat, c.description as cat_desc, p.image_file,
          r.component, r.project, r.stage, r.disp_name as release_name,
-         v.version, p.sources_url, p.project_url, v.platform, v.is_current, v.release_date
+         v.version, p.sources_url, p.project_url, v.platform, 
+         v.is_current, v.release_date, p.description as proj_desc
     FROM categories c, projects p, releases r, versions v
    WHERE c.category = p.category
      AND p.project = r.project
