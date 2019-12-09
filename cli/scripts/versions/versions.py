@@ -3,7 +3,8 @@ con = sqlite3.connect("local.db")
 c = con.cursor()
 
 sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
-      "       version, sources_url, project_url, platform, release_date, stage \n" + \
+      "       version, sources_url, project_url, platform, release_date, \n" + \
+      "       stage, proj_desc \n" + \
       "  FROM v_versions \n" + \
       " WHERE is_current = 1 AND cat > 0 \n" + \
       "ORDER BY cat, project, release_name"
@@ -59,6 +60,8 @@ for d in data:
     rel_day = rel_day[2:]
 
   stage = str(d[11])
+  proj_desc = str(d[12])
+
 
   print("  <tr>")
 
@@ -66,9 +69,8 @@ for d in data:
   print("    <td><img src=img/" + image_file + " height=35 width=35 /></td>")
   print("    <td><a href=" + project_url + ">" + release_name + "</a></td>")
   print("    <td><a href=" + source_url + ">" + component + "</a></td>")
-  print("    <td><font color=red size=-1>" + rel_month + " " + rel_day + "</font></td>")
-  print("    <td>" + stage + "</td>")
-  print("    <td>" + platform + "</td>")
+  print("    <td>v" + version + "&nbsp;&nbsp<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
+  print("    <td>" + proj_desc + "</td>")
 
   print("  </tr>")
 
