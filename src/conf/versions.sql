@@ -99,9 +99,9 @@ INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zala
  'patroni', 'Patroni', 'patroni.png',
  'HA Template for Kubernetes', 'https://github.com/zalando/patroni');
 
-INSERT INTO projects VALUES ('minishift', 3, 0, 'hub', 0, 'https://github.com/minishift/minishift/releases',
- 'minishift', 'MiniShift', 'kubernetes.png',
- 'Run Kubernetes Origin cluster locally inside a VM', 'https://github.com/minishift/minishift');
+INSERT INTO projects VALUES ('minikube', 3, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases',
+ 'minikube', 'MiniKube', 'kubernetes.png',
+ 'Run Kubernetes locally', 'https://github.com/kubernetes/minikube');
 
 
 CREATE TABLE releases (
@@ -116,26 +116,16 @@ CREATE TABLE releases (
 );
 INSERT INTO releases VALUES ('hub',                1, 'hub',           'Hidden',       '', 'prod');
 
-INSERT INTO releases VALUES ('pg90',               7, 'pg',            'Postgres 9.0', '/docs/9.0/', 'deprecated');
-INSERT INTO releases VALUES ('pg91',               8, 'pg',            'Postgres 9.1', '/docs/9.1/', 'deprecated');
-INSERT INTO releases VALUES ('pg92',               9, 'pg',            'Postgres 9.2', '/docs/9.4/', 'deprecated');
-INSERT INTO releases VALUES ('pg93',              10, 'pg',            'Postgres 9.3', '/docs/9.3/', 'deprecated');
-INSERT INTO releases VALUES ('pg94',              11, 'pg',            'Postgres 9.4', '/docs/9.4/', 'prod');
-INSERT INTO releases VALUES ('pg95',              12, 'pg',            'Postgres 9.5', '/docs/9.5/', 'prod');
-INSERT INTO releases VALUES ('pg96',              13, 'pg',            'Postgres 9.6', '/docs/9.6/', 'prod');
-INSERT INTO releases VALUES ('pg10',              14, 'pg',            'Postgres 10',  '/docs/10/',  'prod');
 INSERT INTO releases VALUES ('pg11',              15, 'pg',            'Postgres 11',  '/docs/11/',  'prod');
 INSERT INTO releases VALUES ('pg12',              16, 'pg',            'Postgres 12',  '/docs/12/',  'prod');
 
 INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',       '', 'prod');
-INSERT INTO releases VALUES ('hypopg-pg12',        2, 'hypopg',        'HypoPG',       '', 'prod');
 
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'pgTSQL',       '', 'prod');
 
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
-INSERT INTO releases VALUES ('plprofiler-pg12',    2, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
 INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor', '', 'prod');
 INSERT INTO releases VALUES ('ddlx-pg12',          2, 'ddlx',          'DDLeXtractor', '', 'prod');
@@ -149,12 +139,11 @@ INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandr
 
 INSERT INTO releases VALUES ('athena_fdw-pg11',    1, 'athena_fdw',    'AthenaFDW',    '', 'test');
 
-INSERT INTO releases VALUES ('minishift',          1, 'minishift',     'MiniShift',    '', 'prod');
+INSERT INTO releases VALUES ('minikube',           1, 'minikube',      'MiniKube',     '', 'prod');
 INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',      '', 'prod');
 INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker CE',    '', 'prod');
-INSERT INTO releases VALUES ('nginx',              1, 'nginx',         'NgInx',        '', 'prod');
+INSERT INTO releases VALUES ('nginx',              1, 'nginx',         'NGINX',        '', 'test');
 INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',       '', 'prod');
-INSERT INTO releases VALUES ('salt',               1, 'salt',          'SaltStack',    '', 'test');
 
 
 CREATE TABLE versions (
@@ -170,28 +159,20 @@ CREATE TABLE versions (
 
 INSERT INTO versions VALUES ('hub', '20.01', '', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg94',               '9.4.25-1', 'linux64, arm64, osx64',        0, '20200101', '');
-INSERT INTO versions VALUES ('pg95',               '9.5.20-1', 'linux64, arm64, osx64',        0, '20200101', '');
-INSERT INTO versions VALUES ('pg96',               '9.6.16-1', 'linux64, arm64, osx64',        0, '20200101', '');
-INSERT INTO versions VALUES ('pg10',               '10.11-4',  'linux64, arm64, osx64',        0, '20200101', '');
 INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, osx64',        1, '20200101', '');
 INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        1, '20200101', '');
 
 INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64',                      1, '20200101', 'pg11');
-INSERT INTO versions VALUES ('hypopg-pg12',        '1.1.3-1',  'linux64',                      0, '20200101', 'pg12');
 
 INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64,',                     1, '20200101', 'pg11');
 
 INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64',                      1, '20200101', 'pg11');
 
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64',                      1, '20200101', 'pg11');
-INSERT INTO versions VALUES ('plprofiler-pg12',    '4.1-1',    'linux64',                      0, '20200101', 'pg12');
 
 INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64',                      1, '20200101', 'pg11');
-INSERT INTO versions VALUES ('ddlx-pg12',          '0.15-1',   'linux64',                      0, '20200101', 'pg12');
 
 INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64',                      1, '20200101', 'pg11');
-INSERT INTO versions VALUES ('anon-pg12',          '0.5.0-1',  'linux64',                      0, '20200101', 'pg12');
 
 INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64',                      1, '20200101', 'pg11');
 
@@ -199,12 +180,14 @@ INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',       
 
 INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',               1, '20200101', 'pg11');
 
-INSERT INTO versions VALUES ('minishift',          '1.34.1',   'linux64',               1, '20200101', '');
+INSERT INTO versions VALUES ('minikube',           '1.5.2',    '',                      1, '20191031', '');
 
-INSERT INTO versions VALUES ('docker',             '1',        '',                      1, '20200101', '');
-INSERT INTO versions VALUES ('nginx' ,             '1',        '',                      1, '20200101', '');
-INSERT INTO versions VALUES ('salt',               '1',        '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('docker',             '19.03',    '',                      1, '20191113', '');
+
+INSERT INTO versions VALUES ('nginx' ,             '1',        '',                      0, '20200101', '');
+
 INSERT INTO versions VALUES ('omnidb',             '2.16-1',   '',                      1, '20200101', '');
+
 INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      1, '20200101', '');
 
 

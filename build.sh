@@ -28,18 +28,13 @@ fi
 
 printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
-  echo "# -p $P12  $P11  $P10  $P96  $P95  $P94  $P93"
+  echo "# -p $P12  $P11"
   echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
-  echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  minishift-$minishiftV"
+  echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV"
+  echo "#    minikube-$minikubeV  docker-$dockerV"
   echo "#    plprofiler-$profV  pgtsql-$tsqlV  patroni-$patroniV"
-  ##echo "# -B pip-$pipV  salt-$saltV"
   echo "# -b hub-$hubV"
   echo "#-------------------------------------------------------------------#"
-  echo "# ./build.sh -X l64 -c $bundle -N $P93 -p 93 -b"
-  echo "# ./build.sh -X l64 -c $bundle -N $P94 -p 94 -b"
-  echo "# ./build.sh -X l64 -c $bundle -N $P95 -p 95 -b"
-  echo "# ./build.sh -X l64 -c $bundle -N $P96 -p 96 -b"
-  echo "# ./build.sh -X l64 -c $bundle -N $P10  -p 10 -b"
   echo "# ./build.sh -X l64 -c $bundle -N $P11   -p 11 -b"
   echo "# ./build.sh -X l64 -c $bundle -N $P12   -p 12 -b"
   echo "#---------------------------------------------------#"
@@ -407,8 +402,9 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
-  initC "patroni"   "patroni"   "$patroniV"   ""         "postgres/patroni"  "" "" "nil"
-  initC "minishift" "minishift" "$minishiftV" "$outPlat" "minishift"         "" "" "nil"
+  initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
+  initC "minikube" "minikube" "$minikubeV" "" "minikube"          "" "" "nil"
+  initC "docker"   "docker"   "$dockerV"   "" "docker"            "" "" "nil"
 
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"

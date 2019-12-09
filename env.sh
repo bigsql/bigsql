@@ -25,13 +25,11 @@ profV=4.1-1
 cstarV=3.1.4-1
 athenafdwV=3.1-2
 tsqlV=3.0-1
-minishiftV=1.34.1
 patroniV=1.6.1
-saltV=2019pp
-pipV=19pp
 
+minikubeV=1.5.2
+dockerV=19.03
 
-mysqlV=8.0.18-1
 mysqlfdwV=2.0.5-1
 
 HUB="$PWD"

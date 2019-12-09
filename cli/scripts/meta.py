@@ -221,7 +221,8 @@ def get_platform_specific_version(p_comp, p_ver):
 
 ## get list of installed & available components ###############################
 def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=None, p_relnotes=None, p_return=False):
-  r_sup_plat = util.like_pf("r.sup_plat")
+  # r_sup_plat = util.like_pf("r.sup_plat")
+  r_sup_plat = "1 = 1"
 
   if p_isOLD:
     exclude_comp = ""
@@ -245,7 +246,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     "       c.datadir, p.short_desc, \n" + \
     "       coalesce((select parent from versions where c.component = component and c.version = version),'') as parent, \n" + \
     "       coalesce((select release_date from versions where c.component = component and c.version = version),'20200101'), \n" + \
-    "       c.install_dt, r.disp_name, r.short_desc, \n" + \
+    "       c.install_dt, r.disp_name, \n" + \
     "       coalesce((select release_date from versions where c.component = component and is_current = 1),'20200101') \n" + \
     "  FROM components c, releases r, projects p, categories g \n" + \
     " WHERE c.component = r.component AND r.project = p.project \n" + \
@@ -255,7 +256,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
   available = \
     "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
     "       r.stage, v.is_current, '', p.short_desc, v.parent as parent, v.release_date, '', \n" + \
-    "       r.disp_name, r.short_desc, \n" + \
+    "       r.disp_name, \n" + \
     "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
     "  FROM versions v, releases r, projects p, categories c \n" + \
     " WHERE v.component = r.component AND r.project = p.project \n" + \
@@ -266,7 +267,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
   extensions = \
     "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
     "       r.stage, v.is_current, '', p.short_desc, v.parent as parent, v.release_date, '', \n" + \
-    "       r.disp_name, r.short_desc, \n" + \
+    "       r.disp_name,  \n" + \
     "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
     "  FROM versions v, releases r, projects p, categories c \n" + \
     " WHERE v.component = r.component AND r.project = p.project \n" + \
@@ -358,11 +359,12 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       parent = row[10]
 
       disp_name = row[13]
-      release_desc = row[14]
 
+      release_desc = short_desc
       release_date = '1970-01-01'
       curr_rel_date = '1970-01-01'
-      curr_rel_dt=str(row[15])
+
+      curr_rel_dt=str(row[14])
       rel_dt = str(row[11])
       if len(rel_dt) == 8:
         release_date = rel_dt[0:4] + "-" + rel_dt[4:6] + "-" + rel_dt[6:8]
