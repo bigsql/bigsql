@@ -65,7 +65,7 @@ INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2n
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
  'timescaledb', 'TimescaleDB', 'timescaledb.png',
- 'Time Series Extension', 'https://github.com/timescale/timescaledb/timescaledb#timescaledb');
+ 'Time Series Extension', 'https://github.com/timescale/timescaledb/#timescaledb');
 
 INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases',
  'ddlx',  'DDLeXtractor', 'ddlx.png',
@@ -97,11 +97,11 @@ INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com
 
 INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
  'patroni', 'Patroni', 'patroni.png',
- 'HA Template for Kubernetes', 'https://github.com/zalando/patroni');
+ 'BigSQL High Availability for Kubernetes', 'https://github.com/zalando/patroni');
 
 INSERT INTO projects VALUES ('minikube', 3, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases',
- 'minikube', 'MiniKube', 'kubernetes.png',
- 'Run Kubernetes locally', 'https://github.com/kubernetes/minikube');
+ 'minikube', 'MiniKube', 'minikube.png',
+ 'Run Kubernetes locally', 'https://minikube.sigs.k8s.io/');
 
 
 CREATE TABLE releases (
