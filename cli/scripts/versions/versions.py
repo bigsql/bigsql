@@ -66,10 +66,10 @@ for d in data:
   print("  <tr>")
 
   print("    <td>" + cat_desc + "</td>")
-  print("    <td><img src=img/" + image_file + " height=35 width=35 /></td>")
-  print("    <td><a href=" + project_url + ">" + release_name + "</a></td>")
-  print("    <td><a href=" + source_url + ">" + component + "</a></td>")
-  print("    <td>v" + version + "&nbsp;&nbsp<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
+  print("    <td width=55><img src=img/" + image_file + " height=50 width=50 /></td>")
+  print("    <td width=100><a href=" + project_url + ">" + release_name + "</a></td>")
+  print("    <td width=100><a href=" + source_url + ">v" + version + \
+          "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
   print("    <td>" + proj_desc + "</td>")
 
   print("  </tr>")

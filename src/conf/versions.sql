@@ -60,7 +60,7 @@ INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/b
  'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
- 'pglogical', 'pgLogical', 'logical.png',
+ 'pglogical', 'pgLogical', 'pglogical.png',
  'Logical & Bi-Directional Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
@@ -77,7 +77,7 @@ INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo
 
 INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
  'pgtsql', 'pgTSQL', 'tsql.png',
- 'SQL Server & Sybase COmpatible Stored Procs', 'https://github.com/bigsq/pgtsql#pgtsqll');
+ 'SQL Server & Sybase Compatible Stored Procs', 'https://github.com/bigsq/pgtsql#pgtsqll');
 
 INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
  'hypopg', 'HypoPG', 'hypopg.png',
@@ -128,10 +128,8 @@ INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogica
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
 INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor', '', 'prod');
-INSERT INTO releases VALUES ('ddlx-pg12',          2, 'ddlx',          'DDLeXtractor', '', 'prod');
 
 INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',   '', 'prod');
-INSERT INTO releases VALUES ('anon-pg12',          2, 'anon',          'Anonymizer',   '', 'prod');
 
 INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',  '', 'prod');
 
@@ -159,26 +157,26 @@ CREATE TABLE versions (
 
 INSERT INTO versions VALUES ('hub', '20.01', '', 1, '20200101', '');
 
-INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, osx64',        1, '20200101', '');
-INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        1, '20200101', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, osx64',        1, '20191114', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        1, '20191114', '');
 
-INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64',                      1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64',                      1, '20191123', 'pg11');
 
-INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64,',                     1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64,',                     1, '20191119', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64',                      1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64',                      1, '20190725', 'pg11');
 
-INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64',                      1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64',                      1, '20190823', 'pg11');
 
-INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64',                      1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64',                      1, '20191024', 'pg11');
 
-INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64',                      1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64',                      1, '20191109', 'pg11');
 
-INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64',                      1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64',                      1, '20191112', 'pg11');
 
-INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',               1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',                      1, '20190802', 'pg11');
 
-INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',               1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',                      1, '20190707', 'pg11');
 
 INSERT INTO versions VALUES ('minikube',           '1.5.2',    '',                      1, '20191031', '');
 
@@ -186,9 +184,9 @@ INSERT INTO versions VALUES ('docker',             '19.03',    '',              
 
 INSERT INTO versions VALUES ('nginx' ,             '1',        '',                      0, '20200101', '');
 
-INSERT INTO versions VALUES ('omnidb',             '2.16-1',   '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('omnidb',             '2.16-1',   '',                      1, '20190613', '');
 
-INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      1, '20200101', '');
+INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      1, '20191115', '');
 
 
 CREATE VIEW v_versions AS
