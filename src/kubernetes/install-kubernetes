@@ -1,13 +1,25 @@
 
 OS=`uname`
 
-sudo yum install libvirt qemu-kvm
-sudo usermod -a -G libvirt $(whoami)
-sudo curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/v0.10.0/docker-machine-driver-kvm-centos7 -o /usr/local/bin/docker-machine-driver-kvm
-sudo chmod +x /usr/local/bin/docker-machine-driver-kvm
-sudo systemctl enable libvirtd
-sudo systemctl start libvirtd
+function runCmd () {
+  echo "#"
+  echo "# $1"
+  $1
+  RC=$?
+  if [ ! "$RC" == "0" ]; then
+    echo "ERROR: rc=$RC"
+    exit $RC
+  fi
+}
 
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
-  && chmod +x minikube
-sudo install minikube /usr/local/bin
+#sudo yum install libvirt qemu-kvm
+#sudo usermod -a -G libvirt $(whoami)
+#sudo curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/v0.10.0/docker-machine-driver-kvm-centos7 -o /usr/local/bin/docker-machine-driver-kvm
+#sudo chmod +x /usr/local/bin/docker-machine-driver-kvm
+#sudo systemctl enable libvirtd
+#sudo systemctl start libvirtd
+
+runCmd "curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+runCmd "chmod +x minikube"
+runCmd "sudo install minikube /usr/local/bin"
+runCmd "rm minikube"
