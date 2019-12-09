@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+
+<div class="col-md-9">
+
+<div id="pg-installers" class="row">
+
+<div class="col-md-7 col-sm-12 col-xs-12">
+
+<h1>PostgreSQL Package Manager</h1>
+
+<p>64-bit Linux binaries</a>
+
+<p>&nbsp;<p>
+
+</div>
+
+<div id="pg10" class="col-md-6 col-sm-12 col-xs-12">
+   <div class="panel panel-default">
+     {% include "/postgresql/include-packages-11.html" %}
+   </div>
+</div>
+
+
+<div id="pg11" class="col-md-6 col-sm-12 col-xs-12">
+</div>
+
+<div class="col-md-6 col-sm-12 col-xs-12">
+</div>
+
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+  <ul class="pginst-other-links">
+  </ul>
+    
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+{% endblock %}

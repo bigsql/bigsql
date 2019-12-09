@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Postgres Package Manager by BigSQL</h1>
+
+Our Postgres Package Manager is a simple and powerful way to install PostgreSQL and it's family of components from the command line into a self contained and relocatable directory.
+
+Take a look at our <a href="{{config['APPLICATION_ROOT']}}/docs/apg/apg"><u>APG tutorial</u></a> to learn more.
+
+<h2>Install BigSQL APG</h2>
+
+Paste one of the below commands at a terminal/command prompt, from the directory you wish to install <code>bigsql/apg</code>.  
+A bigsql subdirectory is created with everything you need to run <code>apg</code> commands.
+
+<p>&nbsp;<p>
+<img height=25 width=25 src="{{ url_for('static',filename='img/linux.png')}}">&nbsp;
+At the Linux  command line use this command:
+<br>&nbsp;
+<pre>
+     python -c "$(curl -fsSL https://bigsql-download.s3.amazonaws.com/REPO/install.py)"
+</pre>
+<table>
+  <tr><td><b>Notes:</b>&nbsp;&nbsp;</td>
+  <tr><td></td><td>(1)- tested on CentOS 7, CentOS 8, & Amazon Linux 2</td></tr>
+</table>
+
+<p>&nbsp;
+<h2>Run BigSQL PGC Commands</h2>
+<p>
+Note that the version of PostgreSQL presently supported are <b>pg11</b>, and <b>pg12</b>.<br>
+
+<p>To install and run the PostgreSQL version of your choice type:<br>
+&nbsp;
+<pre>
+  cd bigsql
+  apg install pg11
+  apg start pg11
+</pre>
+
+<p>
+Learn more about our apg command line utility <a href="{{config['APPLICATION_ROOT']}}/docs/apg/apg">here</a>.&nbsp;&nbsp;
+
+
+<p>&nbsp;<p>
+
+{% endblock %}

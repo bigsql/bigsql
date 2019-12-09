@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="bg">
+       <img src="{{ url_for('static',filename='img/ELE-10.jpg')}}" alt="">
+    </div>
+
+<div id="home-wrapper" class="row">
+
+<div class="col-md-6 col-sm-12 col-xs-12">
+  <h1>Postgres by BigSQL</h1>
+  <h3>A developer-friendly distribution of the world's most advanced open source database.</h3>
+  <div class="home-button-wrapper">
+    <a class="btn btn-info btn-lg" id="hm-dl-btn" href="{{config['APPLICATION_ROOT']}}/postgresql/installers">Download</a>
+    <a class="btn btn-info btn-lg" id="hm-ab-btn" href="{{config['APPLICATION_ROOT']}}/info">Read More</a>
+  </div>
+  <br>&nbsp;<br>
+</div>
+
+</div>
+ {% endblock %}

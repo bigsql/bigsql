@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% include "/docs/include_docs.html" %}
+{% block content %}
+
+<h1>CassandraFDW: Apache Cassandra<sup>&reg;</sup> Foreign Data Wrapper</h1>
+
+
+<h2>Install and Enable CassandraFDW</h2>
+<p>CassandraFDW is currently available for version 10 of Postgres on Linux. You can install the CassandraFDW
+extension via pgc command line and then enable the extension in the database you want
+to access Cassandra from. To install CassandraFDW, run the following:</p>
+
+<pre><code class="bash">
+$ ./pgc install pg10
+$ ./pgc start pg10
+$ ./pgc install cassandra_fdw
+  ['cassandra_fdw3-pg10']
+Get:1 http://s3.amazonaws.com/pgcentral cassandra_fdw3-pg10-3.1.2-linux64
+  Unpacking cassandra_fdw3-pg10-3.1.2-linux64.tar.bz2
+</code></pre>
+
+Simply configure PostgreSQL one-time with the following commands:
+
+<pre><code class="sql">
+CREATE EXTENSION cassandra_fdw;
+
+CREATE SERVER cass_serv FOREIGN DATA WRAPPER cassandra_fdw
+  OPTIONS (host '127.0.0.1,127.0.0.2', port '9042');
+
+CREATE USER MAPPING FOR public SERVER cass_serv
+  OPTIONS (username 'test', password 'test');
+</code></pre>
+
+Now we reference the remote Cassandra table OORDER such that it can be used in PostgreSQL as the TEST foreign table.
+
+<pre><code class="sql">
+CREATE FOREIGN TABLE test (id int) SERVER cass_serv
+  OPTIONS (schema_name 'example', table_name 'oorder');
+</code></pre>
+
+To learn more, take a look at our <a href="http://bitbucket.org/openscg/cassandra_fdw">documentation</a>.
+
+<p>&nbsp;
+{% endblock %}

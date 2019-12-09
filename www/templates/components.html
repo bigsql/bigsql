@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} BigSQL Components {% endblock %}
+{% block content %}
+
+
+<div class="col-md-8 col-sm-12 col-xs-12">
+<table class="table table-responsive">
+
+
+  <tr>
+    <td><img height=32 width=32 src="{{ url_for('static',filename='img/plprofiler.png')}}"></td>
+    <td><a href="{{config['APPLICATION_ROOT']}}/docs/plprofiler">plProfiler</a></td>
+    <td><a href="https://github.com/bigsql/plprofiler/releases">4.1</a>&nbsp;<font color=red size=-2>Aug 23</font></td>
+    <td>StoredProc profiler</td>
+  </tr>
+  <tr>
+    <td><img height=32 width=32 src="{{ url_for('static',filename='img/pgcli.png')}}"></td>
+    <td><a href="{{config['APPLICATION_ROOT']}}/docs/apg/apg">APG</a></td>
+    <td><a href="https://github.com/bigsql/apg/releases">
+        5.0.4</a>&nbsp;<font color=red size=-2>Nov 26</font></td>
+    <td>API for PG provisioing, mgmt & ctrl</td>
+  </tr>
+  <tr>
+    <td><img height=32 width=32 src="{{ url_for('static',filename='img/tsql.png')}}"></td>
+    <td><a href="{{config['APPLICATION_ROOT']}}/docs/pgtsql">pgTSQL</a></td>
+    <td><a href="https://github.com/bigsql/pgtsql/releases">
+        3.0</a>&nbsp;<font color=red size=-2>Nov 14</font></td>
+    <td>Sybase & SQL Server Transact-SQL</td>
+  </tr>
+</table>
+</div>
+
+
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+
+{% endblock %}

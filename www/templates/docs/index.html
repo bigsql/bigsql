@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}PostgreSQL Documentation & Tutorials {% endblock %}
+{% block content %}
+<div id="bigsql-docs" class="row">
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+
+<h1>Documentation &amp; Tutorials</h1>
+
+<table class="table table-responsive">
+
+
+<tr id="doc_install">
+<td><h4>Installation</h4></td>
+<td> 
+  <a href="{{config['APPLICATION_ROOT']}}/package-manager">Command Line (Package Manager)</a>
+</td>
+</tr>
+
+<tr id="doc_extensions">
+</tr>
+
+<tr id="doc_spl">
+<td><h4>Stored Procedures</h4></td>
+<td>
+  <a href="proclang/proclang#plpgsql">PL/pgSQL Introduction</a>&nbsp;&nbsp;&nbsp;
+  <a href="plprofiler">PL Profiler</a>&nbsp;&nbsp;&nbsp;
+  <a href="debugger">PL Debugger</a>
+  <br>&nbsp;<br>
+  <a href="/docs/pgtsql">pgTSQL (Transact-SQL) Introduction</a>&nbsp;&nbsp;&nbsp;
+  <a href="proclang/proclang#plpython">PL/Python Introduction</a>&nbsp;&nbsp;&nbsp;
+  <a href="proclang/proclang#plperl">PL/Perl Introduction</a>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+{% endblock %}

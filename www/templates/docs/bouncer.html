@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% include "/docs/include_docs.html" %}
+{% block content %}
+
+
+<h1>PGBOUNCER: Lightweight Connection Pooler</h1>
+
+<h2>Overview</h2>
+PGBOUNCER is available in our Linux distribution.
+We recommend its use in most every serious producion environment.
+Take a look at the <a href="http://pgbouncer.github.io/usage.html">documentation</a> to learn more.
+
+<h2>Tutorial</h2>
+
+Make sure your PostgreSQL server is running.  The below example shows starting PostgreSQL for the first time using our Developers Sandox.
+<pre><code class="bash">
+$ ./pgc start pg95
+ 
+## Initializing pg95 #######################
+ 
+Superuser Password [password]: 
+Giving current user permission to data dir
+ 
+Initializing Postgres DB at:
+   -D "~/bigsql/data/pg95"
+ 
+Using PostgreSQL Port 5432
+ 
+Password securely remembered in the file: /home/userx/.pgpass
+ 
+to load this postgres into your environment, source the env file: 
+    ~/bigsql/pg95/pg95.env
+ 
+pg95 starting on port 5432
+</code></pre>
+
+<p>Next we install pgBouncer.
+<pre><code class="bash">
+$ ./pgc install pgbouncer18
+  ['pgbouncer18']
+Get:1 http://localhost:8000 pgbouncer18-1.8.1-1-linux64
+  Unpacking pgbouncer18-1.8.1-1-linux64.tar.bz2
+</code></pre>
+
+<p>Ensure that the password in the "users.txt" file matches
+the postgres superuser password set for our database.
+<pre><code class="bash">
+$ cat pgbouncer18/users.txt
+"postgres" "password"
+</code></pre>
+
+<p>Now we confirm that pgbouncer is installed and not yet running.
+<pre><code class="bash">
+$ ./pgc status
+pg95 running on port 5432
+pgbouncer18 stopped on port 6543
+</code></pre>
+
+<p>Next we startup pgbouncer and confirm that it is running.
+<pre><code class="bash">
+$ ./pgc start pgbouncer18
+ 
+pgbouncer18 starting...
+
+$ ./pgc status
+pg95 running on port 5432
+pgbouncer18 running on port 6543
+</code></pre>
+
+<p>Now we set some environment variables to make it easier to run <code>psql</code>
+<pre><code class="bash">
+$ cd pg95
+$ source pg95.env
+$ cd ..
+</code></pre>
+
+<p>We connect with psql to pgbouncer (running on port 6543) and pgbouncer connects us thru to the underlying database running on port 5432.
+<pre><code class="bash">
+$ psql -U postgres -p 6543
+Password for user postgres: 
+psql (9.5.2)
+Type "help" for help.
+
+postgres=#
+</code></pre>
+
+<p>&nbsp;
+{% endblock %}

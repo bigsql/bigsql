@@ -1,0 +1,102 @@
+#!/bin/bash
+#
+# chkconfig: 2345 85 15
+# description: Control bigsql web server process
+#
+### BEGIN INIT INFO
+# Provides:          bigsql
+# Required-Start: $remote_fs
+# Required-Stop: $remote_fs
+# Should-Start:
+# Should-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: BigSQL 
+# Description: BigSQL WebServer
+### END INIT INFO
+
+CROSSBAR_USER="ec2-user"
+CROSSBAR_HOME="/home/ec2-user/bigsql/bigsql-www-py"
+CROSSBAR_LOGS="/home/ec2-user/bigsql/logs/"
+CROSSBAR="/usr/local/bin/crossbar"
+
+# source function library
+. /etc/init.d/functions
+
+start()
+{
+    status 
+    if [ "$?" -eq 0 ]
+    then
+        printf "BigSQL Site is already running\n"
+        exit 0
+    else
+        echo -n $"Starting BigSQL.org Site... "
+    fi
+    su - $CROSSBAR_USER -c "nohup $CROSSBAR start --cbdir /home/ec2-user/bigsql/bigsql-www-py --loglevel info --logtofile --logdir $CROSSBAR_LOGS > $CROSSBAR_LOGS/startup.log 2>&1 & "
+
+    retval=$?
+    echo 
+    [ $retval -eq 0 ]
+}
+
+stop()
+{
+    status
+    if [ "$?" -ne 0 ]
+    then
+        printf "BigSQL Site is already stopped\n"
+        exit 0
+    fi
+    
+    su - $CROSSBAR_USER -c "$CROSSBAR stop --cbdir /home/ec2-user/bigsql/bigsql-www-py"
+    RETVAL=$?
+   
+    echo 
+    [ $RETVAL -eq 0 ] 
+}
+
+reload()
+{
+  /usr/local/bin/crossbar restart --cbdir /home/ec2-user/bigsql/bigsql-www-py --loglevel info --logtofile --logdir /home/ec2-user/bigsql/bigsql-www-py
+}
+
+status()
+{
+    if [ -n "$1" ]
+    then
+        su - $CROSSBAR_USER -c "$CROSSBAR status --cbdir /home/ec2-user/bigsql/bigsql-www-py >/dev/null 2>&1"
+    else
+      su - $CROSSBAR_USER -c "$CROSSBAR status --cbdir /home/ec2-user/bigsql/bigsql-www-py"
+    fi
+}
+
+restart() 
+{
+  stop
+  sleep 3
+  start
+}
+
+# Determine arguments passed to script
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  reload)
+        reload
+        ;;
+  restart)
+        restart
+        ;;
+  status)
+        status
+        ;;
+
+  *)
+        echo "Usage: $0 {start|stop|restart|reload|status}"
+        exit 1
+esac

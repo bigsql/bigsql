@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<base href="http://www.bigsql.org/">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Tutorial Template</title>
+                <meta name="title" content="Page title" />
+                <link rel="shortcut icon" href="{{config['APPLICATION_ROOT']}}/images/favicon.ico" />
+                <META name="keywords" content="Page keywords" />
+                <META name="description" content="Description for PostgreSQL by BigSQL" />
+		<link rel="stylesheet" type="text/css" href="{{config['APPLICATION_ROOT']}}/css/bluehaze.css" />
+		<link rel="stylesheet" type="text/css" href="{{config['APPLICATION_ROOT']}}/css/color-scheme.css" />
+		<link rel="stylesheet" type="text/css" href="{{config['APPLICATION_ROOT']}}/css/subetha.css" />
+		<link rel="stylesheet" type="text/css" href="{{config['APPLICATION_ROOT']}}/css/code.css" />
+                <link rel="stylesheet" type="text/css" href="{{config['APPLICATION_ROOT']}}/css/style.css" />
+
+		<script type="text/javascript" src="/js/functions.js"></script>
+
+		<style>
+		ol {list-style-type: decimal;}
+		ol li ol {list-style-type: lower-alpha;}
+		</style>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+
+	</head>
+<body topmargin="0" rightmargin="0" leftmargin="0">
+  <div class="main-header">
+
+  <!--Start-->
+    <div class="overall-header">
+	<div id="logged-menu">
+
+                <ul id="home-menu">
+                        <li id="maillist"><a href="{{config['APPLICATION_ROOT']}}/login_required.jsp">Mail List</a></li>
+                </ul>
+
+
+        </div>
+	<div class="header-one">
+    	<div class="header-11"><a href="{{config['APPLICATION_ROOT']}}/"><img src="/images/bigsqllogo70.png')}}" /></a></div>
+    	<div class="header-12">
+        	<ul>
+                       <li ><a href="{{config['APPLICATION_ROOT']}}/index.jsp">Home</a></li>
+            <li ><a href="{{config['APPLICATION_ROOT']}}/postgresql/packages.jsp">Downloads</a></li>
+			   <li ><a href="{{config['APPLICATION_ROOT']}}/components.jsp">Components</a></li>
+            <li ><a href="{{config['APPLICATION_ROOT']}}/docs/tutorials.jsp">Tutorials</a></li>
+			<li><a href="{{config['APPLICATION_ROOT']}}/about.jsp">About</a></li>
+
+                <li><a href="http://openscg.com/">Sponsor</a></li>
+
+            </ul>
+
+        </div>
+
+    	<div class="header-13">
+        </div>
+
+    </div>
+
+
+</div>
+
+<!--Ends-->
+</div>
+
+<div class="main-content">
+<!--Start-->
+<div class="overall-main-content">
+<!--	<div id="bodyText">-->
+<!--maincontent div starts-->
+<div class="maincontent">
+<div class="sub">
+
+<div w3-include-html="content.html"></div>
+<script>
+function getBaseUrl()
+{
+	 var baseUrl = '';
+	 baseUrl = location.origin;
+	 baseUrl += location.pathname.substr(0, location.pathname.lastIndexOf("/")) + "/";
+	 return baseUrl;
+}
+
+(
+function () {
+
+myHTMLInclude();
+
+function myHTMLInclude() {
+  var z, i, a, file, xhttp;
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    if (z[i].getAttribute("w3-include-html")) {
+      a = z[i].cloneNode(false);
+      file = getBaseUrl() + z[i].getAttribute("w3-include-html");
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          a.removeAttribute("w3-include-html");
+          a.innerHTML = xhttp.responseText;
+          z[i].parentNode.replaceChild(a, z[i]);
+          myHTMLInclude();
+
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
+    }
+  }
+}
+
+})();
+</script>
+<!-- script src="/js/w3-include-HTML.js"></script -->
+
+
+	</div> <!-- bodyText -->
+<!--maincontent div ends-->
+</div>
+
+
+
+
+
+</div>
+<!--Ends-->
+
+</div>
+
+		<!-- ###### Footer ###### -->
+	<!-- footer div starts -->
+		<div class="main-footer">
+<!--Start-->
+<div class="overall-footer">
+<!--
+        <div class="footer-first-row">
+                <div class="footer-first-row-1"><span class="downloads">FEATURED PROJECTS</span>
+                <span class="other-links">
+                        <a href="http://www.bigsql.org/"><b>BigSQL:</b> Postgres & Hadoop Integrated Bundle</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="http://www.tpostgres.org"><b>tPostgres:</b> Sybase & SQL Server Compatibility</a>
+                </span>
+                </div>
+        </div>
+ -->
+ <!--       <div class="footer-second-row">
+                <ul>
+                        <li><a href="{{config['APPLICATION_ROOT']}}/">Home</a></li>
+                        <li><a href="http://openscg.com/about-us/team">About Us</a></li>
+                        <li><a href="http://www.openscg.com">Our Sponsor</a></li>
+                        <li><a href="{{config['APPLICATION_ROOT']}}/oscg_community.jsp">Mail Lists</a></li>
+                        <li><a href="{{config['APPLICATION_ROOT']}}/home.jsp">My Account</a></li>
+                </ul>
+        </div>
+ -->
+        <div class="footer-third-row">&copy; 2016 BigSQL.  All rights reserved.</div>
+</div>
+<!--Ends-->
+</div>
+
+	<!-- footer div ends -->
+
+	<script>
+	addEventListener('load', function() {
+  	var code = document.querySelectorAll('code');
+		for (var i = 0; i < code.length; ++i) {
+			hljs.highlightBlock(code[i]);
+		}
+	});
+
+
+	</script>
+</body>
+</html>

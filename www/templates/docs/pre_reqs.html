@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %} Hadoop Pre-Requisites {% endblock %}
+{% block content %}
+
+<h1>Pre-Requisites for BigSQL/Hadoop Developers</h1>
+
+<table width=850><tr><td>
+A reasonably powerful 64-bit developers workstation is required to be succesful with this bundle.
+You will be running a complete Hadoop and PostgreSQL stack of server components, all on one computer, 
+in pseudo-distributed mode.   You need to dedicate <b>at least 6 GB of RAM</b> to the server 
+(or virtual machine) you configure.
+</td></tr></table>
+
+
+<h2>Step 1) An up to date 64-bit Linux</h2>
+<center><table cellpadding=5 border=1 width=750>
+  <tr><td><b>CentOS/RHEL 6</b></td><td><pre>su -c "yum upgrade"</pre></td></tr>
+  <tr><td><b>Ubuntu 12.04 LTS</b></td><td><pre>sudo apt-get update<br>sudo apt-get upgrade</pre></td></tr>
+</table></center>
+
+
+<p>&nbsp;
+<h2>Step 2) Make sure SSH Server is installed</h2>
+<center><table cellpadding=5 border=1 width=750>
+  <tr><td><b>RHEL</b></td><td><pre>su -c "yum install openssh-server"</pre></td></tr>
+  <tr><td><b>Ubuntu</b></td><td><pre>sudo apt-get install openssh-server</pre></td></tr>
+  <tr><td colspan=2><br>
+    After completing the above step, as a test, "ssh" to yourself using you're local (non-root) user account.  
+  </td></tr>
+</table></center>
+
+<p>&nbsp;
+<h2>Step 3) Make sure local Firewall is disabled</h2>
+<center><table cellpadding=5 border=1 width=750>
+  <tr><td><b>RHEL</b></td><td><pre>su -c "service iptables save"<br>su -c "chkconfig iptables off"</pre></td></tr>
+  <tr><td><b>Ubuntu</b></td><td><pre>sudo iptables -F<br>sudo ufw disable</pre></td></tr>
+  <tr><td colspan=2><br>
+    After completing the above step, as a test, "ssh" to yourself using you're local (non-root) user account.  
+  </td></tr>
+</table></center>
+
+<p>&nbsp;
+<h2>Step 4) Set the Hostname</h2>
+<center><table cellpadding=5 border=1 width=750>
+  <tr><td><b>RHEL</b></td>
+      <td>Set the HOSTNAME to something like "mymachine.mydomain" in the file "/etc/sysconfig/network"</td>
+  </tr>
+  <tr><td><b>Ubuntu</b></td>
+      <td>The file "etc/hostname" should have one line with "mymachine.mydomain"</td>
+  </tr>
+<tr><td colspan=2><br>
+After completing the above step, you need to re-boot so that this change takes effect.
+You should now be able to run the <code>hostname</code> command and have it echo back your hostname
+</td></tr>
+</table></center>
+
+<p>&nbsp;
+<h2>Step 5) Set the Fully Qualified Domain Name (FQDN)</h2>
+<center><table cellpadding=5 border=1 width=750>
+  <tr><td><b>Linux</b></td>
+      <td>Add a line to the end of your "/etc/hosts" file that identifies the fully qualified and short hostnames
+
+          <pre>192.168.1.200   mymachine.mydomain   mymachine</pre>
+
+          Of course you will substitute in an appropriate ip address for your environment.
+          With the above example names, the <code>"hostname -s"</code> command will display "mymachine" & 
+          the <code>"hostname -f"</code> command will display the FQDN as <code>"mymachine.mydomain"</code>.   
+          You will be able to ping this machine by either the short or full name.  
+          Of course you will substitute in an appropriate ip address for your environment.
+      </td>
+  </tr>
+</table></center>
+
+
+<p>&nbsp;
+<h2>Step 6) Ensure SSH locally without a password (for local non-root account)</h2>
+<center><table cellpadding=5 border=1 width=750>
+  <tr><td width=125><b>Linux<b></td><td>
+<pre>ssh-keygen -t dsa -N "" -f "$HOME/.ssh/id_dsa"
+touch $HOME/.ssh/authorized_keys
+chmod 600 $HOME/.ssh/authorized_keys
+cat $HOME/.ssh/id_dsa.pub >> $HOME/.ssh/authorized_keys
+
+ssh mymachine.mydomain</pre>
+  </td></tr>
+  <tr><td colspan=2><br>
+    <b>Note:</b> You will likely get a <code>fingerprint</code> warning the first time 
+                 you <code>ssh</code> to your local machine.
+    <br>&nbsp;
+  </td></tr>
+</table></center>
+
+<p>&nbsp;
+
+{% endblock %}

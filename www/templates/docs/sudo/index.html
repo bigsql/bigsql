@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+ol {list-style-type: decimal;}
+ol li ol {list-style-type: lower-alpha;}
+</style>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+
+<h1>sudo</h1>
+
+<p>sudo is a commonly used command on unix-based systems. Essentially, it allows a user to run a command as another user, by default the superuser. Originally, the command comes from the phrase ‘superuser do’ (sudo).  The sudo system provides fine-grained control to clearly and simply define who can do what as superuser.</p>
+<p>Password-less sudo is a convenient way to allow users to login to a machine with their own credentials and have access to root-required functionality. If you’d like to read a full background on this, take a look at the <a href="https://www.sudo.ws/">sudo.ws site</a>.</p>
+<p>To enable password-less sudo for a single user create a new file</p>
+<pre><code="text">/etc/sudoers.d/bigsql</code></pre>
+<p> Now, add the contents</p>
+<pre><code="text">bigsql      ALL=(ALL)     NOPASSWD: ALL</code></pre>
+<p>This essentially says, “the user bigsql can run all commands with no password”.  Now, login as the bigsql user, you should be able to:</p>
+<pre><code="text">$ sudo id
+uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023</code></pre>
+<p>Notice, because I used ‘sudo’ the id command actually ran as the root user, so, root should be returned. If you get an error, try logging out of the ‘bigsql’ user and logging back in before running sudo.</p>
+
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
