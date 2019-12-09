@@ -85,7 +85,7 @@ INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoP
 
 INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases',
  'docker', 'Docker', 'docker.png',
- 'Standalone container to run an application', 'https://github.com/docker/docker-ce/#docker-ce');
+ 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 
 INSERT INTO projects VALUES ('nginx', 3, 8080, 'hub', 0, '',
  'nginx', 'NGINX', 'nginx.png',
