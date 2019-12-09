@@ -20,7 +20,7 @@ $YUM install bison-devel readline-devel zlib-devel openssl-devel \
  pam-devel openldap-devel uuid-devel python-devel \
  unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath \
  docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight \
- perl-ExtUtils-Embed libevent-devel postgresql-devel \
+ perl-ExtUtils-Embed libevent-devel postgresql-devel
 
 $YUM install centos-release-scl llvm-toolset-7 llvm-toolset-7-llvm-devel
 
@@ -38,6 +38,27 @@ cd ~/dev
 mkdir in
 mkdir out
 mkdir dpg_history
+
+################################
+cd ~
+
+## pg built using --with-libgss
+VER=1.0.3
+wget ftp://ftp.gnu.org/gnu/gss/gss-$VER.tar.gz
+tar -xvf gss-$VER.tar.gz
+cd gss-$VER
+./configure
+make -j4
+sudo make install
+
+# recent CMAKE needed for timescaledb
+wget https://cmake.org/files/v3.15/cmake-3.15.5.tar.gz
+tar -xvzf cmake-3.15.5.tar.gz
+cd cmake-3.15.5
+./bootstrap
+make -j4
+sudo make install
+################################
 
 git clone https://github.com/dockpg/dpg
 
@@ -63,6 +84,25 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 
 export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
+
+####################################
+cd $BLD
+cp -p $DPG/devel/pgbin/build/* .
+
+cd ~
+mkdir .aws
+cd .aws
+vi config
+chmod 600 config
+
+cd $IN
+cp $DPG/devel/build/util/pull-s3.sh .
+./pull-s3.sh
+chmod 755 *.sh
+
+
+
+
 
 ```
 

@@ -28,23 +28,10 @@ if [ "$OS" == "Darwin" ]; then
   exit $RC
 fi
 
-yum --version 2>/dev/null 1>/dev/null
-rc=$?
-if [ $rc .eq 0 ]; then
-  YUM="sudo yum -y"
-  runCmd "$YUM update"
-  runCmd "$YUM install epel-release"
-  runCmd "$YUM $action $comp"
-else
-  GET="sudo apt-get -y"
-  runCmd "$GET update"
-  runCmd "$GET upgrade"
-  runCmd "$GET $action $comp"
-fi
-
-if [ "$action" == "install" ]; then
-  runCmd "sudo systemctl enable $comp"
-fi
-
-exit $RC
+runCmd "sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine"
+runCmd "sudo yum install -y yum-utils device-mapper-persistent-data lvm2"
+runCmd "sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+runCmd "sudo yum install -y docker-ce docker-ce-cli containerd.io"
+runCmd "sudo systemctl enable docker"
+runCmd "sudo systemctl start docker"
 

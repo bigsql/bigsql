@@ -1,2 +1,0 @@
-
-./provision-docker.sh remove 

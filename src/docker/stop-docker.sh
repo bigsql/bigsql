@@ -1,2 +1,0 @@
-
-./action-docker.sh stop
