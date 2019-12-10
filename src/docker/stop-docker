@@ -1,2 +1,2 @@
 
-./action-docker.sh stop
+docker/action-docker.sh stop
