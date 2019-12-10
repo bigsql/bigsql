@@ -1472,11 +1472,11 @@ try:
             install_dt = str(data[7])
             ins_release_dt=str(data[8])
 
-        sql = "SELECT c.category, c.description, p.project, r.component, v.version, v.platform, \n" + \
-              "       p.homepage_url, r.doc_url, v.is_current, \n" + \
+        sql = "SELECT c.category, c.description, p.project, r.component, v.version, \n" + \
+              "       v.platform, '', r.doc_url, v.is_current, \n" + \
               "       " + str(is_installed) + " as is_installed, r.stage, \n" + \
-              "       r.sup_plat, v.release_date, p.short_desc, \n" + \
-              "       r.disp_name, r.short_desc \n" + \
+              "       '', v.release_date, p.short_desc, \n" + \
+              "       r.disp_name, '' \n" + \
               "  FROM projects p, releases r, versions v, categories c \n" + \
               " WHERE r.project = p.project AND v.component = r.component \n" + \
               "   AND " + util.like_pf("v.platform") + " \n" + \
