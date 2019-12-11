@@ -402,8 +402,11 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
+  if [ "$outPlat" == "linux64" ]; then
+    initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
+  fi
+
   initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
-  initC "minikube" "minikube" "$minikubeV" "" "minikube"          "" "" "nil"
   initC "docker"   "docker"   "$dockerV"   "" "docker"            "" "" "nil"
 
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 

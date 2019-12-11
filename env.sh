@@ -27,7 +27,7 @@ athenafdwV=3.1-2
 tsqlV=3.0-1
 patroniV=1.6.1
 
-minikubeV=1.5.2
+minikubeV=1.6.0
 dockerV=19.03
 
 mysqlfdwV=2.0.5-1

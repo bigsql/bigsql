@@ -178,7 +178,7 @@ INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',       
 
 INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',                      1, '20190707', 'pg11');
 
-INSERT INTO versions VALUES ('minikube',           '1.5.2',    '',                      1, '20191031', '');
+INSERT INTO versions VALUES ('minikube',           '1.6.0',    'linux64',                      1, '20191210', '');
 
 INSERT INTO versions VALUES ('docker',             '19.03',    '',                      1, '20191113', '');
 
