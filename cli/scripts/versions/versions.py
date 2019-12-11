@@ -9,14 +9,18 @@ sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" +
       " WHERE is_current = 1 AND cat > 0 \n" + \
       "ORDER BY cat, project, release_name"
 ##      "   AND ((cat in (1,3, 4)) or ((cat = 2) and (component like '%pg11%'))) \n" + \
-## print(sql)
 
 c.execute(sql)
 data = c.fetchall()
 
 print("<table border=0 cellpadding=2>")
 
+i=0
 for d in data:
+  i = i+1
+  if i == 1:
+    old_cat_desc = str(d[1])
+
   cat = str(d[0])
   cat_desc = str(d[1])
   image_file = str(d[2])
@@ -65,16 +69,20 @@ for d in data:
   if version[-2] == "-":
      version = version[:-2]
 
-  print("  <tr>")
 
-  print("    <td>" + cat_desc + "</td>")
-  print("    <td width=55><img src=img/" + image_file + " height=50 width=50 /></td>")
-  print("    <td width=100><a href=" + project_url + ">" + release_name + "</a></td>")
+  if ((old_cat_desc <> cat_desc) or  (i == 1)):
+    print("  <tr><td colspan=5>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
+  
+  print("  <tr>")
+  print("    <td width=63>&nbsp;&nbsp;&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
+  print("    <td width=115><a href=" + project_url + ">" + release_name + "</a></td>")
   print("    <td width=100><a href=" + source_url + ">v" + version + \
           "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
   print("    <td>" + proj_desc + "</td>")
 
   print("  </tr>")
+
+  old_cat_desc = cat_desc
 
 print("</table>")
 
