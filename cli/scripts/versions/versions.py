@@ -62,6 +62,8 @@ for d in data:
   stage = str(d[11])
   proj_desc = str(d[12])
 
+  if version[-2] == "-":
+     version = version[:-2]
 
   print("  <tr>")
 

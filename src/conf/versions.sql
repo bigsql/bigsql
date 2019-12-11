@@ -79,6 +79,11 @@ INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsq
  'pgtsql', 'pgTSQL', 'tsql.png',
  'SQL Server & Sybase Compatible Stored Procs', 'https://github.com/bigsq/pgtsql#pgtsqll');
 
+INSERT INTO projects VALUES ('pgosql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases',
+ 'pgosql', 'pgOSQL', 'pgosql.png',
+ 'Oracle (R) Compatible Stored Procs', 'https://github.com/bigsq/pgosql#pgosql');
+
+
 INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
  'hypopg', 'HypoPG', 'hypopg.png',
  'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
@@ -122,6 +127,7 @@ INSERT INTO releases VALUES ('pg12',              16, 'pg',            'Postgres
 INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',       '', 'prod');
 
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'pgTSQL',       '', 'prod');
+INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'pgOSQL',       '', 'prod');
 
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
@@ -161,6 +167,8 @@ INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, 
 INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        1, '20191114', '');
 
 INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64',                      1, '20191123', 'pg11');
+
+INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64,',                     1, '20191211', 'pg11');
 
 INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64,',                     1, '20191119', 'pg11');
 
