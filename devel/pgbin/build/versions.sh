@@ -126,6 +126,10 @@ pgLogicalFullV=2.2.2
 pgLogicalShortV=
 pgLogicalBuildV=1
 
+pgL2FullV=2.3.1beta1
+pgL2ShortV=
+pgL2BuildV=1
+
 pgrepackFullVersion=1.4.4
 pgrepackShortVersion=
 pgrepackBuildV=1

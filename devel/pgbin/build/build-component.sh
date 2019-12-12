@@ -945,7 +945,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena-fdw:,build-cassandra-fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pgspock:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena-fdw:,build-cassandra-fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -986,7 +986,7 @@ while true; do
     --build-parquet-fdw ) buildParquetFDW=true; parquetFDWSource=$2; shift; shift ;;
     --build-pgrepack ) buildpgRepack=true; pgrepackSource=$2; shift; shift ;;
     --build-pglogical ) buildpgLogical=true; Source=$2; shift; shift ;;
-    --build-pgspock ) buildpgSpock=true; Source=$2; shift; shift ;;
+    --build-pglogical2 ) buildpgL2=true; Source=$2; shift; shift ;;
     --build-hintplan ) buildPGHintPlan=true; pgHintplanSource=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
     --build-pgagent ) buildPGAgent=true; pgAgentSource=$2; shift; shift ;;
@@ -1054,12 +1054,12 @@ if [ "$buildWalg" == "true" ]; then
 	buildComp wal_g "$walgShortV" "$walgFullV" "$walgBuildV" "$Source"
 fi
 
-if [[ $buildpgLogical == "true" ]]; then
-	buildComp pglogical  "$pgLogicalShortV" "$pgLogicalFullV" "$pgLogicalBuildV" "$Source"
+if [[ $buildpgL2 == "true" ]]; then
+	buildComp pglogical2  "$pgL2ShortV" "$pgL2FullV" "$pgL2BuildV" "$Source"
 fi
 
-if [[ $buildpgSpock == "true" ]]; then
-	buildComp pgspock  "$pgSpockShortV" "$pgSpockFullV" "$pgSpockBuildV" "$Source"
+if [[ $buildpgLogical == "true" ]]; then
+	buildComp pglogical  "$pgLogicalShortV" "$pgLogicalFullV" "$pgLogicalBuildV" "$Source"
 fi
 
 if [[ $buildPLDebugger == "true" ]]; then
