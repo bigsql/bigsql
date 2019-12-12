@@ -14,7 +14,7 @@ function test11 {
   ./$api install timescaledb-pg11 -d demo; ./$api status
   ./$api install plprofiler-pg11  -d demo; ./$api status
   ./$api install hypopg-pg11      -d demo; ./$api status
-  ./$api install pglogical-pg11   -d demo; ./$api status
+  ./$api install pglogical2-pg11  -d demo; ./$api status
 }
 
 function test10 {

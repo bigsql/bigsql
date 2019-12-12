@@ -21,6 +21,7 @@ omniV=2.16-1
 hypoV=1.1.3-1
 timescaleV=1.5.1-1
 logicalV=2.2.2-1
+logical2V=2.3.1beta1-1
 profV=4.1-1
 cstarV=3.1.4-1
 athenafdwV=3.1-2

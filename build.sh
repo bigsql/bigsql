@@ -31,6 +31,7 @@ printUsageMessage () {
   echo "# -p $P12  $P11"
   echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV"
+  echo "#    pglogical-$logicalV  pglogical2-$logical2V"
   echo "#    minikube-$minikubeV  docker-$dockerV"
   echo "#    plprofiler-$profV  pgtsql-$tsqlV  patroni-$patroniV"
   echo "# -b hub-$hubV"
@@ -411,7 +412,7 @@ initPG () {
 
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
-    initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
+    initC "pglogical2-pg$pgM" "pglogical2" "$logical2V" "$outPlat" "postgres/logical2" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
     initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"

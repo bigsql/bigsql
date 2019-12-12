@@ -91,7 +91,6 @@ INSERT INTO projects VALUES ('orafce', 2, 0, 'hub', 0, 'https://github.com/orafc
  'orafce', 'OraFCE', 'orafce.png',
  'Oracle Compatible Built-in Functions and Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 
-
 INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
  'hypopg', 'HypoPG', 'hypopg.png',
  'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
@@ -136,14 +135,11 @@ INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',
 
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'pgTSQL',       '', 'prod');
 
-<<<<<<< HEAD
-INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogical2',   '', 'test');
-=======
 INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'pgOSQL',       '', 'prod');
 
 INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',       '', 'prod');
 
->>>>>>> a4cc0ad0570fc673be741582a894d585ba5a339e
+INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogical2',   '', 'prod');
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
