@@ -59,9 +59,13 @@ INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/b
  'athena_fdw', 'AthenaFDW', 'athena.png',
  'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
+INSERT INTO projects VALUES ('pglogical2', 2, 0, 'hub', 0, 'https://github.com/bigsql/pglogical2/releases',
+ 'pglogical2', 'pgLogical2', 'spock.png',
+ 'Logical Multi-Master Replication', 'https://github.com/bigsql/pglogical#pglogical2');
+
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
  'pglogical', 'pgLogical', 'pglogical.png',
- 'Logical & Bi-Directional Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
+ 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
  'timescaledb', 'TimescaleDB', 'timescaledb.png',
@@ -132,10 +136,14 @@ INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',
 
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'pgTSQL',       '', 'prod');
 
+<<<<<<< HEAD
+INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogical2',   '', 'test');
+=======
 INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'pgOSQL',       '', 'prod');
 
 INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',       '', 'prod');
 
+>>>>>>> a4cc0ad0570fc673be741582a894d585ba5a339e
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
@@ -181,6 +189,7 @@ INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64,',      
 
 INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64,',                     1, '20191119', 'pg11');
 
+INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'linux64',                  1, '20191212', 'pg11');
 INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64',                      1, '20190725', 'pg11');
 
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64',                      1, '20190823', 'pg11');
