@@ -1,0 +1,6 @@
+sudo docker system prune
+sudo docker images
+
+sudo docker build -t bs_test5 .
+sudo docker run -d -p 5432 --name pg_test5 bs_test5
+sudo docker ps
