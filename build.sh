@@ -291,6 +291,7 @@ finalizeOutput () {
   if [ ! -d "hub/scripts" ]; then
     checkCmd "mkdir hub/scripts"
   fi
+  checkCmd "cp $DPG/skeleton.sh hub/scripts/."
   checkCmd "cp -r $CLI/* hub/scripts/."
   checkCmd "cp -r $CLI/../doc hub/."
   checkCmd "cp $CLI/../README.md  hub/doc/."
