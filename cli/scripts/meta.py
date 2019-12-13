@@ -286,9 +286,9 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     data = c.fetchall()
 
     headers = ['Category', 'Component', 'Version', 
-               'ReleaseDt', 'Status', 'Updates']
+               'ReleaseDt', 'Stage', 'Status', 'Updates']
     keys    = ['category_desc', 'component', 'version', 
-               'release_date', 'status', 'current_version']
+               'release_date', 'stage', 'status', 'current_version']
 
     jsonList = []
     kount = 0
@@ -319,13 +319,6 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
         status = ""
 
       stage = str(row[6])
-      if stage == "prod" and p_isJSON == False:
-        stage = ""
-      if stage == "test" and status in ("", "NotInstalled"):
-        if p_isTEST:
-          comp = comp + "(test)"
-        else:
-          continue
 
       is_current = str(row[7])
       if is_current == "0" and status in ("", "NotInstalled"):

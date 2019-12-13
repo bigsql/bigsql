@@ -9,7 +9,7 @@ CREATE TABLE settings (
   s_value            TEXT      NOT NULL,
   PRIMARY KEY (section, s_key)
 );
-INSERT INTO settings VALUES ('GLOBAL', 'REPO', 'https://s3.amazonaws.com/pgcentral');
+INSERT INTO settings VALUES ('GLOBAL', 'REPO', 'https://dockpg-download.s3.amazonaws.com/REPO');
 
 
 DROP TABLE IF EXISTS groups;
