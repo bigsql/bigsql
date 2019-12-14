@@ -1,16 +1,12 @@
 
 FROM centos:7
 
-#RUN yum update -y
-
-#RUN yum install -y sudo
-
 RUN useradd -mc /bin/bash postgres
 
 USER postgres
-RUN cd ~; python -c "$(curl -fsSL https://bigsql-download.s3.amazonaws.com/REPO/install.py)"
+RUN cd ~; python -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)"
 
-RUN cd ~/bigsql; ./apg install pg11; ./apg init pg11 -y
+RUN cd ~/bigsql; ./apg install pg11; ./apg init pg11 -y; ./apg install pglogical2-pg11;
 
 EXPOSE 5432
 
