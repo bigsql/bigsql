@@ -1,4 +1,4 @@
-# README for DockPG ( http://dockpg.io ) #
+# README for BigSQL ( http://bigsql.net ) #
 
 # EL7 setup
 

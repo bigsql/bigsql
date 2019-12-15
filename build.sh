@@ -31,7 +31,7 @@ printUsageMessage () {
   echo "# -p $P12  $P11"
   echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV"
-  echo "#    pglogical-$logicalV  pglogical2-$logical2V"
+  echo "#    pglogical2-$logical2V"
   echo "#    minikube-$minikubeV  docker-$dockerV"
   echo "#    plprofiler-$profV  pgtsql-$tsqlV  patroni-$patroniV"
   echo "# -b hub-$hubV"
@@ -202,7 +202,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
-  copy-pgXX "pglogical"
+  copy-pgXX "pglogical2"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
   copy-pgXX "cassandra_fdw"
