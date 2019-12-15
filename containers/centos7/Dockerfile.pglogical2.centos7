@@ -1,17 +1,21 @@
 
 FROM centos:7
 
+ARG PGV
+ARG INSTALL_PY=https://dockpg-download.s3.amazonaws.com/REPO/install.py
+
 RUN useradd -mc /bin/bash postgres
 
 USER postgres
-RUN cd ~; python -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)"
+RUN cd ~; python -c "$(curl -fsSL ${INSTALL_PY})"
 
-RUN cd ~/bigsql; ./apg install pg11; ./apg init pg11 -y; ./apg install pglogical2-pg11;
+RUN cd ~/bigsql; ./apg info; ./apg install ${PGV}; ./apg start ${PGV} -y; \
+  ./apg tune ${PGV}; ./apg install pglogical2-${PGV};
 
 EXPOSE 5432
 
-# Add VOLUMEs to allow backup of config, logs and databases
-VOLUME  ["/home/postgres/bigsql/data/pg11", "/home/postgres/bigsql/logs/pg11" ]
+# Add VOLUMEs to allow backup of data & logs
+VOLUME  ["/home/postgres/bigsql/data/${PGV}", "/home/postgres/bigsql/logs/${PGV}" ]
 
 # Set the default command to run when starting the container
-CMD ["/home/postgres/bigsql/pg11/bin/postgres", "-D", "/home/postgres/bigsql/data/pg11"]
+CMD ["/home/postgres/bigsql/${PGV}/bin/postgres", "-D", "/home/postgres/bigsql/data/${PGV}"]
