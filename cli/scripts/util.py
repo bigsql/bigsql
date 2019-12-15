@@ -1785,12 +1785,7 @@ def get_user():
     my_logger.debug2("USER: '%s'", os_user)
 
   if os_user is None or os_user == "":
-    my_logger.debug2("Executing id command")
-    uid = getoutput("id -u")
-    my_logger.debug2("uid: '%s'", uid)
-
-    if str(uid) == "0":
-      os_user = "root"
+    os_user = "root"
 
   my_logger.debug("Detected username: %s", os_user)
 

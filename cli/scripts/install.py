@@ -51,7 +51,7 @@ except Exception as e:
   sys.exit(1)
 
 print("\nSetting REPO to " + MY_REPO)
-cmd = "bigsql" + os.sep + "dpg"
+cmd = "bigsql" + os.sep + "apg"
 os.system(cmd + " set GLOBAL REPO " + MY_REPO)
 
 print("\nBigSQL installed.  Try '" + cmd + " help' to get started.\n")
