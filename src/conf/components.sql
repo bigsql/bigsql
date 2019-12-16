@@ -26,6 +26,22 @@ CREATE TABLE hosts (
 INSERT INTO hosts (host) VALUES ('localhost');
 
 
+DROP TABLE IF EXISTS clusters;
+CREATE TABLE clusters (
+  cluster            TEXT     NOT NULL PRIMARY KEY,
+  component          TEXT     NOT NULL,
+  port               INTEGER  NOT NULL,
+  status             TEXT     NOT NULL,
+  install_dt         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  autostart          TEXT,
+  datadir            TEXT,
+  logdir             TEXT,
+  pidfile            TEXT,
+  svcname            TEXT,
+  svcuser            TEXT
+);
+
+
 DROP TABLE IF EXISTS components;
 CREATE TABLE components (
   component          TEXT     NOT NULL PRIMARY KEY,
