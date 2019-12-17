@@ -21,6 +21,39 @@ def is_any_autostart():
   return False
 
 
+def create_cluster(p_cluster, p_num_nodes, p_comp, p_first_port_num):
+  port_num = p_first_port_num
+  for i in range[p_first_port_num, (p_first_port_num + p_num_nodes)]:
+    put_cluster(p_cluster, i, p_comp, port_num, 'not initialized', False)
+    port_num = port_num + 1
+   
+
+def delete_cluster(p_cluster):
+  try:
+    c = con.cursor()
+    sql = "DELETE FROM clusters WHERE cluster = ?"   
+    c.execute(sql, [p_comp])
+    con.commit()
+    c.close()
+  except Exception as e:
+    fatal_sql_error(e, sql, "meta.delete_cluster()")
+  return
+
+
+def insert_cluster(p_cluster, p_node_num, p_comp, p_port, p_stat):
+  try:
+    sql = "INSERT INTO clusters \n" + \
+          "  (cluster, node_number, component, port, status) \n" + \
+          "VALUES \n" + \
+          "  (?, ?, ?, ?, ?)"
+    c.execute(sql, [p_cluster, p_node_num, p_comp, p_port, p_stat])
+    con.commit()
+    c.close()
+  except Exception as e:
+    fatal_sql_error(e, sql, "meta.put_clusters()")
+  return
+
+
 def put_components(p_comp, p_proj, p_ver, p_plat, p_port, p_stat,
                       p_autos, p_datadir, p_logdir, p_svcname, p_svcuser):
   try:
