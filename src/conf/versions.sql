@@ -202,7 +202,8 @@ INSERT INTO versions VALUES ('docker',             '19.03',    '',              
 
 INSERT INTO versions VALUES ('omnidb',             '2.16-1',   '',                      1, '20190613', '');
 
-INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      1, '20191115', '');
+INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',                      1, '20191205', '');
+INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      0, '20191115', '');
 
 
 CREATE VIEW v_versions AS
