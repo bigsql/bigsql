@@ -14,8 +14,9 @@ $YUM unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath
 $YUM docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight
 $YUM perl-ExtUtils-Embed libevent-devel postgresql-devel
 
-## skip the below for EL8 #####################
+## skip the below for EL8 & Amazon Linux2 #####
 
+$YUM python36 python36-devel
 $YUM centos-release-scl
 $YUM llvm-toolset-7 llvm-toolset-7-llvm-devel.x86_64
 

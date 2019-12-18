@@ -155,8 +155,9 @@ function buildPostgres {
 	mkdir -p $baseDir/$workDir/logs
 	buildLocation="$baseDir/$workDir/build/pg$pgShortV-$pgSrcV-$pgBldV-$OS"
 
-	conf="$conf --with-openssl --with-libxslt --with-libxml --with-python --with-perl"
+	conf="$conf --with-openssl --with-libxslt --with-libxml --with-perl"
 	conf="$conf --disable-rpath $pgLLVM"
+        conf="$conf --with-python PYTHON=/usr/bin/python3"
 	##conf="$conf --with-uuid=ossp --with-gssapi --with-python --with-perl"
 	##conf="$conf --with-uuid=ossp --with-python --with-perl --with-ldap"
 	##conf="$conf --with-tcl --with-pam"

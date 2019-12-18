@@ -2,10 +2,10 @@
 # Set build version for pgBin and components.
 
 pg12V="12.1"
-pg12BuildV=4
+pg12BuildV=5
 
 pg11V="11.6"
-pg11BuildV=4
+pg11BuildV=5
 
 pg10V="10.11"
 pg10BuildV=4
