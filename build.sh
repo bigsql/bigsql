@@ -30,7 +30,7 @@ printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
   echo "# -p $P12  $P11"
   echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
-  echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV"
+  echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical2-$logical2V"
   echo "#    minikube-$minikubeV  docker-$dockerV"
   echo "#    plprofiler-$profV  pgtsql-$tsqlV  patroni-$patroniV"

@@ -67,4 +67,8 @@ if [ "$1" == "ddlx" ] || [ "$1" == "all" ]; then
   build ddlx $ddlxFullV $2 ddlx
 fi
 
+if [ "$1" == "http" ] || [ "$1" == "all" ]; then
+  build http $httpFullV $2 http
+fi
+
 exit 0

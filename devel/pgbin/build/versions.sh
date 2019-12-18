@@ -21,6 +21,10 @@ bouncerV="1.12.0"
 odbcV="12.00.0000"
 backrestV="2.19"
 
+httpFullV=1.3.1
+httpShortV=
+httpBuildV=1
+
 hypopgFullV=1.1.3
 hypopgShortV=
 hypopgBuildV=1
