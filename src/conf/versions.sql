@@ -75,6 +75,10 @@ INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoi
  'ddlx',  'DDLeXtractor', 'ddlx.png',
  'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 
+INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/lacanoid/http/releases',
+ 'http',  'DDLeXtractor', 'http.png',
+ 'DDL Extractor', 'https://github.com/lacanoid/httpl#ddl-extractor-functions--for-postgresql');
+
 INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
  'anon', 'Anonymizer', 'anon.png', 
  'PostgreSQL Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
@@ -142,6 +146,8 @@ INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfil
 
 INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor', '', 'prod');
 
+INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP vi CURL', '', 'prod');
+
 INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',   '', 'prod');
 
 INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',  '', 'prod');
@@ -190,6 +196,8 @@ INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64',       
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64',                      1, '20190823', 'pg11');
 
 INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64',                      1, '20191024', 'pg11');
+
+INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'linux64',                      1, '20191225', 'pg11');
 
 INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64',                      1, '20191109', 'pg11');
 
