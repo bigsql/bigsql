@@ -70,7 +70,7 @@ for d in data:
      version = version[:-2]
 
 
-  if ((old_cat_desc <> cat_desc) or  (i == 1)):
+  if ((old_cat_desc != cat_desc) or  (i == 1)):
     print("  <tr><td colspan=5>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
   
   print("  <tr>")

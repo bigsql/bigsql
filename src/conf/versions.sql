@@ -60,7 +60,7 @@ INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/b
  'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
 INSERT INTO projects VALUES ('pglogical2', 2, 0, 'hub', 0, 'https://github.com/bigsql/pglogical2/releases',
- 'pglogical2', 'pgLogical2', 'spock.png',
+ 'pglogical2', 'pgLogical2', 'pglogical.png',
  'Logical Multi-Master Replication', 'https://github.com/bigsql/pglogical#pglogical2');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
@@ -75,9 +75,9 @@ INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoi
  'ddlx',  'DDLeXtractor', 'ddlx.png',
  'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 
-INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/lacanoid/http/releases',
- 'http',  'DDLeXtractor', 'http.png',
- 'DDL Extractor', 'https://github.com/lacanoid/httpl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases',
+ 'http',  'HTTP Client', 'curl.png',
+ 'HTTP Client', 'https://github.com/pramsey/pgsql-http');
 
 INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
  'anon', 'Anonymizer', 'anon.png', 
@@ -139,14 +139,14 @@ INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'pgOSQL',
 
 INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',       '', 'prod');
 
-INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogical2',   '', 'prod');
+INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogical2',   '', 'test');
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
 INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor', '', 'prod');
 
-INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP vi CURL', '', 'prod');
+INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP via cURL', '', 'prod');
 
 INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',   '', 'prod');
 
