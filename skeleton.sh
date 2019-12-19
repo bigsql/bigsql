@@ -28,23 +28,27 @@ function test95 {
 
 cd ../..
 
-if [ "$1" == "12" ] || [ "$1" == "all" ]; then
+if [ "$1" == "12" ]; then
   test12
+  exit 0
 fi
-if [ "$1" == "11" ] || [ "$1" == "all" ]; then
+if [ "$1" == "11" ]; then
   test11
+  exit 0
 fi
-if [ "$1" == "10" ] || [ "$1" == "all" ]; then
+if [ "$1" == "10" ]; then
   test10
+  exit 0
 fi
-if [ "$1" == "96" ] || [ "$1" == "all" ]; then
+if [ "$1" == "96" ]; then
   test96
+  exit 0
 fi
-if [ "$1" == "95" ] || [ "$1" == "all" ]; then
+if [ "$1" == "95" ]; then
   test95
+  exit 0
 fi
 
-echo ""
-echo "Goodbye!"
-exit 0
+echo "ERROR: Invalid parm.  Must be 95 thru 12."
+exit 1
 
