@@ -12,7 +12,7 @@ $YUM pam-devel openldap-devel uuid-devel python-devel
 $YUM unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath
 
 $YUM docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight
-$YUM perl-ExtUtils-Embed libevent-devel postgresql-devel
+$YUM perl-ExtUtils-Embed libevent-devel curl-devel postgresql-devel
 
 ## skip the below for EL8 & Amazon Linux2 #####
 

@@ -7,6 +7,7 @@ function test11 {
   ./apg install pg11; ./apg start pg11 -y -d demo; ./apg status
   ./apg install pgtsql-pg11      -d demo; ./apg status
   ./apg install anon-pg11        -d demo; ./apg status
+  ./apg install http-pg11        -d demo; ./apg status
   ./apg install timescaledb-pg11 -d demo; ./apg status
   ./apg install plprofiler-pg11  -d demo; ./apg status
   ./apg install hypopg-pg11      -d demo; ./apg status

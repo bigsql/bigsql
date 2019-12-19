@@ -205,6 +205,7 @@ initDir () {
   copy-pgXX "pglogical2"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
+  copy-pgXX "http"
   copy-pgXX "cassandra_fdw"
   copy-pgXX "athena_fdw"
   copy-pgXX "plprofiler"
