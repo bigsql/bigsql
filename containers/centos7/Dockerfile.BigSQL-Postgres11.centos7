@@ -2,7 +2,7 @@
 FROM centos:7
 
 ARG PGV
-ARG INSTALL_PY=https://dockpg-download.s3.amazonaws.com/REPO/install.py
+ARG INSTALL_PY=https://bigsql-download.s3.amazonaws.com/REPO/install.py
 ENV pgv=$PGV
 
 RUN useradd -mc /bin/bash postgres
@@ -10,8 +10,7 @@ RUN useradd -mc /bin/bash postgres
 USER postgres
 RUN cd ~; python -c "$(curl -fsSL $INSTALL_PY)"
 
-RUN cd ~/bigsql; ./apg info; ./apg install $PGV; ./apg start $PGV -y; \
-  ./apg tune $PGV; ./apg install pglogical2-$PGV; ./apg stop $PGV
+RUN cd ~/bigsql; ./apg install $PGV; ./apg start $PGV -y; ./apg tune $PGV;
 
 EXPOSE 5432
 
