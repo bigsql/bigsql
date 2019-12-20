@@ -1,4 +1,24 @@
 import sqlite3
+
+
+def get_platform_images(p_stage, p_platf, p_desc):
+   img = "<td>" + p_stage + "</td><td><center>"
+
+   if "linux64" in p_platf:
+      img = img + "<img src=img/l64.png height=25 width= 25 />&nbsp;"
+
+   if "arm64" in p_platf:
+      img = img + "<img src=img/arm64.png height=25 width= 25 />&nbsp;"
+
+   if "osx64" in p_platf:
+      img = img + "<img src=img/m64.png height=25 width= 25 />&nbsp;"
+
+   img = img + "</center></td><td width=300>" + p_desc + "</td>"
+
+   return (img)
+
+
+
 con = sqlite3.connect("local.db")
 c = con.cursor()
 
@@ -13,7 +33,7 @@ sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" +
 c.execute(sql)
 data = c.fetchall()
 
-print("<table border=0 cellpadding=2>")
+print("<table border=0 cellpadding=5>")
 
 i=0
 for d in data:
@@ -76,9 +96,9 @@ for d in data:
   print("  <tr>")
   print("    <td width=63>&nbsp;&nbsp;&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
   print("    <td width=115><a href=" + project_url + ">" + release_name + "</a></td>")
-  print("    <td width=100><a href=" + source_url + ">v" + version + \
-          "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
-  print("    <td>" + proj_desc + "</td>")
+  print("    <td width=115><a href=" + source_url + ">v" + version + \
+             "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
+  print(get_platform_images(stage, platform, proj_desc))
 
   print("  </tr>")
 
