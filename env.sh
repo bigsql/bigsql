@@ -18,7 +18,7 @@ P93=9.3.27-4
 httpV=1.3.1-1
 anonV=0.5.0-1
 ddlxV=0.15-1
-omniV=2.16-1
+omniV=2.17-1
 hypoV=1.1.3-1
 timescaleV=1.5.1-1
 logicalV=2.2.2-1
@@ -29,7 +29,7 @@ athenafdwV=3.1-2
 tsqlV=3.0-1
 patroniV=1.6.3
 
-minikubeV=1.6.0
+minikubeV=1.6.2
 dockerV=19.03
 
 mysqlfdwV=2.0.5-1

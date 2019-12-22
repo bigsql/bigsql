@@ -207,11 +207,13 @@ INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',       
 
 INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',                      1, '20190707', 'pg11');
 
-INSERT INTO versions VALUES ('minikube',           '1.6.0',    'linux64',                      1, '20191210', '');
+INSERT INTO versions VALUES ('minikube',           '1.6.2',    'linux64',                      1, '20191220', '');
+INSERT INTO versions VALUES ('minikube',           '1.6.0',    'linux64',                      0, '20191210', '');
 
 INSERT INTO versions VALUES ('docker',             '19.03',    '',                      1, '20191113', '');
 
-INSERT INTO versions VALUES ('omnidb',             '2.16-1',   '',                      1, '20190613', '');
+INSERT INTO versions VALUES ('omnidb',             '2.17-1',   'docker',                1, '20191205', '');
+INSERT INTO versions VALUES ('omnidb',             '2.16-1',   'docker',                0, '20190613', '');
 
 INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',                      1, '20191205', '');
 INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      0, '20191115', '');
