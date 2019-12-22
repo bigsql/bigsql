@@ -156,9 +156,9 @@ INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandr
 
 INSERT INTO releases VALUES ('athena_fdw-pg11',    1, 'athena_fdw',    'AthenaFDW',    '', 'test');
 
-INSERT INTO releases VALUES ('minikube',           1, 'minikube',      'MiniKube',     '', 'test');
+INSERT INTO releases VALUES ('minikube',           1, 'minikube',      'MiniKube',     '', 'prod');
 INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',      '', 'test');
-INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker CE',    '', 'test');
+INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker CE',    '', 'prod');
 INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',       '', 'test');
 
 
@@ -210,7 +210,7 @@ INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',       
 INSERT INTO versions VALUES ('minikube',           '1.6.2',    'linux64',                      1, '20191220', '');
 INSERT INTO versions VALUES ('minikube',           '1.6.0',    'linux64',                      0, '20191210', '');
 
-INSERT INTO versions VALUES ('docker',             '19.03',    '',                      1, '20191113', '');
+INSERT INTO versions VALUES ('docker',             '19.03.5',  'linux64',               1, '20191113', '');
 
 INSERT INTO versions VALUES ('omnidb',             '2.17-1',   'docker',                1, '20191205', '');
 INSERT INTO versions VALUES ('omnidb',             '2.16-1',   'docker',                0, '20190613', '');

@@ -410,9 +410,9 @@ initPG () {
   fi
 
   initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
-  initC "docker"   "docker"   "$dockerV"   "" "docker"            "" "" "nil"
 
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
+    initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"            "" "" "nil"
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
     initC "pglogical2-pg$pgM" "pglogical2" "$logical2V" "$outPlat" "postgres/logical2" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"

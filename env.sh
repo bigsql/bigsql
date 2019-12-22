@@ -30,7 +30,7 @@ tsqlV=3.0-1
 patroniV=1.6.3
 
 minikubeV=1.6.2
-dockerV=19.03
+dockerV=19.03.5
 
 mysqlfdwV=2.0.5-1
 
