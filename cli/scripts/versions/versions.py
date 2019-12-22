@@ -13,6 +13,9 @@ def get_platform_images(p_stage, p_platf, p_desc):
    if "osx64" in p_platf:
       img = img + "<img src=img/m64.png height=25 width= 25 />&nbsp;"
 
+   if "docker" in p_platf:
+      img = img + "<img src=img/docker.png height=25 width= 25 />&nbsp;"
+
    img = img + "</center></td><td width=300>" + p_desc + "</td>"
 
    return (img)
