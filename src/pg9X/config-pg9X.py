@@ -1,7 +1,7 @@
 from __future__ import print_function, division
  
 ####################################################################
-######          Copyright (c)  2015-2019 BigSQL           ##########
+######          Copyright (c)  2015-2020 BigSQL           ##########
 ####################################################################
 
 import argparse, sys, os, tempfile, json, subprocess, getpass

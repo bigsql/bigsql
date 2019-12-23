@@ -11,7 +11,8 @@ function test11 {
   ./apg install timescaledb-pg11 -d demo; ./apg status
   ./apg install plprofiler-pg11  -d demo; ./apg status
   ./apg install hypopg-pg11      -d demo; ./apg status
-  ./apg install pglogical2-pg11  -d demo; ./apg status
+  ./apg install orafce-pg11      -d demo; ./apg status
+  ./apg install pglogical-pg11   -d demo; ./apg status
 }
 
 function test10 {

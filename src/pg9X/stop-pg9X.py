@@ -1,7 +1,7 @@
 from __future__ import print_function, division
  
 ####################################################################
-######          Copyright (c)  2015-2019 BigSQL           ##########
+######          Copyright (c)  2015-2020 BigSQL           ##########
 ####################################################################
 
 
@@ -48,7 +48,7 @@ else:
 
 pg_ctl = os.path.join(homedir, "bin", "pg_ctl")
 
-stop_cmd = pg_ctl + ' stop -s -w -m fast -D "' + datadir + '"'
+stop_cmd = pg_ctl + ' stop -s -w -m immediate -D "' + datadir + '"'
 
 autostart = util.get_column('autostart', pgver)
 if autostart == "on":

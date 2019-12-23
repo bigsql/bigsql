@@ -182,26 +182,26 @@ INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, 
 INSERT INTO versions VALUES ('pg12',               '12.1-5',   'linux64, arm64, osx64',        1, '20191218', '');
 INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        0, '20191114', '');
 
-INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64',                      1, '20191123', 'pg11');
+INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64, arm64',               1, '20191123', 'pg11');
 
-INSERT INTO versions VALUES ('orafce-pg11',        '3.8-1',    'linux64,',                     1, '20190522', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg11',        '3.8.0-1',  'linux64, arm64',               1, '20190522', 'pg11');
 
-INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64,',                     1, '20191211', 'pg11');
+INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64, arm64',               0, '20191211', 'pg11');
 
-INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64,',                     1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64, arm64',               1, '20191119', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'linux64',                  0, '20191212', 'pg11');
-INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64',                      1, '20190725', 'pg11');
+INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'linux64, arm64',           0, '20191212', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64, arm64',               1, '20190725', 'pg11');
 
-INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64',                      1, '20190823', 'pg11');
+INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64, arm64',               1, '20190823', 'pg11');
 
-INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64',                      1, '20191024', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64, arm64',               1, '20191024', 'pg11');
 
-INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'linux64',                      1, '20191225', 'pg11');
+INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'linux64, arm64',               1, '20191225', 'pg11');
 
-INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64',                      1, '20191109', 'pg11');
+INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64, arm64',               1, '20191109', 'pg11');
 
-INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64',                      1, '20191112', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',               1, '20191112', 'pg11');
 
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',                      1, '20190802', 'pg11');
 
