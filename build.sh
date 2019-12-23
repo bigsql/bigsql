@@ -31,9 +31,8 @@ printUsageMessage () {
   echo "# -p $P12  $P11"
   echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
-  echo "#    pglogical2-$logical2V"
-  echo "#    minikube-$minikubeV  docker-$dockerV"
-  echo "#    plprofiler-$profV  pgtsql-$tsqlV  patroni-$patroniV"
+  echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
+  echo "#    minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "# -b hub-$hubV"
   echo "#-------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11   -p 11 -b"
@@ -202,7 +201,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
-  copy-pgXX "pglogical2"
+  copy-pgXX "pglogical"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
   copy-pgXX "http"
