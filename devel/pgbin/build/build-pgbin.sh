@@ -15,8 +15,10 @@ buildLocation=""
 
 osArch=`getconf LONG_BIT`
  
-sharedLibs="$baseDir/shared/linux_$osArch/lib"
-sharedBins="$baseDir/shared/linux_$osArch/bin"
+#sharedLibs="$baseDir/shared/linux_$osArch/lib"
+sharedLibs=/opt/pgbin-build/pgbin/shared/linux_64/lib/
+#sharedBins="$baseDir/shared/linux_$osArch/bin"
+sharedBins=/opt/pgbin-build/pgbin/shared/linux_64/bin/
 includePath="$baseDir/shared/linux_$osArch/include"
 export R_HOME=/opt/pgbin-build/pgbin/shared/linux_64/R323/lib64/R
 

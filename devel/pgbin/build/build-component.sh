@@ -969,7 +969,7 @@ while true; do
     --build-mongo-fdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
     --build-mysql-fdw ) buildMySQLFDW=true; mysqlFDWSource=$2; shift; shift ;;
     --build-oraclefdw ) buildOracleFDW=true; Source=$2; shift; shift ;;
-    --build-orafce ) buildOrafce=true; orafceSource=$2; shift; shift ;;
+    --build-orafce ) buildOrafce=true; Source=$2; shift; shift ;;
     --build-pgaudit ) buildPGAudit=true; pgAuditSource=$2; shift; shift ;;
     --build-set-user ) buildSetUser=true; setUserSource=$2; shift; shift ;;
     --build-walg ) buildWalg=true; Source=$2; shift; shift ;;
@@ -1023,7 +1023,7 @@ if [[ $buildAthena == "true" ]]; then
 fi
 
 if [[ $buildOrafce == "true" ]]; then
-	buildOrafceComponent
+	buildComp orafce "$orafceShortV" "$orafceFullV" "$orafceBuildV" "$Source"
 fi
 
 if [[ $buildPostGIS == "true" ]]; then

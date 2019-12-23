@@ -50,8 +50,8 @@ cassandraFDWFullVersion=3.1.4
 cassandraFDWShortVersion=
 cassandraFDWBuildV=1
 
-orafceFullVersion=3.8.0
-orafceShortVersion=
+orafceFullV=3.8.0
+orafceShortV=
 orafceBuildV=1
 
 oFDWFullVersion=2.2.0

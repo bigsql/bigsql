@@ -28,7 +28,7 @@ if [ ! "$pgV"  == "11" ] && [ ! "$pgV"  == "12" ]; then
 fi
 
 if [ "$1" == "orafce" ] || [ "$1" == "all" ]; then
-  build orafce $orafceFullVersion $2 orafce
+  build orafce $orafceFullV $2 orafce
 fi
 
 if [ "$1" == "hypopg" ] || [ "$1" == "all" ]; then
