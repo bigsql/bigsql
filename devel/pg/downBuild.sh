@@ -1,3 +1,5 @@
+export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
+
 v96=9.6.16
 v10=10.11
 v11=11.6
