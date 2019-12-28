@@ -5,16 +5,16 @@ def get_platform_images(p_stage, p_platf, p_desc):
    img = "<td>" + p_stage + "</td><td><center>"
 
    if "linux64" in p_platf:
-      img = img + "<img src=img/l64.png height=25 width= 25 />&nbsp;"
+      img = img + "<img src=img/intel.png height=25 width=25 />&nbsp;"
 
    if "arm64" in p_platf:
-      img = img + "<img src=img/arm.png height=25 width= 25 />&nbsp;"
+      img = img + "<img src=img/arm.png height=25 width=25 />&nbsp;"
 
    if "osx64" in p_platf:
-      img = img + "<img src=img/m64.png height=21 width= 21 />&nbsp;"
+      img = img + "<img src=img/apple.png height=25 width=25 />&nbsp;"
 
    if "docker" in p_platf:
-      img = img + "<img src=img/docker.png height=25 width= 25 />&nbsp;"
+      img = img + "<img src=img/docker.png height=25 width=25 />&nbsp;"
 
    img = img + "</center></td><td width=300>" + p_desc + "</td>"
 
