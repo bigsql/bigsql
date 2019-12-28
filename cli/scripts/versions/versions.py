@@ -8,10 +8,10 @@ def get_platform_images(p_stage, p_platf, p_desc):
       img = img + "<img src=img/l64.png height=25 width= 25 />&nbsp;"
 
    if "arm64" in p_platf:
-      img = img + "<img src=img/arm64.png height=25 width= 25 />&nbsp;"
+      img = img + "<img src=img/arm.png height=25 width= 25 />&nbsp;"
 
    if "osx64" in p_platf:
-      img = img + "<img src=img/m64.png height=25 width= 25 />&nbsp;"
+      img = img + "<img src=img/m64.png height=21 width= 21 />&nbsp;"
 
    if "docker" in p_platf:
       img = img + "<img src=img/docker.png height=25 width= 25 />&nbsp;"
@@ -36,7 +36,7 @@ sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" +
 c.execute(sql)
 data = c.fetchall()
 
-print("<table border=0 cellpadding=5>")
+print("<table border=1 cellpadding=5>")
 
 i=0
 for d in data:
@@ -94,7 +94,7 @@ for d in data:
 
 
   if ((old_cat_desc != cat_desc) or  (i == 1)):
-    print("  <tr><td colspan=5>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
+    print("  <tr><td colspan=6>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
   
   print("  <tr>")
   print("    <td width=63>&nbsp;&nbsp;&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
