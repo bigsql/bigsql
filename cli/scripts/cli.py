@@ -74,7 +74,7 @@ ansi_escape = re.compile(r'\x1b[^m]*m')
 
 dep9 = util.get_depend()
 mode_list = ["start", "stop", "restart", "status", "list", "info", "update",
-             "upgrade", "enable", "disable", "install", "tune",
+             "upgrade", "downgrade", "enable", "disable", "install", "tune",
              "remove", "reload", "activity", "help", "get", "set", "unset",
              "repolist", "repo-pkgs", "discover", "cloud",
              "register", "top", "--autostart", "--relnotes",
@@ -91,7 +91,7 @@ ignore_comp_list = [ "get", "set", "unset", "register", "repolist",
 no_log_commands = ['status', 'info', 'list', 'activity', 'top', 'register',
                    'cancel', 'get']
 
-lock_commands = ["install", "remove", "update", "upgrade", "cloud"]
+lock_commands = ["install", "remove", "update", "upgrade", "downgrade", "cloud"]
 
 my_depend = []
 installed_comp_list = []
@@ -387,6 +387,15 @@ def install_comp(p_app, p_ver=0, p_rver=None, p_re_install=False):
       msg = json.dumps([json_dict])
     print(msg)
     return 1
+
+
+## Downgrade Component ######################################################
+def downgrade_component(p_comp):
+  present_version = meta.get_version(p_comp)
+  present_state   = util.get_comp_state(p_comp)
+  server_port     = util.get_comp_port(p_comp)
+  print ("Dowgrade " + p_comp + " v" + present_version)
+  return 1
 
 
 ## Upgrade Component ######################################################
@@ -1928,6 +1937,15 @@ try:
         update_component_state(p_comp, "enable")
       script_name = "start-" + p_comp
       run_script(p_comp, script_name, p_mode)
+
+
+  ## DOWNGRADE ################################################
+  if (p_mode == 'downgrade'):
+    rc = downgrade_component(p_comp)
+    if rc == 1:
+      msg = "Nothing to downgrade."
+      print(msg)
+      my_logger.info(msg)
 
 
   ## UPGRADE ##################################################

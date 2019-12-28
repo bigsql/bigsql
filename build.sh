@@ -288,9 +288,8 @@ writeFileChecksum () {
 finalizeOutput () {
   writeCompRow "hub"  "hub" "$hubV" "" "0" "Enabled" "nil"
   checkCmd "cp -r $SRC/hub ."
-  if [ ! -d "hub/scripts" ]; then
-    checkCmd "mkdir hub/scripts"
-  fi
+  checkCmd "mkdir -p hub/scripts"
+  checkCmd "cp -r $DPG/backups ."
   checkCmd "cp $DPG/skeleton.sh hub/scripts/."
   checkCmd "cp -r $CLI/* hub/scripts/."
   checkCmd "cp -r $CLI/../doc hub/."
