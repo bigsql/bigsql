@@ -22,7 +22,8 @@ INSERT INTO categories VALUES (0, 'Hidden');
 INSERT INTO categories VALUES (1, 'PostgreSQL');
 INSERT INTO categories VALUES (2, 'Extensions');
 INSERT INTO categories VALUES (3, 'Servers');
-INSERT INTO categories VALUES (4, 'Applications');
+INSERT INTO categories VALUES (4, 'Connectors');
+INSERT INTO categories VALUES (5, 'Applications');
 
 
 CREATE TABLE projects (
@@ -45,75 +46,116 @@ INSERT INTO projects VALUES ('hub', 0, 0, 'hub', 0, 'https://github.com/',
  '', '');
 
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 
- 'postgres', 'PostgreSQL', 'postgres.png', 
+ 'postgres', '', 'postgres.png', 
  'Advanced RDBMS', 'https://postgresql.org');
 
 INSERT INTO projects VALUES ('plprofiler', 2, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases',
- 'plprofiler', 'plProfiler', 'plprofiler.png',
+ 'plprofiler', '', 'plprofiler.png',
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cassandra_fdw', 'CassandraFDW', 'cassandra.png',
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
+ 'cassandra_fdw', '', 'cassandra.png',
  'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
 INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases',
- 'athena_fdw', 'AthenaFDW', 'athena.png',
+ 'athena_fdw', '', 'athena.png',
  'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
 INSERT INTO projects VALUES ('pglogical2', 2, 0, 'hub', 0, 'https://github.com/bigsql/pglogical2/releases',
- 'pglogical2', 'pgLogical2', 'pglogical.png',
+ 'pglogical2', '', 'pglogical.png',
  'Logical Multi-Master Replication', 'https://github.com/bigsql/pglogical#pglogical2');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
- 'pglogical', 'pgLogical', 'pglogical.png',
+ 'pglogical', '', 'pglogical.png',
  'Logical Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
- 'timescaledb', 'TimescaleDB', 'timescaledb.png',
+ 'timescaledb', '', 'timescaledb.png',
  'Time Series Extension', 'https://github.com/timescale/timescaledb/#timescaledb');
 
 INSERT INTO projects VALUES ('ddlx', 2, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases',
- 'ddlx',  'DDLeXtractor', 'ddlx.png',
+ 'ddlx',  '', 'ddlx.png',
  'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 
 INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases',
- 'http',  'HTTP Client', 'curl.png',
+ 'http',  '', 'curl.png',
  'HTTP Client', 'https://github.com/pramsey/pgsql-http');
 
 INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
- 'anon', 'Anonymizer', 'anon.png', 
+ 'anon', '', 'anon.png', 
  'PostgreSQL Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
 INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
- 'pgtsql', 'pgTSQL', 'tsql.png',
- 'SQL Server & Sybase Compatible Stored Procs', 'https://github.com/bigsq/pgtsql#pgtsqll');
+ 'pgtsql', '', 'tsql.png',
+ 'SQL Server & Sybase Compatible Stored Procs', 'https://github.com/bigsql/pgtsql#pgtsql');
 
 INSERT INTO projects VALUES ('pgosql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases',
- 'pgosql', 'pgOSQL', 'pgosql.png',
+ 'pgosql', '', 'pgosql.png',
  'Oracle Compatible Stored Procs', 'https://github.com/bigsq/pgosql#pgosql');
 
 INSERT INTO projects VALUES ('orafce', 2, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
- 'orafce', 'OraFCE', 'orafce.png',
+ 'orafce', '', 'orafce.png',
  'Oracle Compatible Built-in Functions and Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 
 INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
- 'hypopg', 'HypoPG', 'hypopg.png',
+ 'hypopg', '', 'hypopg.png',
  'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
 
 INSERT INTO projects VALUES ('docker', 3, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases',
- 'docker', 'Docker', 'docker.png',
+ 'docker', '', 'docker.png',
  'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 
 INSERT INTO projects VALUES ('omnidb', 3, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases',
- 'omnidb', 'OmniDB', 'omnidb.png',
- 'DB Admin & Monitoring for PG, Oracle, SQL Server, Sybase, and MySQL', 'https://github.com/omnidb/omnidb/#omnidb');
+ 'omnidb', '', 'omnidb.png',
+ 'Admin for PG, Oracle, SQL Server, & MySQL', 'https://github.com/omnidb/omnidb/#omnidb');
 
 INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
- 'patroni', 'Patroni', 'patroni.png',
- 'BigSQL High Availability for Kubernetes', 'https://github.com/zalando/patroni');
+ 'patroni', '', 'patroni.png',
+ 'High Availability', 'https://github.com/zalando/patroni');
 
 INSERT INTO projects VALUES ('minikube', 3, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases',
- 'minikube', 'MiniKube', 'minikube.png',
- 'Run Kubernetes locally', 'https://minikube.sigs.k8s.io/');
+ 'minikube', '', 'minikube.png',
+ 'Local Kubernetes for application development', 'https://minikube.sigs.k8s.io/');
+
+INSERT INTO projects VALUES ('pgrest', 3, 0, 'hub', 0, 'https://pgrest.org/release.html',
+ 'pgrest', '', 'pgrest.png',
+ '', 'https://pgrest.org');
+
+INSERT INTO projects VALUES ('backrest', 3, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
+ 'backrest', '', 'backrest.png',
+ 'Reliable Backup & Restore', 'https://pgbackrest.org');
+
+INSERT INTO projects VALUES ('bouncer', 3, 0, 'hub', 0, 'https://github.com/',
+ 'bouncer', '', 'bouncer.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('psycopg', 4, 0, 'hub', 0, 'https://github.com/',
+ 'psycopg', '', 'psycopg.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('badger', 5, 0, 'hub', 0, 'https://github.com/',
+ 'badger', '', 'badger.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('npgsql', 4, 0, 'hub', 0, 'https://github.com/',
+ 'npgsql', 'npgsql', 'npgsql.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('ruby', 4, 0, 'hub', 0, 'https://github.com/',
+ 'ruby', 'ruby', 'ruby.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('jdbc', 4, 0, 'hub', 0, 'https://github.com/',
+ 'jdbc', 'jdbc', 'jdbc.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('odbc', 4, 0, 'hub', 0, 'https://github.com/',
+ 'odbc', 'odbc', 'odbc.png',
+ '', 'https://github.com');
+
+INSERT INTO projects VALUES ('helm', 5, 0, 'hub', 0, 'https://github.com/helm/helm/releases',
+ 'helm', 'Helm', 'helm.png',
+ 'Kubernetes Package Manager', 'https://helm.sh');
 
 
 CREATE TABLE releases (
@@ -157,9 +199,19 @@ INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandr
 INSERT INTO releases VALUES ('athena_fdw-pg11',    1, 'athena_fdw',    'AthenaFDW',    '', 'test');
 
 INSERT INTO releases VALUES ('minikube',           1, 'minikube',      'MiniKube',     '', 'prod');
-INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',      '', 'test');
+INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'pgrest',       '', 'prod');
+INSERT INTO releases VALUES ('bouncer',            1, 'bouncer',       'pgBouncer',    '', 'prod');
+INSERT INTO releases VALUES ('psycopg',            1, 'psycopg',       'psycopg',       '', 'prod');
+INSERT INTO releases VALUES ('ruby',               1, 'ruby',          'ruby',         '', 'prod');
+INSERT INTO releases VALUES ('badger',             1, 'badger',        'Badger',       '', 'prod');
+INSERT INTO releases VALUES ('npgsql',             1, 'npgsql',        'npgsql',       '', 'prod');
+INSERT INTO releases VALUES ('jdbc',               1, 'jdbc',          'JDBC',         '', 'prod');
+INSERT INTO releases VALUES ('odbc',               1, 'odbc',          'ODBC',         '', 'prod');
+INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'pgBackrest',   '', 'prod');
+INSERT INTO releases VALUES ('helm',               1, 'helm',          'Helm',         '', 'prod');
+INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',      '', 'prod');
 INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker CE',    '', 'prod');
-INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',       '', 'test');
+INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',       '', 'prod');
 
 
 CREATE TABLE versions (
@@ -186,7 +238,7 @@ INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64, arm64',
 
 INSERT INTO versions VALUES ('orafce-pg11',        '3.8.0-1',  'linux64, arm64',               1, '20190522', 'pg11');
 
-INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64, arm64',               0, '20191211', 'pg11');
+INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64, arm64',               1, '20191211', 'pg11');
 
 INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64, arm64',               1, '20191119', 'pg11');
 
@@ -206,6 +258,19 @@ INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.4-1',  'linux64',                      1, '20190802', 'pg11');
 
 INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.1-2',    'linux64',                      1, '20190707', 'pg11');
+
+INSERT INTO versions VALUES ('pgrest',             '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('bouncer',            '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('psycopg',            '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('ruby',               '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('badger',             '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('npgsql',             '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('jdbc',               '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('odbc',               '1.2.3',    '',                             1, '20200101', '');
+
+INSERT INTO versions VALUES ('backrest',           '2.20',     '',                             1, '20191218', '');
+
+INSERT INTO versions VALUES ('helm',               '3.0.2',    'linux64',                      1, '20191218', '');
 
 INSERT INTO versions VALUES ('minikube',           '1.6.2',    'linux64',                      1, '20191220', '');
 INSERT INTO versions VALUES ('minikube',           '1.6.0',    'linux64',                      0, '20191210', '');

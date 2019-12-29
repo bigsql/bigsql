@@ -4,10 +4,10 @@ import sqlite3
 def get_platform_images(p_stage, p_platf, p_desc):
    img = "<td>" + p_stage + "</td><td><center>"
 
-   if "linux64" in p_platf:
+   if (("linux64" in p_platf) or (p_platf == "")):
       img = img + "<img src=img/intel.png height=25 width=25 />&nbsp;"
 
-   if "arm64" in p_platf:
+   if (("arm64" in p_platf) or (p_platf == "")):
       img = img + "<img src=img/arm.png height=25 width=25 />&nbsp;"
 
    if "osx64" in p_platf:
@@ -16,7 +16,7 @@ def get_platform_images(p_stage, p_platf, p_desc):
    if "docker" in p_platf:
       img = img + "<img src=img/docker.png height=25 width=25 />&nbsp;"
 
-   img = img + "</center></td><td width=300>" + p_desc + "</td>"
+   img = img + "</center></td><td width=400>" + p_desc + "</td>"
 
    return (img)
 
@@ -97,9 +97,9 @@ for d in data:
     print("  <tr><td colspan=6>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
   
   print("  <tr>")
-  print("    <td width=63>&nbsp;&nbsp;&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
+  print("    <td width=60>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
   print("    <td width=115><a href=" + project_url + ">" + release_name + "</a></td>")
-  print("    <td width=115><a href=" + source_url + ">v" + version + \
+  print("    <td width=95><a href=" + source_url + ">v" + version + \
              "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
   print(get_platform_images(stage, platform, proj_desc))
 
