@@ -5,5 +5,6 @@ devel/pg/9*
 cli/scripts/*.out
 cli/scripts/conf
 cli/scripts/versions/*.db
+cli/scripts/versions/test.html
 .DS_STORE
 __pycache__
