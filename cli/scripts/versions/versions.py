@@ -98,10 +98,11 @@ for d in data:
   
   print("  <tr>")
   print("    <td width=60>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
-  print("    <td width=115><a href=" + project_url + ">" + release_name + "</a></td>")
-  print("    <td width=95><a href=" + source_url + ">v" + version + \
-             "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font></td>")
-  print(get_platform_images(stage, platform, proj_desc))
+  print("    <td width=300><a href=" + project_url + ">" + release_name + \
+             "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
+             "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + \
+             "</font>&nbsp;&nbsp;<font size=-2>[" + platform + "]</font><br>" + \
+             "<i>" + proj_desc + "</i></td>")
 
   print("  </tr>")
 
