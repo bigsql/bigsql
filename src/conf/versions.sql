@@ -282,29 +282,27 @@ INSERT INTO versions VALUES ('cassandrafdw-pg11',  '3.1.4-1',  'linux64',       
 
 INSERT INTO versions VALUES ('athenafdw-pg11',     '3.1-2',    'linux64',                      1, '20190707', 'pg11');
 
+INSERT INTO versions VALUES ('badger',             '11.1',     '',                             1, '20190916', '');
 INSERT INTO versions VALUES ('pgrest',             '0.0.7',    'linux64, arm64',               1, '20130813', '');
 INSERT INTO versions VALUES ('bouncer',            '1.12.0',   'linux64, arm64',               1, '20191017', '');
-INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',                             1, '20191020', '');
-INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',                             1, '20191224', '');
-INSERT INTO versions VALUES ('badger',             '11.1',     '',                             1, '20190916', '');
-INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',                             1, '20191201', '');
-INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',                             1, '20191206', '');
-INSERT INTO versions VALUES ('odbc',               '12.00',    'linux64, arm64',               1, '20191011', '');
+
+INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',                             0, '20191020', '');
+INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',                             0, '20191224', '');
+INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',                             0, '20191201', '');
+INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',                             0, '20191206', '');
+INSERT INTO versions VALUES ('odbc',               '12.00',    'linux64, arm64',               0, '20191011', '');
 
 INSERT INTO versions VALUES ('backrest',           '2.20',     'linux64, arm64',               1, '20191218', '');
 
 INSERT INTO versions VALUES ('helm',               '3.0.2',    'linux64',                      1, '20191218', '');
 
 INSERT INTO versions VALUES ('minikube',           '1.6.2',    'linux64',                      1, '20191220', '');
-INSERT INTO versions VALUES ('minikube',           '1.6.0',    'linux64',                      0, '20191210', '');
 
 INSERT INTO versions VALUES ('docker',             '19.03.5',  'linux64',               1, '20191113', '');
 
 INSERT INTO versions VALUES ('omnidb',             '2.17-1',   'docker',                1, '20191205', '');
-INSERT INTO versions VALUES ('omnidb',             '2.16-1',   'docker',                0, '20190613', '');
 
 INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',                      1, '20191205', '');
-INSERT INTO versions VALUES ('patroni',            '1.6.1',    '',                      0, '20191115', '');
 
 
 CREATE VIEW v_versions AS
