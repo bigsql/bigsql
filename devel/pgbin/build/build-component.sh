@@ -60,9 +60,9 @@ function prepComponentBuildDir {
 	cp $PGHOME/lib/libcrypto.so* $buildLocation/lib/
         cp $PGHOME/lib/postgresql/plpgsql.so $buildLocation/lib/postgresql/
 
-	if [[ $buildCassandraFDW == "true" && ! ${buildLocation/cassandra} == "$buildLocation" ]]; then
-		cp "$sharedLibs/$buildOS/lib/libcassandra.so.2" $buildLocation/lib/
-		cp "$sharedLibs/$buildOS/lib/libuv.so.1" $buildLocation/lib/
+	if [[ $buildCassandra == "true" && ! ${buildLocation/cassandra} == "$buildLocation" ]]; then
+		cp "$sharedLibs/linux_64/lib/libcassandra.so.2" $buildLocation/lib/
+		cp "$sharedLibs/linux_64/lib/libuv.so.1" $buildLocation/lib/
 	fi
 
 	if [[ $buildTDSFDW == "true" && ! ${buildLocation/tds} == "$buildLocation" ]]; then
@@ -130,38 +130,6 @@ function updateSharedLibs {
              		chrpath -r "\${ORIGIN}/../../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
 		done
         fi
-}
-
-
-function buildCassandraFDWComponent {
-
-	componentName="cassandra_fdw$cassandraFDWShortVersion-pg$pgShortVersion-$cassandraFDWFullVersion-$cassandraFDWBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir cassandra_fdw && tar -xf $cassandraFDWSource --strip-components=1 -C cassandra_fdw
-	cd cassandra_fdw
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-	PATH=$buildLocation/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/cassandraFDW_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/cassandraFDW_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "Cassandra FDW install failed, check logs for details."
-		fi
-	else
-		echo "Cassandra FDW Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-
 }
 
 
@@ -945,7 +913,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena-fdw:,build-cassandra-fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena-fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -962,8 +930,8 @@ while true; do
     --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift; ;;
     --build-postgis ) buildPostGIS=true; postGISSource=$2;shift; shift ;;
     --build-bouncer ) buildBouncer=true; Source=$2; shift; shift; ;;
-    --build-athena ) buildAthena=true; Source=$2; shift; shift ;;
-    --build-cassandra_fdw ) buildCassandraFDW=true; cassandraFDWSource=$2; shift; shift ;;
+    --build-athena-fdw ) buildAthena=true; Source=$2; shift; shift ;;
+    --build-cassandra_fdw ) buildCassandra=true; Source=$2; shift; shift ;;
     --build-pgtsql ) buildTSQL=true; tsqlSource=$2; shift; shift ;;
     --build-tds-fdw ) buildTDSFDW=true; tdsFDWSource=$2; shift; shift ;;
     --build-mongo-fdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
@@ -1014,8 +982,8 @@ getPGVersion
 
 PGHOME=$pgBin
 
-if [[ $buildCassandraFDW == "true" ]]; then
-	buildCassandraFDWComponent
+if [[ $buildCassandra == "true" ]]; then
+	buildComp cassandra_fdw "$cassShortV" "$cassFullV" "$cassBuildV" "$Source"
 fi
 
 if [[ $buildAthena == "true" ]]; then

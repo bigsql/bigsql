@@ -27,6 +27,10 @@ if [ ! "$pgV"  == "11" ] && [ ! "$pgV"  == "12" ]; then
   exit 1
 fi
 
+if [ "$1" == "cassandra-fdw" ] || [ "$1" == "all" ]; then
+  build cassandra_fdw $cassFullV $2 cassandra_fdw
+fi
+
 if [ "$1" == "orafce" ] || [ "$1" == "all" ]; then
   build orafce $orafceFullV $2 orafce
 fi
@@ -42,10 +46,6 @@ fi
 if [ "$1" == "plprofiler" ] || [ "$1" == "all" ]; then
   build plprofiler $plProfilerFullVersion $2 profiler
 fi
-
-##if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
-##  build cassandra_fdw $cassandraFDWFullVersion
-##fi
 
 if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
   build timescaledb $timescaledbFullV $2 timescale

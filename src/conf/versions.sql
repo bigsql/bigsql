@@ -57,8 +57,8 @@ INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 0, 'https://github.com/b
  'plprofiler', 1, 'plprofiler.png',
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
-INSERT INTO projects VALUES ('cassandrafdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandrafdw/releases', 
- 'cassandrafdw', 1, 'cassandra.png',
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
+ 'cassandra_fdw', 1, 'cassandra.png',
  'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
 INSERT INTO projects VALUES ('athenafdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athenafdw/releases',
@@ -211,7 +211,7 @@ INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymiz
 
 INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',  '', 'prod');
 
-INSERT INTO releases VALUES ('cassandrafdw-pg11',  1, 'cassandrafdw',  'Cassandra FDW', '', 'test');
+INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandra FDW', '', 'prod');
 
 INSERT INTO releases VALUES ('athenafdw-pg11',     1, 'athenafdw',     'Athena FDW',    '', 'test');
 
@@ -278,7 +278,7 @@ INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64, arm64',
 
 INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',               1, '20191112', 'pg11');
 
-INSERT INTO versions VALUES ('cassandrafdw-pg11',  '3.1.4-1',  'linux64',                      1, '20190802', 'pg11');
+INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'linux64',                      1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('athenafdw-pg11',     '3.1-2',    'linux64',                      1, '20190707', 'pg11');
 

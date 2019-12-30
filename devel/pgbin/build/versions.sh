@@ -46,9 +46,9 @@ athenaFullV=3.1
 athenaShortV=
 athenaBuildV=2
 
-cassandraFDWFullVersion=3.1.4
-cassandraFDWShortVersion=
-cassandraFDWBuildV=1
+cassFullV=3.1.5
+cassShortV=
+cassBuildV=1
 
 orafceFullV=3.8.0
 orafceShortV=

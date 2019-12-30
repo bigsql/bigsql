@@ -25,5 +25,7 @@ cp -v $lib64/libuuid*        $shared_lib/.
 cp -v $lib64/libxml2.so.2    $shared_lib/.
 cp -v $lib64/libevent*       $shared_lib/.
 cp -v $lib64/libpython3.?m.so.1.0   $shared_lib/.
+cp -v $lib64/libcassandra.so.2   $shared_lib/.
+cp -v $lib64/libuv.so.1      $shared_lib/.
 
 rm -f $shared_lib/*.a

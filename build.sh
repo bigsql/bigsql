@@ -422,7 +422,7 @@ initPG () {
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
 
     ##initC "athena_fdw-pg$pgM" "athena_fdw" "$athenafdwV" "$plat" "postgres/athenafdw" "" "" "nil"
-    ##initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV" "$plat" "postgres/cstar" "" "" "nil"
+    initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV" "$plat" "postgres/cassandra_fdw" "" "" "nil"
   fi
 }
 
