@@ -5,7 +5,7 @@
 
 bundle=bigsql
 api=apg
-hubV=5.1.1
+hubV=5.1.2
 
 P12=12.1-5
 P11=11.6-5

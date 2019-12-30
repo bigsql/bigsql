@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-MY_VERSION = "5.1.1"
+MY_VERSION = "5.1.2"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
