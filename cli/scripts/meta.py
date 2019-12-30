@@ -86,7 +86,7 @@ def is_extension(ext_comp):
           "  FROM projects p,components c " + \
           " WHERE c.component='" + ext_comp + "' " + \
           "   AND c.project=p.project " + \
-          "   AND p.category=2"
+          "   AND p.is_extension = 1"
     c.execute(sql)
     data = c.fetchone()
     if not data:
@@ -264,19 +264,19 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
 
   parent_comp_condition = ""
   installed_category_conditions = " AND p.category > 0 "
-  available_category_conditions = " AND p.category <> 2 "
+  available_category_conditions = " AND p.is_extension = 0"
   ext_component = ""
 
   if p_isExtensions:
-    installed_category_conditions = " AND p.category = 2 "
-    available_category_conditions = " AND p.category = 2 "
+    installed_category_conditions = " AND p.is_extension = 1"
+    available_category_conditions = " AND p.is_extension = 1"
     if p_comp != "all":
       ext_component = " AND parent = '" + p_comp + "' "
 
   installed = \
     "SELECT p.category, g.description as category_desc, c.component, c.version, c.port, c.status, r.stage, \n" + \
     "       coalesce((select is_current from versions where c.component = component AND c.version = version),0), \n" + \
-    "       c.datadir, p.short_desc, \n" + \
+    "       c.datadir, p.is_extension, \n" + \
     "       coalesce((select parent from versions where c.component = component and c.version = version),'') as parent, \n" + \
     "       coalesce((select release_date from versions where c.component = component and c.version = version),'20200101'), \n" + \
     "       c.install_dt, r.disp_name, \n" + \
@@ -288,7 +288,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
 
   available = \
     "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
-    "       r.stage, v.is_current, '', p.short_desc, v.parent as parent, v.release_date, '', \n" + \
+    "       r.stage, v.is_current, '', p.is_extension, v.parent as parent, v.release_date, '', \n" + \
     "       r.disp_name, \n" + \
     "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
     "  FROM versions v, releases r, projects p, categories c \n" + \
@@ -299,12 +299,12 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
 
   extensions = \
     "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
-    "       r.stage, v.is_current, '', p.short_desc, v.parent as parent, v.release_date, '', \n" + \
+    "       r.stage, v.is_current, '', p.is_extension, v.parent as parent, v.release_date, '', \n" + \
     "       r.disp_name,  \n" + \
     "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
     "  FROM versions v, releases r, projects p, categories c \n" + \
     " WHERE v.component = r.component AND r.project = p.project \n" + \
-    "   AND p.category = 2 AND p.category = c.category \n" + \
+    "   AND p.is_extension = 1 AND p.category = c.category \n" + \
     "   AND " + util.like_pf("v.platform") + " \n" + \
     "   AND v.parent in (select component from components) AND " + r_sup_plat + exclude_comp
 
@@ -380,13 +380,13 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       else:
         datadir = str(row[8]).strip()
 
-      short_desc = row[9]
+      is_extension = row[9]
 
       parent = row[10]
 
       disp_name = row[13]
 
-      release_desc = short_desc
+      release_desc = ''
       release_date = '1970-01-01'
       curr_rel_date = '1970-01-01'
 
@@ -444,7 +444,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       compDict['category_desc'] = category_desc
       compDict['component'] = comp
       compDict['version'] = version
-      compDict['short_desc'] = short_desc
+      compDict['is_extension'] = is_extension
       compDict['disp_name'] = disp_name
       compDict['release_desc'] = release_desc
       compDict['port'] = port

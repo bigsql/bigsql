@@ -22,9 +22,9 @@ INSERT INTO categories VALUES (0, 'Hidden');
 INSERT INTO categories VALUES (1, 'PostgreSQL');
 INSERT INTO categories VALUES (2, 'Interoperability');
 INSERT INTO categories VALUES (3, 'Procedural Languages');
-INSERT INTO categories VALUES (4, 'Availability & Reliability');
+INSERT INTO categories VALUES (4, 'Availability');
 INSERT INTO categories VALUES (5, 'Other Extensions');
-INSERT INTO categories VALUES (6, 'Clustering');
+INSERT INTO categories VALUES (6, 'Kubernetes');
 INSERT INTO categories VALUES (7, 'Connectors');
 INSERT INTO categories VALUES (8, 'Security');
 INSERT INTO categories VALUES (9, 'Admin & Tuning');
@@ -121,7 +121,7 @@ INSERT INTO projects VALUES ('omnidb', 9, 8000, 'docker', 0, 'https://github.com
  'omnidb', 0, 'omnidb.png',
  'Admin for PG, Oracle, SQL Server, & MySQL', 'https://github.com/omnidb/omnidb/#omnidb');
 
-INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
+INSERT INTO projects VALUES ('patroni', 6, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
  'patroni', 0, 'patroni.png',
  'High Availability', 'https://github.com/zalando/patroni');
 

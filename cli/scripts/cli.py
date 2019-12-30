@@ -1484,7 +1484,7 @@ try:
         sql = "SELECT c.category, c.description, p.project, r.component, v.version, \n" + \
               "       v.platform, '', r.doc_url, v.is_current, \n" + \
               "       " + str(is_installed) + " as is_installed, r.stage, \n" + \
-              "       '', v.release_date, p.short_desc, \n" + \
+              "       '', v.release_date, p.is_extension, \n" + \
               "       r.disp_name, '' \n" + \
               "  FROM projects p, releases r, versions v, categories c \n" + \
               " WHERE r.project = p.project AND v.component = r.component \n" + \
@@ -1522,7 +1522,7 @@ try:
           stage = row[10]
           sup_plat = row[11]
           rel_dt = str(row[12])
-          short_desc = row[13]
+          is_extension = row[13]
           disp_name = row[14]
           release_desc = row[15]
           if len(rel_dt) == 8:
@@ -1541,7 +1541,7 @@ try:
           compDict['home_url']=home_url
           compDict['doc_url']=doc_url
           compDict['is_installed']=is_installed
-          compDict['short_desc']=short_desc
+          compDict['is_extension']=is_extension 
           compDict['disp_name']=disp_name
           compDict['release_desc']=release_desc
           current_version = meta.get_current_version(comp)
