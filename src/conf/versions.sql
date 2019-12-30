@@ -61,8 +61,8 @@ INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.co
  'cassandra_fdw', 1, 'cassandra.png',
  'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
-INSERT INTO projects VALUES ('athenafdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athenafdw/releases',
- 'athenafdw', 1, 'athena.png',
+INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases',
+ 'athena_fdw', 1, 'athena.png',
  'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
 
 INSERT INTO projects VALUES ('pglogical2', 4, 0, 'hub', 0, 'https://github.com/bigsql/pglogical2/releases',
@@ -203,17 +203,17 @@ INSERT INTO releases VALUES ('mysqlfdw-pg11',      1, 'mysqlfdw',      'MySQL FD
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
-INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor', '', 'prod');
+INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor',  '', 'prod');
 
-INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Client', '', 'prod');
+INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Client',   '', 'prod');
 
-INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',   '', 'prod');
+INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',    '', 'prod');
 
-INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',  '', 'prod');
+INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',   '', 'prod');
 
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandra FDW', '', 'prod');
 
-INSERT INTO releases VALUES ('athenafdw-pg11',     1, 'athenafdw',     'Athena FDW',    '', 'test');
+INSERT INTO releases VALUES ('athena_fdw-pg11',    1, 'athena_fdw',    'Athena FDW',    '', 'prod');
 
 INSERT INTO releases VALUES ('minikube',           1, 'minikube',      'MiniKube',     '', 'prod');
 INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'pgREST',       '', 'prod');
@@ -280,7 +280,7 @@ INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',
 
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'linux64',                      1, '20191230', 'pg11');
 
-INSERT INTO versions VALUES ('athenafdw-pg11',     '3.1-2',    'linux64',                      1, '20190707', 'pg11');
+INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.2-1',    'linux64',                      1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('badger',             '11.1',     '',                             1, '20190916', '');
 INSERT INTO versions VALUES ('pgrest',             '0.0.7',    'linux64, arm64',               1, '20130813', '');

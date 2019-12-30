@@ -29,7 +29,7 @@ fi
 printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
   echo "# -p $P12  $P11"
-  echo "#    cstarfdw-$cstarV  timescale-$timescaleV  athenafdw-$athenafdwV"
+  echo "#    cassandra_fdw-$cstarV  timescale-$timescaleV  athena_fdw-$athenaV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
@@ -421,7 +421,7 @@ initPG () {
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
 
-    ##initC "athena_fdw-pg$pgM" "athena_fdw" "$athenafdwV" "$plat" "postgres/athenafdw" "" "" "nil"
+    initC "athena_fdw-pg$pgM" "athena_fdw" "$athenaV" "$plat" "postgres/athena_fdw" "" "" "nil"
     initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV" "$plat" "postgres/cassandra_fdw" "" "" "nil"
   fi
 }

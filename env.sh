@@ -26,7 +26,7 @@ logicalV=2.2.2-1
 logical2V=2.3.1beta1-1
 profV=4.1-1
 cstarV=3.1.5-1
-athenafdwV=3.1-2
+athenaV=3.2-1
 tsqlV=3.0-1
 patroniV=1.6.3
 

@@ -913,7 +913,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena-fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -930,7 +930,7 @@ while true; do
     --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift; ;;
     --build-postgis ) buildPostGIS=true; postGISSource=$2;shift; shift ;;
     --build-bouncer ) buildBouncer=true; Source=$2; shift; shift; ;;
-    --build-athena-fdw ) buildAthena=true; Source=$2; shift; shift ;;
+    --build-athena_fdw ) buildAthena=true; Source=$2; shift; shift ;;
     --build-cassandra_fdw ) buildCassandra=true; Source=$2; shift; shift ;;
     --build-pgtsql ) buildTSQL=true; tsqlSource=$2; shift; shift ;;
     --build-tds-fdw ) buildTDSFDW=true; tdsFDWSource=$2; shift; shift ;;
