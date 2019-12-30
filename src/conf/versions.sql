@@ -69,13 +69,13 @@ INSERT INTO projects VALUES ('pglogical2', 4, 0, 'hub', 0, 'https://github.com/b
  'pglogical2', '', 'pglogical.png',
  'Logical Multi-Master Replication', 'https://github.com/bigsql/pglogical#pglogical2');
 
-INSERT INTO projects VALUES ('mysqlfdw', 2, 0, 'hub', 0, 'https://github.comreleases',
+INSERT INTO projects VALUES ('mysqlfdw', 2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases',
  'mysqlfdw', '', 'mysqlfdw.png',
- 'MySQL Foreign Data Wrapper (FDW) ', 'https://github.com/');
+ 'Access MySQL databases from within PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 
-INSERT INTO projects VALUES ('oraclefdw', 2, 0, 'hub', 0, 'https://github.com//releases',
+INSERT INTO projects VALUES ('oraclefdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
  'oraclefdw', '', 'oraclefdw.png',
- '', 'https://github.com/');
+ 'Access Oracle databases from within PG', 'https://github.com/laurenz/oracle_fdw');
 
 INSERT INTO projects VALUES ('pglogical', 4, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
  'pglogical', '', 'pglogical.png',
@@ -129,41 +129,41 @@ INSERT INTO projects VALUES ('minikube', 6, 0, 'hub', 0, 'https://github.com/kub
  'minikube', '', 'minikube.png',
  'Local Kubernetes for application development', 'https://minikube.sigs.k8s.io/');
 
-INSERT INTO projects VALUES ('pgrest', 2, 0, 'hub', 0, 'https://pgrest.org/release.html',
+INSERT INTO projects VALUES ('pgrest', 2, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases',
  'pgrest', '', 'pgrest.png',
- '', 'https://pgrest.org');
+ 'A RESTful Data API leveraging Plv8', 'https://github.com/pgrest/pgrest');
 
 INSERT INTO projects VALUES ('backrest', 4, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
  'backrest', '', 'backrest.png',
  'Reliable Backup & Restore', 'https://pgbackrest.org');
 
-INSERT INTO projects VALUES ('bouncer', 4, 0, 'hub', 0, 'https://github.com/',
+INSERT INTO projects VALUES ('bouncer', 4, 0, 'hub', 0, 'https://github.com/pgbouncer/pgbouncer/releases',
  'bouncer', '', 'bouncer.png',
- '', 'https://github.com');
+ 'Lightweight Connection Pooler', 'http://pgbouncer.org');
 
-INSERT INTO projects VALUES ('psycopg', 7, 0, 'hub', 0, 'https://github.com/',
+INSERT INTO projects VALUES ('psycopg', 7, 0, 'hub', 0, 'http://initd.org/psycopg',
  'psycopg', '', 'psycopg.png',
- '', 'https://github.com');
+ 'Python Adapter', 'http://initd.org/psycopg');
 
-INSERT INTO projects VALUES ('badger', 9, 0, 'hub', 0, 'https://github.com/',
+INSERT INTO projects VALUES ('badger', 9, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases',
  'badger', '', 'badger.png',
- '', 'https://github.com');
+ 'Fast Log Analysis Reports', 'https://pgbadger.darold.net');
 
 INSERT INTO projects VALUES ('npgsql', 7, 0, 'hub', 0, 'https://github.com/',
  'npgsql', 'npgsql', 'npgsql.png',
- '', 'https://github.com');
+ 'ADO.NET Data Provider', 'https://www.npgsql.org');
 
-INSERT INTO projects VALUES ('ruby', 7, 0, 'hub', 0, 'https://github.com/',
+INSERT INTO projects VALUES ('ruby', 7, 0, 'hub', 0, 'https://rubygems.org/gems/pg',
  'ruby', 'ruby', 'ruby.png',
- '', 'https://github.com');
+ 'Ruby Interface to PostgreSQL', 'https://github.com');
 
-INSERT INTO projects VALUES ('jdbc', 7, 0, 'hub', 0, 'https://github.com/',
+INSERT INTO projects VALUES ('jdbc', 7, 0, 'hub', 0, 'https://jdbc.postgresql.org',
  'jdbc', 'jdbc', 'jdbc.png',
- '', 'https://github.com');
+ 'Type 4 JDBC Driver', 'https://jdbc.postgresql.org');
 
-INSERT INTO projects VALUES ('odbc', 7, 0, 'hub', 0, 'https://github.com/',
+INSERT INTO projects VALUES ('odbc', 7, 0, 'hub', 0, 'https://www.postgresql.org/ftp/odbc/versions/msi/',
  'odbc', 'odbc', 'odbc.png',
- '', 'https://github.com');
+ 'The official Postgres ODBC Driver', 'https://odbc.postgresql.org');
 
 INSERT INTO projects VALUES ('helm', 6, 0, 'hub', 0, 'https://github.com/helm/helm/releases',
  'helm', 'Helm', 'helm.png',
@@ -245,10 +245,10 @@ CREATE TABLE versions (
 INSERT INTO versions VALUES ('hub', '5.1.1', '', 1, '20200101', '');
 INSERT INTO versions VALUES ('hub', '5.1.0', '', 0, '20191213', '');
 
-INSERT INTO versions VALUES ('pg11',               '11.6-5',   'linux64, arm64, osx64',        1, '20191218', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-5',   'linux64, arm64, osx64',        1, '20191114', '');
 INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, osx64',        0, '20191114', '');
 
-INSERT INTO versions VALUES ('pg12',               '12.1-5',   'linux64, arm64, osx64',        1, '20191218', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-5',   'linux64, arm64, osx64',        1, '20191114', '');
 INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        0, '20191114', '');
 
 INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64, arm64',               1, '20191123', 'pg11');
@@ -263,9 +263,9 @@ INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'linux64, arm
 
 INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64, arm64',               1, '20190725', 'pg11');
 
-INSERT INTO versions VALUES ('oraclefdw-pg11',     '1.2.3-1',  'linux64, arm64',               1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('oraclefdw-pg11',     '2.2.0-1',  'linux64, arm64',               1, '20191010', 'pg11');
 
-INSERT INTO versions VALUES ('mysqlfdw-pg11',      '1.2.3-1',  'linux64, arm64',               1, '20200101', 'pg11');
+INSERT INTO versions VALUES ('mysqlfdw-pg11',      '2.5.3-1',  'linux64, arm64',               1, '20190927', 'pg11');
 
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64, arm64',               1, '20190823', 'pg11');
 
@@ -281,16 +281,16 @@ INSERT INTO versions VALUES ('cassandrafdw-pg11',  '3.1.4-1',  'linux64',       
 
 INSERT INTO versions VALUES ('athenafdw-pg11',     '3.1-2',    'linux64',                      1, '20190707', 'pg11');
 
-INSERT INTO versions VALUES ('pgrest',             '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('bouncer',            '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('psycopg',            '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('ruby',               '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('badger',             '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('npgsql',             '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('jdbc',               '1.2.3',    '',                             1, '20200101', '');
-INSERT INTO versions VALUES ('odbc',               '1.2.3',    '',                             1, '20200101', '');
+INSERT INTO versions VALUES ('pgrest',             '0.0.7',    'linux64, arm64',               1, '20130813', '');
+INSERT INTO versions VALUES ('bouncer',            '1.12.0',   'linux64, arm64',               1, '20191017', '');
+INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',                             1, '20191020', '');
+INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',                             1, '20191224', '');
+INSERT INTO versions VALUES ('badger',             '11.1',     '',                             1, '20190916', '');
+INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',                             1, '20191201', '');
+INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',                             1, '20191206', '');
+INSERT INTO versions VALUES ('odbc',               '12.00',    'linux64, arm64',               1, '20191011', '');
 
-INSERT INTO versions VALUES ('backrest',           '2.20',     '',                             1, '20191218', '');
+INSERT INTO versions VALUES ('backrest',           '2.20',     'linux64, arm64',               1, '20191218', '');
 
 INSERT INTO versions VALUES ('helm',               '3.0.2',    'linux64',                      1, '20191218', '');
 
