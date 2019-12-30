@@ -7,7 +7,7 @@ YUM="sudo yum -y install"
 
 $YUM bison-devel readline-devel zlib-devel openssl-devel
 $YUM libxml2-devel libxslt-devel sqlite-devel wget openjade 
-$YUM pam-devel openldap-devel uuid-devel python-devel
+$YUM pam-devel openldap-devel uuid-devel python-devel libuv-devel
 
 $YUM unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath
 

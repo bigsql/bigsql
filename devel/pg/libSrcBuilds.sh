@@ -12,7 +12,7 @@ sudo make install
 # recent CMAKE needed for timescaledb
 cd ~
 wget https://cmake.org/files/v3.15/cmake-3.15.5.tar.gz
-tar -xvzf cmake-3.15.5.tar.gz
+tar -xvf cmake-3.15.5.tar.gz
 cd cmake-3.15.5
 ./bootstrap
 make -j4
