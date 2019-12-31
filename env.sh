@@ -25,8 +25,13 @@ timescaleV=1.5.1-1
 logicalV=2.2.2-1
 logical2V=2.3.1beta1-1
 profV=4.1-1
+
+cassV=3.11.5
 cstarV=3.1.5-1
-athenaV=3.2-1
+
+presV=0.229
+prestoV=3.2-1
+
 tsqlV=3.0-1
 patroniV=1.6.3
 

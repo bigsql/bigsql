@@ -1,8 +1,5 @@
 #!/bin/bash 
 
-#----------------------------------------------------------------#
-#             Copyright (c) 2015-2017 BigSQL                     #
-#----------------------------------------------------------------#
 
 source env.sh
 
@@ -27,17 +24,18 @@ fi
 
 
 printUsageMessage () {
-  echo "#-------------------------------------------------------------------#"
-  echo "# -p $P12  $P11"
-  echo "#    cassandra_fdw-$cstarV  timescale-$timescaleV  athena_fdw-$athenaV"
+  echo "#--------------------------------------------------------------------------#"
+  echo "#                    Copyright (c) 2015-2020 BigSQL                        #"
+  echo "#--------------------------------------------------------------------------#"
+  echo "# -p $P12  $P11  timescale-$timescaleV"
+  echo "#    cassandra-$cassV  cassandra_fdw-$cstarV  presto-$presV  presto_fdw-$prestoV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "# -b hub-$hubV"
-  echo "#-------------------------------------------------------------------#"
+  echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11   -p 11 -b"
-  echo "# ./build.sh -X l64 -c $bundle -N $P12   -p 12 -b"
-  echo "#---------------------------------------------------#"
+  echo "#--------------------------------------------------------------------------#"
 }
 
 
@@ -206,7 +204,7 @@ initDir () {
   copy-pgXX "anon"
   copy-pgXX "http"
   copy-pgXX "cassandra_fdw"
-  copy-pgXX "athena_fdw"
+  copy-pgXX "presto_fdw"
   copy-pgXX "plprofiler"
   copy-pgXX "pgtsql"
   copy-pgXX "hypopg"
@@ -421,8 +419,8 @@ initPG () {
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
 
-    initC "athena_fdw-pg$pgM" "athena_fdw" "$athenaV" "$plat" "postgres/athena_fdw" "" "" "nil"
-    initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV" "$plat" "postgres/cassandra_fdw" "" "" "nil"
+    initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
+    initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
   fi
 }
 

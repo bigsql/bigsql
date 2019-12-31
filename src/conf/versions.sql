@@ -61,9 +61,17 @@ INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.co
  'cassandra_fdw', 1, 'cassandra.png',
  'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
-INSERT INTO projects VALUES ('athena_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/athena_fdw/releases',
- 'athena_fdw', 1, 'athena.png',
- 'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/athena_fdw#athena_fdw');
+INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apache.org', 
+ 'cassandra', 0, 'cassandra.png',
+ 'Multi-Region Multi-Master Big Data', 'https://cassandra.apache.org');
+
+INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases',
+ 'presto_fdw', 1, 'presto.png',
+ 'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/presto_fdw#presto_fdw');
+
+INSERT INTO projects VALUES ('presto', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases',
+ 'presto', 1, 'presto.png',
+ 'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/presto_fdw#presto_fdw');
 
 INSERT INTO projects VALUES ('pglogical2', 4, 0, 'hub', 0, 'https://github.com/bigsql/pglogical2/releases',
  'pglogical2', 1, 'pglogical.png',
@@ -75,11 +83,11 @@ INSERT INTO projects VALUES ('mysqlfdw', 2, 0, 'hub', 0, 'https://github.com/Ent
 
 INSERT INTO projects VALUES ('oraclefdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
  'oraclefdw', 1, 'oraclefdw.png',
- 'Access Oracle databases from within PG', 'https://github.com/laurenz/oracle_fdw');
+ 'Access Oracle Databases Extension', 'https://github.com/laurenz/oracle_fdw');
 
 INSERT INTO projects VALUES ('pglogical', 4, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
  'pglogical', 1, 'pglogical.png',
- 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
+ 'Logical Replication Extension', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 
 INSERT INTO projects VALUES ('timescaledb', 5, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
  'timescaledb', 1, 'timescaledb.png',
@@ -91,19 +99,19 @@ INSERT INTO projects VALUES ('ddlx', 9, 0, 'hub', 0, 'https://github.com/lacanoi
 
 INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases',
  'http',  1, 'curl.png',
- 'HTTP Client via cURL', 'https://github.com/pramsey/pgsql-http');
+ 'HTTP Client Extension', 'https://github.com/pramsey/pgsql-http');
 
 INSERT INTO projects VALUES ('anon', 8, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
  'anon', 1, 'anon.png', 
- 'PostgreSQL Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+ 'PostgreSQL Anonymizer Extension', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
 INSERT INTO projects VALUES ('pgtsql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
  'pgtsql', 1, 'tsql.png',
- 'SQL Server & Sybase Compatible Stored Procs', 'https://github.com/bigsql/pgtsql#pgtsql');
+ 'SQL Server & Sybase Stored Proc Extension', 'https://github.com/bigsql/pgtsql#pgtsql');
 
 INSERT INTO projects VALUES ('pgosql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases',
  'pgosql', 1, 'pgosql.png',
- 'Oracle Compatible Stored Procs', 'https://github.com/bigsq/pgosql#pgosql');
+ 'Oracle Style Stored Proc Extension', 'https://github.com/bigsq/pgosql#pgosql');
 
 INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
  'orafce', 1, 'orafce.png',
@@ -211,9 +219,11 @@ INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymiz
 
 INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',   '', 'prod');
 
+INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra',     '', 'prod');
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandra FDW', '', 'prod');
 
-INSERT INTO releases VALUES ('athena_fdw-pg11',    1, 'athena_fdw',    'Athena FDW',    '', 'prod');
+INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',        '', 'prod');
+INSERT INTO releases VALUES ('presto_fdw-pg11',    1, 'presto_fdw',    'Presto FDW',    '', 'prod');
 
 INSERT INTO releases VALUES ('minikube',           1, 'minikube',      'MiniKube',     '', 'prod');
 INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'pgREST',       '', 'prod');
@@ -246,11 +256,11 @@ INSERT INTO versions VALUES ('hub', '5.1.2', '', 1, '20200101', '');
 INSERT INTO versions VALUES ('hub', '5.1.1', '', 0, '20191224', '');
 INSERT INTO versions VALUES ('hub', '5.1.0', '', 0, '20191213', '');
 
-INSERT INTO versions VALUES ('pg11',               '11.6-5',   'linux64, arm64, osx64',        1, '20191114', '');
-INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64, osx64',        0, '20191114', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-5',   'linux64, arm64',               1, '20191114', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64',               0, '20191114', '');
 
-INSERT INTO versions VALUES ('pg12',               '12.1-5',   'linux64, arm64, osx64',        1, '20191114', '');
-INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64, osx64',        0, '20191114', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-5',   'linux64, arm64',               1, '20191114', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64',               0, '20191114', '');
 
 INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64, arm64',               1, '20191123', 'pg11');
 
@@ -278,9 +288,11 @@ INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64, arm64',
 
 INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',               1, '20191112', 'pg11');
 
+INSERT INTO versions VALUES ('cassandra',          '3.11.5',   '',                             1, '20191029', '');
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'linux64',                      1, '20191230', 'pg11');
 
-INSERT INTO versions VALUES ('athena_fdw-pg11',    '3.2-1',    'linux64',                      1, '20191230', 'pg11');
+INSERT INTO versions VALUES ('presto',             '0.229',    '',                             1, '20191115', '');
+INSERT INTO versions VALUES ('presto_fdw-pg11',    '3.2-1',    'linux64',                      1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('badger',             '11.1-1',   '',                             1, '20190916', '');
 INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'linux64, arm64',               1, '20130813', '');
