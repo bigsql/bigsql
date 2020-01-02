@@ -5,5 +5,5 @@
 
 import util, os
 
-util.create_extension("pgXX", "athena_fdw", True) 
+util.create_extension("pgXX", "presto_fdw", True) 
 
