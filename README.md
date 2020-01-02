@@ -1,26 +1,31 @@
 # README for BigSQL ( http://bigsql.net ) #
 
-# EL7 setup
+# EL7 Development Environment setup
 
 ```
 YUM="sudo yum -y"
 $YUM update
 
-$YUM install git net-tools zip unix2dos wget bzip2 python-pip \
- epel-release java-1.8.0-openjdk java-1.8.0-openjdk-devel
-
+$YUM install git
 git config --global user.name "Denis Lussier"
 git config --global user.email "denis@lussier.io"
 git config --global push.default simple
 
+$YUM install epel-release
+$YUM install python-pip 
+sudo pip install awscli
+
+$YUM install net-tools zip unix2dos wget bzip2 \
+  java-1.8.0-openjdk java-1.8.0-openjdk-devel
+
 $YUM groupinstall 'Development Tools'
 
 $YUM install bison-devel readline-devel zlib-devel openssl-devel \
- libxml2-devel libxslt-devel sqlite-devel wget openjade \
- pam-devel openldap-devel uuid-devel python-devel \
- unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath \
- docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight \
- perl-ExtUtils-Embed libevent-devel postgresql-devel
+  libxml2-devel libxslt-devel sqlite-devel wget openjade \
+  pam-devel openldap-devel uuid-devel python-devel \
+  unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath \
+  docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight \
+  perl-ExtUtils-Embed libevent-devel postgresql-devel
 
 $YUM install centos-release-scl llvm-toolset-7 llvm-toolset-7-llvm-devel
 
@@ -96,13 +101,9 @@ vi config
 chmod 600 config
 
 cd $IN
-cp $DPG/devel/build/util/pull-s3.sh .
+cp $DPG/devel/util/pull-s3.sh .
 ./pull-s3.sh
 chmod 755 *.sh
-
-
-
-
 
 ```
 
