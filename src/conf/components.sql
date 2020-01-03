@@ -59,3 +59,13 @@ CREATE TABLE components (
   svcuser            TEXT
 );
 
+DROP TABLE IF EXISTS proprietary_comps;
+CREATE TABLE proprietary_comps (
+  component          TEXT     NOT NULL PRIMARY KEY,
+  license_url        TEXT     NOT NULL,
+  dependant_comp     TEXT     NOT NULL
+);
+INSERT INTO proprietary_comps VALUES ('sqlsvr_xe', 'https://microsoft.com', 'tds_fdw-pg11');
+INSERT INTO proprietary_comps VALUES ('sybase_xe', 'https:/sap.com', 'tds_fdw-pg11');
+INSERT INTO proprietary_comps VALUES ('oracle_xe', 'https://oracle.com', 'oracle_fdw-pg11');
+

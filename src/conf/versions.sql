@@ -81,8 +81,8 @@ INSERT INTO projects VALUES ('mysqlfdw', 2, 0, 'hub', 0, 'https://github.com/Ent
  'mysqlfdw', 1, 'mysqlfdw.png',
  'Access MySQL databases from within PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 
-INSERT INTO projects VALUES ('oraclefdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
- 'oraclefdw', 1, 'oraclefdw.png',
+INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
+ 'oracle_fdw', 1, 'oraclefdw.png',
  'Access Oracle Databases Extension', 'https://github.com/laurenz/oracle_fdw');
 
 INSERT INTO projects VALUES ('pglogical', 4, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
@@ -205,9 +205,9 @@ INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogica
 
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
-INSERT INTO releases VALUES ('oraclefdw-pg11',     1, 'oraclefdw',     'Oracle FDW',   '', 'prod');
+INSERT INTO releases VALUES ('oracle_fdw-pg11',     1, 'oracle_fdw',     'Oracle FDW',   '', 'prod');
 
-INSERT INTO releases VALUES ('mysqlfdw-pg11',      1, 'mysqlfdw',      'MySQL FDW',    '', 'prod');
+INSERT INTO releases VALUES ('mysql_fdw-pg11',      1, 'mysql_fdw',      'MySQL FDW',    '', 'prod');
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
