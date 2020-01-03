@@ -58,7 +58,7 @@ INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 0, 'https://github.com/b
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
 INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
- 'cassandra_fdw', 1, 'cassandra.png',
+ 'cassand', 1, 'cstarfdw.png', 
  'Cassandra Foreign Data Wrapper', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
 INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apache.org', 
@@ -66,20 +66,28 @@ INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apa
  'Multi-Region Multi-Master Big Data', 'https://cassandra.apache.org');
 
 INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases',
- 'presto_fdw', 1, 'presto.png',
- 'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/presto_fdw#presto_fdw');
+ 'presto_fdw', 1, 'prestofdw.png',
+ 'Presto (Athena) Foreign Data Wrapper', 'https://github.com/bigsql/presto_fdw#presto_fdw');
 
-INSERT INTO projects VALUES ('presto', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases',
+INSERT INTO projects VALUES ('presto', 2, 0, 'hub', 0, 'https://github.com/prestodb/presto/releases',
  'presto', 1, 'presto.png',
- 'Athena (Presto) Foreign Data Wrapper', 'https://github.com/bigsql/presto_fdw#presto_fdw');
+ 'Distributed Queries for Data Lakes', 'https://prestodb.io');
 
 INSERT INTO projects VALUES ('pglogical2', 4, 0, 'hub', 0, 'https://github.com/bigsql/pglogical2/releases',
  'pglogical2', 1, 'pglogical.png',
  'Logical Multi-Master Replication', 'https://github.com/bigsql/pglogical#pglogical2');
 
-INSERT INTO projects VALUES ('mysqlfdw', 2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases',
- 'mysqlfdw', 1, 'mysqlfdw.png',
+INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql',
+ 'mysql', 0, 'mysql.png',
+ 'MySQL Community Server', 'https://dev.mysql.com');
+
+INSERT INTO projects VALUES ('mysql_fdw', 2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases',
+ 'mysql_fdw', 1, 'mysqlfdw.png',
  'Access MySQL databases from within PG', 'https://github.com/EnterpriseDb/mysql_fdw');
+
+INSERT INTO projects VALUES ('oracle_xe', 2, 0, 'hub', 0, 'https://oracle.com',
+ 'oracle_xe', 0, 'oracle_xe.png',
+ 'Oracle Database Express Edition', 'https://oracle.com');
 
 INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
  'oracle_fdw', 1, 'oraclefdw.png',
@@ -205,9 +213,11 @@ INSERT INTO releases VALUES ('pglogical2-pg11',    1, 'pglogical2',    'pgLogica
 
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',    '', 'prod');
 
-INSERT INTO releases VALUES ('oracle_fdw-pg11',     1, 'oracle_fdw',     'Oracle FDW',   '', 'prod');
+INSERT INTO releases VALUES ('oracle_fdw-pg11',     1, 'oracle_fdw',     'Oracle FDW',     '', 'prod');
+INSERT INTO releases VALUES ('oracle_xe',           1, 'oracle_xe',      'Oracle Express', '', 'test');
 
 INSERT INTO releases VALUES ('mysql_fdw-pg11',      1, 'mysql_fdw',      'MySQL FDW',    '', 'prod');
+INSERT INTO releases VALUES ('mysql',               1, 'mysql',          'MySQL Server', '', 'test');
 
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',   'https://github.com/bigsql/plprofiler', 'prod');
 
@@ -219,7 +229,7 @@ INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymiz
 
 INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',   '', 'prod');
 
-INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra',     '', 'prod');
+INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra',     '', 'test');
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandra FDW', '', 'prod');
 
 INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',        '', 'prod');
@@ -274,9 +284,11 @@ INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'linux64, arm
 
 INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64, arm64',               1, '20190725', 'pg11');
 
-INSERT INTO versions VALUES ('oraclefdw-pg11',     '2.2.0-1',  'linux64, arm64',               1, '20191010', 'pg11');
+INSERT INTO versions VALUES ('oracle_xe',          '11.2.0',   'linux64',                      1, '20191010', '');
+INSERT INTO versions VALUES ('oracle_fdw-pg11',    '2.2.0-1',  'linux64',                      1, '20191010', 'pg11');
 
-INSERT INTO versions VALUES ('mysqlfdw-pg11',      '2.5.3-1',  'linux64, arm64',               1, '20190927', 'pg11');
+INSERT INTO versions VALUES ('mysql',              '8.0.18',   'linux64',                      1, '20191014', '');
+INSERT INTO versions VALUES ('mysql_fdw-pg11',     '2.5.3-1',  'linux64',                      1, '20190927', 'pg11');
 
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64, arm64',               1, '20190823', 'pg11');
 
