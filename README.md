@@ -22,7 +22,7 @@ $YUM groupinstall 'Development Tools'
 
 $YUM install readline-devel zlib-devel openssl-devel \
   libxml2-devel libxslt-devel sqlite-devel \
-  pam-devel openldap-devel python3-devel \
+  pam-devel openldap-devel python3-devel libcurl-devel \
   unixODBC-devel llvm-devel clang-devel chrpath \
   docbook-dtds docbook-style-xsl cmake \
   perl-ExtUtils-Embed libevent-devel postgresql-devel
