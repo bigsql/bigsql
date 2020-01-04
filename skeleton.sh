@@ -5,8 +5,6 @@ function test12 {
 
 function test11 {
   ./apg install pg11; ./apg start pg11 -y -d demo; ./apg status
-  ./apg install athena_fdw-pg11    -d demo; ./apg status
-  ./apg install cassandra_fdw-pg11 -d demo; ./apg status
   ./apg install pgtsql-pg11        -d demo; ./apg status
   ./apg install anon-pg11          -d demo; ./apg status
   ./apg install http-pg11          -d demo; ./apg status
@@ -15,6 +13,8 @@ function test11 {
   ./apg install hypopg-pg11        -d demo; ./apg status
   ./apg install orafce-pg11        -d demo; ./apg status
   ./apg install pglogical-pg11     -d demo; ./apg status
+  ./apg install athena_fdw-pg11    -d demo; ./apg status
+  ./apg install cassandra_fdw-pg11 -d demo; ./apg status
 }
 
 function test10 {
