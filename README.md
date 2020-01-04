@@ -1,6 +1,6 @@
-# README for BigSQL ( http://bigsql.net ) #
+# README for BigSQL ( http://lab.lussier.io ) #
 
-# EL7 Development Environment setup
+# EL8 Development Environment setup
 
 ```
 YUM="sudo yum -y"
@@ -11,23 +11,21 @@ git config --global user.name "Denis Lussier"
 git config --global user.email "denis@lussier.io"
 git config --global push.default simple
 
-$YUM install epel-release
-$YUM install python-pip 
-sudo pip install awscli
+$YUM install python3 python3-pip
+
+sudo pip3 install awscli
 
 $YUM install net-tools zip unix2dos wget bzip2 \
   java-1.8.0-openjdk java-1.8.0-openjdk-devel
 
 $YUM groupinstall 'Development Tools'
 
-$YUM install bison-devel readline-devel zlib-devel openssl-devel \
-  libxml2-devel libxslt-devel sqlite-devel wget openjade \
-  pam-devel openldap-devel uuid-devel python-devel \
-  unixODBC-devel llvm-devel clang-devel protobuf-c-devel chrpath \
-  docbook-dtds docbook-style-dsssl docbook-style-xsl mkdocs highlight \
+$YUM install readline-devel zlib-devel openssl-devel \
+  libxml2-devel libxslt-devel sqlite-devel \
+  pam-devel openldap-devel python3-devel \
+  unixODBC-devel llvm-devel clang-devel chrpath \
+  docbook-dtds docbook-style-xsl cmake \
   perl-ExtUtils-Embed libevent-devel postgresql-devel
-
-$YUM install centos-release-scl llvm-toolset-7 llvm-toolset-7-llvm-devel
 
 sudo mkdir /opt/pgbin-build
 sudo chmod 777 /opt/pgbin-build
@@ -43,29 +41,6 @@ cd ~/dev
 mkdir in
 mkdir out
 mkdir dpg_history
-
-################################
-cd ~
-
-## pg built using --with-libgss
-VER=1.0.3
-wget ftp://ftp.gnu.org/gnu/gss/gss-$VER.tar.gz
-tar -xvf gss-$VER.tar.gz
-cd gss-$VER
-./configure
-make -j4
-sudo make install
-
-# recent CMAKE needed for timescaledb
-wget https://cmake.org/files/v3.15/cmake-3.15.5.tar.gz
-tar -xvzf cmake-3.15.5.tar.gz
-cd cmake-3.15.5
-./bootstrap
-make -j4
-sudo make install
-################################
-
-git clone https://github.com/dockpg/dpg
 
 # edit your ~/.bashrc to set env variables
 export DEV=$HOME/dev
@@ -87,8 +62,6 @@ export REPO=http://localhost:8000
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
-
-export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
 
 ####################################
 cd $BLD
