@@ -45,9 +45,7 @@ CREATE TABLE projects (
   FOREIGN KEY (category) REFERENCES categories(category)
 );
 
-INSERT INTO projects VALUES ('hub', 0, 0, 'hub', 0, 'https://github.com/',
- '',  0, '',
- '', '');
+INSERT INTO projects VALUES ('hub',0,0,'hub',0,'https://github.com/','',0,'','','');
 
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 
  'postgres', 0, 'postgres.png', 

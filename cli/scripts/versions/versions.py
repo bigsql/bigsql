@@ -1,5 +1,20 @@
 import sqlite3
 
+COLS=2
+cat = ""
+cat_desc = ""
+image_file = ""
+component = ""
+project = ""
+release_name = ""
+version = ""
+source_url = ""
+project_url = ""
+platform = ""
+rel_day = ""
+rel_month = ""
+proj_desc = ""
+version = ""
 
 def get_platform_images(p_stage, p_platf, p_desc):
    img = "<td>" + p_stage + "</td><td><center>"
@@ -20,30 +35,17 @@ def get_platform_images(p_stage, p_platf, p_desc):
 
    return (img)
 
+def print_top():
+  print('<table border=1 bgcolor=red cellpadding=5>')
+  print('<tr><td colspan=4><img src=img/bigArmLogo.png /><br> \n' + \
+    'To install at the EL8 or Amazon Linux 2 command line:')
+  print('<pre>\n' + \
+    'python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)" \n' + \
+    '<pre>\n' + \
+    '</td></tr>')
 
 
-con = sqlite3.connect("local.db")
-c = con.cursor()
-
-sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
-      "       version, sources_url, project_url, platform, release_date, \n" + \
-      "       stage, proj_desc \n" + \
-      "  FROM v_versions \n" + \
-      " WHERE is_current = 1 AND cat > 0 \n" + \
-      "ORDER BY cat, project, release_name"
-##      "   AND ((cat in (1,3, 4)) or ((cat = 2) and (component like '%pg11%'))) \n" + \
-
-c.execute(sql)
-data = c.fetchall()
-
-print("<table border=1 cellpadding=5>")
-
-i=0
-for d in data:
-  i = i+1
-  if i == 1:
-    old_cat_desc = str(d[1])
-
+def get_columns(d):
   cat = str(d[0])
   cat_desc = str(d[1])
   image_file = str(d[2])
@@ -54,7 +56,6 @@ for d in data:
   source_url = str(d[7])
   project_url = str(d[8])
   platform = str(d[9])
-
   rel_date = str(d[10])
   rel_month = rel_date[4:6]
   if rel_month == "01":
@@ -93,6 +94,33 @@ for d in data:
      version = version[:-2]
 
 
+######################################
+#   MAINLINE
+######################################
+con = sqlite3.connect("local.db")
+c = con.cursor()
+
+sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
+      "       version, sources_url, project_url, platform, release_date, \n" + \
+      "       stage, proj_desc \n" + \
+      "  FROM v_versions \n" + \
+      " WHERE is_current = 1 AND cat > 0 \n" + \
+      "ORDER BY cat, project, release_name"
+##      "   AND ((cat in (1,3, 4)) or ((cat = 2) and (component like '%pg11%'))) \n" + \
+
+c.execute(sql)
+data = c.fetchall()
+
+print_top
+
+i=0
+for d in data:
+  i = i+1
+  if i == 1:
+    old_cat_desc = str(d[1])
+
+  get_columns(d)
+
   if ((old_cat_desc != cat_desc) or  (i == 1)):
     print("  <tr><td colspan=6>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
   
@@ -102,7 +130,8 @@ for d in data:
              "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
              "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + \
              "</font>&nbsp;&nbsp;<font size=-2>[" + platform + "]</font><br>" + \
-             "<i>" + proj_desc + "</i></td>")
+             "<i>" + proj_desc + "</i></td>" \
+             "<td width=60>&nbsp;</td><td width=300>&nbsp;</td>")
 
   print("  </tr>")
 
