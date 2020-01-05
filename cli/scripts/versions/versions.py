@@ -1,7 +1,7 @@
 import sqlite3, sys
 
 ## init global vars
-COLS=2
+COLS=4
 cat = ""
 cat_desc = ""
 image_file = ""
@@ -39,16 +39,17 @@ def get_platform_images(p_stage, p_platf, p_desc):
 
 
 def print_top():
-  print('<table border=1 bgcolor=red cellpadding=5>')
-  print('  <tr><td width=800><img src=img/bigArmLogo.png /></td></tr>')
-  print('</table>\n')
+  print('<table border=0 bgcolor=red cellpadding=3>')
+  print('  <tr><td width=1000><img src=img/bigArmLogo.png /></td>')
 
-  print('&nbsp;<p>&nbsp;To install on EL8 or Amazon Linux 2 from the command line:')
-  print('  <pre>   ' + \
+  print('    <td>To install on EL8 or Amazon Linux 2 from the command line:')
+  print('<pre> ' + \
     'python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)"' + \
-    '<pre>\n')
+    '</pre></td>')
+  print('  </tr>')
+  print('</table>')
 
-  print('\n<table bgcolor=white cellpadding=5>')
+  print('\n<table border=0 cellpadding=3>')
 
 
 def get_columns(d):
@@ -105,7 +106,7 @@ def get_columns(d):
 
 
 def print_row_header():
-  print("<tr><td colspan=4>&nbsp;<br><font size=+2><b><u>" + \
+  print("<tr><td colspan=" + str(COLS * 2) + ">&nbsp;<br><font size=+2><b><u>" + \
     cat_desc + ":</u></b></font></td></tr>")
 
 
@@ -149,7 +150,7 @@ for d in data:
              "</font>&nbsp;&nbsp;<font size=-2>[" + platform + "]</font><br>" + \
              "<i>" + proj_desc + "</i></td>")
 
-  if col == 2:
+  if col == COLS:
     print("</tr>")
     col = 1
   else:
