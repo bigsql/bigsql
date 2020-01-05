@@ -1,5 +1,6 @@
-import sqlite3
+import sqlite3, sys
 
+## init global vars
 COLS=2
 cat = ""
 cat_desc = ""
@@ -15,6 +16,7 @@ rel_day = ""
 rel_month = ""
 proj_desc = ""
 version = ""
+
 
 def get_platform_images(p_stage, p_platf, p_desc):
    img = "<td>" + p_stage + "</td><td><center>"
@@ -35,17 +37,25 @@ def get_platform_images(p_stage, p_platf, p_desc):
 
    return (img)
 
+
 def print_top():
   print('<table border=1 bgcolor=red cellpadding=5>')
-  print('<tr><td colspan=4><img src=img/bigArmLogo.png /><br> \n' + \
-    'To install at the EL8 or Amazon Linux 2 command line:')
-  print('<pre>\n' + \
-    'python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)" \n' + \
-    '<pre>\n' + \
-    '</td></tr>')
+  print('  <tr><td width=800><img src=img/bigArmLogo.png /></td></tr>')
+  print('</table>\n')
+
+  print('&nbsp;<p>&nbsp;To install on EL8 or Amazon Linux 2 from the command line:')
+  print('  <pre>   ' + \
+    'python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)"' + \
+    '<pre>\n')
+
+  print('\n<table bgcolor=white cellpadding=5>')
 
 
 def get_columns(d):
+  global cat, cat_desc, image_file, component, project, release_name
+  global version, source_url, project_url, platform, rel_date, rel_month
+  global rel_day, stage, proj_desc, version
+
   cat = str(d[0])
   cat_desc = str(d[1])
   image_file = str(d[2])
@@ -94,6 +104,11 @@ def get_columns(d):
      version = version[:-2]
 
 
+def print_row_header():
+  print("<tr><td colspan=4>&nbsp;<br><font size=+2><b><u>" + \
+    cat_desc + ":</u></b></font></td></tr>")
+
+
 ######################################
 #   MAINLINE
 ######################################
@@ -106,37 +121,43 @@ sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" +
       "  FROM v_versions \n" + \
       " WHERE is_current = 1 AND cat > 0 \n" + \
       "ORDER BY cat, project, release_name"
-##      "   AND ((cat in (1,3, 4)) or ((cat = 2) and (component like '%pg11%'))) \n" + \
 
 c.execute(sql)
 data = c.fetchall()
 
-print_top
+i = 0
+col = 0
+old_cat_desc = ""
+print_top()
 
-i=0
 for d in data:
-  i = i+1
-  if i == 1:
-    old_cat_desc = str(d[1])
+  i = i + 1
 
   get_columns(d)
 
-  if ((old_cat_desc != cat_desc) or  (i == 1)):
-    print("  <tr><td colspan=6>&nbsp;<br><font size=+2><b><u>" + cat_desc + ":</u></b></font></td></tr>")
-  
-  print("  <tr>")
-  print("    <td width=60>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
-  print("    <td width=300><a href=" + project_url + ">" + release_name + \
+  if (old_cat_desc != cat_desc):
+    print_row_header()
+    col = 1
+
+  if col == 1:
+    print("<tr>")
+
+  print("  <td width=60>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
+  print("  <td width=300><a href=" + project_url + ">" + release_name + \
              "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
              "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + \
              "</font>&nbsp;&nbsp;<font size=-2>[" + platform + "]</font><br>" + \
-             "<i>" + proj_desc + "</i></td>" \
-             "<td width=60>&nbsp;</td><td width=300>&nbsp;</td>")
+             "<i>" + proj_desc + "</i></td>")
 
-  print("  </tr>")
+  if col == 2:
+    print("</tr>")
+    col = 1
+  else:
+    col = col + 1
 
   old_cat_desc = cat_desc
 
 print("</table>")
+sys.exit(0)
 
 
