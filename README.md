@@ -32,7 +32,7 @@ $YUM remove docker docker-client docker-client-latest \
   docker-logrotate docker-engine
 $YUM install yum-utils device-mapper-persistent-data lvm2
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-$YUM install docker-ce docker-ce-cli containerd.io
+$YUM install docker-ce containerd.io --nobest
 sudo systemctl enable docker
 sudo systemctl restart docker
 
