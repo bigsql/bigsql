@@ -280,7 +280,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     system_cpu_cores = util.get_cpu_cores()
     cpu_model=util.getoutput("grep 'model name' /proc/cpuinfo | head -1 | cut -d':' -f2")
     if cpu_model == "":
-      cpu_model="ARM64"
+      cpu_model="ARM"
     if os.path.exists("/etc/redhat-release"):
       this_os = util.getoutput("cat /etc/redhat-release")
     elif os.path.exists("/etc/system-release"):
@@ -310,8 +310,8 @@ def info(p_json, p_home, p_repo, print_flag=True):
   os = this_os.replace(" release ", " ")
   os = os.replace(" (Final)", "")
 
-  arch = os_arch.replace("x86_64", "x64")
-  arch = arch.replace("AMD64", "x64")
+  arch = os_arch.replace("x86_64", "AMD")
+  arch = arch.replace("AMD64", "AMD")
 
   ver = util.get_version()
   [last_update_utc, last_update_local, unique_id] = util.read_hosts('localhost')

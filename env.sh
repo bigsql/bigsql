@@ -49,19 +49,19 @@ pg="postgres"
 
 OS=`uname -s`
 if [[ $OS == "Darwin" ]]; then
-  OS=osx64;
+  OS=osx;
   outDir=m64
 elif [[ $OS == "MINGW64_NT-6.1" ]]; then
-  OS=win64;
+  OS=win;
   outDir=w64
 elif [[ $OS == "Linux" ]]; then
   grep "CPU architecture:" /proc/cpuinfo 1>/dev/null
   rc=$?
   if [ "$rc" == "0" ]; then
-    OS=arm64
+    OS=arm
     outDir=a64
   else
-    OS=linux64;
+    OS=amd;
     outDir=l64
   fi
 fi

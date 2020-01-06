@@ -227,7 +227,7 @@ def get_latest_ver_plat(p_comp, p_new_ver=""):
     if pf in platform:
       ver_plat = version + "-" + pf
     else:
-      ver_plat = version + "-linux64"
+      ver_plat = version + "-amd"
   return(ver_plat)
 
 

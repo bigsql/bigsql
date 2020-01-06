@@ -479,13 +479,13 @@ def verify(p_json):
         verify_comp(comp_ver)
       else:
         if "win" in plat:
-          verify_comp(comp_ver + "-win64")
+          verify_comp(comp_ver + "-win")
         elif "osx" in plat:
-          verify_comp(comp_ver + "-osx64")
+          verify_comp(comp_ver + "-osx")
         elif "alpine" in plat:
-          verify_comp(comp_ver + "-alpine64")
+          verify_comp(comp_ver + "-alpine")
         elif "linux" in plat:
-          verify_comp(comp_ver + "-linux64")
+          verify_comp(comp_ver + "-amd")
   except Exception as e:
     fatal_sql_error(e,sql,"verify()")
 
@@ -1611,10 +1611,10 @@ def get_platform():
 ####################################################################################
 def get_os():
   if platform.system() == "Darwin":
-    return ("osx64")
+    return ("osx")
 
   if platform.system() == "Windows":
-    return ("win64")
+    return ("win")
 
   try:
     rel_file = ""
@@ -1636,23 +1636,23 @@ def get_os():
     if os.path.exists(rel_file):
       cpuinfo = read_file_string("/proc/cpuinfo")
       if "CPU architecture" in cpuinfo:
-        return "arm64"
+        return "arm"
       else:
-        return "linux64"
+        return "amd"
       
 
     if os.path.exists("/etc/os-release"):
       os_release_str = read_file_string("/etc/os-release")
       if "Debian" in os_release_str:
-        return "linux64"
+        return "amd"
       elif "Alpine" in os_releae_str:
-        return "alpine64"
+        return "alpine4"
 
   except Exception as e:
     pass
 
   ## This is the deafult
-  return ("linux64")
+  return ("amd")
 
 
 def get_pkg_mgr():
@@ -1684,31 +1684,13 @@ def has_admin_rights():
 ####################################################################################
 def get_default_pf():
   if get_platform() == "Darwin":
-    return "osx64"
+    return "osx"
 
   if get_platform() == "Windows":
-    return "win64"
+    return "win"
 
-  ## for now we will always use LINUX64
-  if get_platform() == "Linux":
-    return "linux64"
-
-  try:
-    if os.path.exists("/etc/redhat-release"):
-      ver = read_file_string("/etc/redhat-release").split()[3]
-      if ver.startswith("7"):
-        return "el7-x64"
-      else:
-        return "linux64"
-    if os.path.exists("/etc/lsb-release"):
-      this_os = getoutput("cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -d= -f2 | tr -d '\"'")
-      ver = this_os.split()[1]
-      if ver.startswith("14"):
-        return "ubu14-x64"
-  except Exception as e:
-    return "linux64"
-
-  return "linux64"
+  ## for now we will always use AMD
+  return "amd"
 
 
 ####################################################################################
@@ -1728,7 +1710,7 @@ def like_pf(p_col):
   c2 = p_col + " LIKE '%" + pf + "%'"
   clause = "(" + c1 + OR + c2
   if pf in ("el7-x64", "ubu14-x64"):
-    c3 = p_col + " LIKE '%linux64%'"
+    c3 = p_col + " LIKE '%amd%'"
     clause = clause + OR + c3 + ")"
   else:
     clause = clause + ")"
@@ -1741,7 +1723,7 @@ def like_pf(p_col):
 ####################################################################################
 def has_platform(p_platform):
   pf = get_pf()
-  if "linux64" in p_platform and pf in ("el7-x64", "ubu14-x64"):
+  if "amd" in p_platform and pf in ("el7-x64", "ubu14-x64"):
     return 0
   return p_platform.find(pf)
 

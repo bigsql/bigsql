@@ -265,69 +265,69 @@ INSERT INTO versions VALUES ('hub', '5.1.2', '', 1, '20200101', '');
 INSERT INTO versions VALUES ('hub', '5.1.1', '', 0, '20191224', '');
 INSERT INTO versions VALUES ('hub', '5.1.0', '', 0, '20191213', '');
 
-INSERT INTO versions VALUES ('pg11',               '11.6-6',   'linux64, arm64',               1, '20191114', '');
-INSERT INTO versions VALUES ('pg11',               '11.6-5',   'linux64, arm64',               0, '20191114', '');
-INSERT INTO versions VALUES ('pg11',               '11.6-4',   'linux64, arm64',               0, '20191114', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-6',   'amd, arm',       1, '20191114', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-5',   'amd, arm',       0, '20191114', '');
+INSERT INTO versions VALUES ('pg11',               '11.6-4',   'amd, arm',       0, '20191114', '');
 
-INSERT INTO versions VALUES ('pg12',               '12.1-6',   'linux64, arm64',               1, '20191114', '');
-INSERT INTO versions VALUES ('pg12',               '12.1-5',   'linux64, arm64',               0, '20191114', '');
-INSERT INTO versions VALUES ('pg12',               '12.1-4',   'linux64, arm64',               0, '20191114', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-6',   'amd, arm',       1, '20191114', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-5',   'amd, arm',       0, '20191114', '');
+INSERT INTO versions VALUES ('pg12',               '12.1-4',   'amd, arm',       0, '20191114', '');
 
-INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'linux64, arm64',               1, '20191123', 'pg11');
+INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'amd, arm',       1, '20191123', 'pg11');
 
-INSERT INTO versions VALUES ('orafce-pg11',        '3.8.0-1',  'linux64, arm64',               1, '20190522', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg11',        '3.8.0-1',  'amd, arm',       1, '20190522', 'pg11');
 
-INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'linux64',                      0, '20191211', 'pg11');
+INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'amd',            0, '20191211', 'pg11');
 
-INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'linux64, arm64',               1, '20191119', 'pg11');
+INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'amd, arm',       1, '20191119', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'linux64, arm64',           0, '20191212', 'pg11');
+INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'amd, arm',   0, '20191212', 'pg11');
 
-INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'linux64, arm64',               1, '20190725', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'amd, arm',       1, '20190725', 'pg11');
 
-INSERT INTO versions VALUES ('oracle_xe',          '11.2.0',   'linux64',                      1, '20191010', '');
-INSERT INTO versions VALUES ('oracle_fdw-pg11',    '2.2.0-1',  'linux64',                      1, '20191010', 'pg11');
+INSERT INTO versions VALUES ('oracle_xe',          '11.2.0',   'amd',            1, '20191010', '');
+INSERT INTO versions VALUES ('oracle_fdw-pg11',    '2.2.0-1',  'amd',            1, '20191010', 'pg11');
 
-INSERT INTO versions VALUES ('mysql',              '8.0.18',   'linux64',                      1, '20191014', '');
-INSERT INTO versions VALUES ('mysql_fdw-pg11',     '2.5.3-1',  'linux64',                      1, '20190927', 'pg11');
+INSERT INTO versions VALUES ('mysql',              '8.0.18',   'amd',            1, '20191014', '');
+INSERT INTO versions VALUES ('mysql_fdw-pg11',     '2.5.3-1',  'amd',            1, '20190927', 'pg11');
 
-INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'linux64, arm64',               1, '20190823', 'pg11');
+INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'amd, arm',       1, '20190823', 'pg11');
 
-INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'linux64, arm64',               1, '20191024', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'amd, arm',       1, '20191024', 'pg11');
 
-INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'linux64, arm64',               1, '20191225', 'pg11');
+INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'amd, arm',       1, '20191225', 'pg11');
 
-INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'linux64, arm64',               1, '20191109', 'pg11');
+INSERT INTO versions VALUES ('anon-pg11',          '0.5.0-1',  'amd, arm',       1, '20191109', 'pg11');
 
-INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'linux64, arm64',               1, '20191112', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'amd, arm',       1, '20191112', 'pg11');
 
-INSERT INTO versions VALUES ('cassandra',          '3.11.5',   '',                             1, '20191029', '');
-INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'linux64',                      1, '20191230', 'pg11');
+INSERT INTO versions VALUES ('cassandra',          '3.11.5',   '',               1, '20191029', '');
+INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'amd',            1, '20191230', 'pg11');
 
-INSERT INTO versions VALUES ('presto',             '0.229',    '',                             1, '20191115', '');
-INSERT INTO versions VALUES ('presto_fdw-pg11',    '3.2-1',    'linux64',                      1, '20191230', 'pg11');
+INSERT INTO versions VALUES ('presto',             '0.229',    '',               1, '20191115', '');
+INSERT INTO versions VALUES ('presto_fdw-pg11',    '3.2-1',    'amd',            1, '20191230', 'pg11');
 
-INSERT INTO versions VALUES ('badger',             '11.1-1',   '',                             1, '20190916', '');
-INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'linux64, arm64',               1, '20130813', '');
-INSERT INTO versions VALUES ('bouncer',            '1.12.0-1', 'linux64, arm64',               1, '20191017', '');
+INSERT INTO versions VALUES ('badger',             '11.1-1',   '',               1, '20190916', '');
+INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'amd, arm',       1, '20130813', '');
+INSERT INTO versions VALUES ('bouncer',            '1.12.0-1', 'amd, arm',       1, '20191017', '');
 
-INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',                             0, '20191020', '');
-INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',                             0, '20191224', '');
-INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',                             0, '20191201', '');
-INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',                             0, '20191206', '');
-INSERT INTO versions VALUES ('odbc',               '12.00-1',  'linux64, arm64',               1, '20191011', '');
+INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',               0, '20191020', '');
+INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',               0, '20191224', '');
+INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',               0, '20191201', '');
+INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',               0, '20191206', '');
+INSERT INTO versions VALUES ('odbc',               '12.00-1',  'amd, arm',       1, '20191011', '');
 
-INSERT INTO versions VALUES ('backrest',           '2.20-1',   'linux64, arm64',               1, '20191218', '');
+INSERT INTO versions VALUES ('backrest',           '2.20-1',   'amd, arm',       1, '20191218', '');
 
-INSERT INTO versions VALUES ('helm',               '3.0.2',    'linux64',                      1, '20191218', '');
+INSERT INTO versions VALUES ('helm',               '3.0.2',    'amd',            1, '20191218', '');
 
-INSERT INTO versions VALUES ('minikube',           '1.6.2',    'linux64',                      1, '20191220', '');
+INSERT INTO versions VALUES ('minikube',           '1.6.2',    'amd',            1, '20191220', '');
 
-INSERT INTO versions VALUES ('docker',             '19.03.5',  'linux64',                      1, '20191113', '');
+INSERT INTO versions VALUES ('docker',             '19.03.5',  'amd',            1, '20191113', '');
 
-INSERT INTO versions VALUES ('omnidb',             '2.17-1',   'docker',                       1, '20191205', '');
+INSERT INTO versions VALUES ('omnidb',             '2.17-1',   'docker',         1, '20191205', '');
 
-INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',                             1, '20191205', '');
+INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',               1, '20191205', '');
 
 
 CREATE VIEW v_versions AS

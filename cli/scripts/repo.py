@@ -47,7 +47,7 @@ def discover(p_ver, p_isSILENT=False, p_isJSON=False, p_isYES=False):
       except Exception as e:
         p_isYES = False
     if p_isYES:
-      meta.put_components(repo, "pgdg", pgver + "-1", "linux64", port, "Enabled",
+      meta.put_components(repo, "pgdg", pgver + "-1", "amd", port, "Enabled",
                           "on", datadir, logdir, svcname, "postgres")
       return (0)
 

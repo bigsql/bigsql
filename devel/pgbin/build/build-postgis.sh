@@ -79,9 +79,8 @@ function checkPostgisTar {
 		postgisFullVersion="$postgisMajorVersion.$postgisMinorVersion.$postgisMicroVersion"
 		echo "Postgis $postgisFullVersion source tarball .... OK "
 
-		#postgisBuildDir="postgis22-2.2.2-linux64-pg95-linux64"
 		pgVersion=`$PGHOME/bin/pg_config --version | awk '{print $2}'`
-		postgisBuildDir="postgis${postgisMajorVersion}${postgisMinorVersion}-pg`echo $pgVersion | awk -F '.' '{print $1$2}'`-${postgisFullVersion}-$buildNumber-linux64"
+		postgisBuildDir="postgis${postgisMajorVersion}${postgisMinorVersion}-pg`echo $pgVersion | awk -F '.' '{print $1$2}'`-${postgisFullVersion}-$buildNumber-amd"
 	fi
 }
 
@@ -188,7 +187,7 @@ function updateSharedLibPaths {
 # Creates the final bundle
 function createPostGISBundle {
 	cd $baseDir/$workDir
-	postgisTar="postgis${postgisMajorVersion}${postgisMinorVersion}-pg`echo $pgVersion | awk -F '.' '{print $1$2}'`-$postgisFullVersion-$buildNumber-linux64"
+	postgisTar="postgis${postgisMajorVersion}${postgisMinorVersion}-pg`echo $pgVersion | awk -F '.' '{print $1$2}'`-$postgisFullVersion-$buildNumber-amd"
 
 	tar -cjf "$postgisTar.tar.bz2" $postgisTar >> $baseDir/$workDir/logs/tar.log 2>&1
 	

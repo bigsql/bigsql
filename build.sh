@@ -387,11 +387,11 @@ initPG () {
   fi
 
   if [ "$outDir" == "a64" ]; then
-    outPlat="arm64"
+    outPlat="arm"
   elif [ "$outDir" == "m64" ]; then
-    outPlat="osx64"
+    outPlat="osx"
   else
-    outPlat="linux64"
+    outPlat="amd"
   fi
 
   initDir "pg$pgM" "pg" "$pgV" "$outPlat" "postgres/pg$pgM" "Enabled" "5432" "nil"
@@ -401,10 +401,8 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
-  if [ "$outPlat" == "linux64" ]; then
-    initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
-    initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"            "" "" "nil"
-  fi
+  initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
+  initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"            "" "" "nil"
 
   initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
 
@@ -418,7 +416,7 @@ initPG () {
     initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
-    if [ "$plat" == "linux64" ]; then
+    if [ "$plat" == "amd" ]; then
       initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
       initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
     fi

@@ -6,11 +6,11 @@ pg12BuildV=6
 pg11V="11.6"
 pg11BuildV=6
 
-#pg10V="10.11"
-#pg10BuildV=4
+pg10V="10.11"
+pg10BuildV=4
 
-#pg96V="9.6.16"
-#pg96BuildV=4
+pg96V="9.6.16"
+pg96BuildV=4
 
 #pg95V="9.5.20"
 #pg95BuildV=4
@@ -158,17 +158,17 @@ pgAgentBuildV=1
 
 OS=`uname -s`
 if [[ $OS == "Darwin" ]]; then
-  OS=osx64
+  OS=osx
 elif [[ $OS == "MINGW64_NT-6.1" ]]; then
-  OS=win64
+  OS=win
 elif [[ $OS == "Linux" ]]; then
   grep "CPU architecture: 8" /proc/cpuinfo 1>/dev/null
   rc=$?
   if [ "$rc" == "0" ]; then
-    OS=arm64
+    OS=arm
   else
-    OS=linux64
+    OS=amd
   fi
 else
-  OS=linux64
+  OS=amd
 fi
