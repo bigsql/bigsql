@@ -27,6 +27,15 @@ $YUM install readline-devel zlib-devel openssl-devel \
   docbook-dtds docbook-style-xsl cmake \
   perl-ExtUtils-Embed libevent-devel postgresql-devel
 
+$YUM remove docker docker-client docker-client-latest \
+  docker-common docker-latest docker-latest-logrotate \
+  docker-logrotate docker-engine
+$YUM install yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+$YUM install docker-ce docker-ce-cli containerd.io
+sudo systemctl enable docker
+sudo systemctl restart docker
+
 sudo mkdir /opt/pgbin-build
 sudo chmod 777 /opt/pgbin-build
 sudo chown $USER:$USER /opt/pgbin-build
