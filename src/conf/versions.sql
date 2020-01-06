@@ -22,9 +22,9 @@ INSERT INTO categories VALUES (0, 'Hidden');
 INSERT INTO categories VALUES (1, 'PostgreSQL');
 INSERT INTO categories VALUES (2, 'Other Databases');
 INSERT INTO categories VALUES (3, 'Interoperability');
-INSERT INTO categories VALUES (4, 'Procedural Languages');
+INSERT INTO categories VALUES (4, 'Compatibility');
 INSERT INTO categories VALUES (5, 'Availability');
-INSERT INTO categories VALUES (6, 'Other Extensions');
+INSERT INTO categories VALUES (6, 'Other Components');
 INSERT INTO categories VALUES (7, 'Kubernetes');
 INSERT INTO categories VALUES (8, 'Connectors');
 INSERT INTO categories VALUES (9, 'Security');
@@ -52,7 +52,7 @@ INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/do
  'postgres', 0, 'postgres.png', 
  'Advanced RDBMS', 'https://postgresql.org');
 
-INSERT INTO projects VALUES ('plprofiler', 4, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases',
+INSERT INTO projects VALUES ('plprofiler', 10, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases',
  'plprofiler', 1, 'plprofiler.png',
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 
@@ -108,7 +108,7 @@ INSERT INTO projects VALUES ('http', 3, 0, 'hub', 0, 'https://github.com/pramsey
  'http',  1, 'curl.png',
  'HTTP Client Extension', 'https://github.com/pramsey/pgsql-http');
 
-INSERT INTO projects VALUES ('anon', 9, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
+INSERT INTO projects VALUES ('anon', 6, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
  'anon', 1, 'anon.png', 
  'PostgreSQL Anonymizer Extension', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
@@ -136,7 +136,7 @@ INSERT INTO projects VALUES ('omnidb', 10, 8000, 'docker', 0, 'https://github.co
  'omnidb', 0, 'omnidb.png',
  'Admin for PG, Oracle, SQL Server, & MySQL', 'https://github.com/omnidb/omnidb/#omnidb');
 
-INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
+INSERT INTO projects VALUES ('patroni', 5, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
  'patroni', 0, 'patroni.png',
  'High Availability', 'https://github.com/zalando/patroni');
 
@@ -160,7 +160,7 @@ INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 0, 'http://initd.org/psycop
  'psycopg', 0, 'psycopg.png',
  'Python Adapter', 'http://initd.org/psycopg');
 
-INSERT INTO projects VALUES ('badger',10, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases',
+INSERT INTO projects VALUES ('badger', 10, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases',
  'badger', 0, 'badger.png',
  'Fast Log Analysis Reports', 'https://pgbadger.darold.net');
 
@@ -180,7 +180,7 @@ INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 0, 'https://www.postgresql.org
  'odbc', 0, 'odbc.png',
  'The official Postgres ODBC Driver', 'https://odbc.postgresql.org');
 
-INSERT INTO projects VALUES ('helm', 8, 0, 'hub', 0, 'https://github.com/helm/helm/releases',
+INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 0, 'https://github.com/helm/helm/releases',
  'helm', 0, 'helm.png',
  'Kubernetes Package Manager', 'https://helm.sh');
 
@@ -277,7 +277,7 @@ INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'amd, arm',      
 
 INSERT INTO versions VALUES ('orafce-pg11',        '3.8.0-1',  'amd, arm',       1, '20190522', 'pg11');
 
-INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'amd',            0, '20191211', 'pg11');
+INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'amd',            1, '20191211', 'pg11');
 
 INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'amd, arm',       1, '20191119', 'pg11');
 
@@ -293,7 +293,7 @@ INSERT INTO versions VALUES ('mysql_fdw-pg11',     '2.5.3-1',  'amd',           
 
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'amd, arm',       1, '20190823', 'pg11');
 
-INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'amd, arm',       1, '20191024', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'amd, arm',       0, '20191024', 'pg11');
 
 INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'amd, arm',       1, '20191225', 'pg11');
 
@@ -311,10 +311,10 @@ INSERT INTO versions VALUES ('badger',             '11.1-1',   '',              
 INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'amd, arm',       1, '20130813', '');
 INSERT INTO versions VALUES ('bouncer',            '1.12.0-1', 'amd, arm',       1, '20191017', '');
 
-INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',               0, '20191020', '');
-INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',               0, '20191224', '');
-INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',               0, '20191201', '');
-INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',               0, '20191206', '');
+INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',               1, '20191020', '');
+INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',               1, '20191224', '');
+INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',               1, '20191201', '');
+INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',               1, '20191206', '');
 INSERT INTO versions VALUES ('odbc',               '12.00-1',  'amd, arm',       1, '20191011', '');
 
 INSERT INTO versions VALUES ('backrest',           '2.20-1',   'amd, arm',       1, '20191218', '');

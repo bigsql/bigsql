@@ -18,26 +18,6 @@ proj_desc = ""
 version = ""
 
 
-def get_platform_images(p_stage, p_platf, p_desc):
-   img = "<td>" + p_stage + "</td><td><center>"
-
-   if (("linux64" in p_platf) or (p_platf == "")):
-      img = img + "<img src=img/intel.png height=25 width=25 />&nbsp;"
-
-   if (("arm64" in p_platf) or (p_platf == "")):
-      img = img + "<img src=img/arm.png height=25 width=25 />&nbsp;"
-
-   if "osx64" in p_platf:
-      img = img + "<img src=img/apple.png height=25 width=25 />&nbsp;"
-
-   if "docker" in p_platf:
-      img = img + "<img src=img/docker.png height=25 width=25 />&nbsp;"
-
-   img = img + "</center></td><td width=400>" + p_desc + "</td>"
-
-   return (img)
-
-
 def print_top():
   print('<table border=0 bgcolor=red cellpadding=3>')
   print('  <tr><td width=1000><img src=img/bigArmLogo.png /></td>')
@@ -66,7 +46,11 @@ def get_columns(d):
   version = str(d[6])
   source_url = str(d[7])
   project_url = str(d[8])
+
   platform = str(d[9])
+  if platform == "":
+    platform = "amd, arm"
+
   rel_date = str(d[10])
   rel_month = rel_date[4:6]
   if rel_month == "01":
