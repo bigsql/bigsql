@@ -1,7 +1,7 @@
 import sqlite3, sys
 
 ## init global vars
-COLS=4
+COLS=3
 cat = ""
 cat_desc = ""
 image_file = ""
@@ -20,13 +20,11 @@ version = ""
 
 def print_top():
   print('<table border=0 bgcolor=red cellpadding=3>')
-  print('  <tr><td width=1000><img src=img/bigArmLogo.png /></td>')
+  print('<tr><td width=300><img src=img/bigArmLogo.png /></td>')
 
-  print('    <td>To install on EL8 or Amazon Linux 2 from the command line:')
-  print('<pre> ' + \
-    'python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)"' + \
-    '</pre></td>')
-  print('  </tr>')
+  print('<td width=700>To install on EL8 or Amazon Linux 2 from the command line:')
+  print('<pre> python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)</pre>')
+  print('</td></tr>')
   print('</table>')
 
   print('\n<table border=0 cellpadding=3>')
