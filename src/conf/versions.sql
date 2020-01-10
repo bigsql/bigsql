@@ -10,7 +10,7 @@ CREATE TABLE categories (
   description TEXT    NOT NULL
 );
 INSERT INTO categories VALUES (0,  'Hidden');
-INSERT INTO categories VALUES (1,  'PostgreSQL Core Durability');
+INSERT INTO categories VALUES (1,  'PostgreSQL Durability');
 INSERT INTO categories VALUES (2,  'Interoperability & Compatibility');
 INSERT INTO categories VALUES (3,  'Security, Scalability & Availability');
 INSERT INTO categories VALUES (4,  'Applications & Connectors');
@@ -44,7 +44,7 @@ INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apa
  'Multi-Region Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases',
  'presto_fdw', 1, 'prestofdw.png',
- 'Access Presto (Athena) data sources from within PG', 'https://github.com/bigsql/presto_fdw#presto_fdw');
+ 'Access Presto (Athena) data sources', 'https://github.com/bigsql/presto_fdw#presto_fdw');
 INSERT INTO projects VALUES ('presto', 2, 0, 'hub', 0, 'https://github.com/prestodb/presto/releases',
  'presto', 1, 'presto.png',
  'Distributed SQL Query Engine for Big Data', 'https://prestodb.io');
@@ -53,34 +53,34 @@ INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 'https://dev.mysql.com/dow
  'MySQL Community Server', 'https://dev.mysql.com');
 INSERT INTO projects VALUES ('mysql_fdw', 2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases',
  'mysql_fdw', 1, 'mysqlfdw.png',
- 'Access MySQL databases from within PG', 'https://github.com/EnterpriseDb/mysql_fdw');
+ 'Access MySQL databases', 'https://github.com/EnterpriseDb/mysql_fdw');
 INSERT INTO projects VALUES ('oracle_xe', 2, 0, 'hub', 0, 'https://oracle.com',
  'oracle_xe', 0, 'oracle_xe.png',
  'Oracle Database Express Edition', 'https://oracle.com');
 INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
  'oracle_fdw', 1, 'oraclefdw.png',
- 'Access Oracle Databases Extension', 'https://github.com/laurenz/oracle_fdw');
+ 'Access Oracle Databases', 'https://github.com/laurenz/oracle_fdw');
 INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
  'pgtsql', 1, 'tsql.png',
  'SQL Server & Sybase Stored Proc Extension', 'https://github.com/bigsql/pgtsql#pgtsql');
 INSERT INTO projects VALUES ('pgosql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases',
- 'pgosql', 1, 'pgosql.png',
+ 'pgosql', 1, 'sailboat.png',
  'Oracle Style Stored Proc Extension', 'https://github.com/bigsq/pgosql#pgosql');
 INSERT INTO projects VALUES ('orafce', 2, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
  'orafce', 1, 'orafce.png',
  'Oracle Compatible Built-in Functions and Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO projects VALUES ('pgrest', 2, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases',
  'pgrest', 0, 'pgrest.png',
- 'A RESTful Data API leveraging Plv8', 'https://github.com/pgrest/pgrest');
+ 'pgREST Data API leveraging Plv8', 'https://github.com/pgrest/pgrest');
 INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases',
- 'http',  1, 'curl.png',
+ 'http',  1, 'http.png',
  'HTTP Client Extension', 'https://github.com/pramsey/pgsql-http');
 
 INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases',
  'plprofiler', 1, 'plprofiler.png',
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 INSERT INTO projects VALUES ('pglogical', 3, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
- 'pglogical', 1, 'pglogical.png',
+ 'pglogical', 1, 'spock.png',
  'Logical Replication Extension', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 INSERT INTO projects VALUES ('timescaledb', 3, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
  'timescaledb', 1, 'timescaledb.png',
@@ -89,7 +89,7 @@ INSERT INTO projects VALUES ('anon', 3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo
  'anon', 1, 'anon.png', 
  'PostgreSQL Anonymizer Extension', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO projects VALUES ('hypopg',  3, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
- 'hypopg', 1, 'hypopg.png',
+ 'hypopg', 1, 'whatif.png',
  'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
 INSERT INTO projects VALUES ('backrest', 3, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
  'backrest', 0, 'backrest.png',
@@ -155,13 +155,13 @@ INSERT INTO releases VALUES ('pg12',              12, 'pg',            'Postgres
 
 
 ## Compatibility & Integration ##########################
-INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'pgTSQL',        '', 'prod');
-INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'pgOSQL',        '', 'test');
+INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'TSQL',          '', 'prod');
+INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'OSQL',          '', 'test');
 INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',        '', 'prod');
 INSERT INTO releases VALUES ('oracle_fdw-pg11',    1, 'oracle_fdw',    'Oracle FDW',    '', 'prod');
-INSERT INTO releases VALUES ('oracle_xe',          1, 'oracle_xe',     'Oracle Express','', 'test');
+INSERT INTO releases VALUES ('oracle_xe',          1, 'oracle_xe',     'Oracle',        '', 'test');
 INSERT INTO releases VALUES ('mysql_fdw-pg11',     1, 'mysql_fdw',     'MySQL FDW',     '', 'prod');
-INSERT INTO releases VALUES ('mysql',              1, 'mysql',         'MySQL Server',  '', 'test');
+INSERT INTO releases VALUES ('mysql',              1, 'mysql',         'MySQL',         '', 'test');
 INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra',     '', 'test');
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandra FDW', '', 'prod');
 INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',        '', 'prod');
@@ -184,7 +184,7 @@ INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymiz
 
 ## Applications & Administration ########################
 ## PostGIS
-INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'pgREST',       '', 'prod');
+INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'Data API',     '', 'prod');
 INSERT INTO releases VALUES ('bouncer',            1, 'bouncer',       'pgBouncer',    '', 'prod');
 INSERT INTO releases VALUES ('psycopg',            1, 'psycopg',       'psycopg',      '', 'prod');
 INSERT INTO releases VALUES ('ruby',               1, 'ruby',          'ruby',         '', 'prod');
