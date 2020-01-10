@@ -16,7 +16,7 @@ def is_any_autostart():
     if data[0] > 0:
       return True
   except Exception as e:
-    fatal_sql_error(e, sql, "meta.is_any_autostart()")
+    fatal_error(e, sql, "meta.is_any_autostart()")
 
   return False
 
@@ -36,7 +36,7 @@ def delete_cluster(p_cluster):
     con.commit()
     c.close()
   except Exception as e:
-    fatal_sql_error(e, sql, "meta.delete_cluster()")
+    fatal_error(e, sql, "meta.delete_cluster()")
   return
 
 
@@ -50,7 +50,7 @@ def insert_cluster(p_cluster, p_node_num, p_comp, p_port, p_stat):
     con.commit()
     c.close()
   except Exception as e:
-    fatal_sql_error(e, sql, "meta.put_clusters()")
+    fatal_error(e, sql, "meta.put_clusters()")
   return
 
 
@@ -70,7 +70,7 @@ def put_components(p_comp, p_proj, p_ver, p_plat, p_port, p_stat,
     con.commit()
     c.close()
   except Exception as e:
-    fatal_sql_error(e, sql, "meta.put_components()")
+    fatal_error(e, sql, "meta.put_components()")
   return
 
 
@@ -92,7 +92,7 @@ def is_extension(ext_comp):
     if not data:
       return False
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.is_extension()")
+    fatal_error(e,sql,"meta.is_extension()")
   return True
 
 
@@ -107,7 +107,7 @@ def get_available_component_list():
     for comp in t_comp:
       r_comp.append(str(comp[0]))
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_available_component_list()")
+    fatal_error(e,sql,"meta.get_available_component_list()")
   return  r_comp
 
 
@@ -164,7 +164,7 @@ def get_all_components_list(p_component=None, p_version=None, p_platform=None):
         comp_dict['version']= version
         r_comp.append(comp_dict)
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_all_components_list()")
+    fatal_error(e,sql,"meta.get_all_components_list()")
   return  r_comp
 
 
@@ -177,7 +177,7 @@ def update_component_version(p_app, p_version):
     con.commit()
     c.close()
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.update_component_version()")
+    fatal_error(e,sql,"meta.update_component_version()")
 
   return
 
@@ -192,7 +192,7 @@ def get_ver_plat(p_comp):
     if data is None:
       return "-1"
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_ver_plat()")
+    fatal_error(e,sql,"meta.get_ver_plat()")
   version = str(data[0])
   platform = str(data[1])
   if platform == "":
@@ -214,7 +214,7 @@ def get_latest_ver_plat(p_comp, p_new_ver=""):
     if data is None:
       return "-1"
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_latest_ver_plat()")
+    fatal_error(e,sql,"meta.get_latest_ver_plat()")
   if p_new_ver == "":
     version = str(data[0])
   else:
@@ -244,7 +244,7 @@ def get_platform_specific_version(p_comp, p_ver):
     if data is None:
       return "-1"
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_platform_specific_version()")
+    fatal__error(e,sql,"meta.get_platform_specific_version()")
   version = str(data[0])
   platform = str(data[1])
   if platform == "":
@@ -274,7 +274,8 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       ext_component = " AND parent = '" + p_comp + "' "
 
   installed = \
-    "SELECT p.category, g.description as category_desc, c.component, c.version, c.port, c.status, r.stage, \n" + \
+    "SELECT p.category, g.description as category_desc, g.short_desc as short_cat_desc, \n" + \
+    "       c.component, c.version, c.port, c.status, r.stage, \n" + \
     "       coalesce((select is_current from versions where c.component = component AND c.version = version),0), \n" + \
     "       c.datadir, p.is_extension, \n" + \
     "       coalesce((select parent from versions where c.component = component and c.version = version),'') as parent, \n" + \
@@ -287,7 +288,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     "   AND " + r_sup_plat + installed_category_conditions + ext_component
 
   available = \
-    "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
+    "SELECT c.category, c.description, c.short_desc as short_cat_desc, v.component, v.version, 0, 'NotInstalled', \n" + \
     "       r.stage, v.is_current, '', p.is_extension, v.parent as parent, v.release_date, '', \n" + \
     "       r.disp_name, \n" + \
     "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
@@ -298,7 +299,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     "   AND " + r_sup_plat + exclude_comp + available_category_conditions + ext_component
 
   extensions = \
-    "SELECT c.category, c.description, v.component, v.version, 0, 'NotInstalled', \n" + \
+    "SELECT c.category, c.description, c.short_desc as short_cat_desc, v.component, v.version, 0, 'NotInstalled', \n" + \
     "       r.stage, v.is_current, '', p.is_extension, v.parent as parent, v.release_date, '', \n" + \
     "       r.disp_name,  \n" + \
     "       coalesce((select release_date from versions where v.component = component and is_current = 1),'20200101') \n" + \
@@ -318,9 +319,9 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     c.execute(sql)
     data = c.fetchall()
 
-    headers = ['Category', 'Component', 'Version', 
+    headers = ['Category', 'ShortCat','Component', 'Version', 
                'ReleaseDt', 'Stage', 'Status', 'Updates']
-    keys    = ['category_desc', 'component', 'version', 
+    keys    = ['category_desc', 'short_cat_desc', 'component', 'version', 
                'release_date', 'stage', 'status', 'current_version']
 
     jsonList = []
@@ -333,9 +334,10 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
 
       category = str(row[0])
       category_desc = str(row[1])
-      comp = str(row[2])
-      version = str(row[3])
-      port = str(row[4])
+      short_cat_desc = str(row[2])
+      comp = str(row[3])
+      version = str(row[4])
+      port = str(row[5])
 
       if previous_comp and previous_version:
         if previous_comp == comp and previous_version == version:
@@ -344,16 +346,16 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       previous_version = version
       previous_comp = comp
 
-      if str(row[5]) == "Enabled":
+      if str(row[6]) == "Enabled":
         status = "Installed"
       else:
-        status = str(row[5])
+        status = str(row[6])
       if status == "NotInstalled" and p_isJSON == False:
         status = ""
 
-      stage = str(row[6])
+      stage = str(row[7])
 
-      is_current = str(row[7])
+      is_current = str(row[8])
       if is_current == "0" and status in ("", "NotInstalled"):
         if not p_isOLD:
           continue
@@ -374,24 +376,24 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
       if (port == "0") or (port == "1"):
         port = ""
 
-      datadir = row[8]
-      if row[8] is None:
+      datadir = row[9]
+      if row[9] is None:
         datadir = ""
       else:
-        datadir = str(row[8]).strip()
+        datadir = str(row[9]).strip()
 
-      is_extension = row[9]
+      is_extension = row[10]
 
-      parent = row[10]
+      parent = row[11]
 
-      disp_name = row[13]
+      disp_name = row[14]
 
       release_desc = ''
       release_date = '1970-01-01'
       curr_rel_date = '1970-01-01'
 
-      curr_rel_dt=str(row[14])
-      rel_dt = str(row[11])
+      curr_rel_dt=str(row[15])
+      rel_dt = str(row[12])
       if len(rel_dt) == 8:
         release_date = rel_dt[0:4] + "-" + rel_dt[4:6] + "-" + rel_dt[6:8]
         curr_rel_date = curr_rel_dt[0:4] + "-" + curr_rel_dt[4:6] + "-" + curr_rel_dt[6:8]
@@ -416,7 +418,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
           status = "NotInitialized"
           port = ""
 
-      ins_date = str(row[12])
+      ins_date = str(row[13])
       install_date=""
       compDict['is_updated'] = 0
       if ins_date:
@@ -442,6 +444,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
 
       compDict['category'] = category
       compDict['category_desc'] = category_desc
+      compDict['short_cat_desc'] = short_cat_desc
       compDict['component'] = comp
       compDict['version'] = version
       compDict['is_extension'] = is_extension
@@ -471,7 +474,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
         print(api.format_data_to_table(jsonList, keys, headers))
 
   except Exception as e:
-    fatal_sql_error(e, sql, "meta.get_list()")
+    fatal_error(e, sql, "meta.get_list()")
   sys.exit(0)    
 
 
@@ -485,7 +488,7 @@ def is_dependent_platform(p_comp):
     if data is None:
       return False
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.is_dependent_platform()")
+    fatal_error(e,sql,"meta.is_dependent_platform()")
   platform = str(data[0])
   if len(platform.strip()) == 0 or util.has_platform(platform) >= 0:
     return True
@@ -502,7 +505,7 @@ def get_version(p_comp):
     if data is None:
       return ""
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_version()")
+    fatal_error(e,sql,"meta.get_version()")
   return str(data[0])
 
 
@@ -520,7 +523,7 @@ def get_current_version(p_comp):
       if data is None:
         return ""
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_current_version()")
+    fatal_error(e,sql,"meta.get_current_version()")
   return str(data[0])
 
 
@@ -535,7 +538,7 @@ def get_dependent_components(p_comp):
     c.execute(sql)
     data = c.fetchall()
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_dependent_components()")
+    fatal_error(e,sql,"meta.get_dependent_components()")
   return data
 
 
@@ -549,7 +552,7 @@ def get_component_list():
     for comp in t_comp:
       r_comp.append(str(comp[0]))
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_component_list()")
+    fatal_error(e,sql,"meta.get_component_list()")
   return r_comp;
 
 
@@ -564,15 +567,15 @@ def get_installed_extensions_list(parent_c):
     for comp in t_comp:
       r_comp.append(str(comp[0]))
   except Exception as e:
-    fatal_sql_error(e,sql,"meta.get_installed_extensions_list()")
+    fatal_error(e,sql,"meta.get_installed_extensions_list()")
   return r_comp;
 
 
-def fatal_sql_error(err, sql, func):
+def fatal_error(err, sql, func):
   print("################################################")
-  print("# FATAL SQL Error in " + func)
-  print("#    SQL Message =  " + err.args[0])
-  print("#  SQL Statement = " + sql)
+  print("# FATAL Error in " + func)
+  print("#    Message =  " + err.args[0])
+  print("#  Statement = " + sql)
   print("################################################")
   sys.exit(1)
 

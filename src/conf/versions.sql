@@ -7,13 +7,14 @@ DROP TABLE IF EXISTS categories;
 
 CREATE TABLE categories (
   category    INTEGER NOT NULL PRIMARY KEY,
-  description TEXT    NOT NULL
+  description TEXT    NOT NULL,
+  short_desc  TEXT    NOT NULL
 );
-INSERT INTO categories VALUES (0,  'Hidden');
-INSERT INTO categories VALUES (1,  'PostgreSQL Durability');
-INSERT INTO categories VALUES (2,  'Interoperability & Compatibility');
-INSERT INTO categories VALUES (3,  'Security, Scalability & Availability');
-INSERT INTO categories VALUES (4,  'Applications & Connectors');
+INSERT INTO categories VALUES (0,  'Hidden', '');
+INSERT INTO categories VALUES (1,  'PostgreSQL Durability',                'PostgreSQL');
+INSERT INTO categories VALUES (2,  'Interoperability & Compatibility',     'Interoperability');
+INSERT INTO categories VALUES (3,  'Security, Scalability & Availability', 'Abilities');
+INSERT INTO categories VALUES (4,  'Applications & Connectors',            'Applications');
 
 
 CREATE TABLE projects (
@@ -276,8 +277,8 @@ INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',              
 
 
 CREATE VIEW v_versions AS
-  SELECT p.category as cat, c.description as cat_desc, p.image_file,
-         r.component, r.project, r.stage, r.disp_name as release_name,
+  SELECT p.category as cat, c.description as cat_desc, c.short_desc as cat_short_desc,
+         p.image_file, r.component, r.project, r.stage, r.disp_name as release_name,
          v.version, p.sources_url, p.project_url, v.platform, 
          v.is_current, v.release_date, p.description as proj_desc
     FROM categories c, projects p, releases r, versions v
