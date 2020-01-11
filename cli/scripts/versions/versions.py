@@ -21,8 +21,11 @@ version = ""
 def print_top():
   print('<center><table><tr><td>')
   print('')
-  print('<table border=0 bgcolor=black cellpadding=1>')
-  print('  <tr><td width=1000><img src=img/banner.png /></td></tr>')
+  print('<table width=100 border=0 bgcolor=white cellpadding=1>')
+  print('  <tr>')
+  print('    <td width=100><img width=75 src=img/aarch-io.png</td>> /')
+  print('    <td width=1100>&nbsp;</td>')
+  print('  </tr>')
   print('</table>')
   print('')
   print('<table border=0 bgcolor=white cellpadding=3>')
