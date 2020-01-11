@@ -19,15 +19,26 @@ version = ""
 
 
 def print_top():
-  print('<table border=0 bgcolor=red cellpadding=3>')
-  print('<tr><td width=300><img src=img/bigArmLogo.png /></td>')
-
-  print('<td width=700>To install on EL8 or Amazon Linux 2 from the command line:')
-  print('<pre> python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)</pre>')
-  print('</td></tr>')
+  print('<center><table><tr><td>')
+  print('')
+  print('<table border=0 bgcolor=black cellpadding=1>')
+  print('  <tr><td width=1000><img src=img/banner.png /></td></tr>')
   print('</table>')
+  print('')
+  print('<table border=0 bgcolor=white cellpadding=3>')
+  print('<tr><td colspan=6>&nbsp;<br>')
+  print('  To install on AMD or ARM Linux from the command line:')
+  print('</td></tr>')
+  print('<tr><td colspan=6>')
+  print('<pre>')
+  print('  python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)</pre>')
+  print('</pre>')
+  print('</td></tr>')
 
-  print('\n<table border=0 cellpadding=3>')
+def print_bottom():
+  print('')
+  print('</td></tr></table></center>')
+
 
 
 def get_columns(d):
@@ -92,9 +103,9 @@ def print_row_header():
     cat_desc + ":</u></b></font></td></tr>")
 
 
-######################################
+##################################################################
 #   MAINLINE
-######################################
+##################################################################
 con = sqlite3.connect("local.db")
 c = con.cursor()
 
@@ -126,7 +137,7 @@ for d in data:
     print("<tr>")
 
   print("  <td width=60>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
-  print("  <td width=300><a href=" + project_url + ">" + release_name + \
+  print("  <td width=270><a href=" + project_url + ">" + release_name + \
              "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
              "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + \
              "</font>&nbsp;&nbsp;<font size=-2>[" + platform + "]</font><br>" + \
@@ -140,7 +151,7 @@ for d in data:
 
   old_cat_desc = cat_desc
 
-print("</table>")
+print_bottom()
 sys.exit(0)
 
 
