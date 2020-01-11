@@ -48,47 +48,53 @@ INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/b
  'Access Presto (Athena) data sources', 'https://github.com/bigsql/presto_fdw#presto_fdw');
 INSERT INTO projects VALUES ('presto', 2, 0, 'hub', 0, 'https://github.com/prestodb/presto/releases',
  'presto', 1, 'presto.png',
- 'Distributed SQL Query Engine for Big Data', 'https://prestodb.io');
+ 'Distributed SQL Query Engine', 'https://prestodb.io');
 INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql',
  'mysql', 0, 'mysql.png',
  'MySQL Community Server', 'https://dev.mysql.com');
 INSERT INTO projects VALUES ('mysql_fdw', 2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases',
  'mysql_fdw', 1, 'mysqlfdw.png',
  'Access MySQL databases', 'https://github.com/EnterpriseDb/mysql_fdw');
+INSERT INTO projects VALUES ('sqlsvr_xe', 2, 0, 'hub', 0, 'https://oracle.com',
+ 'sqlsvr_xe', 0, 'sqlsvr.png',
+ 'Oracle Database Express Edition', 'https://oracle.com');
+INSERT INTO projects VALUES ('sybase_xe', 2, 0, 'hub', 0, 'https://oracle.com',
+ 'sybase_xe', 0, 'sybase.png',
+ 'Oracle Database Express Edition', 'https://oracle.com');
 INSERT INTO projects VALUES ('oracle_xe', 2, 0, 'hub', 0, 'https://oracle.com',
  'oracle_xe', 0, 'oracle_xe.png',
  'Oracle Database Express Edition', 'https://oracle.com');
-INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
+INSERT INTO projects VALUES ('sqlsvr_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
  'oracle_fdw', 1, 'oraclefdw.png',
  'Access Oracle Databases', 'https://github.com/laurenz/oracle_fdw');
 INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
  'pgtsql', 1, 'tsql.png',
- 'SQL Server & Sybase Stored Proc Extension', 'https://github.com/bigsql/pgtsql#pgtsql');
+ 'SQL Server & Sybase Stored Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
 INSERT INTO projects VALUES ('pgosql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases',
  'pgosql', 1, 'sailboat.png',
- 'Oracle Style Stored Proc Extension', 'https://github.com/bigsq/pgosql#pgosql');
+ 'Oracle Style Stored Procedures', 'https://github.com/bigsq/pgosql#pgosql');
 INSERT INTO projects VALUES ('orafce', 2, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
  'orafce', 1, 'orafce.png',
- 'Oracle Compatible Built-in Functions and Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
+ 'Oracle Compatible Built-in Functions', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO projects VALUES ('pgrest', 2, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases',
  'pgrest', 0, 'pgrest.png',
  'pgREST Data API leveraging Plv8', 'https://github.com/pgrest/pgrest');
 INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases',
  'http',  1, 'http.png',
- 'HTTP Client Extension', 'https://github.com/pramsey/pgsql-http');
+ 'HTTP Client', 'https://github.com/pramsey/pgsql-http');
 
 INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases',
  'plprofiler', 1, 'plprofiler.png',
  'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 INSERT INTO projects VALUES ('pglogical', 3, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases',
  'pglogical', 1, 'spock.png',
- 'Logical Replication Extension', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
+ 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 INSERT INTO projects VALUES ('timescaledb', 3, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases',
  'timescaledb', 1, 'timescaledb.png',
- 'Time Series Extension', 'https://github.com/timescale/timescaledb/#timescaledb');
+ 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO projects VALUES ('anon', 3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
  'anon', 1, 'anon.png', 
- 'PostgreSQL Anonymizer Extension', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+ 'PostgreSQL Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO projects VALUES ('hypopg',  3, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
  'hypopg', 1, 'whatif.png',
  'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
@@ -117,7 +123,7 @@ INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 0, 'https://github.com/docke
  'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 INSERT INTO projects VALUES ('omnidb', 4, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases',
  'omnidb', 0, 'omnidb.png',
- 'Admin for PG, Oracle, SQL Server, & MySQL', 'https://github.com/omnidb/omnidb/#omnidb');
+ 'Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
 INSERT INTO projects VALUES ('kubernetes', 4, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases',
  'kubernetes', 0, 'minikube.png',
  'Local Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
@@ -157,6 +163,8 @@ INSERT INTO releases VALUES ('pg12',              12, 'pg',            'Postgres
 
 ## Compatibility & Integration ##########################
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'TSQL',          '', 'prod');
+INSERT INTO releases VALUES ('sqlsvr_xe',          1, 'sqlsvr_xe',     'MS SQL Server', '', 'test');
+INSERT INTO releases VALUES ('sybase_xe',          1, 'sybase_xe',     'Sybase',        '', 'test');
 INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'OSQL',          '', 'test');
 INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',        '', 'prod');
 INSERT INTO releases VALUES ('oracle_fdw-pg11',    1, 'oracle_fdw',    'Oracle FDW',    '', 'prod');
@@ -225,6 +233,8 @@ INSERT INTO versions VALUES ('orafce-pg11',        '3.8.0-1',  'amd, arm',      
 
 INSERT INTO versions VALUES ('pgosql-pg11',        '2.0-1',    'amd',            1, '20191211', 'pg11');
 
+INSERT INTO versions VALUES ('sqlsvr_xe',          '2.0',      'amd',            1, '20191010', '');
+INSERT INTO versions VALUES ('sybase_xe',          '1.0',      'amd',            1, '20191010', '');
 INSERT INTO versions VALUES ('pgtsql-pg11',        '3.0-1',    'amd, arm',       1, '20191119', 'pg11');
 
 INSERT INTO versions VALUES ('pglogical2-pg11',    '2.3.1beta1-1', 'amd, arm',   0, '20191212', 'pg11');
