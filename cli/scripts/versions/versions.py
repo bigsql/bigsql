@@ -2,6 +2,7 @@ import sqlite3, sys
 
 ## init global vars
 COLS=3
+isSHOW_PLATFORM='N'
 cat = ""
 cat_desc = ""
 image_file = ""
@@ -19,28 +20,27 @@ version = ""
 
 
 def print_top():
-  print('<center><table><tr><td>')
-  print('')
-  print('<table width=100 border=0 bgcolor=white cellpadding=1>')
-  print('  <tr>')
-  print('    <td width=100><img width=75 src=img/aarch-io.png</td>> /')
-  print('    <td width=1100>&nbsp;</td>')
-  print('  </tr>')
-  print('</table>')
-  print('')
-  print('<table border=0 bgcolor=white cellpadding=3>')
-  print('<tr><td colspan=6>&nbsp;<br>')
-  print('  To install on AMD or ARM Linux from the command line:')
-  print('</td></tr>')
-  print('<tr><td colspan=6>')
-  print('<pre>')
-  print('  python3 -c "$(curl -fsSL https://dockpg-download.s3.amazonaws.com/REPO/install.py)</pre>')
-  print('</pre>')
-  print('</td></tr>')
+  print('<center><table><tr><td> \n')
 
+  print('<table border=1 bgcolor=white cellpadding=3> \n' +
+        '  <tr> \n' + \
+        '    <td width=75><img width=75 src=img/aarch-io.png></td> \n' + \
+        '    <td width=725>' + \
+        '<pre>' + \
+        '  python3 -c "$(curl -fsSL https://aarch-io-download.s3.amazonaws.com/REPO/install.py)"\n' + \
+        '  cd aarch \n'
+        '  ./io install pg11' + \
+        '</pre> \n' + \
+        '    </td> \n' + \
+        '  </tr> \n' + \
+        '</table> \n\n')
+
+  print('<table border=0 bgcolor=white cellpadding=3>')
+
+ 
 def print_bottom():
-  print('')
-  print('</td></tr></table></center>')
+  print('\n\n' + \
+        '</td></tr></table></center>')
 
 
 
@@ -139,12 +139,15 @@ for d in data:
   if col == 1:
     print("<tr>")
 
-  print("  <td width=60>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
-  print("  <td width=270><a href=" + project_url + ">" + release_name + \
+  platd = ""
+  if isSHOW_PLATFORM == "Y":
+    platd = "&nbsp;&nbsp;<font size=-2>[" + platform + "]</font>"
+
+  print("  <td width=50>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
+  print("  <td width=200><a href=" + project_url + ">" + release_name + \
              "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
-             "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + \
-             "</font>&nbsp;&nbsp;<font size=-2>[" + platform + "]</font><br>" + \
-             "<i>" + proj_desc + "</i></td>")
+             "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font>" + \
+             platd + "<br><i>" + proj_desc + "</i></td>")
 
   if col == COLS:
     print("</tr>")
