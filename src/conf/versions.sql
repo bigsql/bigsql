@@ -38,17 +38,17 @@ INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/do
  'Advanced RDBMS', 'https://postgresql.org');
 
 INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
- 'cassand', 1, 'cstarfdw.png', 
+ 'cassand', 1, 'cstar.png', 
  'Access Cassandra', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apache.org', 
- 'cassandra', 0, 'cassandra.png',
+ 'cassandra', 0, 'cstar.png',
  'Multi-Region/Master', 'https://cassandra.apache.org');
 INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases',
- 'presto_fdw', 1, 'prestofdw.png',
- 'Access Presto (Athena) data sources', 'https://github.com/bigsql/presto_fdw#presto_fdw');
+ 'presto_fdw', 1, 'presto.png',
+ 'Access Presto', 'https://github.com/bigsql/presto_fdw#presto_fdw');
 INSERT INTO projects VALUES ('presto', 2, 0, 'hub', 0, 'https://github.com/prestodb/presto/releases',
  'presto', 1, 'presto.png',
- 'Distributed SQL Queries', 'https://prestodb.io');
+ 'Distributed SQL', 'https://prestodb.io');
 INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql',
  'mysql', 0, 'mysql.png',
  'MySQL Server', 'https://dev.mysql.com');
@@ -69,16 +69,16 @@ INSERT INTO projects VALUES ('sqlsvr_fdw', 2, 0, 'hub', 0, 'https://github.com/l
  'Access Oracle', 'https://github.com/laurenz/oracle_fdw');
 INSERT INTO projects VALUES ('pgtsql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
  'pgtsql', 1, 'tsql.png',
- 'SqlSvr & Sybase Stored Procs', 'https://github.com/bigsql/pgtsql#pgtsql');
+ 'TransactSQL Procs', 'https://github.com/bigsql/pgtsql#pgtsql');
 INSERT INTO projects VALUES ('pgosql', 2, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases',
  'pgosql', 1, 'sailboat.png',
- 'PL/SQL Stored Procs', 'https://github.com/bigsq/pgosql#pgosql');
+ 'PL/SQL Procs', 'https://github.com/bigsq/pgosql#pgosql');
 INSERT INTO projects VALUES ('orafce', 2, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
  'orafce', 1, 'orafce.png',
- 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
+ 'Ora Built-in Pkgs', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO projects VALUES ('pgrest', 2, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases',
- 'pgrest', 0, 'pgrest.png',
- 'pgREST Data API', 'https://github.com/pgrest/pgrest');
+ 'pgrest', 0, 'restapi.png',
+ 'RESTFUL API', 'https://github.com/pgrest/pgrest');
 INSERT INTO projects VALUES ('http', 2, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases',
  'http',  1, 'http.png',
  'HTTP Client', 'https://github.com/pramsey/pgsql-http');
@@ -94,7 +94,7 @@ INSERT INTO projects VALUES ('timescaledb', 3, 0, 'hub', 0, 'https://github.com/
  'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO projects VALUES ('anon', 3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
  'anon', 1, 'anon.png', 
- 'PostgreSQL Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+ 'Postgres Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO projects VALUES ('hypopg',  3, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases',
  'hypopg', 1, 'whatif.png',
  'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
@@ -106,7 +106,7 @@ INSERT INTO projects VALUES ('bouncer', 3, 0, 'hub', 0, 'https://github.com/pgbo
  'Connection Pooler', 'http://pgbouncer.org');
 INSERT INTO projects VALUES ('badger',  3, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases',
  'badger', 0, 'badger.png',
- 'Log Analysis Reports', 'https://pgbadger.darold.net');
+ 'Log Analysis Rpts', 'https://pgbadger.darold.net');
 INSERT INTO projects VALUES ('patroni', 3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases',
  'patroni', 0, 'patroni.png',
  'High Availability', 'https://github.com/zalando/patroni');
@@ -126,22 +126,22 @@ INSERT INTO projects VALUES ('omnidb', 4, 8000, 'docker', 0, 'https://github.com
  'Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
 INSERT INTO projects VALUES ('kubernetes', 4, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases',
  'kubernetes', 0, 'minikube.png',
- 'Local Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
+ 'MiniKube', 'https://minikube.sigs.k8s.io/');
 INSERT INTO projects VALUES ('npgsql', 4, 0, 'hub', 0, 'https://github.com/',
  'npgsql', 0, 'npgsql.png',
- 'ADO.NET Data Provider', 'https://www.npgsql.org');
+ '.NET Data Provider', 'https://www.npgsql.org');
 INSERT INTO projects VALUES ('ruby', 4, 0, 'hub', 0, 'https://rubygems.org/gems/pg',
  'ruby', 0, 'ruby.png',
- 'Ruby Interface to PostgreSQL', 'https://github.com');
+ 'Ruby Interface', 'https://github.com');
 INSERT INTO projects VALUES ('jdbc', 4, 0, 'hub', 0, 'https://jdbc.postgresql.org',
  'jdbc', 0, 'jdbc.png',
- 'Type 4 JDBC Driver', 'https://jdbc.postgresql.org');
+ 'JDBC Driver', 'https://jdbc.postgresql.org');
 INSERT INTO projects VALUES ('odbc', 4, 0, 'hub', 0, 'https://www.postgresql.org/ftp/odbc/versions/msi/',
  'odbc', 0, 'odbc.png',
- 'The official Postgres ODBC Driver', 'https://odbc.postgresql.org');
+ 'ODBC Driver', 'https://odbc.postgresql.org');
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 0, 'https://github.com/helm/helm/releases',
  'helm', 0, 'helm.png',
- 'Kubernetes Package Manager', 'https://helm.sh');
+ 'K8s Pkg Mgr', 'https://helm.sh');
 
 
 CREATE TABLE releases (
@@ -156,51 +156,50 @@ CREATE TABLE releases (
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden');
 
 ## PostgreSQL ###########################################
-INSERT INTO releases VALUES ('pg10',              10, 'pg',            'Postgres 10',  '', 'deprecated');
-INSERT INTO releases VALUES ('pg11',              11, 'pg',            'Postgres 11',  '', 'prod');
-INSERT INTO releases VALUES ('pg12',              12, 'pg',            'Postgres 12',  '', 'prod');
+INSERT INTO releases VALUES ('pg10',              10, 'pg',            'PG 10',     '', 'deprecated');
+INSERT INTO releases VALUES ('pg11',              11, 'pg',            'PG 11',     '', 'prod');
+INSERT INTO releases VALUES ('pg12',              12, 'pg',            'PG 12',     '', 'prod');
 
 
 ## Compatibility & Integration ##########################
-INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'TSQL',          '', 'prod');
-INSERT INTO releases VALUES ('sqlsvr_xe',          1, 'sqlsvr_xe',     'MS SQL Server', '', 'test');
-INSERT INTO releases VALUES ('sybase_xe',          1, 'sybase_xe',     'Sybase',        '', 'test');
-INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'OSQL',          '', 'test');
-INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',        '', 'prod');
-INSERT INTO releases VALUES ('oracle_fdw-pg11',    1, 'oracle_fdw',    'Oracle FDW',    '', 'prod');
-INSERT INTO releases VALUES ('oracle_xe',          1, 'oracle_xe',     'Oracle',        '', 'test');
-INSERT INTO releases VALUES ('mysql_fdw-pg11',     1, 'mysql_fdw',     'MySQL FDW',     '', 'prod');
-INSERT INTO releases VALUES ('mysql',              1, 'mysql',         'MySQL',         '', 'test');
-INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra',     '', 'test');
-INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'Cassandra FDW', '', 'prod');
-INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',        '', 'prod');
-INSERT INTO releases VALUES ('presto_fdw-pg11',    1, 'presto_fdw',    'Presto FDW',    '', 'prod');
+INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'T-SQL',     '', 'prod');
+INSERT INTO releases VALUES ('sqlsvr_xe',          1, 'sqlsvr_xe',     'SQL Svr',   '', 'test');
+INSERT INTO releases VALUES ('sybase_xe',          1, 'sybase_xe',     'Sybase',    '', 'test');
+INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'OSQL',      '', 'test');
+INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',    '', 'prod');
+INSERT INTO releases VALUES ('oracle_fdw-pg11',    1, 'oracle_fdw',    'OracleFDW', '', 'prod');
+INSERT INTO releases VALUES ('oracle_xe',          1, 'oracle_xe',     'Oracle',    '', 'test');
+INSERT INTO releases VALUES ('mysql_fdw-pg11',     1, 'mysql_fdw',     'MySQLFDW',  '', 'prod');
+INSERT INTO releases VALUES ('mysql',              1, 'mysql',         'MySQL',     '', 'test');
+INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra', '', 'test');
+INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'C* FDW',    '', 'prod');
+INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',    '', 'prod');
+INSERT INTO releases VALUES ('presto_fdw-pg11',    1, 'presto_fdw',    'PrstoFDW',  '', 'prod');
 
 ## Performance, Scalability, Availability, & Security ###
-INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB',   '', 'prod');
-INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',     '', 'prod');
-INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker CE',     '', 'prod');
-INSERT INTO releases VALUES ('kubernetes',         1, 'kubernetes',    'Kubernetes',    '', 'prod');
-INSERT INTO releases VALUES ('helm',               1, 'helm',          'Helm',          '', 'prod');
-INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',       '', 'prod');
-INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'pgBackrest',    '', 'prod');
-INSERT INTO releases VALUES ('badger',             1, 'badger',        'Badger',        '', 'prod');
-INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',        '', 'prod');
-INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler',    '', 'prod');
-INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtractor',  '', 'prod');
-INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Client',   '', 'prod');
-INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer',    '', 'prod');
+INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'Timescale', '', 'prod');
+INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical', '', 'prod');
+INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker',    '', 'prod');
+INSERT INTO releases VALUES ('kubernetes',         1, 'kubernetes',    'K8s',       '', 'prod');
+INSERT INTO releases VALUES ('helm',               1, 'helm',          'Helm',      '', 'prod');
+INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',   '', 'prod');
+INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'Backrest',  '', 'prod');
+INSERT INTO releases VALUES ('badger',             1, 'badger',        'Badger',    '', 'prod');
+INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',    '', 'prod');
+INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'Profiler',  '', 'prod');
+INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtact', '', 'prod');
+INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Clnt', '', 'prod');
+INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymzr',  '', 'prod');
 
 ## Applications & Administration ########################
-## PostGIS
-INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'Data API',     '', 'prod');
-INSERT INTO releases VALUES ('bouncer',            1, 'bouncer',       'pgBouncer',    '', 'prod');
-INSERT INTO releases VALUES ('psycopg',            1, 'psycopg',       'psycopg',      '', 'prod');
-INSERT INTO releases VALUES ('ruby',               1, 'ruby',          'ruby',         '', 'prod');
-INSERT INTO releases VALUES ('npgsql',             1, 'npgsql',        '.net PGSQL',   '', 'prod');
-INSERT INTO releases VALUES ('jdbc',               1, 'jdbc',          'JDBC',         '', 'prod');
-INSERT INTO releases VALUES ('odbc',               1, 'odbc',          'ODBC',         '', 'prod');
-INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',       '', 'prod');
+INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'Data API',  '', 'prod');
+INSERT INTO releases VALUES ('bouncer',            1, 'bouncer',       'pgBouncer', '', 'prod');
+INSERT INTO releases VALUES ('psycopg',            1, 'psycopg',       'psycopg',   '', 'prod');
+INSERT INTO releases VALUES ('ruby',               1, 'ruby',          'ruby',      '', 'prod');
+INSERT INTO releases VALUES ('npgsql',             1, 'npgsql',        '.net PG',   '', 'prod');
+INSERT INTO releases VALUES ('jdbc',               1, 'jdbc',          'JDBC',      '', 'prod');
+INSERT INTO releases VALUES ('odbc',               1, 'odbc',          'ODBC',      '', 'prod');
+INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',    '', 'prod');
 
 CREATE TABLE versions (
   component     TEXT    NOT NULL,

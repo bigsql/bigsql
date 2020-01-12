@@ -1,8 +1,8 @@
 import sqlite3, sys
 
-## init global vars
-COLS=3
+COLS=5
 isSHOW_PLATFORM='N'
+
 cat = ""
 cat_desc = ""
 image_file = ""
@@ -22,10 +22,10 @@ version = ""
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=1 bgcolor=white cellpadding=3> \n' +
+  print('<table border=1 bgcolor=white cellpadding=1> \n' +
         '  <tr> \n' + \
-        '    <td width=75><img width=75 src=img/aarch-io.png></td> \n' + \
-        '    <td width=725>' + \
+        '    <td width=50><img width=50 src=img/aarch-io.png></td> \n' + \
+        '    <td width=940>' + \
         '<pre>' + \
         '  python3 -c "$(curl -fsSL https://aarch-io-download.s3.amazonaws.com/REPO/install.py)"\n' + \
         '  cd aarch \n'
@@ -35,7 +35,7 @@ def print_top():
         '  </tr> \n' + \
         '</table> \n\n')
 
-  print('<table border=0 bgcolor=white cellpadding=3>')
+  print('<table border=0 bgcolor=white cellpadding=1>')
 
  
 def print_bottom():
@@ -143,10 +143,10 @@ for d in data:
   if isSHOW_PLATFORM == "Y":
     platd = "&nbsp;&nbsp;<font size=-2>[" + platform + "]</font>"
 
-  print("  <td width=50>&nbsp;<img src=img/" + image_file + " height=50 width=50 /></td>")
-  print("  <td width=200><a href=" + project_url + ">" + release_name + \
-             "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
-             "</a>&nbsp;&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font>" + \
+  print("  <td width=25>&nbsp;<img src=img/" + image_file + " height=25 width=25 /></td>")
+  print("  <td width=170><a href=" + project_url + ">" + release_name + \
+             "</a>&nbsp;<a href=" + source_url + ">" + version + \
+             "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font>" + \
              platd + "<br><i>" + proj_desc + "</i></td>")
 
   if col == COLS:
