@@ -1,31 +1,20 @@
 import sqlite3, sys
 
-COLS=5
-isSHOW_PLATFORM='N'
-
-cat = ""
-cat_desc = ""
-image_file = ""
-component = ""
-project = ""
-release_name = ""
-version = ""
-source_url = ""
-project_url = ""
-platform = ""
-rel_day = ""
-rel_month = ""
-proj_desc = ""
-version = ""
-
+isSHOW_PLATFORM='Y'
+NUM_COLS = 5
+COL_SIZE = 170
+IMG_SIZE = 27
+PADDING = 2
+BORDER=0
+SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + (3 * PADDING))
 
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=1 bgcolor=white cellpadding=1> \n' +
+  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=' + str(PADDING) + '> \n' +
         '  <tr> \n' + \
-        '    <td width=50><img width=50 src=img/aarch-io.png></td> \n' + \
-        '    <td width=940>' + \
+        '    <td width=75><img width=75 src=img/aarch-io.png /></td> \n' + \
+        '    <td width=925><br>' + \
         '<pre>' + \
         '  python3 -c "$(curl -fsSL https://aarch-io-download.s3.amazonaws.com/REPO/install.py)"\n' + \
         '  cd aarch \n'
@@ -33,9 +22,10 @@ def print_top():
         '</pre> \n' + \
         '    </td> \n' + \
         '  </tr> \n' + \
+        '  <tr><td colspan=2><img src=img/seperator.png width=' + str(SEP_WIDTH) + ' /></td></tr> \n' + \
         '</table> \n\n')
 
-  print('<table border=0 bgcolor=white cellpadding=1>')
+  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=" + str(PADDING) + ">')
 
  
 def print_bottom():
@@ -43,11 +33,10 @@ def print_bottom():
         '</td></tr></table></center>')
 
 
-
 def get_columns(d):
   global cat, cat_desc, image_file, component, project, release_name
   global version, source_url, project_url, platform, rel_date, rel_month
-  global rel_day, stage, proj_desc, version
+  global rel_day, rel_yy, stage, proj_desc, version
 
   cat = str(d[0])
   cat_desc = str(d[1])
@@ -64,6 +53,7 @@ def get_columns(d):
     platform = "amd, arm"
 
   rel_date = str(d[10])
+  rel_yy = rel_date[2:4]
   rel_month = rel_date[4:6]
   if rel_month == "01":
      rel_month = "Jan"
@@ -91,10 +81,15 @@ def get_columns(d):
      rel_month = "Dec"
 
   rel_day = rel_date[6:]
-  if rel_day[1:1] == "0":
-    rel_day = rel_day[2:]
+  if rel_day[0:1] == "0":
+    rel_day = rel_day[1]
 
   stage = str(d[11])
+  if stage == "prod":
+    stage = ""
+  else:
+    stage = "--" + stage
+
   proj_desc = str(d[12])
 
   if version[-2] == "-":
@@ -102,7 +97,7 @@ def get_columns(d):
 
 
 def print_row_header():
-  print("<tr><td colspan=" + str(COLS * 2) + ">&nbsp;<br><font size=+2><b><u>" + \
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + ">&nbsp;<br><font size=+0><b><u>" + \
     cat_desc + ":</u></b></font></td></tr>")
 
 
@@ -141,16 +136,27 @@ for d in data:
 
   platd = ""
   if isSHOW_PLATFORM == "Y":
-    platd = "&nbsp;&nbsp;<font size=-2>[" + platform + "]</font>"
+    platd = "<br>" + component + " [" + platform + "] " + stage
 
-  print("  <td width=25>&nbsp;<img src=img/" + image_file + " height=25 width=25 /></td>")
-  print("  <td width=170><a href=" + project_url + ">" + release_name + \
-             "</a>&nbsp;<a href=" + source_url + ">" + version + \
-             "</a>&nbsp;<font color=red size=-2>" + rel_month + " " + rel_day + "</font>" + \
-             platd + "<br><i>" + proj_desc + "</i></td>")
+  #print('DEBUG rel_date = ' + rel_date)
+  year_day = int(rel_date[:6])
+  #print('DEBUG year_day=' + str(year_day))
+  months_old = 202001 - year_day
+  #print('DEBUG months_old =' + str(months_old))
+  if months_old < 99:
+    rel_yy_display = ""
+  else:
+    rel_yy_display = "-" + rel_yy
 
-  if col == COLS:
+  print("  <td>&nbsp;<img src=img/" + image_file + " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
+  print("  <td width=" +str( COL_SIZE) + "><font size=-1><a href=" + project_url + ">" + release_name + \
+             "</a>&nbsp;&nbsp;<a href=" + source_url + ">" + version + \
+             "</a>&nbsp;<font color=red size=-2>" + rel_day + "-" + rel_month + rel_yy_display +"</font>" + \
+             platd + "<br><i>" + proj_desc + "</font></i></td>")
+
+  if col == NUM_COLS:
     print("</tr>")
+    print("<tr><td></td></tr>")
     col = 1
   else:
     col = col + 1
