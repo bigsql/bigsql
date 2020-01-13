@@ -25,7 +25,7 @@ timescaleV=1.5.1-1
 logicalV=2.2.2-1
 profV=4.1-1
 bulkloadV=3.1.15-1
-partmanV=4.2.2
+partmanV=4.2.2-1
 
 cassV=3.11.5
 cstarV=3.1.5-1
