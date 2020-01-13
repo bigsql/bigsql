@@ -31,7 +31,7 @@ cassV=3.11.5
 cstarV=3.1.5-1
 
 presV=0.229
-prestoV=3.2-1
+prestoV=3.2.1-1
 
 tsqlV=3.0-1
 patroniV=1.6.3

@@ -40,9 +40,9 @@ backgroundFullVersion=1.0
 backgroundShortVersion=1
 backgroundBuildV=1
 
-athenaFullV=3.2
-athenaShortV=
-athenaBuildV=1
+prestoFullV=3.2.1
+prestoShortV=
+prestoBuildV=1
 
 cassFullV=3.1.5
 cassShortV=

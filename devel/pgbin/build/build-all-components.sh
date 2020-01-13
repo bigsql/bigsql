@@ -27,8 +27,8 @@ if [ ! "$pgV"  == "11" ] && [ ! "$pgV"  == "12" ]; then
   exit 1
 fi
 
-if [ "$1" == "athena_fdw" ] || [ "$1" == "all" ]; then
-  build athena_fdw $athenaFullV-$athenaBuildV $2 athena_fdw
+if [ "$1" == "presto_fdw" ] || [ "$1" == "all" ]; then
+  build presto_fdw $prestoFullV $2 presto_fdw
 fi
 
 if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
