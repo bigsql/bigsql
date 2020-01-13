@@ -43,10 +43,15 @@ INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/b
 INSERT INTO projects VALUES ('mysql',      2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png', 'MySQL Server', 'https://dev.mysql.com');
 INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql.png', 'Access MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 
-INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://microsoft.com', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server Express', 'https://microsoft.com');
-INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sybase.com', 'sybase', 0, 'sybase.png', 'Sybase Express', 'https://sybase.com');
+INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://microsoft.com', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server Express Linux', 'https://microsoft.com');
+INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
 INSERT INTO projects VALUES ('pgtsql',     2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
 INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SqlSvr & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
+
+INSERT INTO projects VALUES ('plv8',       2, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
+INSERT INTO projects VALUES ('plpython3',  2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
+INSERT INTO projects VALUES ('plperl',     2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html', 'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
+INSERT INTO projects VALUES ('pljava',     2, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
 
 INSERT INTO projects VALUES ('oracle',     2, 0, 'hub', 0, 'https://oracle.com', 'oracle', 0, 'oracle.png', 'Oracle Express', 'https://oracle.com');
 INSERT INTO projects VALUES ('orafce',     2, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'orafce.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
@@ -64,7 +69,7 @@ INSERT INTO projects VALUES ('patroni',    3, 0, 'hub', 0, 'https://github.com/z
 INSERT INTO projects VALUES ('psycopg',    4, 0, 'hub', 0, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
 INSERT INTO projects VALUES ('npgsql',     4, 0, 'hub', 0, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
 INSERT INTO projects VALUES ('ruby',       4, 0, 'hub', 0, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
-INSERT INTO projects VALUES ('jdbc',       4, 0, 'hub', 0, 'https://jdbc.postgresql.org', 'jdbc', 0, 'jdbc.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
+INSERT INTO projects VALUES ('jdbc',       4, 0, 'hub', 0, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
 INSERT INTO projects VALUES ('odbc',       4, 0, 'hub', 0, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
 
 INSERT INTO projects VALUES ('docker',     4, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
@@ -98,13 +103,17 @@ INSERT INTO releases VALUES ('pg',                12, 'pg',            'PostgreS
 
 ## Compatibility & Integration ##########################
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'T-SQL',      '', 'prod');
-INSERT INTO releases VALUES ('sqlsvr',             1, 'sqlsvr',        'SQL Svr',    '', 'test');
+INSERT INTO releases VALUES ('sqlsvr',             1, 'sqlsvr',        'SQL Server', '', 'test');
 INSERT INTO releases VALUES ('sybase',             1, 'sybase',        'SAP/Sybase', '', 'test');
 INSERT INTO releases VALUES ('tds_fdw-pg11',       1, 'tds_fdw',       'TDS FDW',    '', 'prod');
 INSERT INTO releases VALUES ('pgosql-pg11',        1, 'pgosql',        'OSQL',       '', 'test');
 INSERT INTO releases VALUES ('orafce-pg11',        1, 'orafce',        'OraFCE',     '', 'prod');
 INSERT INTO releases VALUES ('oracle_fdw-pg11',    1, 'oracle_fdw',    'Oracle FDW', '', 'prod');
 INSERT INTO releases VALUES ('oracle',             1, 'oracle',        'Oracle',     '', 'test');
+INSERT INTO releases VALUES ('plpython-pg11',      1, 'plpython3',     'PL/Python',  '', 'prod');
+INSERT INTO releases VALUES ('plperl-pg11',        1, 'plperl',        'PL/Perl',    '', 'prod');
+INSERT INTO releases VALUES ('plv8-pg11',          1, 'plv8',          'PL/V8',      '', 'prod');
+INSERT INTO releases VALUES ('pljava-pg11',        1, 'pljava',        'PL/Java',    '', 'prod');
 INSERT INTO releases VALUES ('mysql_fdw-pg11',     1, 'mysql_fdw',     'MySQL FDW',  '', 'prod');
 INSERT INTO releases VALUES ('mysql',              1, 'mysql',         'MySQL',      '', 'test');
 INSERT INTO releases VALUES ('cassandra',          1, 'cassandra',     'Cassandra',  '', 'test');
@@ -177,6 +186,11 @@ INSERT INTO versions VALUES ('tds_fdw-pg11',       '2.1.0-1',  'amd, arm',      
 
 INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'amd, arm',       1, '20190725', 'pg11');
 
+INSERT INTO versions VALUES ('plv8-pg11',          '2.3.14-1', 'amd',            1, '20200109', 'pg11');
+INSERT INTO versions VALUES ('plpython-pg11',      '11',       'amd',            1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('plperl-pg11',        '11',       'amd',            1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('pljava-pg11',        '1.5.5-1',  'amd',            1, '20191104', 'pg11');
+
 INSERT INTO versions VALUES ('oracle',             '11.2.0',   'amd',            1, '20191010', '');
 INSERT INTO versions VALUES ('oracle_fdw-pg11',    '2.2.0-1',  'amd',            1, '20191010', 'pg11');
 
@@ -200,7 +214,7 @@ INSERT INTO versions VALUES ('presto',             '0.229',    '',              
 INSERT INTO versions VALUES ('presto_fdw-pg11',    '3.2-1',    'amd',            1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('badger',             '11.1-1',   '',               1, '20190916', '');
-INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'amd, arm',       1, '20130813', '');
+INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'amd, arm',       0, '20130813', '');
 INSERT INTO versions VALUES ('bouncer',            '1.12.0-1', 'amd, arm',       1, '20191017', '');
 
 INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',               1, '20191020', '');
