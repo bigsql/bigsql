@@ -35,6 +35,14 @@ if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
   build cassandra_fdw $cassFullV $2 cassandra_fdw
 fi
 
+if [ "$1" == "partman" ] || [ "$1" == "all" ]; then
+  build partman $partmanFullV $2 partman
+fi
+
+if [ "$1" == "bulkload" ] || [ "$1" == "all" ]; then
+  build bulkload $bulkloadFullV $2 bulkload
+fi
+
 if [ "$1" == "orafce" ] || [ "$1" == "all" ]; then
   build orafce $orafceFullV $2 orafce
 fi

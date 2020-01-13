@@ -401,8 +401,8 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
-  initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
-  initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"            "" "" "nil"
+  #initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
+  #initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"            "" "" "nil"
 
   initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
 
@@ -417,7 +417,7 @@ initPG () {
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
     if [ "$plat" == "amd" ]; then
-      initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
+      #initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
       initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
     fi
   fi

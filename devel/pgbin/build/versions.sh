@@ -120,9 +120,9 @@ pgTSQLFullV=3.0
 pgTSQLShortV=
 pgTSQLBuildV=1
 
-bulkLoadFullVersion=3.1.15
-bulkLoadShortVersion=
-bulkLoadBuildV=1
+bulkloadFullV=3.1.15
+bulkloadShortV=
+bulkloadBuildV=1
 
 pgLogicalFullV=2.2.2
 pgLogicalShortV=
@@ -136,9 +136,9 @@ pgrepackFullVersion=1.4.4
 pgrepackShortVersion=
 pgrepackBuildV=1
 
-pgPartmanFullVersion=4.2.0
-pgPartmanShortVersion=
-pgPartmanBuildV=1
+partmanFullV=4.2.2
+partmanShortV=
+partmanBuildV=1
 
 hintplanFullVersion=1.3.2
 hintplanShortVersion=

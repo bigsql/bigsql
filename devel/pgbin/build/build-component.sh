@@ -320,37 +320,6 @@ function buildSetUserComponent {
 }
 
 
-function buildPGPartmanComponent {
-
-        componentName="pgpartman$pgPartmanShortVersion-pg$pgShortVersion-$pgPartmanFullVersion-$pgPartmanBuildV-$buildOS"
-        mkdir -p "$baseDir/$workDir/logs"
-        cd "$baseDir/$workDir"
-        mkdir pgpartman && tar -xf $pgpartmanSource --strip-components=1 -C pgpartman
-        cd pgpartman
-
-        buildLocation="$baseDir/$workDir/build/$componentName"
-
-        prepComponentBuildDir $buildLocation
-
-
-        PATH=$buildLocation/bin:$PATH
-        USE_PGXS=1 make > $baseDir/$workDir/logs/pgpartman_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-                 USE_PGXS=1 make install > $baseDir/$workDir/logs/pgpartman_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                        echo "pg_partman install failed, check logs for details."
-                fi
-        else
-                echo "pg_partman Make failed, check logs for details."
-                return 1
-        fi
-
-        componentBundle=$componentName
-        cleanUpComponentDir $buildLocation
-        packageComponent $componentBundle
-}
-
-
 function buildComp {
 	comp="$1"
         ##echo "#        comp: $comp"
@@ -709,36 +678,6 @@ function buildBackgroundComponent {
         packageComponent $componentBundle
 }
 
-function buildBulkLoadComponent {
-
-        componentName="bulkload$bulkLoadShortVersion-pg$pgShortVersion-$bulkLoadFullVersion-$bulkLoadBuildV-$buildOS"
-        mkdir -p "$baseDir/$workDir/logs"
-        cd "$baseDir/$workDir"
-        mkdir bulk_load && tar -xf $bulkLoadSource --strip-components=1 -C bulk_load
-        cd bulk_load
-
-        buildLocation="$baseDir/$workDir/build/$componentName"
-
-        prepComponentBuildDir $buildLocation
-
-
-        PATH=$buildLocation/bin:$PATH
-        USE_PGXS=1 make > $baseDir/$workDir/logs/bulkload_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-                 USE_PGXS=1 make install > $baseDir/$workDir/logs/bulkload_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                        echo "BulkLoad install failed, check logs for details."
-                fi
-        else
-                echo "BulkLoad Make failed, check logs for details."
-                return 1
-        fi
-
-        componentBundle=$componentName
-        cleanUpComponentDir $buildLocation
-        updateSharedLibs
-        packageComponent $componentBundle
-}
 
 function buildCstoreFDWComponent {
 
@@ -913,7 +852,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-pgpartman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-athena_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-pgaudit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-pglogical2:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -943,13 +882,13 @@ while true; do
     --build-walg ) buildWalg=true; Source=$2; shift; shift ;;
     --build-hypopg ) buildHypopg=true; Source=$2; shift; shift ;;
     --build-pldebugger ) buildPLDebugger=true; Source=$2; shift; shift ;;
-    --build-pgpartman ) buildPGPartman=true; pgpartmanSource=$2; shift; shift ;;
+    --build-partman ) buildPartman=true; Source=$2; shift; shift ;;
     --build-plr ) buildPlr=true; plrSource=$2; shift; shift ;;
     --build-plv8 ) buildPlV8=true; plV8Source=$2; shift; shift ;;
     --build-pljava ) buildPlJava=true; plJavaSource=$2; shift; shift ;;
     --build-plprofiler ) buildPlProfiler=true; plProfilerSource=$2; shift; shift ;;
     --build-background ) buildBackground=true; backgroundSource=$2; shift; shift ;;
-    --build-bulkload ) buildBulkLoad=true; bulkLoadSource=$2; shift; shift ;;
+    --build-bulkload ) buildBulkLoad=true; Source=$2; shift; shift ;;
     --build-cstore-fdw ) buildCstoreFDW=true; cstoreFDWSource=$2; shift; shift ;;
     --build-parquet-fdw ) buildParquetFDW=true; parquetFDWSource=$2; shift; shift ;;
     --build-pgrepack ) buildpgRepack=true; pgrepackSource=$2; shift; shift ;;
@@ -1035,8 +974,8 @@ if [[ $buildPLDebugger == "true" ]]; then
 	buildComp pldebugger  "$debugShortV" "$debugFullV" "$debugBuildV" "$Source"
 fi
 
-if [[ $buildPGPartman == "true" ]]; then
-    buildPGPartmanComponent
+if [[ $buildPartman == "true" ]]; then
+    buildComp partman "$partmanShortV" "$partmanFullV" "$partmanBuildV" "$Source"
 fi
 
 if [[ $buildMySQLFDW == "true" ]]; then
@@ -1064,7 +1003,7 @@ if [[ $buildBackground == "true" ]]; then
         buildBackgroundComponent
 fi
 if [[ $buildBulkLoad == "true" ]]; then
-	buildBulkLoadComponent
+        buildComp bulkload "$bulkloadShortV" "$bulkloadFullV" "$bulkloadBuildV" "$Source"
 fi
 if [[ $buildCstoreFDW == "true" ]]; then
 	buildCstoreFDWComponent
