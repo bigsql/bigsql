@@ -73,7 +73,8 @@ INSERT INTO projects VALUES ('jdbc',       4, 0, 'hub', 0, 'https://jdbc.postgre
 INSERT INTO projects VALUES ('odbc',       4, 0, 'hub', 0, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
 
 INSERT INTO projects VALUES ('docker',     4, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO projects VALUES ('omnidb',     4, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
+INSERT INTO projects VALUES ('omnidb',     4, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
+INSERT INTO projects VALUES ('pgadmin4',   4, 1234, 'docker', 0, 'https://pgadmin.org', 'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
 INSERT INTO projects VALUES ('kubernetes', 4, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases', 'kubernetes', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO projects VALUES ('helm',       4, 0, 'hub', 0, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO projects VALUES ('pgrest',     4, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
@@ -122,16 +123,16 @@ INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',
 INSERT INTO releases VALUES ('presto_fdw-pg11',    1, 'presto_fdw',    'Presto FDW', '', 'prod');
 
 ## Performance, Scalability, Availability, & Security ###
-INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'Timescale',  '', 'prod');
+INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB','', 'prod');
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',  '', 'prod');
 INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker',     '', 'prod');
 INSERT INTO releases VALUES ('kubernetes',         1, 'kubernetes',    'K8s',        '', 'test');
 INSERT INTO releases VALUES ('helm',               1, 'helm',          'Helm',       '', 'test');
 INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',    '', 'test');
-INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'Backrest',   '', 'test');
-INSERT INTO releases VALUES ('badger',             1, 'badger',        'Badger',     '', 'prod');
+INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'pgBackRest', '', 'test');
+INSERT INTO releases VALUES ('badger',             1, 'badger',        'pgBadger',   '', 'prod');
 INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',     '', 'prod');
-INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'Profiler',   '', 'prod');
+INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler', '', 'prod');
 INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtact',  '', 'prod');
 INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Client','', 'prod');
 INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer', '', 'prod');
@@ -145,6 +146,7 @@ INSERT INTO releases VALUES ('npgsql',             1, 'npgsql',        '.net PG'
 INSERT INTO releases VALUES ('jdbc',               1, 'jdbc',          'JDBC',       '', 'prod');
 INSERT INTO releases VALUES ('odbc',               1, 'odbc',          'ODBC',       '', 'prod');
 INSERT INTO releases VALUES ('omnidb',             1, 'omnidb',        'OmniDB',     '', 'test');
+INSERT INTO releases VALUES ('pgadmin4',           1, 'pgadmin4',      'pgAdmin 4',   '', 'test');
 
 CREATE TABLE versions (
   component     TEXT    NOT NULL,
@@ -232,6 +234,7 @@ INSERT INTO versions VALUES ('kubernetes',         '1.6.2',    'amd, arm',      
 INSERT INTO versions VALUES ('docker',             '19.03.5',  'amd, arm',       1, '20191113', '');
 
 INSERT INTO versions VALUES ('omnidb',             '2.17-1',   'docker',         1, '20191205', '');
+INSERT INTO versions VALUES ('pgadmin4',           '4.17',     'docker',         1, '20190109', '');
 
 INSERT INTO versions VALUES ('patroni',            '1.6.3',    '',               1, '20191205', '');
 
