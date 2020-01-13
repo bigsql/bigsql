@@ -5,5 +5,5 @@
 
 import util
 
-util.remove_pgconf_keyval("pgXX", "shared_preload_libraries", "pg_partman")
+util.remove_pgconf_keyval("pgXX", "shared_preload_libraries", "pg_partman_bgw")
 
