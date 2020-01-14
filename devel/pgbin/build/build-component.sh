@@ -779,37 +779,6 @@ function buildpgRepackComponent {
 }
 
 
-function buildPGHintPlanComponent {
-
-        componentName="hintplan-pg$pgShortVersion-$hintplanFullVersion-$hintplanBuildV-$buildOS"
-        mkdir -p "$baseDir/$workDir/logs"
-        cd "$baseDir/$workDir"
-        mkdir pghintplan && tar -xf $pgHintplanSource --strip-components=1 -C pghintplan
-        cd pghintplan
-
-        buildLocation="$baseDir/$workDir/build/$componentName"
-
-        prepComponentBuildDir $buildLocation
-
-
-        PATH=$buildLocation/bin:$PATH
-        USE_PGXS=1 make -d > $baseDir/$workDir/logs/pghintplan_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-                 USE_PGXS=1 make install > $baseDir/$workDir/logs/pghintplan_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                        echo "pgHintplan install failed, check logs for details."
-                fi
-        else
-                echo "pgHintplan Make failed, check logs for details."
-                return 1
-        fi
-
-        componentBundle=$componentName
-        cleanUpComponentDir $buildLocation
-        updateSharedLibs
-        packageComponent $componentBundle
-}
-
 function buildTimeScaleDBComponent {
 
         componentName="timescaledb-pg$pgShortVersion-$timescaledbFullV-$timescaledbBuildV-$buildOS"
@@ -894,7 +863,7 @@ while true; do
     --build-pgrepack ) buildpgRepack=true; pgrepackSource=$2; shift; shift ;;
     --build-pglogical ) buildpgLogical=true; Source=$2; shift; shift ;;
     --build-pglogical2 ) buildpgL2=true; Source=$2; shift; shift ;;
-    --build-hintplan ) buildPGHintPlan=true; pgHintplanSource=$2; shift; shift ;;
+    --build-hintplan ) buildHintPlan=true; Source=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
     --build-pgagent ) buildPGAgent=true; pgAgentSource=$2; shift; shift ;;
     --build-cron ) buildCron=true; cronSource=$2; shift; shift ;;
@@ -1015,8 +984,8 @@ fi
 if [[ $buildpgRepack == "true" ]]; then
 	buildpgRepackComponent
 fi
-if [[ $buildPGHintPlan == "true" ]]; then
-        buildPGHintPlanComponent
+if [[ $buildHintPlan == "true" ]]; then
+        buildComp hintplan "$hintplanShortV" "$hintplanFullV" "$hintplanBuildV" "$Source"
 fi
 if [[ $buildTimeScaleDB == "true" ]]; then
         buildTimeScaleDBComponent

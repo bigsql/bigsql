@@ -96,9 +96,9 @@ ddlxFullV=0.15
 ddlxShortV=
 ddlxBuildV=1
 
-pgAuditFullVersion=1.3.1
-pgAuditShortVersion=13
-pgAuditBuildV=1
+auditFullV=1.3.1
+auditShortV=
+auditBuildV=1
 
 setUserFullVersion=1.6.2
 setUserShortVersion=
@@ -140,8 +140,8 @@ partmanFullV=4.2.2
 partmanShortV=
 partmanBuildV=1
 
-hintplanFullVersion=1.3.2
-hintplanShortVersion=
+hintplanFullV=1.3.4
+hintplanShortV=
 hintplanBuildV=1
 
 timescaledbFullV=1.5.1

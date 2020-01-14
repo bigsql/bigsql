@@ -47,6 +47,10 @@ if [ "$1" == "bulkload" ] || [ "$1" == "all" ]; then
   build bulkload $bulkloadFullV $2 bulkload
 fi
 
+##if [ "$1" == "hintplan" ] || [ "$1" == "all" ]; then
+##  build hintplan $hintplanFullV $2 hintplan
+##fi
+
 if [ "$1" == "orafce" ] || [ "$1" == "all" ]; then
   build orafce $orafceFullV $2 orafce
 fi
