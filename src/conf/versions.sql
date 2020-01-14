@@ -67,7 +67,7 @@ INSERT INTO projects VALUES ('badger',     3, 0, 'hub', 0, 'https://github.com/d
 INSERT INTO projects VALUES ('patroni',    3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
 INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
 INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'Bulk Loading', 'https://github.com/ossc-db/pg_bulkload');
-INSERT INTO projects VALUES ('audit',      3, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'pgaudit.png', 'HTTP Client', 'https://github.com/pgaudit/pgaudit');
+INSERT INTO projects VALUES ('audit',      3, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'HTTP Client', 'https://github.com/pgaudit/pgaudit');
 INSERT INTO projects VALUES ('anon',       3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Postgres Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
 INSERT INTO projects VALUES ('psycopg',    4, 0, 'hub', 0, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
