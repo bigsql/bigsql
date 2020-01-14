@@ -411,7 +411,7 @@ initPG () {
   initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
 
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
-    initC "audit-pg$pgM" "audit "$auditV" "$outPlat" "postgres/audit "" "" "nil"
+    initC "audit-pg$pgM" "audit" "$auditV" "$outPlat" "postgres/audit" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
