@@ -96,7 +96,7 @@ CREATE TABLE releases (
 );
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden');
 
-## PostgreSQL ###########################################
+-- PostgreSQL ###########################################
 INSERT INTO releases VALUES ('pg96',              09, 'pg',            'PG 9.6',    '', 'test');
 INSERT INTO releases VALUES ('pg10',              10, 'pg',            'PG 10',     '', 'test');
 INSERT INTO releases VALUES ('pg11',              11, 'pg',            'PG 11',     '', 'prod');
@@ -104,7 +104,7 @@ INSERT INTO releases VALUES ('pg12',              12, 'pg',            'PG 12', 
 INSERT INTO releases VALUES ('pg',                12, 'pg',            'PostgreSQL','', 'prod' );
 
 
-## Compatibility & Integration ##########################
+-- Compatibility & Integration ##########################
 INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'T-SQL',      '', 'prod');
 INSERT INTO releases VALUES ('sqlsvr',             1, 'sqlsvr',        'SQL Server', '', 'test');
 INSERT INTO releases VALUES ('sybase',             1, 'sybase',        'SAP/Sybase', '', 'test');
@@ -124,7 +124,7 @@ INSERT INTO releases VALUES ('cassandra_fdw-pg11', 1, 'cassandra_fdw', 'C* FDW',
 INSERT INTO releases VALUES ('presto',             1, 'presto',        'Presto',     '', 'prod');
 INSERT INTO releases VALUES ('presto_fdw-pg11',    1, 'presto_fdw',    'Presto FDW', '', 'prod');
 
-## Performance, Scalability, Availability, & Security ###
+-- Performance, Scalability, Availability, & Security ###
 INSERT INTO releases VALUES ('timescaledb-pg11',   1, 'timescaledb',   'TimescaleDB','', 'prod');
 INSERT INTO releases VALUES ('pglogical-pg11',     1, 'pglogical',     'pgLogical',  '', 'prod');
 INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker',     '', 'prod');
@@ -141,7 +141,7 @@ INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtac
 INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Client','', 'prod');
 INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer', '', 'prod');
 
-## Applications & Administration ########################
+-- Applications & Administration ########################
 INSERT INTO releases VALUES ('pgrest',             1, 'pgrest',        'Data API',   '', 'prod');
 INSERT INTO releases VALUES ('bouncer',            1, 'bouncer',       'pgBouncer',  '', 'test');
 INSERT INTO releases VALUES ('psycopg',            1, 'psycopg',       'psycopg',    '', 'prod');
