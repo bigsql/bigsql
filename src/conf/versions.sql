@@ -132,7 +132,7 @@ INSERT INTO releases VALUES ('docker',             1, 'docker',        'Docker',
 INSERT INTO releases VALUES ('kubernetes',         1, 'kubernetes',    'K8s',        '', 'test');
 INSERT INTO releases VALUES ('helm',               1, 'helm',          'Helm',       '', 'test');
 INSERT INTO releases VALUES ('patroni',            1, 'patroni',       'Patroni',    '', 'test');
-INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'pgBackRest', '', 'test');
+INSERT INTO releases VALUES ('backrest',           1, 'backrest',      'pgBackRest', '', 'prod');
 INSERT INTO releases VALUES ('badger',             1, 'badger',        'pgBadger',   '', 'prod');
 INSERT INTO releases VALUES ('bulkload-pg11',      1, 'bulkload',      'pgBulkLoad', '', 'prod');
 INSERT INTO releases VALUES ('partman-pg11',       1, 'partman',       'pgPartman',  '', 'prod');

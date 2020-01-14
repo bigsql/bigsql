@@ -20,8 +20,8 @@ function runPgBin {
   bkrstSrc=$SRC/backrest-$backrestV.tar.gz
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV"
-  ##cmd="$cmd -b $bncrSrc -o $odbcSrc -k $bkrstSrc $optional"
-  cmd="$cmd $optional"
+  cmd="$cmd -b $bncrSrc -o $odbcSrc -k $bkrstSrc $optional"
+  ##cmd="$cmd $optional"
   ##echo "# $cmd"
   $cmd
   if [[ $? -ne 0 ]]; then
