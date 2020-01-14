@@ -258,36 +258,6 @@ function buildOracleFDWComponent {
 	packageComponent $componentBundle
 }
 
-function buildPGAuditComponent {
-
-	componentName="pgaudit$pgAuditShortVersion-pg$pgShortVersion-$pgAuditFullVersion-$pgAuditBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir pgaudit && tar -xf $pgAuditSource --strip-components=1 -C pgaudit
-	cd pgaudit
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-
-	PATH=$buildLocation/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/pgaudit_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/pgaudit_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "pgAudit install failed, check logs for details."
-		fi
-	else
-		echo "pgAudit Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
 
 function buildSetUserComponent {
 
@@ -846,7 +816,7 @@ while true; do
     --build-mysql-fdw ) buildMySQLFDW=true; mysqlFDWSource=$2; shift; shift ;;
     --build-oraclefdw ) buildOracleFDW=true; Source=$2; shift; shift ;;
     --build-orafce ) buildOrafce=true; Source=$2; shift; shift ;;
-    --build-pgaudit ) buildPGAudit=true; pgAuditSource=$2; shift; shift ;;
+    --build-audit ) buildAudit=true; Source=$2; shift; shift ;;
     --build-set-user ) buildSetUser=true; setUserSource=$2; shift; shift ;;
     --build-walg ) buildWalg=true; Source=$2; shift; shift ;;
     --build-hypopg ) buildHypopg=true; Source=$2; shift; shift ;;
@@ -912,11 +882,10 @@ fi
 
 if [[ $buildOracleFDW == "true" ]]; then
 	buildComp oraclefdw "$oFDWShortVersion" "$oFDWFullVersion" "$oFDWBuildV" "$Source"
-	# buildOracleFDWComponent
 fi
 
-if [[ $buildPGAudit == "true" ]]; then
-	buildPGAuditComponent
+if [[ $buildAudit == "true" ]]; then
+	buildComp audit "$auditShortV" "$auditFullV" "$auditBuildV" "$Source"
 fi
 
 if [[ $buildSetUser == "true" ]]; then
