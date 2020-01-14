@@ -15,8 +15,9 @@ function test11 {
   ./apg install pglogical-pg11     -d demo; ./apg status
   ./apg install bulkload-pg11      -d demo; ./apg status
   ./apg install partman-pg11       -d demo; ./apg status
-  ./apg install presto_fdw-pg11    -d demo; ./apg status
-  ./apg install cassandra_fdw-pg11 -d demo; ./apg status
+  ./apg install audit-pg11         -d demo; ./apg status
+  ##./apg install presto_fdw-pg11    -d demo; ./apg status
+  ##./apg install cassandra_fdw-pg11 -d demo; ./apg status
 }
 
 function test10 {
