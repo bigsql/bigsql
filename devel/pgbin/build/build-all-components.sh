@@ -35,9 +35,9 @@ if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
   build cassandra_fdw $cassFullV $2 cassandra_fdw
 fi
 
-if [ "$1" == "pljava" ] || [ "$1" == "all" ]; then
-  # build pljava $pljavaFullV $2 pljava
-fi
+##if [ "$1" == "pljava" ] || [ "$1" == "all" ]; then
+##  # build pljava $pljavaFullV $2 pljava
+##fi
 
 if [ "$1" == "partman" ] || [ "$1" == "all" ]; then
   build partman $partmanFullV $2 partman
