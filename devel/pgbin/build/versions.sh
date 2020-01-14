@@ -104,9 +104,9 @@ setUserFullVersion=1.6.2
 setUserShortVersion=
 setUserBuildV=1
 
-plJavaFullVersion=1.5.2
-plJavaShortVersion=
-plJavaBuildV=1
+pljavaFullV=1.5.5
+pljavaShortV=
+pljavaBuildV=1
 
 plRFullVersion=8.3.0.17
 plRShortVersion=83

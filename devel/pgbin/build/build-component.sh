@@ -551,7 +551,7 @@ function buildPlRComponent {
 
 function buildPlJavaComponent {
 
-	componentName="pljava$plJavaShortVersion-pg$pgShortVersion-$plJavaFullVersion-$plJavaBuildV-$buildOS"
+	componentName="pljava$plJavaShortV-pg$pgShortV-$plJavaFullV-$plJavaBuildV-$buildOS"
 	mkdir -p "$baseDir/$workDir/logs"
 	cd "$baseDir/$workDir"
 	mkdir pljava && tar -xf $plJavaSource --strip-components=1 -C pljava
@@ -885,7 +885,7 @@ while true; do
     --build-partman ) buildPartman=true; Source=$2; shift; shift ;;
     --build-plr ) buildPlr=true; plrSource=$2; shift; shift ;;
     --build-plv8 ) buildPlV8=true; plV8Source=$2; shift; shift ;;
-    --build-pljava ) buildPlJava=true; plJavaSource=$2; shift; shift ;;
+    --build-pljava ) buildPlJava=true; Source=$2; shift; shift ;;
     --build-plprofiler ) buildPlProfiler=true; plProfilerSource=$2; shift; shift ;;
     --build-background ) buildBackground=true; backgroundSource=$2; shift; shift ;;
     --build-bulkload ) buildBulkLoad=true; Source=$2; shift; shift ;;
@@ -987,7 +987,8 @@ if [[ $buildPlr == "true" ]]; then
 fi
 
 if [[ $buildPlJava == "true" ]]; then
-	buildPlJavaComponent
+    buildComp pljava  "$pljavaShortV" "$pljavaFullV" "$pljavaBuildV" "$Source"
+##	buildPlJavaComponent
 fi
 
 if [[ $buildPlV8 == "true" ]]; then
