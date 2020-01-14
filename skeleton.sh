@@ -13,7 +13,9 @@ function test11 {
   ./apg install hypopg-pg11        -d demo; ./apg status
   ./apg install orafce-pg11        -d demo; ./apg status
   ./apg install pglogical-pg11     -d demo; ./apg status
-  ./apg install athena_fdw-pg11    -d demo; ./apg status
+  ./apg install bulkload-pg11      -d demo; ./apg status
+  ./apg install partman-pg11       -d demo; ./apg status
+  ./apg install presto_fdw-pg11    -d demo; ./apg status
   ./apg install cassandra_fdw-pg11 -d demo; ./apg status
 }
 
