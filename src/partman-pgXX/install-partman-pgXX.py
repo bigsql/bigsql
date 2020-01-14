@@ -5,5 +5,5 @@
 
 import util
 
-util.create_extension("pgXX", "pg_partman_bgw", True,)
+util.create_extension("pgXX", "pg_partman_bgw", True, "pg_partman")
 

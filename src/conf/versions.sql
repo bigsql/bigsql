@@ -67,6 +67,8 @@ INSERT INTO projects VALUES ('badger',     3, 0, 'hub', 0, 'https://github.com/d
 INSERT INTO projects VALUES ('patroni',    3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
 INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
 INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'Bulk Loading', 'https://github.com/ossc-db/pg_bulkload');
+INSERT INTO projects VALUES ('audit',      3, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'pgaudit.png', 'HTTP Client', 'https://github.com/pgaudit/pgaudit');
+INSERT INTO projects VALUES ('anon',       3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Postgres Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
 INSERT INTO projects VALUES ('psycopg',    4, 0, 'hub', 0, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
 INSERT INTO projects VALUES ('npgsql',     4, 0, 'hub', 0, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
@@ -81,7 +83,6 @@ INSERT INTO projects VALUES ('kubernetes', 4, 0, 'hub', 0, 'https://github.com/k
 INSERT INTO projects VALUES ('helm',       4, 0, 'hub', 0, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO projects VALUES ('pgrest',     4, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
 INSERT INTO projects VALUES ('http',       4, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'HTTP Client', 'https://github.com/pramsey/pgsql-http');
-INSERT INTO projects VALUES ('anon',       3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Postgres Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO projects VALUES ('ddlx',       4, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 
 
@@ -139,6 +140,7 @@ INSERT INTO releases VALUES ('hypopg-pg11',        1, 'hypopg',        'HypoPG',
 INSERT INTO releases VALUES ('plprofiler-pg11',    1, 'plprofiler',    'plProfiler', '', 'prod');
 INSERT INTO releases VALUES ('ddlx-pg11',          1, 'ddlx',          'DDLeXtact',  '', 'prod');
 INSERT INTO releases VALUES ('http-pg11',          1, 'http',          'HTTP Client','', 'prod');
+INSERT INTO releases VALUES ('audit-pg11',         1, 'audit',         'pgAudit',    '', 'prod');
 INSERT INTO releases VALUES ('anon-pg11',          1, 'anon',          'Anonymizer', '', 'prod');
 
 -- Applications & Administration ########################
@@ -210,6 +212,8 @@ INSERT INTO versions VALUES ('mysql_fdw-pg11',     '2.5.3-1',  'amd',           
 INSERT INTO versions VALUES ('plprofiler-pg11',    '4.1-1',    'amd, arm',       1, '20190823', 'pg11');
 
 INSERT INTO versions VALUES ('ddlx-pg11',          '0.15-1',   'amd, arm',       1, '20191024', 'pg11');
+
+INSERT INTO versions VALUES ('audit-pg11',         '1.3.1-1',  'amd, arm',       1, '20191225', 'pg11');
 
 INSERT INTO versions VALUES ('http-pg11',          '1.3.1-1',  'amd, arm',       1, '20191225', 'pg11');
 

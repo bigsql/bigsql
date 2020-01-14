@@ -5,5 +5,5 @@
 
 import util
 
-util.create_extension("pgaudit", "http", True, "", True)
+util.create_extension("pgXX", "pgaudit", True)
 
