@@ -19,3 +19,10 @@ cd $outp
 
 ./$api --version
 
+./$api info
+
+if [ ! "$1" == "" ]; then
+  ./$api info
+  ./$api install pg$1; ./$api start pg$1 -y
+fi
+
