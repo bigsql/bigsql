@@ -1,6 +1,6 @@
 import sys, os
 
-MY_VER="5.1.2"
+MY_VER="6.0.0"
 MY_REPO=os.getenv("MY_REPO", "https://dockpg-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
