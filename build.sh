@@ -31,7 +31,7 @@ printUsageMessage () {
   echo "#    cassandra-$cassV  cassandra_fdw-$cstarV  presto-$presV  presto_fdw-$prestoV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
-  echo "#    partman-$partmanV  bulkload-$bulkloadV"
+  echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$auditV"
   echo "#    minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "# -b hub-$hubV"
   echo "#--------------------------------------------------------------------------#"
@@ -211,6 +211,7 @@ initDir () {
   copy-pgXX "hypopg"
   copy-pgXX "partman"
   copy-pgXX "bulkload"
+  copy-pgXX "audit"   
 
   if [ -f $myNewDir/LICENSE.TXT ]; then
     mv $myNewDir/LICENSE.TXT $myNewDir/$pComponent-LICENSE.TXT
@@ -410,6 +411,7 @@ initPG () {
   initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
 
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
+    initC "audit-pg$pgM" "audit "$auditV" "$outPlat" "postgres/audit "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
