@@ -1,5 +1,9 @@
 source env.sh 
 
+## optional parms
+pgV="$1"
+comp="$2"
+
 echo "########## Build POSIX Sandbox ##########"
 
 outp="out/posix"
@@ -19,10 +23,10 @@ cd $outp
 
 ./$api --version
 
-./$api info
-
 if [ ! "$1" == "" ]; then
-  ./$api info
-  ./$api install pg$1; ./$api start pg$1 -y
+  ./$api install pg$pgV; ./$api start pg$pgV -y
+  if [ ! "$2" == "" ]; then
+    ./$api install $comp
+  fi
 fi
 
