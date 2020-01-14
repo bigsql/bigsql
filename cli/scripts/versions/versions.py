@@ -107,12 +107,14 @@ def print_row_header():
 con = sqlite3.connect("local.db")
 c = con.cursor()
 
+# NOTE: the below break prcessing works without a sort because the
+#        underlying view (v_versions) is already ordered
+
 sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
       "       version, sources_url, project_url, platform, release_date, \n" + \
       "       stage, proj_desc \n" + \
       "  FROM v_versions \n" + \
-      " WHERE is_current = 1 AND cat > 0 \n" + \
-      "ORDER BY cat, project, release_name"
+      " WHERE is_current = 1 AND cat > 0"
 
 c.execute(sql)
 data = c.fetchall()
