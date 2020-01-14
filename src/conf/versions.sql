@@ -65,8 +65,8 @@ INSERT INTO projects VALUES ('hypopg',     3, 0, 'hub', 0, 'https://github.com/H
 INSERT INTO projects VALUES ('backrest',   3, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
 INSERT INTO projects VALUES ('badger',     3, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reports', 'https://pgbadger.darold.net');
 INSERT INTO projects VALUES ('patroni',    3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
-INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/zalando/patroni');
-INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'bulkload', 1, 'bulkload.png', 'Bulk Loader', 'https://github.com/zalando/patroni');
+INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
+INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'Bulk Loading', 'https://github.com/ossc-db/pg_bulkload');
 
 INSERT INTO projects VALUES ('psycopg',    4, 0, 'hub', 0, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
 INSERT INTO projects VALUES ('npgsql',     4, 0, 'hub', 0, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
@@ -179,9 +179,9 @@ INSERT INTO versions VALUES ('pg12',               '12.1-4',   'amd, arm',      
 
 INSERT INTO versions VALUES ('pg',                 '12.1-6',   'amd, arm',       1, '20191114', '');
 
-INSERT INTO versions VALUES ('bulkload-pg11',      '3.1.15-1', 'amd, arm',       1, '20191123', 'pg11');
+INSERT INTO versions VALUES ('bulkload-pg11',      '3.1.15-1', 'amd, arm',       1, '20190120', 'pg11');
 
-INSERT INTO versions VALUES ('partman-pg11',       '4.2.2-1',  'amd, arm',       1, '20191123', 'pg11');
+INSERT INTO versions VALUES ('partman-pg11',       '4.2.2-1',  'amd, arm',       1, '20191016', 'pg11');
 
 INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'amd, arm',       1, '20191123', 'pg11');
 
