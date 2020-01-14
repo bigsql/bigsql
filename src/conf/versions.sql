@@ -43,8 +43,8 @@ INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/b
 INSERT INTO projects VALUES ('mysql',      2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png', 'MySQL Server', 'https://dev.mysql.com');
 INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql.png', 'Access MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 
-INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://microsoft.com', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server Express Linux', 'https://microsoft.com');
-INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
+INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://microsoft.com', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server for Linux', 'https://microsoft.com');
+INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE on Linux', 'https://sap.com/products/sybase-ase.html');
 INSERT INTO projects VALUES ('pgtsql',     2, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
 INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SqlSvr & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
 
@@ -68,7 +68,7 @@ INSERT INTO projects VALUES ('patroni',    3, 0, 'hub', 0, 'https://github.com/z
 INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
 INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'Bulk Loading', 'https://github.com/ossc-db/pg_bulkload');
 INSERT INTO projects VALUES ('audit',      3, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'HTTP Client', 'https://github.com/pgaudit/pgaudit');
-INSERT INTO projects VALUES ('anon',       3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Postgres Anonymizer', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+INSERT INTO projects VALUES ('anon',       3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
 INSERT INTO projects VALUES ('psycopg',    4, 0, 'hub', 0, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
 INSERT INTO projects VALUES ('npgsql',     4, 0, 'hub', 0, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
@@ -106,7 +106,7 @@ INSERT INTO releases VALUES ('pg',                12, 'pg',            'PostgreS
 
 
 -- Compatibility & Integration ##########################
-INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'T-SQL',      '', 'prod');
+INSERT INTO releases VALUES ('pgtsql-pg11',        1, 'pgtsql',        'TransactSQL','', 'prod');
 INSERT INTO releases VALUES ('sqlsvr',             1, 'sqlsvr',        'SQL Server', '', 'test');
 INSERT INTO releases VALUES ('sybase',             1, 'sybase',        'SAP/Sybase', '', 'test');
 INSERT INTO releases VALUES ('tds_fdw-pg11',       1, 'tds_fdw',       'TDS FDW',    '', 'prod');
