@@ -1,6 +1,6 @@
-# README for BigSQL #
+# README for bigsql-apg
 
-# RHEL8 Development Environment setup
+## EL8 Development Environment setup
 
 ```
 YUM="sudo yum -y"
@@ -48,7 +48,10 @@ mkdir in
 mkdir out
 mkdir apg_history
 
-# edit your ~/.bashrc to set env variables
+##################################################
+export REGION=us-west-2
+export BUCKET=s3://bigsql-apg-download
+
 export DEV=$HOME/dev
 export HIST=$DEV/apg_history
 export IN=$DEV/in
@@ -68,8 +71,8 @@ export REPO=http://localhost:8000
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
+##################################################
 
-####################################
 cd $BLD
 cp -p $APG/devel/pgbin/build/* .
 

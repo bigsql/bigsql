@@ -1,39 +1,30 @@
-copyToS3 () {
-  region="$1"
-  bucket="$2"
-  exclude="$3"
+# copy-to-s3
 
-  flags="--acl public-read --storage-class STANDARD --recursive"
-
-  cmd="aws --region $region s3 cp . s3://$bucket $flags"
-
-  if [ "$exclude" == "" ]; then
-    $cmd
-  else
-    $cmd --exclude "$exclude/*"
-  fi
-  rc=$?
-
-  echo ""
-}
-
-
-## MAINLINE ##################################################
 if [ $# -ne 1 ]; then
-  echo "ERROR: missing dir parameter"
-  exit
+  echo "ERROR: missing pOutDir parm"
+  exit 1
 fi
 
-newOutDir=dpg_history/$1
+outDir=$HIST/$1
+echo $outDir
+sleep 3
 
-if [ ! -d $newOutDir ]; then
-  echo "ERROR: bad dir"
-  exit
+if [ ! -d $outDir ]; then
+  echo "ERROR: missing $outDir"
+  exit 1
 fi
+cd $outDir
+ls
+sleep 3
 
-cd $newOutDir
+exclude="--exclude xyz/*"
+flags="--acl public-read --storage-class STANDARD --recursive"
+cmd="aws --region $REGION s3 cp . $BUCKET/REPO $flags $exclude"
+echo $cmd
+sleep 3
 
-copyToS3 "us-west-2" "dockpg-download/REPO" ""
-
-exit 0
+$cmd
+rc=$?
+echo "rc=($rc)"
+exit $rc
 
