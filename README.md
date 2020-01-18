@@ -1,15 +1,12 @@
-# README for BigSQL ( http://lab.lussier.io ) #
+# README for BigSQL #
 
-# EL8 Development Environment setup
+# RHEL8 Development Environment setup
 
 ```
 YUM="sudo yum -y"
 $YUM update
 
 $YUM install git
-git config --global user.name "Denis Lussier"
-git config --global user.email "denis@lussier.io"
-git config --global push.default simple
 
 $YUM install python3 python3-pip
 
@@ -49,24 +46,24 @@ mkdir ~/dev
 cd ~/dev
 mkdir in
 mkdir out
-mkdir dpg_history
+mkdir apg_history
 
 # edit your ~/.bashrc to set env variables
 export DEV=$HOME/dev
-export HIST=$DEV/dpg_history
+export HIST=$DEV/apg_history
 export IN=$DEV/in
 export OUT=$DEV/out
 
-export DPG=$DEV/dpg
-export DEVEL=$DPG/devel
+export APG=$DEV/apg
+export DEVEL=$APG/devel
 export PG=$DEVEL/pg
 export PGBIN=$DEVEL/pgbin
 
 export SRC=$IN/sources
 export BLD=/opt/pgbin-build/pgbin/bin
 
-export CLI=$DPG/cli/scripts
-export PSX=$DPG/out/posix
+export CLI=$APG/cli/scripts
+export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
@@ -74,7 +71,7 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 ####################################
 cd $BLD
-cp -p $DPG/devel/pgbin/build/* .
+cp -p $APG/devel/pgbin/build/* .
 
 cd ~
 mkdir .aws
@@ -83,9 +80,8 @@ vi config
 chmod 600 config
 
 cd $IN
-cp $DPG/devel/util/pull-s3.sh .
+cp $APG/devel/util/pull-s3.sh .
 ./pull-s3.sh
 chmod 755 *.sh
 
 ```
-
