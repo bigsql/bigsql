@@ -5,7 +5,7 @@ APT="sudo apt -y"
 $APT update
 $APT upgrade
 
-$APT install sqlite3 git python3
+$APT install sqlite3 git python3 curl wget
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 sudo python3 get-pip.py
 sudo pip3 install awscli
