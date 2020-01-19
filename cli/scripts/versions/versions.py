@@ -4,28 +4,28 @@ isSHOW_PLATFORM='Y'
 NUM_COLS = 5
 COL_SIZE = 170
 IMG_SIZE = 27
-PADDING = 2
 BORDER=0
-SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + (3 * PADDING))
+SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=' + str(PADDING) + '> \n' +
+  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=3> \n' +
         '  <tr> \n' + \
-        '    <td width=75><img width=75 src=img/aarch-io.png /></td> \n' + \
-        '    <td width=925><br>' + \
+        '    <td width=300><img src=img/bigsql.png /></td> \n' + \
+        '    <td width=725>' + \
         '<pre>' + \
-        '  python3 -c "$(curl -fsSL https://aarch-io-download.s3.amazonaws.com/REPO/install.py)"\n' + \
-        '  cd aarch \n'
-        '  ./io install pg11' + \
+        'INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py \n' + \
+        'python3 -c "$(curl -fsSL $INSTALLER)" \n' + \
+        'cd bigsql \n'
+        './apg install pg11' + \
         '</pre> \n' + \
         '    </td> \n' + \
         '  </tr> \n' + \
         '  <tr><td colspan=2><img src=img/seperator.png width=' + str(SEP_WIDTH) + ' /></td></tr> \n' + \
         '</table> \n\n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=" + str(PADDING) + ">')
+  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=2>')
 
  
 def print_bottom():

@@ -34,7 +34,7 @@ CREATE TABLE projects (
 INSERT INTO projects VALUES ('hub',0, 0,    'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'postgres.png', 'Most Advanced RDBMS', 'https://postgresql.org');
 
-INSERT INTO projects VALUES ('cassandra',  2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
+INSERT INTO projects VALUES ('cassandra',     2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cstarfdw', 1, 'cstar.png', 'Access Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
 INSERT INTO projects VALUES ('presto',     2, 0, 'hub', 0, 'https://github.com/prestodb/presto/releases', 'presto', 1, 'presto.png', 'SQL Queries', 'https://prestodb.io');
@@ -102,7 +102,7 @@ INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
 -- PostgreSQL
 INSERT INTO releases VALUES ('pg95', 1, 'pg', 'PG 9.5',  '', 'deprecated', 1);
 INSERT INTO releases VALUES ('pg96', 2, 'pg', 'PG 9.6',  '', 'deprecated', 1);
-INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PG 10',   '', 'prod',       1);
+INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PG 10',   '', 'deprecated', 1);
 INSERT INTO releases VALUES ('pg11', 4, 'pg', 'PG 11',   '', 'prod',       1);
 INSERT INTO releases VALUES ('pg12', 5, 'pg', 'PG 12',   '', 'prod',       1);
 INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PG 13',   '', 'alpha',      1 );
@@ -174,17 +174,16 @@ CREATE TABLE versions (
 );
 
 INSERT INTO versions VALUES ('hub', '6.0.0', '', 1, '20200201', '');
-INSERT INTO versions VALUES ('hub', '5.1.2', '', 0, '20200101', '');
+
+INSERT INTO versions VALUES ('pg95',               '9.5.16',   'amd, arm',       1, '20191114', '');
+
+INSERT INTO versions VALUES ('pg96',               '9.6.12',   'amd, arm',       1, '20191114', '');
 
 INSERT INTO versions VALUES ('pg10',               '10.8',     'amd, arm',       1, '20191114', '');
 
 INSERT INTO versions VALUES ('pg11',               '11.6-6',   'amd, arm',       1, '20191114', '');
-INSERT INTO versions VALUES ('pg11',               '11.6-5',   'amd, arm',       0, '20191114', '');
-INSERT INTO versions VALUES ('pg11',               '11.6-4',   'amd, arm',       0, '20191114', '');
 
 INSERT INTO versions VALUES ('pg12',               '12.1-6',   'amd, arm',       1, '20191114', '');
-INSERT INTO versions VALUES ('pg12',               '12.1-5',   'amd, arm',       0, '20191114', '');
-INSERT INTO versions VALUES ('pg12',               '12.1-4',   'amd, arm',       0, '20191114', '');
 
 INSERT INTO versions VALUES ('pg',                 '12.1-6',   'amd, arm',       1, '20191114', '');
 
