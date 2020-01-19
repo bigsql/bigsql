@@ -28,14 +28,12 @@ sudo apt-get install -y clang-6.0
 YUM="sudo yum -y"
 $YUM update
 
-$YUM install git
-
-$YUM install python3 python3-pip
+$YUM install git python3 python3-pip net-tools wget
 
 sudo pip3 install awscli
 
-$YUM install net-tools zip unix2dos wget bzip2 \
-  java-1.8.0-openjdk java-1.8.0-openjdk-devel
+$YUM install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 
 $YUM groupinstall 'Development Tools'
 
@@ -91,7 +89,6 @@ export CLI=$APG/cli/scripts
 export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 ##################################################
 
