@@ -1,14 +1,28 @@
-# README for bigsql-apg
+# BIGSQL-APG
 
-## Ubunto Xenial (16.04 LTS) Environment setup #########
+## Xenial 16.04 setup #################################
 APT="sudo apt -y"
 $APT update
 $APT upgrade
 
 $APT install sqlite3 git python3
+curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+sudo python3 get-pip.py
+sudo pip3 install awscli
+
+$APT install openjdk-8-jdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
+
+$APT install build-essential flex bison
+$APT install zlib1g-dev libxml2-dev libxslt-dev libreadline-dev libssl-dev
+
+wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
+sudo apt-get update
+sudo apt-get install -y clang-6.0
 
 
-## EL8 Development Environment setup ###################
+## EL8 setup ###########################################
 
 ```
 YUM="sudo yum -y"
