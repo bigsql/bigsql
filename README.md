@@ -1,6 +1,14 @@
 # README for bigsql-apg
 
-## EL8 Development Environment setup
+## Ubunto Xenial (16.04 LTS) Environment setup #########
+APT="sudo apt -y"
+$APT update
+$APT upgrade
+
+$APT install sqlite3 git python3
+
+
+## EL8 Development Environment setup ###################
 
 ```
 YUM="sudo yum -y"
@@ -57,7 +65,7 @@ export HIST=$DEV/apg_history
 export IN=$DEV/in
 export OUT=$DEV/out
 
-export APG=$DEV/apg
+export APG=$DEV/bigql-apg
 export DEVEL=$APG/devel
 export PG=$DEVEL/pg
 export PGBIN=$DEVEL/pgbin
