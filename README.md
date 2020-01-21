@@ -109,9 +109,6 @@ mkdir in
 mkdir out
 mkdir apg_history
 
-cd $BLD
-cp -p $APG/devel/pgbin/build/* .
-
 cd ~
 mkdir .aws
 cd .aws
@@ -130,4 +127,6 @@ git config --global user.name "$NAME"
 git config --global push.default simple
 git config --global credential.helper store
 
+cd $BLD
+cp -p $APG/devel/pgbin/build/* .
 ```
