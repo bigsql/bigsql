@@ -1,5 +1,6 @@
-export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
 
+v94=9.4.25
+v95=9.5.20
 v96=9.6.16
 v10=10.11
 v11=11.6
@@ -46,7 +47,7 @@ downBuild () {
   echoCmd "rm postgresql-$1.tar.gz"
   echoCmd "cd $1"
   echoCmd "./configure --prefix=$PWD --with-openssl $options"
-  echoCmd "make -j5"
+  echoCmd "make -j8"
   echoCmd "make install"
   echoCmd "cd .."
 }
@@ -55,7 +56,13 @@ downBuild () {
 #################################################################################
 ##                        MAINLINE
 #################################################################################
-if [ "$1" == "96" ]; then
+if [ "$1" == "94" ]; then
+  options=""
+  downBuild $v94
+elif [ "$1" == "95" ]; then
+  options=""
+  downBuild $v95
+elif [ "$1" == "96" ]; then
   options=""
   downBuild $v96
 elif [ "$1" == "10" ]; then
@@ -68,7 +75,7 @@ elif [ "$1" == "12" ]; then
   options="--with-llvm"
   downBuild $v12
 else
-  echo "ERROR: Incorrect PG version.  Must be 96, 10, 11 or 12"
+  echo "ERROR: Incorrect PG version.  Must be 94, 95, 96, 10, 11 or 12"
   exit 1
 fi
  
