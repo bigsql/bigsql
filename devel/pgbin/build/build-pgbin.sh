@@ -178,7 +178,7 @@ function buildPostgres {
 		exit 1
 	fi
 
-	echo "#   make -j 5"
+	echo "#   make -j 8"
 	log=$baseDir/$workDir/logs/make.log
 	make -j 5 > $log 2>&1
 	if [[ $? -ne 0 ]]; then
@@ -195,8 +195,8 @@ function buildPostgres {
  	fi
 
 	cd $baseDir/$workDir/$pgSrcDir/contrib
-	echo "#   make -j 5 contrib"
-	make -j5 > $baseDir/$workDir/logs/contrib_make.log 2>&1
+	echo "#   make -j 8 contrib"
+	make -j 8 > $baseDir/$workDir/logs/contrib_make.log 2>&1
 	if [[ $? -eq 0 ]]; then
 		echo "#   make install contrib"
 		make install > $baseDir/$workDir/logs/contrib_install.log 2>&1

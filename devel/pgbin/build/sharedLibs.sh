@@ -1,12 +1,22 @@
-shared_lib=/opt/pgbin-build/pgbin/shared/linux_64/lib/
-mkdir -p $shared_lib
 
-if [ `uname` == "Darwin" ]; then
+apt --version 1> /dev/null 2> /dev/null
+rc=$?
+
+if [ `uname` == "Linux" ]; then
+  if [ "$rc" == "0" ]; then
+    lib64=/usr/lib/`arch`-linux-gnu
+  else
+    lib64=/usr/lib64/
+  fi
+elif [ `uname` == "Darwin" ]; then
   lib64=/usr/local/lib
 else
-  lib64=/usr/lib64
-fi
+  echo "ERROR: Invalid Operating System."
+  exit 1
+fi 
 
+shared_lib=/opt/pgbin-build/pgbin/shared/linux_64/lib/
+mkdir -p $shared_lib
 rm -f $shared_lib/*
 
 cp -v $lib64/libreadline*    $shared_lib/.
@@ -29,3 +39,4 @@ cp -v $lib64/libpython3.?m.so.1.0   $shared_lib/.
 cp -v $lib64/libuv.so.1      $shared_lib/.
 
 rm -f $shared_lib/*.a
+

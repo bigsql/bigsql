@@ -20,8 +20,7 @@ function runPgBin {
   bkrstSrc=$SRC/backrest-$backrestV.tar.gz
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV"
-  cmd="$cmd -b $bncrSrc -o $odbcSrc -k $bkrstSrc $optional"
-  ##cmd="$cmd $optional"
+  ##cmd="$cmd -b $bncrSrc -o $odbcSrc -k $bkrstSrc $optional"
   ##echo "# $cmd"
   $cmd
   if [[ $? -ne 0 ]]; then
@@ -53,8 +52,6 @@ elif [ "$majorV" == "11" ]; then
 elif [ "$majorV" == "12" ]; then
   pgV=$pg12V
   pgBuildV=$pg12BuildV
-elif [ "$majorV" == "all" ]; then
-  echo "Hello ALL"
 else
   echo "ERROR:  PG version not in (95, 96, 10, 11, 12, all)"
   exit 1

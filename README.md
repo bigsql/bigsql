@@ -17,6 +17,7 @@ $APT install openjdk-8-jdk
 
 $APT install build-essential flex bison
 $APT install zlib1g-dev libxml2-dev libxslt-dev libreadline-dev libssl-dev
+$APT install libperl-dev libpython3-dev
 
 sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 $APT install clang-6.0
