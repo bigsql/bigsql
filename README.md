@@ -88,7 +88,7 @@ export CLI=$APG/cli/scripts
 export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+##export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:$JAVA_HOME/bin
 ##################################################
@@ -106,5 +106,12 @@ cd $IN
 cp $APG/devel/util/pull-s3.sh .
 ./pull-s3.sh
 chmod 755 *.sh
+
+EMAIL="denis@lussier.io"
+NAME="denis lussier"
+git config --global user.email "$EMAIL"
+git config --global user.name "$NAME"
+git config --global push.default simple
+git config --global credential.helper store
 
 ```
