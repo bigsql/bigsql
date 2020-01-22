@@ -292,7 +292,6 @@ finalizeOutput () {
   checkCmd "cp -r $SRC/hub ."
   checkCmd "mkdir -p hub/scripts"
   checkCmd "cp -r $APG/backups ."
-  checkCmd "cp $APG/skeleton.sh hub/scripts/."
   checkCmd "cp -r $CLI/* hub/scripts/."
   checkCmd "cp -r $CLI/../doc hub/."
   checkCmd "cp $CLI/../README.md  hub/doc/."

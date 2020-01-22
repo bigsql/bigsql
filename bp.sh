@@ -1,8 +1,7 @@
 source env.sh 
 
 ## optional parms
-pgV="$1"
-comp="$2"
+comp="$1"
 
 echo "########## Build POSIX Sandbox ##########"
 
@@ -20,14 +19,10 @@ fi
 cd $outp
 
 ./$api set GLOBAL REPO http://localhost:8000
-
-##./$api --version
 ./$api info
+./$api install pg11; ./$api start pg11 -y
 
 if [ ! "$1" == "" ]; then
-  ./$api install pg$pgV; ./$api start pg$pgV -y
-  if [ ! "$2" == "" ]; then
-    ./$api install $comp
-  fi
+  ./$api install $comp
 fi
 
