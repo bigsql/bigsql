@@ -8,6 +8,7 @@
 
 source versions.sh
 
+CORES=8
 archiveDir="/opt/builds/"
 baseDir="`pwd`/.."
 workDir=`date +%Y%m%d_%H%M`
@@ -59,7 +60,6 @@ Optional:
 
 
 function checkPostgres {
-	echo "# checkPostgres()"
 	
 	if [[ ! -e $pgTarLocation ]]; then
 		echo "File $pgTarLocation not found .... "
@@ -106,7 +106,6 @@ function checkPostgres {
 
 
 function checkBackrest {
-	echo "# checkBackrest()"
 	cd $baseDir
 	mkdir -p $workDir
 
@@ -121,7 +120,6 @@ function checkBackrest {
 
 
 function checkBouncer {
-	echo "# checkBouncer()"
 	cd $baseDir
 	mkdir -p $workDir
 
@@ -136,7 +134,6 @@ function checkBouncer {
 
 
 function checkODBC {
-        echo "# checkOODBC()"
         cd $baseDir
         mkdir -p $workDir
 
@@ -164,7 +161,7 @@ function buildPostgres {
 	##conf="$conf --with-uuid=ossp --with-python --with-perl --with-ldap"
 	##conf="$conf --with-tcl --with-pam"
 
-	echo "#  $conf"
+	echo "#  @`date`  $conf"
 	configCmnd="./configure --prefix=$buildLocation $conf" 
 
 	export LD_LIBRARY_PATH=$sharedLibs
@@ -178,15 +175,15 @@ function buildPostgres {
 		exit 1
 	fi
 
-	echo "#   make -j 8"
+	echo "#  @`date`  make -j $CORES" 
 	log=$baseDir/$workDir/logs/make.log
-	make -j 5 > $log 2>&1
+	make -j $CORES > $log 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "# make failed, check $log"
 		exit 1
 	fi
 
-	echo "#   make install"
+	echo "#  @`date`  make install"
 	log=$baseDir/$workDir/logs/make_install.log
 	make install > $log 2>&1
 	if [[ $? -ne 0 ]]; then
@@ -195,10 +192,10 @@ function buildPostgres {
  	fi
 
 	cd $baseDir/$workDir/$pgSrcDir/contrib
-	echo "#   make -j 8 contrib"
-	make -j 8 > $baseDir/$workDir/logs/contrib_make.log 2>&1
+	echo "#  @`date`  make -j $CORES contrib"
+	make -j $CORES > $baseDir/$workDir/logs/contrib_make.log 2>&1
 	if [[ $? -eq 0 ]]; then
-		echo "#   make install contrib"
+		echo "#  @`date`  make install contrib"
 		make install > $baseDir/$workDir/logs/contrib_install.log 2>&1
 		if [[ $? -ne 0 ]]; then
 			echo "Failed to install contrib modules ...."
@@ -209,7 +206,7 @@ function buildPostgres {
 	PATH="$PATH:$buildLocation/bin"
 
 	cd $baseDir/$workDir/$pgSrcDir/doc
-	echo "#   make docs"
+	echo "#  @`date`  make docs"
 	make > $baseDir/$workDir/logs/docs_make.log 2>&1
 	if [[ $? -eq 0 ]]; then
 		make install > $baseDir/$workDir/logs/docs_install.log 2>&1
@@ -231,7 +228,7 @@ function buildBouncer {
 	echo "# buildBouncer()"
 	cd $baseDir/$workDir/$pgBouncerSourceDir
 	
-	echo "#   configure" 
+	echo "#  @`date`  configure" 
 
 	opt="--prefix=$buildLocation --disable-rpath"
 	opt="$opt --with-libevent=$sharedLibs/../ --with-openssl=$sharedLibs/../"
@@ -244,15 +241,15 @@ function buildBouncer {
 		return 1
 	fi
 
-	echo "#   make"
+	echo "#  @`date`  make -j $CORES"
 	log=$baseDir/$workDir/logs/pgbouncer_make.log
-	make > $log 2>&1
+	make -j $CORES > $log 2>&1
 	if [[ $? -ne 0 ]]; then
 		echo "Failed: check $log"
 		return 1
 	fi
 
-	echo "#   make install"
+	echo "#  @`date`  make install"
 	log=$baseDir/$workDir/logs/pgbouncer_install.log
 	make install > $log 2>&1
 	if [[ $? -ne 0 ]]; then
@@ -270,7 +267,7 @@ function buildBackrest {
 	
 	export LD_LIBRARY_PATH=$buildLocation/lib
 
-	echo "#   configure" 
+	echo "#  @`date`  configure" 
 	log="$baseDir/$workDir/logs/backrest_configure.log"
 	./configure --prefix=$buildLocation > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -278,15 +275,15 @@ function buildBackrest {
 		return 1
 	fi
 
-	echo "#   make"
+	echo "#  @`date`  make -j $CORES"
 	log="$baseDir/$workDir/logs/backrest_make.log"
-	make > $log 2>&1
+	make -j $CORES > $log 2>&1
         if [[ $? -ne 0 ]]; then
                 echo "FATAL ERROR: check $log"
 		return 1
 	fi
 
-	echo "#   make install"
+	echo "#  @`date`  make install"
 	log="$baseDir/$workDir/logs/backrest_install.log"
 	make install > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -306,7 +303,7 @@ function buildODBC {
         export OLD_PATH=`echo $PATH`
         export PATH=$sharedBins:$PATH
        
-	echo "#   configure" 
+	echo "#   configure     @ `date`" 
 	log="$baseDir/$workDir/logs/odbc_configure.log"
         ./configure --prefix=$buildLocation --with-libpq=$buildLocation LDFLAGS="-Wl,-rpath,$sharedLibs -L$sharedLibs" CFLAGS=-I$includePath > $log 2>&1
         if [[ $? -ne 0 ]]; then
@@ -315,9 +312,9 @@ function buildODBC {
                 return 1
         fi
 
-	echo "#   make"
+	echo "#  @date  make -j $CORES"
         log="$baseDir/$workDir/logs/odbc_make.log"
-        make > $log 2>&1
+        make -j $CORES > $log 2>&1
         if [[ $? -ne 0 ]]; then
                 echo "FATAL ERROR: check $log"
 		unset LD_LIBRARY_PATH
@@ -325,7 +322,7 @@ function buildODBC {
                 return 1
         fi
 
-	echo "#   make-install"
+	echo "#  @`date`   make install"
         make install > $baseDir/$workDir/logs/odbc_install.log 2>&1
         if [[ $? -ne 0 ]]; then
                 echo "Failed to install ODBC Driver ...."
@@ -538,12 +535,12 @@ if [ "$buildBouncer" == "1" ]; then
   buildApp "checkBouncer" "buildBouncer"
 fi
 
-if [ "$buildODBC" == "1" ]; then
-  buildApp "checkODBC" "buildODBC"
-fi
-
 if [ "$buildBackrest" == "1" ]; then
   buildApp "checkBackrest" "buildBackrest"
+fi
+
+if [ "$buildODBC" == "1" ]; then
+  buildApp "checkODBC" "buildODBC"
 fi
 
 checkCmd "copySharedLibs"

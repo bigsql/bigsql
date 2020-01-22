@@ -1,7 +1,6 @@
 # BIGSQL-APG
 
-```
-## DEBIAN setup #######################################
+## UBUNTU 16.04 LTS (XENIAL) SETUP ####################
 APT="sudo apt -y"
 $APT update
 $APT upgrade
@@ -16,14 +15,15 @@ sudo pip3 install awscli
 $APT install openjdk-8-jdk
 
 $APT install build-essential flex bison
-$APT install zlib1g-dev libxml2-dev libxslt-dev libreadline-dev libssl-dev
-$APT install libperl-dev libpython3-dev
+$APT install zlib1g-dev libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath 
+$APT install libperl-dev libpython3-dev 
+$APT install pkg-config libevent-dev libcurl4-openssl-dev *unixodbc*
 
 sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 $APT install clang-6.0
 
 
-## EL8 setup ###########################################
+## RHEL 8 SETUP ########################################
 YUM="sudo yum -y"
 $YUM update
 
@@ -130,4 +130,3 @@ git config --global credential.helper store
 
 cd $BLD
 cp -p $APG/devel/pgbin/build/* .
-```
