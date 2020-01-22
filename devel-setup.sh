@@ -1,4 +1,4 @@
-# BIGSQL-APG
+# devel-setup.sh
 
 ## UBUNTU 16.04 LTS (XENIAL) SETUP ####################
 APT="sudo apt -y"
@@ -22,36 +22,33 @@ $APT install pkg-config libevent-dev libcurl4-openssl-dev *unixodbc*
 sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 $APT install clang-6.0
 
-
 ## RHEL 8 SETUP ########################################
-YUM="sudo yum -y"
-$YUM update
-
-$YUM install git python3 python3-pip net-tools wget
-
-sudo pip3 install awscli
-
-$YUM install java-1.8.0-openjdk java-1.8.0-openjdk-devel
-
-$YUM groupinstall 'Development Tools'
-
-$YUM install readline-devel zlib-devel openssl-devel \
-  libxml2-devel libxslt-devel sqlite-devel \
-  pam-devel openldap-devel python3-devel libcurl-devel \
-  unixODBC-devel llvm-devel clang-devel chrpath \
-  docbook-dtds docbook-style-xsl cmake \
-  perl-ExtUtils-Embed libevent-devel postgresql-devel
-
-$YUM remove docker docker-client docker-client-latest \
-  docker-common docker-latest docker-latest-logrotate \
-  docker-logrotate docker-engine
-$YUM install yum-utils device-mapper-persistent-data lvm2
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-$YUM install docker-ce containerd.io --nobest
-sudo systemctl enable docker
-sudo systemctl restart docker
-
-################################################
+#YUM="sudo yum -y"
+#$YUM update
+#
+#$YUM install git python3 python3-pip net-tools wget
+#
+#sudo pip3 install awscli
+#
+#$YUM install java-1.8.0-openjdk java-1.8.0-openjdk-devel
+#
+#$YUM groupinstall 'Development Tools'
+#
+#$YUM install readline-devel zlib-devel openssl-devel \
+#  libxml2-devel libxslt-devel sqlite-devel \
+#  pam-devel openldap-devel python3-devel libcurl-devel \
+#  unixODBC-devel llvm-devel clang-devel chrpath \
+#  docbook-dtds docbook-style-xsl cmake \
+#  perl-ExtUtils-Embed libevent-devel postgresql-devel
+#
+#$YUM remove docker docker-client docker-client-latest \
+#  docker-common docker-latest docker-latest-logrotate \
+#  docker-logrotate docker-engine
+#$YUM install yum-utils device-mapper-persistent-data lvm2
+#sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+#$YUM install docker-ce containerd.io --nobest
+#sudo systemctl enable docker
+#sudo systemctl restart docker
 
 sudo mkdir /opt/pgbin-build
 sudo chmod 777 /opt/pgbin-build
@@ -73,23 +70,20 @@ export REGION=us-west-2
 export BUCKET=s3://bigsql-apg-download
 
 export DEV=$HOME/dev
-export HIST=$DEV/apg_history
 export IN=$DEV/in
 export OUT=$DEV/out
-
 export APG=$DEV/bigsql-apg
-export DEVEL=$APG/devel
-export PG=$DEVEL/pg
-export PGBIN=$DEVEL/pgbin
-
 export SRC=$IN/sources
 export BLD=/opt/pgbin-build/pgbin/bin
 
+export DEVEL=$APG/devel
+export PG=$DEVEL/pg
+export PGBIN=$DEVEL/pgbin
+export UTIL=$DEVEL/util
 export CLI=$APG/cli/scripts
 export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
-##export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:$JAVA_HOME/bin
 
