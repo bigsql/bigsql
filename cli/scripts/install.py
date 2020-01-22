@@ -1,10 +1,10 @@
 import sys, os
 
 MY_VER="6.0.0"
-MY_REPO=os.getenv("MY_REPO", "https://dockpg-download.s3.amazonaws.com/REPO")
+MY_REPO=os.getenv("MY_REPO", "https://bigsql-apg-download.s3.amazonaws.com/REPO")
   
-if sys.version_info < (2, 7):
-  print("ERROR: Requires Python 2.7 or greater")
+if sys.version_info < (3, 5):
+  print("ERROR: Requires Python 3.5 or greater")
   sys.exit(1)
 
 try:

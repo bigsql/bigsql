@@ -1,8 +1,8 @@
 from __future__ import print_function, division
 
 import sys
-if sys.version_info < (2, 7):
-  print("Currently we run on Python 2.7 or 3.6+")
+if sys.version_info < (3, 5):
+  print("Currently we run on Python 3.5+")
   sys.exit(1)
 
 IS_64BITS = sys.maxsize > 2**32

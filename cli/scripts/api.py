@@ -368,7 +368,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
   print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
   print(style_start + "#     Hardware: " + style_end + mem + ", " + cores + " " + cpu)
 
-  default_repo = "https://dockpg-download.s3.amazonaws.com/REPO"
+  default_repo = "https://bigsql-apg-download.s3.amazonaws.com/REPO"
   if p_repo != default_repo:
     print(style_start + "#     Repo URL: " + style_end + p_repo)
 
