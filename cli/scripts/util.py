@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-MY_VERSION = "6.0.0"
+MY_VERSION = "6.0"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -526,10 +526,8 @@ def get_relnotes(p_comp, p_ver=""):
         ver = "10"
       elif p_comp == "pg96":
         ver = "9.6.0"
-      elif p_comp == "pg95":
-        ver = "9.5.0"
       else:
-        ver = "9.4.0"
+        ver = "9.5.0"
     else:
       ## remove the "-n" suffix
       ver = p_ver[:-2]

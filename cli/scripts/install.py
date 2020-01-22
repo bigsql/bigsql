@@ -1,6 +1,6 @@
 import sys, os
 
-MY_VER="6.0.0"
+MY_VER="6.0"
 MY_REPO=os.getenv("MY_REPO", "https://bigsql-apg-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (3, 5):

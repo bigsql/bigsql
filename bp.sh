@@ -21,7 +21,8 @@ cd $outp
 
 ./$api set GLOBAL REPO http://localhost:8000
 
-./$api --version
+##./$api --version
+./$api info
 
 if [ ! "$1" == "" ]; then
   ./$api install pg$pgV; ./$api start pg$pgV -y
