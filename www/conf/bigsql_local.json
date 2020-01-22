@@ -1,6 +1,0 @@
-{
-    "PREFIX":"",
-    "protocol":"https",
-    "download_link":"https://oscg-downloads.s3.amazonaws.com/",
-    "CSRF_SECRET":""
-}

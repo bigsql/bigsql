@@ -1,4 +1,4 @@
-# devel-setup.sh
+# setup-devel.sh
 
 ## UBUNTU 16.04 LTS (XENIAL) SETUP ####################
 APT="sudo apt -y"
