@@ -1,2 +1,11 @@
 
-docker/action-docker.sh start
+if [ `uname` == "Darwin" ]; then
+  brew services start docker
+  rc=$?
+else
+  sudo systemctl start docker
+  rc=$?
+fi
+
+echo "rc=$rc"
+exit $rc

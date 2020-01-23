@@ -1,38 +1,14 @@
 
-action=install
-comp=docker
-OS=`uname`
-RC=0
-
-function runCmd () {
-  echo "#"
-  echo "# $1"
-  $1
-  RC=$?
-  if [ ! "$RC" == "0" ]; then
-    echo "ERROR: rc=$RC"
-    exit $RC
-  fi
-}
-
-if [ "$OS" == "Darwin" ]; then
-  brew --version 2>/dev/null 1>/dev/null
-  RC=$?
-
-  if [ "$RC" == "0" ]; then
-    runCmd "brew $action $comp" 
-  else
-    echo "ERROR: You must install brew first (http://brew.sh)"
-  fi
-  
-  exit $RC
+if [ `uname` == "Darwin" ]; then
+  brew install docker 
+  rc=$?
+  exit $rc
 fi
 
-runCmd "sudo yum update -y"
-runCmd "sudo yum remove -y docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine"
-runCmd "sudo yum install -y yum-utils device-mapper-persistent-data lvm2"
-runCmd "sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
-runCmd "sudo yum install -y docker-ce docker-ce-cli containerd.io"
-runCmd "sudo systemctl enable docker"
-runCmd "sudo systemctl start docker"
+sudo yum remove -y docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install -y docker-ce docker-ce-cli containerd.io"
+sudo systemctl enable docker
+sudo systemctl start docker
 

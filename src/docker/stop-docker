@@ -1,2 +1,2 @@
 
-docker/action-docker.sh stop
+brew services stop docker
