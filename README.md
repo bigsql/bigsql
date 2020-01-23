@@ -1,4 +1,4 @@
-# setup-devel.sh
+# README.md bigsql-apg
 
 ## UBUNTU 16.04 LTS (XENIAL) SETUP ####################
 APT="sudo apt -y"
@@ -50,21 +50,6 @@ $APT install clang-6.0
 #sudo systemctl enable docker
 #sudo systemctl restart docker
 
-sudo mkdir /opt/pgbin-build
-sudo chmod 777 /opt/pgbin-build
-sudo chown $USER:$USER /opt/pgbin-build
-mkdir /opt/pgbin-build/pgbin
-mkdir /opt/pgbin-build/pgbin/bin
-sudo mkdir /opt/pgcomponent
-sudo chmod 777 /opt/pgcomponent
-sudo chown $USER:$USER /opt/pgcomponent
-
-mkdir ~/dev
-cd ~/dev
-mkdir in
-mkdir out
-mkdir apg_history
-
 ## ENV setup #####################################
 export REGION=us-west-2
 export BUCKET=s3://bigsql-apg-download
@@ -86,7 +71,6 @@ export REPO=http://localhost:8000
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:$JAVA_HOME/bin
-
 
 ## OTHER setup #################################
 sudo mkdir /opt/pgbin-build
