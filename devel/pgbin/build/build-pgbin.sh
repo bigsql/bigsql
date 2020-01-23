@@ -16,12 +16,9 @@ buildLocation=""
 
 osArch=`getconf LONG_BIT`
  
-#sharedLibs="$baseDir/shared/linux_$osArch/lib"
 sharedLibs=/opt/pgbin-build/pgbin/shared/linux_64/lib/
-#sharedBins="$baseDir/shared/linux_$osArch/bin"
 sharedBins=/opt/pgbin-build/pgbin/shared/linux_64/bin/
 includePath="$baseDir/shared/linux_$osArch/include"
-export R_HOME=/opt/pgbin-build/pgbin/shared/linux_64/R323/lib64/R
 
 pgTarLocation=""
 pgSrcDir=""
@@ -87,10 +84,10 @@ function checkPostgres {
 		pgSrcV=`$pgSrcDir/configure --version | head -1 | awk '{print $3}'`
 		if [[ "${pgSrcV/rc}" =~ ^12.* ]]; then
 			pgShortV="12"
-			pgLLVM="--with--llvm"
+			pgLLVM="--without--llvm"
 		elif [[ "${pgSrcV/rc}" =~ ^11.* ]]; then
 			pgShortV="11"
-			pgLLVM="--with--llvm"
+			pgLLVM="--without--llvm"
 		elif [[ "${pgSrcV/rc}" =~ ^10.* ]]; then
 			pgShortV="10"
 		elif [[ "${pgSrcV/rc}" =~ ^9.6.* ]]; then
@@ -154,9 +151,9 @@ function buildPostgres {
 	mkdir -p $baseDir/$workDir/logs
 	buildLocation="$baseDir/$workDir/build/pg$pgShortV-$pgSrcV-$pgBldV-$OS"
 
-	conf="$conf --with-openssl --with-libxslt --with-libxml --with-perl"
+	conf="$conf --with-openssl --with-libxslt --with-libxml"
 	conf="$conf --disable-rpath $pgLLVM"
-        conf="$conf --with-python PYTHON=/usr/bin/python3"
+        ##conf="$conf --with-python PYTHON=/usr/bin/python3 --with-perl"
 	##conf="$conf --with-uuid=ossp --with-gssapi --with-python --with-perl"
 	##conf="$conf --with-uuid=ossp --with-python --with-perl --with-ldap"
 	##conf="$conf --with-tcl --with-pam"
