@@ -8,14 +8,14 @@ ENV pgv=$PGV
 RUN useradd -mc /bin/bash postgres
 
 USER postgres
-RUN cd ~; python -c "$(curl -fsSL $INSTALL_PY)"
+RUN cd ~; python3 -c "$(curl -fsSL $INSTALL_PY)"
 
-RUN cd ~/bigsql; ./apg install $PGV; ./apg start $PGV -y; ./apg tune $PGV;
+RUN cd ~/bigsql; ./apg install pg11; ./apg start pg11 -y; ./apg tune pg11;
 
 EXPOSE 5432
 
 # Add VOLUMEs to allow backup of data & logs
-VOLUME  /home/postgres/bigsql/data/$PGV /home/postgres/bigsql/logs/$PGV
+VOLUME  /home/postgres/bigsql/data/pg11 /home/postgres/bigsql/logs/pg11
 
 # Set the default command to run when starting the container
-CMD /home/postgres/bigsql/$pgv/bin/postgres -D /home/postgres/bigsql/data/$pgv
+CMD /home/postgres/bigsql/pg11/bin/postgres -D /home/postgres/bigsql/data/pg11
