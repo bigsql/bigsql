@@ -10,20 +10,16 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=black cellpadding=5> \n' +
+  print('<table border=' + str(BORDER) + ' bgcolor=black cellpadding=3> \n' +
         '  <tr> \n' + \
         '    <td width=200><img src=img/bigsql.png /></td> \n' + \
         '    <td width=825>' + \
-        '<pre>' + \
-        'INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py \n' + \
-        'python3 -c "$(curl -fsSL $INSTALLER)" \n' + \
-        'cd bigsql \n'
-        './apg install pg11' + \
-        '</pre> \n' + \
-        '    </td> \n' + \
-        '  </tr> \n' + \
-        '  <tr><td colspan=2><img src=img/seperator.png width=' + str(SEP_WIDTH) + ' /></td></tr> \n' + \
-        '</table> \n\n')
+        '      INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py<br>\n' + \
+        '      python3 -c "$(curl -fsSL $INSTALLER)"<br>\n' + \
+        '      cd bigsql<br>\n'
+        '    </td>\n' + \
+        '  </tr>\n' + \
+        '</table>\n\n')
 
   print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=2>')
 
