@@ -1,0 +1,44 @@
+<center><table><tr><td> 
+
+<table border=0 bgcolor=black cellpadding=5> 
+  <tr> 
+    <td width=200><img src=img/bigsql.png /></td> 
+    <td width=825><pre>INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py 
+python3 -c "$(curl -fsSL $INSTALLER)" 
+cd bigsql 
+./apg install pg11</pre> 
+    </td> 
+  </tr> 
+  <tr><td colspan=2><img src=img/seperator.png width=1035 /></td></tr> 
+</table> 
+
+
+<table border=0 bgcolor=white cellpadding=2>
+<tr><td colspan=10>&nbsp;<br><font size=+0><b><u>PostgreSQL Durability:</u></b></font></td></tr>
+<tr>
+  <td>&nbsp;<img src=img/postgres.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://postgresql.org>PG 11</a>&nbsp;&nbsp;<a href=https://postgresql.org/download>11.6</a>&nbsp;<font color=red size=-2>14-Nov</font><br>pg11 [osx, amd, arm] <br><i>Most Advanced RDBMS</font></i></td>
+<tr><td colspan=10>&nbsp;<br><font size=+0><b><u>Security, Scalability & Availability:</u></b></font></td></tr>
+<tr>
+  <td>&nbsp;<img src=img/bulkload.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://github.com/ossc-db/pg_bulkload>pgBulkLoad</a>&nbsp;&nbsp;<a href=https://github.com/ossc-db/pg_bulkload/releases>3.1.15</a>&nbsp;<font color=red size=-2>20-Jan-19</font><br>bulkload-pg11 [arm] <br><i>Bulk Loading</font></i></td>
+  <td>&nbsp;<img src=img/partman.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://github.com/pgpartman/pg_partman#pg-partition-manager>pgPartman</a>&nbsp;&nbsp;<a href=https://github.com/pgpartman/pg_partman/releases>4.2.2</a>&nbsp;<font color=red size=-2>16-Oct</font><br>partman-pg11 [arm] <br><i>Partition Managemnt</font></i></td>
+  <td>&nbsp;<img src=img/whatif.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://hypopg.readthedocs.io/en/latest/>HypoPG</a>&nbsp;&nbsp;<a href=https://github.com/HypoPG/hypopg/releases>1.1.3</a>&nbsp;<font color=red size=-2>23-Nov</font><br>hypopg-pg11 [arm] <br><i>Hypothetical Indexes</font></i></td>
+  <td>&nbsp;<img src=img/spock.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://github.com/2ndQuadrant/pglogical#pglogical-2>pgLogical</a>&nbsp;&nbsp;<a href=https://github.com/2ndQuadrant/pglogical/releases>2.2.2</a>&nbsp;<font color=red size=-2>25-Jul</font><br>pglogical-pg11 [arm] <br><i>Replication for PG 9.6, 10 & 11</font></i></td>
+<tr><td colspan=10>&nbsp;<br><font size=+0><b><u>Interoperability & Compatibility:</u></b></font></td></tr>
+<tr>
+  <td>&nbsp;<img src=img/sqlsvr.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://microsoft.com>SQL Server</a>&nbsp;&nbsp;<a href=https://microsoft.com>2.0</a>&nbsp;<font color=red size=-2>10-Oct</font><br>sqlsvr [amd] --dev<br><i>SQL Server for Linux</font></i></td>
+  <td>&nbsp;<img src=img/sybase.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://sap.com/products/sybase-ase.html>Sybase ASE</a>&nbsp;&nbsp;<a href=https://sap.com/products/sybase-ase.html>1.0</a>&nbsp;<font color=red size=-2>10-Oct</font><br>sybase [amd] --dev<br><i>Sybase ASE on Linux</font></i></td>
+  <td>&nbsp;<img src=img/tds.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://github.com/bigsql/pgtsql#pgtsql>TransactSQL</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/pgtsql/releases>3.0</a>&nbsp;<font color=red size=-2>19-Nov</font><br>pgtsql-pg11 [arm] --test<br><i>Transact-SQL Procedures</font></i></td>
+  <td>&nbsp;<img src=img/tds.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper>TDS FDW</a>&nbsp;&nbsp;<a href=https://github.com/tds-fdw/tds_fdw/releases>2.1.0</a>&nbsp;<font color=red size=-2>2-Dec</font><br>tds_fdw-pg11 [arm] --test<br><i>Access SqlSvr or Sybase</font></i></td>
+  <td>&nbsp;<img src=img/v8.png height=27 width=27 /></td>
+  <td width=170><font size=-1><a href=https://github.com/plv8/plv8>PL/V8</a>&nbsp;&nbsp;<a href=https://github.com/plv8/plv8/releases>2.3.14</a>&nbsp;<font color=red size=-2>9-Jan</font><br>plv8-pg11 [arm] <br><i>Javascript Stored Procedures</font></i></td>
+</tr>
+<tr><td></td></tr>

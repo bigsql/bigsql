@@ -10,10 +10,10 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=3> \n' +
+  print('<table border=' + str(BORDER) + ' bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=300><img src=img/bigsql.png /></td> \n' + \
-        '    <td width=725>' + \
+        '    <td width=200><img src=img/bigsql.png /></td> \n' + \
+        '    <td width=825>' + \
         '<pre>' + \
         'INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py \n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)" \n' + \
