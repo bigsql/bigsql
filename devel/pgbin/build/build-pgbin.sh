@@ -16,9 +16,9 @@ buildLocation=""
 
 osArch=`getconf LONG_BIT`
  
-sharedLibs=/opt/pgbin-build/pgbin/shared/linux_64/lib/
-sharedBins=/opt/pgbin-build/pgbin/shared/linux_64/bin/
-includePath="$baseDir/shared/linux_$osArch/include"
+sharedLibs=/opt/pgbin-build/pgbin/shared/lib/
+sharedBins=/opt/pgbin-build/pgbin/shared/bin/
+includePath="$baseDir/shared/include"
 
 pgTarLocation=""
 pgSrcDir=""
@@ -349,14 +349,14 @@ function updateSharedLibPaths {
 
 	cd $buildLocation/bin
 	echo "#   looping thru executables"
-	for file in `dir -d *` ; do
+	for file in `ls -d *` ; do
 		##echo "### $file"
 		chrpath -r "\${ORIGIN}/../lib" "$file" >> $libPathLog 2>&1
 	done
 
 	cd $buildLocation/lib
 	echo "#   looping thru shared objects"
-	for file in `dir -d *so*` ; do
+	for file in `ls -d *so*` ; do
 		##echo "### $file"
 		chrpath -r "\${ORIGIN}/../lib" "$file" >> $libPathLog 2>&1 
 	done
@@ -365,7 +365,7 @@ function updateSharedLibPaths {
 	if [[ -d "$buildLocation/lib/postgresql" ]]; then	
 		cd $buildLocation/lib/postgresql
 		##echo "### $file"
-        	for file in `dir -d *.so` ; do
+        	for file in `ls -d *.so` ; do
                 	chrpath -r "\${ORIGIN}/../../lib" "$file" >> $libPathLog 2>&1
         	done
 	fi
