@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pg12V="12.1"
-pg12BuildV=6
+pg12BuildV=7
 
 pg11V="11.6"
 pg11BuildV=7
