@@ -7,9 +7,8 @@ bundle=bigsql
 api=apg
 hubV=6.0
 
-P12=12.1-6
+P12=12.1-7
 P11=11.6-7
-P10=10.11-4
 
 orafceV=3.8.0-1
 httpV=1.3.1-1

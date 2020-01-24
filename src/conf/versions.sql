@@ -101,6 +101,7 @@ INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
 
 -- PostgreSQL
 INSERT INTO releases VALUES ('pg11', 4, 'pg', 'PG 11',   '', 'prod',       1);
+INSERT INTO releases VALUES ('pg12', 4, 'pg', 'PG 12',   '', 'prod',       1);
 
 -- Compatibility & Integration
 INSERT INTO releases VALUES ('sqlsvr',              1, 'sqlsvr',        'SQL Server', '', 'dev',  0);
@@ -169,7 +170,9 @@ CREATE TABLE versions (
 );
 
 INSERT INTO versions VALUES ('hub',     '6.0',    '',              1, '20200201', '');
-INSERT INTO versions VALUES ('pg11',    '11.6-7', 'osx, amd, arm', 1, '20191114', '');
+
+INSERT INTO versions VALUES ('pg11',    '11.6-7', 'amd, arm', 1, '20191114', '');
+INSERT INTO versions VALUES ('pg12',    '12.1-7', 'amd, arm', 1, '20191114', '');
 
 INSERT INTO versions VALUES ('bulkload-pg11',      '3.1.15-1', 'arm',            1, '20190120', 'pg11');
 INSERT INTO versions VALUES ('partman-pg11',       '4.2.2-1',  'arm',            1, '20191016', 'pg11');
