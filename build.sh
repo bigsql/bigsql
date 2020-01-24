@@ -27,15 +27,17 @@ printUsageMessage () {
   echo "#--------------------------------------------------------------------------#"
   echo "#                    Copyright (c) 2015-2020 BigSQL                        #"
   echo "#--------------------------------------------------------------------------#"
-  echo "# -p $P12  $P11  timescale-$timescaleV"
-  echo "#    cassandra-$cassV  cassandra_fdw-$cstarV  presto-$presV  presto_fdw-$prestoV"
+  echo "# -p $P12  $P11"
+  echo "# -b hub-$hubV"
+  echo "# -f cassandra-$cassV  presto-$presV"
+  echo "# -e cassandra_fdw-$cstarV  presto_fdw-$prestoV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$auditV"
-  echo "#    minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
-  echo "# -b hub-$hubV"
+  echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "#--------------------------------------------------------------------------#"
-  echo "# ./build.sh -X l64 -c $bundle -N $P11   -p 11 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b -fek"
+  echo "# ./build.sh -X l64 -c $bundle -N $P12 -p 12 -b -fek"
   echo "#--------------------------------------------------------------------------#"
 }
 
@@ -404,12 +406,11 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
-  #initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
-  #initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"            "" "" "nil"
-
-  initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
-
   if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
+    #initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
+    #initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"    "" "" "nil"
+    #initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
+
     initC "audit-pg$pgM" "audit" "$auditV" "$outPlat" "postgres/audit" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
@@ -422,10 +423,10 @@ initPG () {
     initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
-    if [ "$plat" == "amd" ]; then
-      initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
-      initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
-    fi
+    #if [ "$plat" == "amd" ]; then
+    #  initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
+    #  initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
+    #fi
   fi
 }
 
