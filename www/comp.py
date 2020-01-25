@@ -1,22 +1,22 @@
 import sqlite3, sys
 
 isSHOW_PLATFORM='Y'
-NUM_COLS = 5
-COL_SIZE = 170
-IMG_SIZE = 27
+NUM_COLS = 4
+COL_SIZE = 185
+IMG_SIZE = 30
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=black cellpadding=3> \n' +
+  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=3> \n' +
         '  <tr> \n' + \
-        '    <td width=200><img src=img/bigsql.png /></td> \n' + \
+        '    <td width=100><center><img width=85 src=img/pgsql-io.png /></center></td> \n' + \
         '    <td width=825>' + \
         '      INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py<br>\n' + \
         '      python3 -c "$(curl -fsSL $INSTALLER)"<br>\n' + \
-        '      cd bigsql<br>\n'
+        '      cd bigsql<br>./apg install pg11\n'
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
@@ -40,13 +40,13 @@ def get_columns(d):
   component = str(d[3])
   project = str(d[4])
   release_name = str(d[5])
-  version = str(d[6])
+  version = str(d[6]).replace("-1", "")
   source_url = str(d[7])
   project_url = str(d[8])
 
   platform = str(d[9])
   if platform == "":
-    platform = "amd, arm"
+    platform = "arm, amd"
 
   rel_date = str(d[10])
   rel_yy = rel_date[2:4]
@@ -80,16 +80,17 @@ def get_columns(d):
   if rel_day[0:1] == "0":
     rel_day = rel_day[1]
 
-  stage = str(d[11])
-  if stage == "prod":
-    stage = ""
-  else:
-    stage = "--" + stage
+  stage = ""
+  ##stage = str(d[11])
+  ##if stage == "prod":
+  ##  stage = ""
+  ##else:
+  ##  stage = "--" + stage
 
   proj_desc = str(d[12])
 
-  if version[-2] == "-":
-     version = version[:-2]
+  ##if version[-2] == "-":
+  ##  version = version[:-2]
 
 
 def print_row_header():
@@ -103,14 +104,12 @@ def print_row_header():
 con = sqlite3.connect("local.db")
 c = con.cursor()
 
-# NOTE: the below break prcessing works without a sort because the
-#        underlying view (v_versions) is already ordered
-
 sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
       "       version, sources_url, project_url, platform, release_date, \n" + \
-      "       stage, proj_desc \n" + \
+      "       stage, proj_desc, sort_order \n" + \
       "  FROM v_versions \n" + \
-      " WHERE is_current = 1 AND cat > 0"
+      " WHERE is_current = 1 AND cat > 0 \n" + \
+      "ORDER BY 1, 14"
 
 c.execute(sql)
 data = c.fetchall()
