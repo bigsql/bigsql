@@ -37,8 +37,8 @@ INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/do
 INSERT INTO projects VALUES ('cassandra',     2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cstarfdw', 1, 'cstar.png', 'Access Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
-INSERT INTO projects VALUES ('presto',     2, 0, 'hub', 0, 'https://github.com/prestodb/presto/releases', 'presto', 1, 'presto.png', 'Distributed SQL Queries', 'https://prestodb.io');
-INSERT INTO projects VALUES ('presto_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/presto_fdw/releases', 'presto_fdw', 1, 'presto.png', 'Access Presto from PG', 'https://github.com/bigsql/presto_fdw#presto_fdw');
+INSERT INTO projects VALUES ('hive',     2, 0, 'hub', 0, 'https://github.com/hivedb/hive/releases', 'hive', 1, 'hive.png', 'Distributed SQL Queries', 'https://hivedb.io');
+INSERT INTO projects VALUES ('hive_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 'hive_fdw', 1, 'hive.png', 'Access Presto from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
 
 INSERT INTO projects VALUES ('mysql',      2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png', 'MySQL Server CE', 'https://dev.mysql.com');
 INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql.png', 'Access MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
@@ -125,8 +125,8 @@ INSERT INTO releases VALUES ('mysql_fdw-pg11',     10, 'mysql_fdw',     'MySQL F
 INSERT INTO releases VALUES ('cassandra',          11, 'cassandra',     'Cassandra',  '', 'dev',  1);
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 12, 'cassandra_fdw', 'CassandraFDW','','prod', 1);
 
-INSERT INTO releases VALUES ('presto',             13, 'presto',        'Presto',     '', 'dev',  1);
-INSERT INTO releases VALUES ('presto_fdw-pg11',    14, 'presto_fdw',    'Presto FDW', '', 'test', 1);
+INSERT INTO releases VALUES ('hive',             13, 'hive',        'Presto',     '', 'dev',  1);
+INSERT INTO releases VALUES ('hive_fdw-pg11',    14, 'hive_fdw',    'Presto FDW', '', 'test', 1);
 
 -- Performance, Scalability, Availability, & Security
 INSERT INTO releases VALUES ('postgis25-pg11',     1, 'postgis25',     'PostGIS',     '', 'prod', 1);
@@ -208,8 +208,8 @@ INSERT INTO versions VALUES ('timescaledb-pg11',   '1.5.1-1',  'arm',       1, '
 INSERT INTO versions VALUES ('cassandra',          '3.11.5',   '',               1, '20191029', '');
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'arm',            1, '20191230', 'pg11');
 
-INSERT INTO versions VALUES ('presto',             '0.229',    '',               1, '20191115', '');
-INSERT INTO versions VALUES ('presto_fdw-pg11',    '3.2-1',    'arm',            1, '20191230', 'pg11');
+INSERT INTO versions VALUES ('hive',             '0.229',    '',               1, '20191115', '');
+INSERT INTO versions VALUES ('hive_fdw-pg11',    '3.2-1',    'arm',            1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('badger',             '11.1-1',   '',               1, '20190916', '');
 INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'arm',            1, '20130813', '');
