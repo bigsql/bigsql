@@ -174,7 +174,7 @@ INSERT INTO versions VALUES ('hub',     '6.0',    '',              1, '20200201'
 INSERT INTO versions VALUES ('pg11',    '11.6-7', 'amd, arm', 1, '20191114', '');
 INSERT INTO versions VALUES ('pg12',    '12.1-7', 'amd, arm', 1, '20191114', '');
 
-INSERT INTO versions VALUES ('bulkload-pg11',      '3.1.15-1', 'arm',            1, '20190120', 'pg11');
+INSERT INTO versions VALUES ('bulkload-pg11',      '3.1.16-1', 'arm',            1, '20200121', 'pg11');
 INSERT INTO versions VALUES ('partman-pg11',       '4.2.2-1',  'arm',            1, '20191016', 'pg11');
 INSERT INTO versions VALUES ('hypopg-pg11',        '1.1.3-1',  'arm',            1, '20191123', 'pg11');
 INSERT INTO versions VALUES ('pglogical-pg11',     '2.2.2-1',  'arm',            1, '20190725', 'pg11');
