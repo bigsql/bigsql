@@ -4,17 +4,37 @@ DROP TABLE IF EXISTS versions;
 DROP TABLE IF EXISTS releases;
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS families;
+
+CREATE TABLE families (
+  family      INTEGER NOT NULL PRIMARY KEY,
+  description TEXT,
+  short_desc  TEXT,
+  image       TEXT
+);
+INSERT INTO families VALUES (10, '_', '_', '_');
+INSERT INTO families VALUES (20, 'Worlds Most Advanced Open Source RDBMS', 'Best RDBMS', 'postgres.png');
+INSERT INTO families VALUES (30, 'Interoperability & Compatibility',       'Compatible', 'plug_compat.png');
+INSERT INTO families VALUES (40, 'Security, Scalability & Availability',   'Capable',    'ability.png');
+INSERT INTO families VALUES (50, 'Containers, Connectors & Applications',  'Useful',     'needle_thread.png');
+
 
 CREATE TABLE categories (
   category    INTEGER NOT NULL PRIMARY KEY,
+  family      INTEGER NOT NULL REFERENCES families(family),
   description TEXT    NOT NULL,
   short_desc  TEXT    NOT NULL
 );
-INSERT INTO categories VALUES (0,  'Hidden', '');
-INSERT INTO categories VALUES (1,  'PostgreSQL Durability',                'PostgreSQL');
-INSERT INTO categories VALUES (2,  'Interoperability & Compatibility',     'Interoperability');
-INSERT INTO categories VALUES (3,  'Security, Scalability & Availability', 'Abilities');
-INSERT INTO categories VALUES (4,  'Applications & Connectors',            'Applications');
+INSERT INTO categories VALUES (0, 10,  'Hidden',                'NotShown');
+INSERT INTO categories VALUES (1, 20,  'PostgreSQL',            'Postgres');
+INSERT INTO categories VALUES (2, 30,  'Interoperability',      'Interop');
+INSERT INTO categories VALUES (2, 30,  'Compatibility',         'Compat');
+INSERT INTO categories VALUES (3, 40,  'Security',              'Secure');
+INSERT INTO categories VALUES (3, 40,  'Scalability',           'Scalable');
+INSERT INTO categories VALUES (3, 40,  'Availability',          'Reliable');
+INSERT INTO categories VALUES (4, 50,  'Docker & Kubernetes',   'Docker/K8s');
+INSERT INTO categories VALUES (5, 50,  'Client Adapters',       'Connectors');
+INSERT INTO categories VALUES (6, 50,  'Applications',          'Other');
 
 CREATE TABLE projects (
   project   	 TEXT     NOT NULL PRIMARY KEY,
@@ -70,20 +90,21 @@ INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/o
 INSERT INTO projects VALUES ('audit',      3, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
 INSERT INTO projects VALUES ('anon',       3, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
-INSERT INTO projects VALUES ('psycopg',    4, 0, 'hub', 0, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
-INSERT INTO projects VALUES ('npgsql',     4, 0, 'hub', 0, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
-INSERT INTO projects VALUES ('ruby',       4, 0, 'hub', 0, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
-INSERT INTO projects VALUES ('jdbc',       4, 0, 'hub', 0, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
-INSERT INTO projects VALUES ('odbc',       4, 0, 'hub', 0, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
+INSERT INTO projects VALUES ('psycopg',    5, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
+INSERT INTO projects VALUES ('npgsql',     5, 0, 'hub', 2, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
+INSERT INTO projects VALUES ('ruby',       5, 0, 'hub', 4, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
+INSERT INTO projects VALUES ('jdbc',       5, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
+INSERT INTO projects VALUES ('odbc',       5, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
+INSERT INTO projects VALUES ('http',       5, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
 
-INSERT INTO projects VALUES ('docker',     4, 0, 'hub', 0, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO projects VALUES ('omnidb',     4, 8000, 'docker', 0, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
-INSERT INTO projects VALUES ('pgadmin4',   4, 1234, 'docker', 0, 'https://pgadmin.org', 'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
-INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 0, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
-INSERT INTO projects VALUES ('helm',       4, 0, 'hub', 0, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
-INSERT INTO projects VALUES ('pgrest',     4, 0, 'hub', 0, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
-INSERT INTO projects VALUES ('http',       4, 0, 'hub', 0, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
-INSERT INTO projects VALUES ('ddlx',       4, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('docker',     4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
+INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
+INSERT INTO projects VALUES ('helm',       4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
+
+INSERT INTO projects VALUES ('pgrest',     6, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
+INSERT INTO projects VALUES ('ddlx',       6, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('omnidb',     6, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
+INSERT INTO projects VALUES ('pgadmin4',   6, 1234, 'docker', 1, 'https://pgadmin.org', 'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
 
 
 CREATE TABLE releases (
@@ -239,4 +260,4 @@ CREATE VIEW v_versions AS
     FROM categories c, projects p, releases r, versions v
    WHERE c.category = p.category
      AND p.project = r.project
-     AND r.component = v.component;
+     ND r.component = v.components
