@@ -34,7 +34,6 @@ INSERT INTO categories VALUES (5, 40,  'Scalability',       'Scalable');
 INSERT INTO categories VALUES (6, 40,  'Availability',      'Reliable');
 INSERT INTO categories VALUES (7, 50,  'Containerization',  'Contain');
 INSERT INTO categories VALUES (8, 50,  'Client Adapters',   'Connects');
-INSERT INTO categories VALUES (9, 50,  'Applications',      'Other');
 
 CREATE TABLE projects (
   project   	 TEXT     NOT NULL PRIMARY KEY,
@@ -78,14 +77,14 @@ INSERT INTO projects VALUES ('orafce',     3, 0, 'hub', 0, 'https://github.com/o
 INSERT INTO projects VALUES ('pgosql',     3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
 INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle.png', 'Oracle Access from PG', 'https://github.com/laurenz/oracle_fdw');
 
-INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 1, 'plprofiler.png', 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
-INSERT INTO projects VALUES ('pglogical',  3, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
-INSERT INTO projects VALUES ('timescaledb',3, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
-INSERT INTO projects VALUES ('hypopg',     3, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
-INSERT INTO projects VALUES ('bouncer',    3, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
-INSERT INTO projects VALUES ('badger',     3, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
-INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
-INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
+INSERT INTO projects VALUES ('plprofiler', 5, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 1, 'plprofiler.png', 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
+INSERT INTO projects VALUES ('pglogical',  5, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
+INSERT INTO projects VALUES ('timescaledb',5, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
+INSERT INTO projects VALUES ('hypopg',     5, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
+INSERT INTO projects VALUES ('bouncer',    5, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
+INSERT INTO projects VALUES ('badger',     5, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
+INSERT INTO projects VALUES ('partman',    5, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
+INSERT INTO projects VALUES ('bulkload',   5, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
 
 INSERT INTO projects VALUES ('backrest',   4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
 INSERT INTO projects VALUES ('audit',      4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
@@ -103,10 +102,10 @@ INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kub
 INSERT INTO projects VALUES ('helm',       7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO projects VALUES ('patroni',    7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
 
-INSERT INTO projects VALUES ('pgrest',     9, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
-INSERT INTO projects VALUES ('ddlx',       9, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
-INSERT INTO projects VALUES ('omnidb',     9, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
-INSERT INTO projects VALUES ('pgadmin4',   9, 1234, 'docker', 1, 'https://pgadmin.org', 'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
+INSERT INTO projects VALUES ('pgrest',     2, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
+INSERT INTO projects VALUES ('ddlx',       2, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('omnidb',     7, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
+INSERT INTO projects VALUES ('pgadmin4',   7, 1234, 'docker', 1, 'https://pgadmin.org', 'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
 
 
 CREATE TABLE releases (
