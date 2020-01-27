@@ -25,16 +25,16 @@ CREATE TABLE categories (
   description TEXT    NOT NULL,
   short_desc  TEXT    NOT NULL
 );
-INSERT INTO categories VALUES (0, 10,  'Hidden',                'NotShown');
-INSERT INTO categories VALUES (1, 20,  'PostgreSQL',            'Postgres');
-INSERT INTO categories VALUES (2, 30,  'Interoperability',      'Interop');
-INSERT INTO categories VALUES (3, 30,  'Compatibility',         'Compat');
-INSERT INTO categories VALUES (4, 40,  'Security',              'Secure');
-INSERT INTO categories VALUES (5, 40,  'Scalability',           'Scalable');
-INSERT INTO categories VALUES (6, 40,  'Availability',          'Reliable');
-INSERT INTO categories VALUES (7, 50,  'Docker & Kubernetes',   'Docker/K8s');
-INSERT INTO categories VALUES (8, 50,  'Client Adapters',       'Connectors');
-INSERT INTO categories VALUES (9, 50,  'Applications',          'Other');
+INSERT INTO categories VALUES (0, 10,  'Hidden',            'NotShown');
+INSERT INTO categories VALUES (1, 20,  'PostgreSQL',        'Postgres');
+INSERT INTO categories VALUES (2, 30,  'Interoperability',  'Interop');
+INSERT INTO categories VALUES (3, 30,  'Compatibility',     'Compat');
+INSERT INTO categories VALUES (4, 40,  'Security',          'Secure');
+INSERT INTO categories VALUES (5, 40,  'Scalability',       'Scalable');
+INSERT INTO categories VALUES (6, 40,  'Availability',      'Reliable');
+INSERT INTO categories VALUES (7, 50,  'Containerization',  'Contain');
+INSERT INTO categories VALUES (8, 50,  'Client Adapters',   'Connects');
+INSERT INTO categories VALUES (9, 50,  'Applications',      'Other');
 
 CREATE TABLE projects (
   project   	 TEXT     NOT NULL PRIMARY KEY,
@@ -55,18 +55,18 @@ INSERT INTO projects VALUES ('hub',0, 0,    'hub', 0, 'https://github.com/','',0
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'postgres.png', 'Most Advanced RDBMS', 'https://postgresql.org');
 
 INSERT INTO projects VALUES ('cassandra',     2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cstarfdw', 1, 'cstar.png', 'Access Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cstarfdw', 1, 'cstar.png', 'Cassandra Access from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 
-INSERT INTO projects VALUES ('hive',     2, 0, 'hub', 0, 'https://github.com/hivedb/hive/releases', 'hive', 1, 'hive.png', 'Distributed SQL Queries', 'https://hivedb.io');
-INSERT INTO projects VALUES ('hive_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 'hive_fdw', 1, 'hive.png', 'Access Distributed Storge from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
+INSERT INTO projects VALUES ('hive',     2, 0, 'hub', 0, 'https://github.com/hivedb/hive/releases', 'hive', 1, 'hive.png', 'Distributed SQL Queries', 'https://hiveapache.org');
+INSERT INTO projects VALUES ('pghive', 2, 0, 'hub', 0, 'https://github.com/bigsql/pghive/releases', 'pghive', 1, 'pghive.png', 'Distributed Storage Access from PG', 'https://github.com/bigsql/pghivew#pghive');
 
 INSERT INTO projects VALUES ('mysql',      2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png', 'MySQL Server CE', 'https://dev.mysql.com');
-INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql.png', 'Access MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
+INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql.png', 'MySQL Access from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 
 INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server Express', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
 INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE Express', 'https://sap.com/products/sybase-ase.html');
 INSERT INTO projects VALUES ('pgtsql',     3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
-INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'Access SqlSvr or Sybase', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
+INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase Access from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
 
 INSERT INTO projects VALUES ('plv8',       2, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
 INSERT INTO projects VALUES ('plpython',   2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
@@ -76,21 +76,22 @@ INSERT INTO projects VALUES ('pljava',     2, 0, 'hub', 0, 'https://github.com/t
 INSERT INTO projects VALUES ('oracle',     2, 0, 'hub', 0, 'https://oracle.com', 'oracle', 0, 'oracle.png', 'Oracle Express', 'https://oracle.com');
 INSERT INTO projects VALUES ('orafce',     3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'orafce.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO projects VALUES ('pgosql',     3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
-INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle.png', 'Access Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
+INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle.png', 'Oracle Access from PG', 'https://github.com/laurenz/oracle_fdw');
 
 INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 0, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 1, 'plprofiler.png', 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
 INSERT INTO projects VALUES ('pglogical',  3, 0, 'hub', 0, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
 INSERT INTO projects VALUES ('timescaledb',3, 0, 'hub', 0, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO projects VALUES ('hypopg',     3, 0, 'hub', 0, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
-INSERT INTO projects VALUES ('backrest',   3, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
+INSERT INTO projects VALUES ('bouncer',    3, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
 INSERT INTO projects VALUES ('badger',     3, 0, 'hub', 0, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
-INSERT INTO projects VALUES ('patroni',    3, 0, 'hub', 0, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
 INSERT INTO projects VALUES ('partman',    3, 0, 'hub', 0, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
 INSERT INTO projects VALUES ('bulkload',   3, 0, 'hub', 0, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
+
+INSERT INTO projects VALUES ('backrest',   4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
 INSERT INTO projects VALUES ('audit',      4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
 INSERT INTO projects VALUES ('anon',       4, 0, 'ddlx', 0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 
-INSERT INTO projects VALUES ('psycopg',    8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'python.png', 'Python Adapter', 'http://initd.org/psycopg');
+INSERT INTO projects VALUES ('psycopg',    8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://initd.org/psycopg');
 INSERT INTO projects VALUES ('npgsql',     8, 0, 'hub', 2, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
 INSERT INTO projects VALUES ('ruby',       8, 0, 'hub', 4, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
 INSERT INTO projects VALUES ('jdbc',       8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
@@ -100,6 +101,7 @@ INSERT INTO projects VALUES ('http',       8, 0, 'hub', 6, 'https://github.com/p
 INSERT INTO projects VALUES ('docker',     7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO projects VALUES ('helm',       7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
+INSERT INTO projects VALUES ('patroni',    7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
 
 INSERT INTO projects VALUES ('pgrest',     9, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
 INSERT INTO projects VALUES ('ddlx',       9, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
@@ -143,11 +145,11 @@ INSERT INTO releases VALUES ('pljava-pg11',        18, 'pljava',        'PL/Java
 INSERT INTO releases VALUES ('mysql',               9, 'mysql',         'MySQL',      '', 'dev',  1);
 INSERT INTO releases VALUES ('mysql_fdw-pg11',     10, 'mysql_fdw',     'MySQL FDW',  '', 'prod', 1);
 
-INSERT INTO releases VALUES ('cassandra',          11, 'cassandra',     'Cassandra',  '', 'dev',  1);
+INSERT INTO releases VALUES ('cassandra',          11, 'cassandra',     'Cassandra',  '', 'prod', 1);
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 12, 'cassandra_fdw', 'CassandraFDW','','prod', 1);
 
-INSERT INTO releases VALUES ('hive',             13, 'hive',        'Hive',     '', 'dev',  1);
-INSERT INTO releases VALUES ('hive_fdw-pg11',    14, 'hive_fdw',    'Hive FDW', '', 'test', 1);
+INSERT INTO releases VALUES ('hive',               13, 'hive',          'Hive',       '', 'prod', 1);
+INSERT INTO releases VALUES ('pghive-pg11',        14, 'pghive',        'pgHive',     '', 'prod', 1);
 
 -- Performance, Scalability, Availability, & Security
 INSERT INTO releases VALUES ('postgis25-pg11',     1, 'postgis25',     'PostGIS',     '', 'prod', 1);
@@ -230,19 +232,19 @@ INSERT INTO versions VALUES ('cassandra',          '3.11.5',   '',              
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1',  'arm',            1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('hive',             '0.229',    '',               1, '20191115', '');
-INSERT INTO versions VALUES ('hive_fdw-pg11',    '3.2-1',    'arm',            1, '20191230', 'pg11');
+INSERT INTO versions VALUES ('pghive-pg11',      '3.2-1',    'arm',            1, '20191230', 'pg11');
 
 INSERT INTO versions VALUES ('badger',             '11.1-1',   '',               1, '20190916', '');
 INSERT INTO versions VALUES ('pgrest',             '0.0.7-1',  'arm',            1, '20130813', '');
-INSERT INTO versions VALUES ('bouncer',            '1.12.0-1', 'arm',            1, '20191017', '');
+INSERT INTO versions VALUES ('bouncer',            '1.12.0-1', 'arm, amd',       1, '20191017', '');
 
 INSERT INTO versions VALUES ('psycopg',            '2.8.4',    '',               1, '20191020', '');
 INSERT INTO versions VALUES ('ruby',               '1.2.0',    '',               1, '20191224', '');
 INSERT INTO versions VALUES ('npgsql',             '3.1.0',    '',               1, '20191201', '');
 INSERT INTO versions VALUES ('jdbc',               '42.2.9',   '',               1, '20191206', '');
-INSERT INTO versions VALUES ('odbc',               '12.00-1',  'arm',            1, '20191011', '');
+INSERT INTO versions VALUES ('odbc',               '12.01-1',  'arm, amd',       1, '20200107', '');
 
-INSERT INTO versions VALUES ('backrest',           '2.22-1',   'arm',            1, '20200121', '');
+INSERT INTO versions VALUES ('backrest',           '2.22-1',   'arm, amd',       1, '20200121', '');
 INSERT INTO versions VALUES ('helm',               '3.0.2',    'arm',            1, '20191218', '');
 INSERT INTO versions VALUES ('minikube',           '1.6.2',    'arm',            1, '20191220', '');
 INSERT INTO versions VALUES ('docker',             '19.03.5',  'arm',            1, '20191113', '');
