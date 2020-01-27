@@ -1,8 +1,8 @@
 import sqlite3, sys
 
 isSHOW_PLATFORM='Y'
-NUM_COLS = 4
-COL_SIZE = 185
+NUM_COLS = 3
+COL_SIZE = 200
 IMG_SIZE = 30
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
@@ -15,8 +15,7 @@ def print_top():
         '    <td width=100><center><img width=85 src=img/pgsql-io.png /></center></td> \n' + \
         '    <td width=825>' + \
         '      INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py<br>\n' + \
-        '      python3 -c "$(curl -fsSL $INSTALLER)"<br>\n' + \
-        '      cd bigsql<br>./apg install pg11\n'
+        '      python3 -c "$(curl -fsSL $INSTALLER)"\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
