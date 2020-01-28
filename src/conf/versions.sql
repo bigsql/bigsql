@@ -93,27 +93,47 @@ INSERT INTO families VALUES (30, 'Interoperability & Compatibility',       'Comp
     INSERT INTO projects VALUES ('mysql',      2, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png', 'MySQL Server CE', 'https://dev.mysql.com');
     INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql.png', 'MySQL Access from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 
-    INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server Express', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
-    INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE Express', 'https://sap.com/products/sybase-ase.html');
-    INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase Access from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
-    INSERT INTO projects VALUES ('oracle',     2, 0, 'hub', 0, 'https://oracle.com', 'oracle', 0, 'oracle.png', 'Oracle Express', 'https://oracle.com');
-    INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle.png', 'Oracle Access from PG', 'https://github.com/laurenz/oracle_fdw');
+ INSERT INTO projects VALUES ('sqlsvr',     2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server Express', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
+ INSERT INTO projects VALUES ('sybase',     2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE Express', 'https://sap.com/products/sybase-ase.html');
+ INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase Access from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
 
-    INSERT INTO projects VALUES ('plv8',       2, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
-    INSERT INTO projects VALUES ('plpython',   2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
-    INSERT INTO projects VALUES ('plperl',     2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html', 'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
-    INSERT INTO projects VALUES ('pljava',     2, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
+ INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle.png', 'Oracle Access from PG', 'https://github.com/laurenz/oracle_fdw');
+  INSERT INTO releases VALUES ('oracle_fdw-pg11', 7, 'oracle_fdw', 'Oracle FDW', '', 'prod', 1);
+   INSERT INTO versions VALUES ('oracle_fdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
 
-  INSERT INTO categories VALUES (3, 30,  'Compatibility',     'Compat');
-    INSERT INTO projects VALUES ('orafce',     3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'orafce.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
-    INSERT INTO projects VALUES ('pgosql',     3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
-    INSERT INTO projects VALUES ('pgtsql',     3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
+ INSERT INTO projects VALUES ('oracle', 2, 0, 'hub', 0, 'https://oracle.com', 'oracle', 0, 'oracle.png', 'Oracle Express', 'https://oracle.com');
+  INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle', '', 'dev',  0);
+   INSERT INTO versions VALUES ('oracle', '11.2.0', 'amd', 1, '20191010', '');
+
+ INSERT INTO projects VALUES ('orafce',     3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'orafce.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
+  INSERT INTO releases VALUES ('orafce-pg11',         6, 'orafce',        'OraFCE',     '', 'prod', 1);
+   INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm',            1, '20190522', 'pg11');
+
+    INSERT INTO projects VALUES ('plv8', 2, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
+    INSERT INTO projects VALUES ('plpython', 2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
+    INSERT INTO projects VALUES ('plperl', 2, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html', 'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
+    INSERT INTO projects VALUES ('pljava', 2, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
+
+ INSERT INTO categories VALUES (3, 30, 'Compatibility', 'Compat');
+  INSERT INTO projects VALUES ('pgosql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
+   INSERT INTO releases VALUES ('pgosql-pg11', 8, 'pgosql', 'OSQL', '', 'test', 1);
+    INSERT INTO versions VALUES ('pgosql-pg11', '2.0-1', 'arm', 1, '20191211', 'pg11');
+
+   INSERT INTO projects VALUES ('pgtsql',     3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
 
 INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capable', 'ability.png');
-  INSERT INTO categories VALUES (4, 40,'Security', 'Secure');
-    INSERT INTO projects VALUES ('backrest',   4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
-    INSERT INTO projects VALUES ('audit',      4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
-    INSERT INTO projects VALUES ('anon',       4, 0, 'ddlx',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+ INSERT INTO categories VALUES (4, 40,'Security', 'Secure');
+  INSERT INTO projects VALUES ('backrest',   4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
+   INSERT INTO releases VALUES ('backrest', 4, 'backrest', 'pgBackRest', '', 'prod', 1);
+    INSERT INTO versions VALUES ('backrest', '2.22-1', 'arm, amd', 1, '20200121', '');
+
+  INSERT INTO projects VALUES ('audit',      4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
+   INSERT INTO releases VALUES ('audit-pg11', 10, 'audit', 'pgAudit', '', 'prod', 1);
+    INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
+
+  INSERT INTO projects VALUES ('anon',       4, 0, 'ddlx',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
+   INSERT INTO releases VALUES ('anon-pg11', 11, 'anon', 'Anonymizer', '', 'prod', 1);
+    INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm', 1, '20191109', 'pg11');
 
   INSERT INTO categories VALUES (5, 40, 'Scalability', 'Scalable');
     INSERT INTO projects VALUES ('plprofiler', 5, 0, 'hub', 7, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 1, 'plprofiler.png', 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
@@ -127,9 +147,8 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
   INSERT INTO categories VALUES (6, 40, 'Availability','Reliable');
 
-
 INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_thread.png');
- INSERT INTO categories VALUES (7, 50, 'Containerization',  'Contain');
+ INSERT INTO categories VALUES (7, 50, 'Containerization', 'Contain');
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
    INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'test', 1);
     INSERT INTO versions VALUES ('docker', '19.03.5', 'arm', 1, '20191113', '');
@@ -176,10 +195,6 @@ INSERT INTO releases VALUES ('sybase',              2, 'sybase',        'Sybase 
 INSERT INTO releases VALUES ('pgtsql-pg11',         3, 'pgtsql',        'TransactSQL','', 'test', 1);
 INSERT INTO releases VALUES ('tds_fdw-pg11',        4, 'tds_fdw',       'TDS FDW',    '', 'test', 1);
 
-INSERT INTO releases VALUES ('oracle',              5, 'oracle',        'Oracle',     '', 'dev',  0);
-INSERT INTO releases VALUES ('orafce-pg11',         6, 'orafce',        'OraFCE',     '', 'prod', 1);
-INSERT INTO releases VALUES ('oracle_fdw-pg11',     7, 'oracle_fdw',    'Oracle FDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('pgosql-pg11',         8, 'pgosql',        'OSQL',       '', 'test', 1);
 
 INSERT INTO releases VALUES ('plpython-pg11',      15, 'plpython',      'PL/Python',  '', 'prod', 1);
 INSERT INTO releases VALUES ('plperl-pg11',        16, 'plperl',        'PL/Perl',    '', 'prod', 1);
@@ -198,16 +213,16 @@ INSERT INTO releases VALUES ('pghive-pg11',        14, 'pghive',        'pgHive'
 INSERT INTO releases VALUES ('postgis25-pg11',     1, 'postgis25',     'PostGIS',     '', 'prod', 1);
 INSERT INTO releases VALUES ('timescaledb-pg11',   2, 'timescaledb',   'TimescaleDB', '', 'prod', 1);
 INSERT INTO releases VALUES ('pglogical-pg11',     3, 'pglogical',     'pgLogical',   '', 'prod', 1);
-INSERT INTO releases VALUES ('backrest',           4, 'backrest',      'pgBackRest',  '', 'prod', 1);
-INSERT INTO releases VALUES ('badger',             5, 'badger',        'pgBadger',    '', 'prod', 1);
 INSERT INTO releases VALUES ('bulkload-pg11',      6, 'bulkload',      'pgBulkLoad',  '', 'prod', 1);
 INSERT INTO releases VALUES ('partman-pg11',       7, 'partman',       'pgPartman',   '', 'prod', 1);
 INSERT INTO releases VALUES ('hypopg-pg11',        8, 'hypopg',        'HypoPG',      '', 'prod', 1);
 INSERT INTO releases VALUES ('plprofiler-pg11',    9, 'plprofiler',    'plProfiler',  '', 'prod', 1);
-INSERT INTO releases VALUES ('audit-pg11',        10, 'audit',         'pgAudit',     '', 'prod', 1);
-INSERT INTO releases VALUES ('anon-pg11',         11, 'anon',          'Anonymizer',  '', 'prod', 1);
 
-INSERT INTO releases VALUES ('ddlx-pg11',         14, 'ddlx',          'DDLeXtact',   '', 'prod', 0);
+ INSERT INTO releases VALUES ('ddlx-pg11', 14, 'ddlx', 'DDLeXtact', '', 'prod', 0);
+  INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm', 1, '20191024', 'pg11');
+  INSERT INTO releases VALUES ('badger', 5, 'badger','pgBadger','', 'prod', 1);
+   INSERT INTO versions VALUES ('badger', '11.1-1', '', 1, '20190916', '');
+
 INSERT INTO releases VALUES ('http-pg11',         13, 'http',          'HTTP Client', '', 'prod', 1);
 
 
@@ -236,19 +251,12 @@ INSERT INTO versions VALUES ('plpython-pg11',      '3',        'arm',           
 INSERT INTO versions VALUES ('plperl-pg11',        '5',        'arm',            1, '20191114', 'pg11');
 INSERT INTO versions VALUES ('pljava-pg11',        '1.5.5-1',  'arm',            1, '20191104', 'pg11');
 
-INSERT INTO versions VALUES ('oracle', '11.2.0', 'amd',            1, '20191010', '');
-INSERT INTO versions VALUES ('oracle_fdw-pg11','2.2.0-1',  'amd',            1, '20191010', 'pg11');
-INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm',            1, '20190522', 'pg11');
-INSERT INTO versions VALUES ('pgosql-pg11', '2.0-1',    'arm',            1, '20191211', 'pg11');
 
 INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 1, '20191014', '');
 INSERT INTO versions VALUES ('mysql_fdw-pg11', '2.5.3-1', 'arm', 1, '20190927', 'pg11');
 
 INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1', 'arm', 1, '20190823', 'pg11');
-INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm', 1, '20191024', 'pg11');
-INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
 INSERT INTO versions VALUES ('http-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
-INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm', 1, '20191109', 'pg11');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm', 1, '20191112', 'pg11');
 
 INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 1, '20191029', '');
@@ -257,10 +265,8 @@ INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1', 'arm', 1, '2019123
 INSERT INTO versions VALUES ('hive', '0.229', '', 1, '20191115', '');
 INSERT INTO versions VALUES ('pghive-pg11', '3.2-1', 'arm', 1, '20191230', 'pg11');
 
-INSERT INTO versions VALUES ('badger', '11.1-1', '', 1, '20190916', '');
 INSERT INTO versions VALUES ('pgrest', '0.0.7-1', 'arm', 1, '20130813', '');
 INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
 
-INSERT INTO versions VALUES ('backrest',           '2.22-1',   'arm, amd',       1, '20200121', '');
 
