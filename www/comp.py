@@ -80,11 +80,11 @@ def get_columns(d):
     rel_day = rel_day[1]
 
   stage = ""
-  ##stage = str(d[11])
-  ##if stage == "prod":
-  ##  stage = ""
-  ##else:
-  ##  stage = "--" + stage
+  stage = str(d[11])
+  if stage == "prod":
+    stage = ""
+  else:
+    stage = "--" + stage
 
   proj_desc = str(d[12])
 
@@ -93,8 +93,8 @@ def get_columns(d):
 
 
 def print_row_header():
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + ">&nbsp;<br><font size=+0><b><u>" + \
-    cat_desc + ":</u></b></font></td></tr>")
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><b>" + \
+    cat_desc + "</b></td></tr>")
 
 
 ##################################################################
