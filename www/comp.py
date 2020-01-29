@@ -1,12 +1,13 @@
 import sqlite3, sys
 
-isSHOW_PLATFORM='Y'
-NUM_COLS = 2
+isSHOW_COMP_PLAT = 'Y'
+NUM_COLS = 1
 FONT_SIZE = 6 - NUM_COLS
 COL_SIZE = 800 / NUM_COLS
 IMG_SIZE = 28
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
+
 
 def print_top():
   print('<center><table><tr><td> \n')
@@ -95,6 +96,20 @@ def print_row_header():
     cat_desc + ":</b></td></tr>")
 
 
+def print_row_detail(pCol):
+  print("  <td>&nbsp;<img src=img/" + image_file + " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
+  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + "><a href=" + project_url + ">" + release_name + \
+             "</a>&nbsp;&nbsp;<a href=" + source_url + ">" + version + \
+             "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + ">" + rel_day + "-" + rel_month + rel_yy_display +"</font>" + \
+             platd + "<br><i>" + proj_desc + "</font></i></td>")
+
+  if pCol == NUM_COLS:
+    print("</tr>")
+    print("<tr><td></td></tr>")
+
+  return
+
+
 ##################################################################
 #   MAINLINE
 ##################################################################
@@ -112,9 +127,9 @@ c.execute(sql)
 data = c.fetchall()
 
 i = 0
-col = 0
 old_cat_desc = ""
 print_top()
+col = 0
 
 for d in data:
   i = i + 1
@@ -129,7 +144,7 @@ for d in data:
     print("<tr>")
 
   platd = ""
-  if isSHOW_PLATFORM == "Y":
+  if isSHOW_COMP_PLAT == "Y":
     platd = "<br>" + component + " [" + platform + "] " + stage
 
   #print('DEBUG rel_date = ' + rel_date)
@@ -142,6 +157,7 @@ for d in data:
   else:
     rel_yy_display = "-" + rel_yy
 
+  print_row_detail(col)
   print("  <td>&nbsp;<img src=img/" + image_file + " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
   print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + "><a href=" + project_url + ">" + release_name + \
              "</a>&nbsp;&nbsp;<a href=" + source_url + ">" + version + \
