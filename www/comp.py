@@ -1,21 +1,21 @@
 import sqlite3, sys
 
 isSHOW_PLATFORM='Y'
-NUM_COLS = 3
-COL_SIZE = 200
-IMG_SIZE = 30
+NUM_COLS = 4
+COL_SIZE = 185
+IMG_SIZE = 28
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=3> \n' +
+  print('<table border=' + str(BORDER) + ' bgcolor=black cellpadding=3> \n' +
         '  <tr> \n' + \
-        '    <td width=100><center><img width=85 src=img/pgsql-io.png /></center></td> \n' + \
-        '    <td width=825>' + \
+        '    <td width=80><center><img width=65 src=img/pgsql-io.png /></center></td> \n' + \
+        '    <td width=850><font color=white>' + \
         '      INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py<br>\n' + \
-        '      python3 -c "$(curl -fsSL $INSTALLER)"\n' + \
+        '      python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
@@ -93,8 +93,8 @@ def get_columns(d):
 
 
 def print_row_header():
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><b>" + \
-    cat_desc + "</b></td></tr>")
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><br><b>" + \
+    cat_desc + ":</b></td></tr>")
 
 
 ##################################################################
