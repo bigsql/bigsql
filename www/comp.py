@@ -1,7 +1,9 @@
 import sqlite3, sys
 
 isSHOW_COMP_PLAT = 'Y'
+BR = ""
 NUM_COLS = 1
+NUM_ROWS = 3
 FONT_SIZE = 6 - NUM_COLS
 COL_SIZE = 800 / NUM_COLS
 IMG_SIZE = 28
@@ -91,17 +93,20 @@ def get_columns(d):
   proj_desc = str(d[12])
 
 
-def print_row_header():
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><br><b>" + \
+def print_row_header(pBR):
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + ">" + pBR + "<b>" + \
     cat_desc + ":</b></td></tr>")
 
 
-def print_row_detail(pCol):
-  print("  <td>&nbsp;<img src=img/" + image_file + " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
-  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + "><a href=" + project_url + ">" + release_name + \
-             "</a>&nbsp;&nbsp;<a href=" + source_url + ">" + version + \
-             "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + ">" + rel_day + "-" + rel_month + rel_yy_display +"</font>" + \
-             platd + "<br><i>" + proj_desc + "</font></i></td>")
+def print_row_detail(pCol, pBR):
+  print("  <td>&nbsp;<img src=img/" + image_file + " height=" + \
+    str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
+  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + \
+    "><a href=" + project_url + ">" + release_name + \
+    "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
+    "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + "><sup>" + \
+    rel_day + "-" + rel_month + rel_yy_display +"</sup></font>" + \
+    platd + pBR + "<i>" + proj_desc + "</font></i></td>")
 
   if pCol == NUM_COLS:
     print("</tr>")
@@ -137,7 +142,7 @@ for d in data:
   get_columns(d)
 
   if (old_cat_desc != cat_desc):
-    print_row_header()
+    print_row_header(BR)
     col = 1
 
   if col == 1:
@@ -145,7 +150,7 @@ for d in data:
 
   platd = ""
   if isSHOW_COMP_PLAT == "Y":
-    platd = "<br>" + component + " [" + platform + "] " + stage
+    platd = BR + component + " [" + platform + "] " + stage
 
   #print('DEBUG rel_date = ' + rel_date)
   year_day = int(rel_date[:6])
@@ -157,16 +162,9 @@ for d in data:
   else:
     rel_yy_display = "-" + rel_yy
 
-  print_row_detail(col)
-  print("  <td>&nbsp;<img src=img/" + image_file + " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
-  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + "><a href=" + project_url + ">" + release_name + \
-             "</a>&nbsp;&nbsp;<a href=" + source_url + ">" + version + \
-             "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + ">" + rel_day + "-" + rel_month + rel_yy_display +"</font>" + \
-             platd + "<br><i>" + proj_desc + "</font></i></td>")
+  print_row_detail(col, BR)
 
   if col == NUM_COLS:
-    print("</tr>")
-    print("<tr><td></td></tr>")
     col = 1
   else:
     col = col + 1
