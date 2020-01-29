@@ -1,8 +1,9 @@
 import sqlite3, sys
 
 isSHOW_PLATFORM='Y'
-NUM_COLS = 4
-COL_SIZE = 185
+NUM_COLS = 2
+FONT_SIZE = 6 - NUM_COLS
+COL_SIZE = 800 / NUM_COLS
 IMG_SIZE = 28
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
@@ -14,7 +15,7 @@ def print_top():
         '  <tr> \n' + \
         '    <td width=80><center><img width=65 src=img/pgsql-io.png /></center></td> \n' + \
         '    <td width=850><font color=white>' + \
-        '      INSTALLER=https://bigsql-apg-download.s3.amazonaws.com/REPO/install.py<br>\n' + \
+        '      INSTALLER=https://pgsql-download.s3.amazonaws.com/REPO/install.py<br>\n' + \
         '      python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
@@ -88,9 +89,6 @@ def get_columns(d):
 
   proj_desc = str(d[12])
 
-  ##if version[-2] == "-":
-  ##  version = version[:-2]
-
 
 def print_row_header():
   print("<tr><td colspan=" + str(NUM_COLS * 2) + "><br><b>" + \
@@ -145,9 +143,9 @@ for d in data:
     rel_yy_display = "-" + rel_yy
 
   print("  <td>&nbsp;<img src=img/" + image_file + " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
-  print("  <td width=" +str( COL_SIZE) + "><font size=-1><a href=" + project_url + ">" + release_name + \
+  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + "><a href=" + project_url + ">" + release_name + \
              "</a>&nbsp;&nbsp;<a href=" + source_url + ">" + version + \
-             "</a>&nbsp;<font color=red size=-2>" + rel_day + "-" + rel_month + rel_yy_display +"</font>" + \
+             "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + ">" + rel_day + "-" + rel_month + rel_yy_display +"</font>" + \
              platd + "<br><i>" + proj_desc + "</font></i></td>")
 
   if col == NUM_COLS:
