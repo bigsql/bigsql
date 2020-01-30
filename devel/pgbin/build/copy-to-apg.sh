@@ -1,4 +1,4 @@
 dir=$APG/devel/pgbin/build
 cp -p *.sh $dir/.
-cd $dir
+cd $APG
 git diff

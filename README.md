@@ -14,7 +14,6 @@ git config --global credential.helper store
 mkdir -p ~/dev/
 cd ~/dev
 git clone https://github.com/bigsql/bigsql-apg.git
-
 $APT install sqlite3 python3 curl wget
 curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
@@ -27,6 +26,7 @@ $APT install libperl-dev libpython3-dev
 $APT install pkg-config libevent-dev libcurl4-openssl-dev *unixodbc*
 sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 $APT install clang-6.0
+$APT install lxc lxd lxcfs
 sudo mkdir /opt/pgbin-build
 sudo chmod 777 /opt/pgbin-build
 sudo chown $USER:$USER /opt/pgbin-build
@@ -71,6 +71,7 @@ cp $APG/devel/util/pull-s3.sh .
 ./pull-s3.sh
 chmod 755 *.sh
 
-
 cd $BLD
 cp -p $APG/devel/pgbin/build/* .
+./sharedLibs.sh
+./build-all-pgbin.sh 11
