@@ -10,8 +10,8 @@ pg10V="10.11"
 pg10BuildV=4
 
 bouncerV="1.12.0"
-odbcV="12.00.0000"
-backrestV="2.20"
+odbcV="12.01.0000"
+backrestV="2.23"
 
 httpFullV=1.3.1
 httpShortV=

@@ -21,7 +21,8 @@ function runPgBin {
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV"
   cmd="$cmd -b $bncrSrc"
-  ##cmd="$cmd -o $odbcSrc -k $bkrstSrc $optional"
+  cmd="$cmd -k $bkrstSrc"
+  ##cmd="$cmd -o $odbcSrc $optional"
   $cmd
   if [[ $? -ne 0 ]]; then
     echo "Build Failed"

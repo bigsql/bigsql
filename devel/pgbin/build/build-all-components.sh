@@ -27,13 +27,13 @@ if [ ! "$pgV"  == "11" ] && [ ! "$pgV"  == "12" ]; then
   exit 1
 fi
 
-if [ "$1" == "presto_fdw" ] || [ "$1" == "all" ]; then
-  build presto_fdw $prestoFullV $2 presto_fdw
-fi
+##if [ "$1" == "presto_fdw" ] || [ "$1" == "all" ]; then
+##  build presto_fdw $prestoFullV $2 presto_fdw
+##fi
 
-if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
-  build cassandra_fdw $cassFullV $2 cassandra_fdw
-fi
+##if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
+##  build cassandra_fdw $cassFullV $2 cassandra_fdw
+##fi
 
 ##if [ "$1" == "pljava" ] || [ "$1" == "all" ]; then
 ##  # build pljava $pljavaFullV $2 pljava
@@ -71,13 +71,9 @@ if [ "$1" == "plprofiler" ] || [ "$1" == "all" ]; then
   build plprofiler $plProfilerFullVersion $2 profiler
 fi
 
-if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
-  build timescaledb $timescaledbFullV $2 timescale
-fi
-
-#if [ "$1" == "pglogical2" ] || [ "$1" == "all" ]; then
-#  build pglogical2 $pgL2FullV $2 logical2
-#fi
+##if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
+##  build timescaledb $timescaledbFullV $2 timescale
+##fi
 
 if [ "$1" == "pglogical" ] || [ "$1" == "all" ]; then
   build pglogical $pgLogicalFullV $2 logical
