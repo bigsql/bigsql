@@ -71,9 +71,9 @@ if [ "$1" == "plprofiler" ] || [ "$1" == "all" ]; then
   build plprofiler $plProfilerFullVersion $2 profiler
 fi
 
-##if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
-##  build timescaledb $timescaledbFullV $2 timescale
-##fi
+if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
+  build timescaledb $timescaledbFullV $2 timescale
+fi
 
 if [ "$1" == "pglogical" ] || [ "$1" == "all" ]; then
   build pglogical $pgLogicalFullV $2 logical
