@@ -4,7 +4,7 @@ isSHOW_COMP_PLAT = 'Y'
 BR = "<br>"
 NUM_COLS = 3
 FONT_SIZE = 6 - NUM_COLS
-COL_SIZE = 800 / NUM_COLS
+COL_SIZE = 900 / NUM_COLS
 IMG_SIZE = 28
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
@@ -13,12 +13,14 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=' + str(BORDER) + ' bgcolor=royalblue cellpadding=3> \n' +
+  print('<table border=0 bgcolor=royalblue cellpadding=3> \n' +
         '  <tr> \n' + \
-        '    <td width=80><center><img width=65 src=img/seastar.png /></center></td> \n' + \
-        '    <td width=850><font color=white>' + \
-        '      INSTALLER=https://cstar.pgsql.io.s3.amazonaws.com/REPO/install.py<br>\n' + \
-        '      python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
+        '    <td width=70><center><img width=65 src=img/seastar.png /></center></td> \n' + \
+        '    <td width=385><font size=+0 color=white> \n' + \
+        'ARM & x86 binaries on RHEL, Ubuntu, OSX & Chrome</font></td>\n' + \
+        '    <td width=475><font color=white>\n' + \
+        'INSTALLER=https://big.pgsql.io.s3.amazonaws.com/REPO/install.py<br>\n' + \
+        'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')

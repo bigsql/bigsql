@@ -75,10 +75,8 @@ INSERT INTO families VALUES (10, '_', '_', '_');
 
 
 INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source RDBMS', 'Best RDBMS', 'postgres.png');
-	INSERT INTO categories VALUES (1, 20, 'PostgreSQL', 'Postgres');
+	INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
 		INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'postgres.png', 'Worlds Best', 'https://postgresql.org');
-			INSERT INTO releases VALUES ('pg10', 4, 'pg', 'Postgres 10', '', 'old-school', 1);
-				INSERT INTO versions VALUES ('pg10', '10.9-7', 'arm, amd', 1, '20191114','');
 			INSERT INTO releases VALUES ('pg11', 4, 'pg', 'Postgres 11', '', 'recommended', 1);
 				INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd', 1, '20191114','');
 			INSERT INTO releases VALUES ('pg12', 4, 'pg', 'Postgres 12', '', 'stable', 1);
@@ -87,7 +85,7 @@ INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source RDBMS', 'Bes
 				INSERT INTO versions VALUES ('pg13', '13alpha', 'arm, amd', 1, '20200201','');
 
 
-INSERT INTO families VALUES (30, 'Interoperability & Compatibility',       'Compatible', 'plug_compat.png');
+INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability',       'Compatible', 'plug_compat.png');
  INSERT INTO categories VALUES (2, 30,  'Integration',  'Interop');
   INSERT INTO projects VALUES ('cassandra',     2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
    INSERT INTO releases VALUES ('cassandra',          11, 'cassandra',     'Cassandra',  '', 'hidden', 1);
@@ -152,7 +150,7 @@ INSERT INTO families VALUES (30, 'Interoperability & Compatibility',       'Comp
   INSERT INTO releases VALUES ('pljava-pg11', 18, 'pljava', 'PL/Java', '', 'prod', 1);
    INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm',  1, '20191104', 'pg11');
 
- INSERT INTO categories VALUES (3, 30, 'Procedural Languages', 'Compat');
+ INSERT INTO categories VALUES (3, 30, 'Stored Procedures & Functions', 'Compat');
   INSERT INTO projects VALUES ('pgosql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
    INSERT INTO releases VALUES ('pgosql-pg11', 8, 'pgosql', 'OSQL', '', 'test', 1);
     INSERT INTO versions VALUES ('pgosql-pg11', '2.0-1', 'arm', 1, '20191211', 'pg11');
@@ -162,7 +160,7 @@ INSERT INTO families VALUES (30, 'Interoperability & Compatibility',       'Comp
     INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1', 'arm', 1, '20191119', 'pg11');
 
 INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capable', 'ability.png');
- INSERT INTO categories VALUES (4, 40,'Security', 'Secure');
+ INSERT INTO categories VALUES (4, 40,'Secure, Scaleable & Avaialable', 'Secure');
   INSERT INTO projects VALUES ('backrest', 4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
    INSERT INTO releases VALUES ('backrest', 4, 'backrest', 'pgBackRest', '', 'prod', 1);
     INSERT INTO versions VALUES ('backrest', '2.22-1', 'arm, amd', 1, '20200121', '');
@@ -213,7 +211,7 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
 
 INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_thread.png');
- INSERT INTO categories VALUES (7, 50, 'Containerization', 'Contain');
+ INSERT INTO categories VALUES (7, 50, 'Docker, K8s & Applications', 'Contain');
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
    INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'test', 1);
     INSERT INTO versions VALUES ('docker', '19.03.5', 'arm', 1, '20191113', '');
@@ -238,7 +236,7 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
   INSERT INTO releases VALUES ('pgadmin4', 12, 'pgadmin4', 'pgAdmin 4', '', 'prod', 1);
    INSERT INTO versions VALUES ('pgadmin4', '4.17', 'docker', 1, '20200109', '');
 
- INSERT INTO categories VALUES (8, 50,  'Client Adapters',   'Connects');INSERT INTO releases VALUES ('psycopg', 6, 'psycopg',  'psycopg', '', 'prod', 1);
+ INSERT INTO categories VALUES (8, 50,  'Connectors',   'Connects');INSERT INTO releases VALUES ('psycopg', 6, 'psycopg',  'psycopg', '', 'prod', 1);
   INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
    INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'prod', 1);
     INSERT INTO versions VALUES ('jdbc', '42.2.9', '', 1, '20191206', '');
