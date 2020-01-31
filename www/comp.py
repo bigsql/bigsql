@@ -13,13 +13,16 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table border=0 bgcolor=royalblue cellpadding=3> \n' +
+  print('<table width=1000 border=0 bgcolor=royalblue cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=70><center><img width=65 src=img/seastar.png /></center></td> \n' + \
-        '    <td width=385><font size=+0 color=white> \n' + \
-        'ARM & x86 bins on EL, Ubuntu, Debian & Darwin</font></td>\n' + \
-        '    <td width=475><font color=white>\n' + \
-        'INSTALLER=https://big.pgsql.io.s3.amazonaws.com/REPO/install.py<br>\n' + \
+        '    <td width=10%><center><img width=65 src=img/seastar.png /></center></td> \n' + \
+        '    <td width=50%><font color=white> \n' + \
+        'ARM & x86 64-bit relocatable binaries on RHEL 7+, Ubuntu 16+, ' + \
+        'OSX, iOS, ChromeOS & Android</font>\n' + \
+        '    </td>\n' + \
+        '    <td width=40%><font size=-1 color=white>\n' + \
+        'BUCKET=https://big.pgsql.io.s3.amazonaws.com<br>\n' + \
+        'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
