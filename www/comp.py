@@ -17,7 +17,7 @@ def print_top():
         '  <tr> \n' + \
         '    <td width=70><center><img width=65 src=img/seastar.png /></center></td> \n' + \
         '    <td width=385><font size=+0 color=white> \n' + \
-        'ARM & x86 binaries on RHEL, Ubuntu, OSX & Chrome</font></td>\n' + \
+        'ARM & x86 bins on EL, Ubuntu, Debian & Darwin</font></td>\n' + \
         '    <td width=475><font color=white>\n' + \
         'INSTALLER=https://big.pgsql.io.s3.amazonaws.com/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
@@ -100,13 +100,18 @@ def print_row_header(pBR):
 
 
 def print_row_detail(pCol, pBR):
+  if rel_date == '19700101':
+    rel_date_display = ""
+  else:
+    rel_date_display = rel_day + "-" + rel_month + rel_yy_display
+
   print("  <td>&nbsp;<img src=img/" + image_file + " height=" + \
     str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
   print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + \
     "><a href=" + project_url + ">" + release_name + \
     "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
     "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + "><sup>" + \
-    rel_day + "-" + rel_month + rel_yy_display +"</sup></font>" + \
+    rel_date_display +"</sup></font>" + \
     platd + pBR + "<i>" + proj_desc + "</font></i></td>")
 
   if pCol == NUM_COLS:

@@ -75,14 +75,14 @@ INSERT INTO families VALUES (10, '_', '_', '_');
 
 
 INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source RDBMS', 'Best RDBMS', 'postgres.png');
-	INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
-		INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'postgres.png', 'Worlds Best', 'https://postgresql.org');
+	INSERT INTO categories VALUES (1, 20, 'The Worlds Best RDBMS', 'Postgres');
+		INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'postgres.png', 'Best RDBMS', 'https://postgresql.org');
 			INSERT INTO releases VALUES ('pg11', 4, 'pg', 'Postgres 11', '', 'recommended', 1);
-				INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd', 1, '20191114','');
+				INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd, osx', 1, '20191114','');
 			INSERT INTO releases VALUES ('pg12', 4, 'pg', 'Postgres 12', '', 'stable', 1);
-				INSERT INTO versions VALUES ('pg12', '12.1-7', 'arm, amd', 0, '20191114','');
-			INSERT INTO releases VALUES ('pgsnapshot', 4, 'pg', 'Postgres Snapshot', '', 'pre-alpha', 1);
-				INSERT INTO versions VALUES ('pgsnapshot', '13nightly', 'arm, amd, osx', 0, '20200201','');
+				INSERT INTO versions VALUES ('pg12', '12.1-7', 'arm, amd, osx', 1, '20191114','');
+			INSERT INTO releases VALUES ('pgnightly', 4, 'pg', 'Postgres Nightly Build', '', 'pre-alpha', 1);
+				INSERT INTO versions VALUES ('pgnightly', '13', 'arm, amd, osx', 1, '19700101','');
 
 
 INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability',       'Compatible', 'plug_compat.png');
@@ -137,9 +137,10 @@ INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 
 
  INSERT INTO projects VALUES ('plv8', 3, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
   INSERT INTO releases VALUES ('plv8-pg11', 17, 'plv8', 'PL/V8', '', 'prod', 1);
-   INSERT INTO versions VALUES ('plv8-pg11', '2.3.14-1', 'arm', 0, '20200109', 'pg11');
+   INSERT INTO versions VALUES ('plv8-pg11', '2.3.14-1', 'arm', 1, '20200109', 'pg11');
 
  INSERT INTO projects VALUES ('plpython', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
+  INSERT INTO releases VALUES ('plpython-pg11', 16, 'plpython', 'PL/Python','', 'prod', 1);
    INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm', 1, '20191114', 'pg11');
 
  INSERT INTO projects VALUES ('plperl', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html', 'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
@@ -148,12 +149,12 @@ INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 
 
  INSERT INTO projects VALUES ('pljava', 3, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
   INSERT INTO releases VALUES ('pljava-pg11', 18, 'pljava', 'PL/Java', '', 'prod', 1);
-   INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm',  0, '20191104', 'pg11');
+   INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm',  1, '20191104', 'pg11');
 
  INSERT INTO categories VALUES (3, 30, 'Stored Procedures & Functions', 'Compat');
   INSERT INTO projects VALUES ('pgosql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
    INSERT INTO releases VALUES ('pgosql-pg11', 8, 'pgosql', 'OSQL', '', 'test', 1);
-    INSERT INTO versions VALUES ('pgosql-pg11', '2.0-1', 'arm', 0, '20191211', 'pg11');
+    INSERT INTO versions VALUES ('pgosql-pg11', '2.0-1', 'arm', 1, '20191211', 'pg11');
 
   INSERT INTO projects VALUES ('pgtsql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
    INSERT INTO releases VALUES ('pgtsql-pg11', 3, 'pgtsql', 'TransactSQL','', 'test', 1);
@@ -211,22 +212,22 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
 
 INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_thread.png');
- INSERT INTO categories VALUES (7, 50, 'Docker, K8s & Applications', 'Contain');
+ INSERT INTO categories VALUES (7, 50, 'The World of Containers', 'Contain');
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
    INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'test', 1);
     INSERT INTO versions VALUES ('docker', '19.03.5', 'arm', 1, '20191113', '');
 
   INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
-   INSERT INTO releases VALUES ('minikube', 2, 'minikube',      'K8s App Dev', '', 'test', 1);
-    INSERT INTO versions VALUES ('minikube', '1.6.2',    'arm',            1, '20191220', '');
+   INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'test', 1);
+    INSERT INTO versions VALUES ('minikube', '1.6.2', 'arm', 1, '20191220', '');
 
   INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
-   INSERT INTO releases VALUES ('helm', 3, 'helm',          'Helm',        '', 'test', 1);
-    INSERT INTO versions VALUES ('helm', '3.0.2',    'arm',            1, '20191218', '');
+   INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'test', 1);
+    INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
 
   INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
-   INSERT INTO releases VALUES ('patroni', 4, 'patroni',       'Patroni',     '', 'test', 1);
-    INSERT INTO versions VALUES ('patroni', '1.6.3',    '',               1, '20191205', '');
+   INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'test', 1);
+    INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
 
  INSERT INTO projects VALUES ('omnidb', 7, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
   INSERT INTO releases VALUES ('omnidb', 11, 'omnidb', 'OmniDB', '', 'prod', 1);
@@ -236,7 +237,7 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
   INSERT INTO releases VALUES ('pgadmin4', 12, 'pgadmin4', 'pgAdmin 4', '', 'prod', 1);
    INSERT INTO versions VALUES ('pgadmin4', '4.17', 'docker', 1, '20200109', '');
 
- INSERT INTO categories VALUES (8, 50,  'Connectors',   'Connects');INSERT INTO releases VALUES ('psycopg', 6, 'psycopg',  'psycopg', '', 'prod', 1);
+ INSERT INTO categories VALUES (8, 50,  'Connectors',   'Connects');
   INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
    INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'prod', 1);
     INSERT INTO versions VALUES ('jdbc', '42.2.9', '', 1, '20191206', '');
@@ -246,11 +247,12 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
     INSERT INTO versions VALUES ('npgsql', '3.1.0', '', 1, '20191201', '');
 
   INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://initd.org/psycopg');
+   INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'prod', 1);
    INSERT INTO versions VALUES ('psycopg', '2.8.4', '', 1, '20191020', '');
 
   INSERT INTO projects VALUES ('ruby', 8, 0, 'hub', 4, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
-   INSERT INTO releases VALUES ('ruby', 1, 'ruby', 'ruby', '', 'prod', 1);
-    INSERT INTO versions VALUES ('ruby', '1.2.0', '', 1, '20191224', '');
+   INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'prod', 1);
+    INSERT INTO versions VALUES ('ruby', '1.2.2', '', 1, '20200108', '');
 
   INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
    INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'prod', 1);
