@@ -81,8 +81,8 @@ INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source RDBMS', 'Bes
 				INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd', 1, '20191114','');
 			INSERT INTO releases VALUES ('pg12', 4, 'pg', 'Postgres 12', '', 'stable', 1);
 				INSERT INTO versions VALUES ('pg12', '12.1-7', 'arm, amd', 0, '20191114','');
-			INSERT INTO releases VALUES ('pg13', 4, 'pg', 'Postgres 13', '', 'alpha', 1);
-				INSERT INTO versions VALUES ('pg13', '13alpha', 'arm, amd', 0, '20200201','');
+			INSERT INTO releases VALUES ('pgsnapshot', 4, 'pg', 'Postgres Snapshot', '', 'pre-alpha', 1);
+				INSERT INTO versions VALUES ('pgsnapshot', '13nightly', 'arm, amd, osx', 0, '20200201','');
 
 
 INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability',       'Compatible', 'plug_compat.png');
