@@ -16,18 +16,14 @@ mkdir -p ~/dev/
 cd ~/dev
 git clone https://github.com/bigsql/bigsql-apg.git
 $APT install sqlite3 python3 curl wget
-curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-sudo python3 get-pip.py
-sudo pip3 install awscli
-$APT install openjdk-8-jdk
-$APT install build-essential flex bison
-$APT install zlib1g-dev libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath
-$APT install libperl-dev libpython3-dev
-$APT install pkg-config libevent-dev cmake libcurl4-openssl-dev *unixodbc*
-sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
-$APT install clang-6.0
-$APT install lxc lxd lxcfs
+#wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+$APT install openjdk-8-jdk build-essential flex bison zlib1g-dev \
+  libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath \
+  libperl-dev libpython3-dev pkg-config libevent-dev cmake \
+  libcurl4-openssl-dev *unixodbc* clang lxc lxcfs
+#sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
+#$APT install clang-6.0
+
 sudo mkdir /opt/pgbin-build
 sudo chmod 777 /opt/pgbin-build
 sudo chown $USER:$USER /opt/pgbin-build
@@ -40,9 +36,18 @@ mkdir -p ~/dev
 cd ~/dev
 mkdir in
 mkdir out
-mkdir apg_history
+mkdir history
+
+cd ~
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+rm get-pip.py
+sudo pip3 install awscli
 mkdir -p ~/.aws
 cd ~/.aws
+touch config
+# vi config
+chmod 600 config
 ```
 
 ## ENV setup for .bashrc #########################
