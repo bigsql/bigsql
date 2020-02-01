@@ -13,11 +13,11 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table width=1000 border=0 bgcolor=royalblue cellpadding=5> \n' +
+  print('<table height=100 width=1000 border=0 background=img/top-background.gif cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=10%><center><img width=65 src=img/seastar.png /></center></td> \n' + \
+        '    <td width=10%><center><img height=85 width=85 src=img/aarch-io.png /></center></td> \n' + \
         '    <td width=50%><font color=white> \n' + \
-        'ARM & x86 64-bit relocatable binaries on RHEL 7+, Ubuntu 16+, ' + \
+        'Aarch & Intel binaries on RHEL 7+, Ubuntu 16+, ' + \
         'OSX, iOS, ChromeOS & Android</font>\n' + \
         '    </td>\n' + \
         '    <td width=40%><font size=-1 color=white>\n' + \
@@ -52,8 +52,6 @@ def get_columns(d):
   project_url = str(d[8])
 
   platform = str(d[9])
-  if platform == "":
-    platform = "arm, amd"
 
   rel_date = str(d[10])
   rel_yy = rel_date[2:4]
