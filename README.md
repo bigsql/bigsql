@@ -1,6 +1,7 @@
 # README.md bigsql-apg
 
 ## UBUNTU 16.04 LTS (XENIAL) SETUP ####################
+```
 APT="sudo apt -y"
 $APT update
 $APT upgrade
@@ -42,8 +43,10 @@ mkdir out
 mkdir apg_history
 mkdir -p ~/.aws
 cd ~/.aws
+```
 
 ## ENV setup for .bashrc #########################
+```
 export REGION=us-west-2
 export BUCKET=s3://bigsql-apg-download
 
@@ -64,8 +67,10 @@ export REPO=http://localhost:8000
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:$JAVA_HOME/bin
+```
 
 ## OTHER setup after ~/.bashrc, ~/.aws & /opt/pgbin-build #######
+```
 cd $IN
 cp $APG/devel/util/pull-s3.sh .
 ./pull-s3.sh
@@ -75,3 +80,4 @@ cd $BLD
 cp -p $APG/devel/pgbin/build/* .
 ./sharedLibs.sh
 ./build-all-pgbin.sh 11
+```
