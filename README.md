@@ -1,6 +1,6 @@
-# README.md bigsql-apg
+# BIGSQL
 
-## UBUNTU 16.04 LTS (XENIAL) SETUP ####################
+## UBUNTU 16.04 LTS
 ```
 APT="sudo apt -y"
 $APT update
