@@ -244,8 +244,8 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
    INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'test', 1);
     INSERT INTO versions VALUES ('minikube', '1.6.2', 'arm', 1, '20191220', '');
 
-  INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
-   INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'test', 1);
+  INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.jpg', 'K8s Package Manager', 'https://helm.sh');
+   INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'prod', 1);
     INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
 
   INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
