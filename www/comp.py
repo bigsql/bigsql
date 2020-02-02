@@ -15,13 +15,13 @@ def print_top():
 
   print('<table height=100 width=1000 border=0 background=img/top-background.gif cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=10%><center><img height=85 width=85 src=img/aarch-io.png /></center></td> \n' + \
-        '    <td width=50%><font color=white> \n' + \
-        'Aarch & Intel binaries on RHEL 7+, Ubuntu 16+, ' + \
-        'OSX, iOS, ChromeOS & Android</font>\n' + \
+        '    <td width=15%><center><img height=85 width=85 src=img/aarch-io.png /></center></td> \n' + \
+        '    <td width=40%><font color=white> \n' + \
+        'AARCH64 & AMD64 binaries for Ubuntu 16+,<br>' + \
+        'RHEL 7+, OSX, ChromeOS</font>\n' + \
         '    </td>\n' + \
-        '    <td width=40%><font size=-1 color=white>\n' + \
-        'BUCKET=https://big.pgsql.io.s3.amazonaws.com<br>\n' + \
+        '    <td width=45%><font color=white>\n' + \
+        'BUCKET=https://download-bigsql-apg.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
