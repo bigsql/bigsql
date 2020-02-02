@@ -124,11 +124,11 @@ INSERT INTO releases VALUES ('mysql_fdw', 10, 'mysql', 'MySQL FDW',  '', 'prod',
 INSERT INTO versions VALUES ('mysql_fdw-pg11', '2.5.3-1', 'arm', 1, '20190927', 'pg11');
 
 INSERT INTO projects VALUES ('sqlsvr', 2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
-INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server', '', 'hidden',  0);
+INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server', '', 'proprietary',  0);
 INSERT INTO versions VALUES ('sqlsvr', '2008+', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('sybase', 2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
-INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'Sybase ASE', '', 'hidden',  0);
+INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '', 'proprietary',  0);
 INSERT INTO versions VALUES ('sybase', '2019', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
@@ -139,9 +139,9 @@ INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/l
 INSERT INTO releases VALUES ('oracle_fdw-pg11', 7, 'oracle_fdw', 'Oracle FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('oracle_fdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
 
-INSERT INTO projects VALUES ('oracle', 2, 0, 'hub', 0, 'https://oracle.com', 'oracle', 0, 'oracle.png', 'Oracle Express', 'https://oracle.com');
-INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle', '', 'dev',  0);
-INSERT INTO versions VALUES ('oracle', '11.2.0', 'amd', 1, '20191010', '');
+INSERT INTO projects VALUES ('oracle', 2, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
+INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'proprietary',  0);
+INSERT INTO versions VALUES ('oracle', '10+', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'orafce.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
@@ -180,7 +180,7 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
     INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1', 'arm', 1, '20191119', 'pg11');
 
 -- ##
- INSERT INTO categories VALUES (4, 40,'Secure, Scaleable & Avaialable', 'Secure');
+ INSERT INTO categories VALUES (4, 40,'Secure, Scaleable & Available', 'Secure');
 
   INSERT INTO projects VALUES ('backrest', 4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
    INSERT INTO releases VALUES ('backrest', 4, 'backrest', 'pgBackRest', '', 'prod', 1);

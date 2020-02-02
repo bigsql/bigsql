@@ -13,15 +13,14 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table height=100 width=1000 border=0 background=img/top-background.gif cellpadding=5> \n' +
+  print('<table height=100 width=1000 border=0 bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=10%><center><img height=85 width=85 src=img/aarch-io.png /></center></td> \n' + \
-        '    <td width=50%><font color=white> \n' + \
-        'Aarch & Intel binaries on RHEL 7+, Ubuntu 16+, ' + \
-        'OSX, iOS, ChromeOS & Android</font>\n' + \
+        '    <td width=20%><img src=img/bigsql-io-banner.png /></td> \n' + \
+        '    <td width=35%><font color=white> \n' + \
+        'ARM & AMD binaries on Linux, OSX, and Windows</font>\n' + \
         '    </td>\n' + \
-        '    <td width=40%><font size=-1 color=white>\n' + \
-        'BUCKET=https://big.pgsql.io.s3.amazonaws.com<br>\n' + \
+        '    <td width=25%><font size=-1 color=white>\n' + \
+        'BUCKET=https://bigsql.io.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
@@ -32,8 +31,8 @@ def print_top():
 
  
 def print_bottom():
-  print('\n\n' + \
-        '</td></tr></table></center>')
+  print('    </td>\n  </tr>\n</table>\n</center>\n\n<br>\n')
+  print('&copy; BigSQL 2015-2020, All rights reserved.')
 
 
 def get_columns(d):

@@ -1,0 +1,10 @@
+flask
+peewee
+pygments
+markdown
+micawber
+BeautifulSoup4
+Werkzeug
+Jinja2
+itsdangerous
+markupsafe
