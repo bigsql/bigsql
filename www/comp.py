@@ -15,22 +15,12 @@ def print_top():
 
   print('<table height=100 width=1000 border=0 bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
-<<<<<<< HEAD
         '    <td width=20%><img src=img/bigsql-io-banner.png /></td> \n' + \
         '    <td width=35%><font color=white> \n' + \
         'ARM & AMD binaries on Linux, OSX, and Windows</font>\n' + \
         '    </td>\n' + \
         '    <td width=25%><font size=-1 color=white>\n' + \
         'BUCKET=https://bigsql.io.s3.amazonaws.com<br>\n' + \
-=======
-        '    <td width=15%><center><img height=85 width=85 src=img/aarch-io.png /></center></td> \n' + \
-        '    <td width=40%><font color=white> \n' + \
-        'AARCH64 & AMD64 binaries for Ubuntu 16+,<br>' + \
-        'RHEL 7+, OSX, ChromeOS</font>\n' + \
-        '    </td>\n' + \
-        '    <td width=45%><font color=white>\n' + \
-        'BUCKET=https://download-bigsql-apg.s3.amazonaws.com<br>\n' + \
->>>>>>> 96ab80bef834ba6478fcf89800db74d46d4b6a29
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
