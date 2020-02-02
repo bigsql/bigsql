@@ -70,6 +70,8 @@ export CLI=$APG/cli/scripts
 export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
+alias git-push="cd ~/dev/bigsql-apg; git add .; git commit -m wip; git push"
+
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:$JAVA_HOME/bin
 ```
