@@ -5,7 +5,7 @@ v96=9.6.16
 v10=10.11
 v11=11.6
 v12=12.1
-v13=postgresql
+v13=13devel
 
 fatalError () {
   echo "FATAL ERROR!  $1"
@@ -33,7 +33,7 @@ checkCmd () {
 
 
 masterBuild () {
-  echoCmd "cd postgresql"
+  echoCmd "cd 13devel"
   echoCmd "git checkout master"
   echoCmd "git pull"
   makeInstall
@@ -60,6 +60,7 @@ downBuild () {
   makeInstall
   echoCmd "cd .."
 }
+
 
 makeInstall () {
   echoCmd "make clean"
