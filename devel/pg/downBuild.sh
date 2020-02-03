@@ -5,6 +5,7 @@ v96=9.6.16
 v10=10.11
 v11=11.6
 v12=12.1
+v13=postgresql
 
 fatalError () {
   echo "FATAL ERROR!  $1"
@@ -31,6 +32,15 @@ checkCmd () {
 }
 
 
+masterBuild () {
+  echoCmd "cd postgresql"
+  echoCmd "git checkout master"
+  echoCmd "git pull"
+  makeInstall
+  echoCmd "cd .."
+}
+
+
 downBuild () {
   echo " "
   echo "##################### PostgreSQL $1 ###########################"
@@ -45,17 +55,25 @@ downBuild () {
   echoCmd "tar -xf postgresql-$1.tar.gz"
   echoCmd "mv postgresql-$1 $1"
   echoCmd "rm postgresql-$1.tar.gz"
+
   echoCmd "cd $1"
-  echoCmd "./configure --prefix=$PWD $options"
-  echoCmd "make -j8"
-  echoCmd "make install"
+  makeInstall
   echoCmd "cd .."
 }
 
+makeInstall () {
+  echoCmd "make clean"
+  sleep 3
+  echoCmd "./configure --prefix=$PWD $options"
+  sleep 3
+  echoCmd "make -j8"
+  sleep 3
+  echoCmd "make install"
+}
 
-#################################################################################
-##                        MAINLINE
-#################################################################################
+
+## MAINLINE ##############################
+
 if [ "$1" == "94" ]; then
   options=""
   downBuild $v94
@@ -72,10 +90,13 @@ elif [ "$1" == "11" ]; then
   options="--with-llvm"
   downBuild $v11
 elif [ "$1" == "12" ]; then
-  options="--with-llvm"
+  options=""
   downBuild $v12
+elif [ "$1" == "13" ]; then
+  options=""
+  masterBuild
 else
-  echo "ERROR: Incorrect PG version.  Must be 94, 95, 96, 10, 11 or 12"
+  echo "ERROR: Incorrect PG version.  Must be between 94 and 13"
   exit 1
 fi
  
