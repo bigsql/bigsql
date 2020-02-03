@@ -46,7 +46,7 @@ downBuild () {
   echoCmd "mv postgresql-$1 $1"
   echoCmd "rm postgresql-$1.tar.gz"
   echoCmd "cd $1"
-  echoCmd "./configure --prefix=$PWD --with-openssl $options"
+  echoCmd "./configure --prefix=$PWD $options"
   echoCmd "make -j8"
   echoCmd "make install"
   echoCmd "cd .."
