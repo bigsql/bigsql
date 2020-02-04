@@ -143,7 +143,7 @@ INSERT INTO projects VALUES ('oracle', 2, 0, 'hub', 0, 'https://www.oracle.com/d
 INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'proprietary',  0);
 INSERT INTO versions VALUES ('oracle', '10+', 'amd', 1, '20191010', '');
 
-INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'orafce.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
+INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
 INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm', 1, '20190522', 'pg11');
 
