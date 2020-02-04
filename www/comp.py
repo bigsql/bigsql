@@ -13,7 +13,7 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 10)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table height=100 width=1000 border=0 bgcolor=black cellpadding=5> \n' +
+  print('<table height=100 width=800 border=0 bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
         '    <td width=20%><img src=img/bigsql-banner.png /></td> \n' + \
         '    <td width=35%><font color=white> \n' + \
