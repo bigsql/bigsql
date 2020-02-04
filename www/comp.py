@@ -15,12 +15,12 @@ def print_top():
 
   print('<table height=100 width=1000 border=0 bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=20%><img src=img/bigsql-io-banner.png /></td> \n' + \
+        '    <td width=20%><img src=img/bigsql-banner.png /></td> \n' + \
         '    <td width=35%><font color=white> \n' + \
         'ARM & AMD binaries on Linux, OSX, and Windows</font>\n' + \
         '    </td>\n' + \
         '    <td width=25%><font size=-1 color=white>\n' + \
-        'BUCKET=https://bigsql.io.s3.amazonaws.com<br>\n' + \
+        'BUCKET=https://bigsql-apg.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
         '    </td>\n' + \
