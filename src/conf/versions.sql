@@ -77,7 +77,7 @@ INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200201', '');
 INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source Database', 'Best RDBMS', 'postgres.png');
 INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
 
-INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'postgres.png', 'Best RDBMS', 'https://postgresql.org');
+INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'bruce_momjian.png', 'Best RDBMS', 'https://postgresql.org');
 
 INSERT INTO releases VALUES ('pg11', 4, 'pg', 'BigSQL PG 11', '', 'recommended', 1);
 INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd, osx', 1, '20191114','');
