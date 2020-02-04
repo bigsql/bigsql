@@ -77,7 +77,7 @@ INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200201', '');
 INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source Database', 'Best RDBMS', 'postgres.png');
 INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
 
-INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'bruce_momjian.png', 'Best RDBMS', 'https://postgresql.org');
+INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'bruce.png', 'Best RDBMS', 'https://postgresql.org');
 
 INSERT INTO releases VALUES ('pg11', 4, 'pg', 'BigSQL PG 11', '', 'recommended', 1);
 INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd, osx', 1, '20191114','');
@@ -163,7 +163,7 @@ INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm', 1, '20191114', 'pg11')
   INSERT INTO releases VALUES ('pljava-pg11', 18, 'pljava', 'PL/Java', '', 'prod', 1);
    INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm',  1, '20191104', 'pg11');
 
- INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases', 'plpgsql', 1, 'jan_wieck.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
+ INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases', 'plpgsql', 1, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
   INSERT INTO releases VALUES ('plpgsql-pg11', 18, 'plpgsql', 'PL/pgSQL', '', 'pre-installed', 1);
    INSERT INTO versions VALUES ('plpgsql-pg11', '11.5',  'arm, amd, osx',  1, '20191114', 'pg11');
 
