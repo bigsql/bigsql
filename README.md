@@ -50,16 +50,21 @@ touch config
 chmod 600 config
 ```
 
-## ENV setup for .bashrc #########################
+## ENV for ~/.bashrc or ~/.bash_profile 
 ```
+alias git-push="cd ~/dev/bigsql-apg; git status; git add .; git commit -m wip; git push"
+alias bp="cd ~/dev/bigsql-apg; . ./bp.sh"
+alias http="cd ~/dev/bigsql-apg; ./startHTTP.sh"
+
 export REGION=us-west-2
 export BUCKET=s3://bigsql-apg-download
 
 export DEV=$HOME/dev
 export IN=$DEV/in
+export SRC=$IN/sources
 export OUT=$DEV/out
 export APG=$DEV/bigsql-apg
-export SRC=$IN/sources
+export VER=$APG/src/conf/versions.sql
 export BLD=/opt/pgbin-build/pgbin/bin
 
 export DEVEL=$APG/devel
@@ -69,8 +74,6 @@ export UTIL=$DEVEL/util
 export CLI=$APG/cli/scripts
 export PSX=$APG/out/posix
 export REPO=http://localhost:8000
-
-alias git-push="cd ~/dev/bigsql-apg; git add .; git commit -m wip; git push"
 
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin
 export PATH=$PATH:$JAVA_HOME/bin
