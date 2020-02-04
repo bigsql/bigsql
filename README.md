@@ -25,13 +25,10 @@ $APT install openjdk-8-jdk build-essential flex bison zlib1g-dev \
 #$APT install clang-6.0
 
 sudo mkdir /opt/pgbin-build
-sudo chmod 777 /opt/pgbin-build
-sudo chown $USER:$USER /opt/pgbin-build
-mkdir /opt/pgbin-build/pgbin
-mkdir /opt/pgbin-build/pgbin/bin
+sudo chown $USER:wheel /opt/pgbin-build
+mkdir -p /opt/pgbin-build/pgbin/bin
 sudo mkdir /opt/pgcomponent
-sudo chmod 777 /opt/pgcomponent
-sudo chown $USER:$USER /opt/pgcomponent
+sudo chown $USER:wheel /opt/pgcomponent
 mkdir -p ~/dev
 cd ~/dev
 mkdir in
