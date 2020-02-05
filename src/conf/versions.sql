@@ -135,8 +135,8 @@ INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '',
 INSERT INTO versions VALUES ('sybase', '2019', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
-INSERT INTO releases VALUES ('tds_fdw-pg11', 4, 'tds_fdw', 'TDS FDW', '', 'test', 1);
-INSERT INTO versions VALUES ('tds_fdw-pg11', '2.1.0-1', 'arm',  1, '20191202', 'pg11');
+INSERT INTO releases VALUES ('tds_fdw-pg11', 4, 'tds_fdw', 'TDS FDW', '', 'prod', 1);
+INSERT INTO versions VALUES ('tds_fdw-pg11', '2.0.1-1', 'arm',  1, '20191202', 'pg11');
 
 INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle_fdw.png', 'Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
 INSERT INTO releases VALUES ('oracle_fdw-pg11', 7, 'oracle_fdw', 'Oracle FDW', '', 'prod', 1);
@@ -240,11 +240,11 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
  INSERT INTO categories VALUES (7, 50, 'The World of Containers', 'Contain');
 
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-   INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'test', 1);
+   INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'prod', 1);
     INSERT INTO versions VALUES ('docker', '19.03.5', 'arm', 1, '20191113', '');
 
   INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
-   INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'test', 1);
+   INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'prod', 1);
     INSERT INTO versions VALUES ('minikube', '1.6.2', 'arm', 1, '20191220', '');
 
   INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.jpg', 'K8s Package Manager', 'https://helm.sh');
