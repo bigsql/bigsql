@@ -2,9 +2,10 @@ import sqlite3, sys
 
 isSHOW_COMP_PLAT = 'Y'
 BR = "<br>"
+WIDTH = 875
+COL_SIZE = 265
 NUM_COLS = 3
-FONT_SIZE = 5 - NUM_COLS
-COL_SIZE = 800 / NUM_COLS
+FONT_SIZE = 2
 IMG_SIZE = 30
 BORDER=0
 SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 9)
@@ -13,13 +14,13 @@ SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 9)
 def print_top():
   print('<center><table><tr><td> \n')
 
-  print('<table height=100 width=900 border=0 bgcolor=black cellpadding=5> \n' +
+  print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
-        '    <td width=10%><img src=img/bigsql-banner.png /></td> \n' + \
-        '    <td width=50%><font color=white> \n' + \
+        '    <td width=20%><img width=200 height=35 src=img/bigsql-banner.png /></td> \n' + \
+        '    <td width=45%><font color=white> \n' + \
         'ARM & AMD binaries on Linux, OSX, and Windows</font>\n' + \
         '    </td>\n' + \
-        '    <td width=40%><font size=-1 color=white>\n' + \
+        '    <td width=35%><font size=-1 color=white>\n' + \
         'BUCKET=https://bigsql-apg.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \

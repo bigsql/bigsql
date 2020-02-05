@@ -77,7 +77,8 @@ INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200201', '');
 INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source Database', 'Best RDBMS', 'postgres.png');
 INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
 
-INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download', 'postgres', 0, 'bruce.png', 'Best RDBMS', 'https://postgresql.org');
+INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
+ 'postgres', 0, 'bruce.png', 'Best RDBMS', 'https://postgresql.org');
 
 INSERT INTO releases VALUES ('pg11', 4, 'pg', 'BigSQL PG 11', '', 'recommended', 1);
 INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd, osx', 1, '20191114','');
@@ -96,31 +97,33 @@ INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apa
 INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'hidden', 1);
 INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 1, '20191029', '');
 
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 'cstarfdw', 1, 'cstar_fdw.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
+INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
+  'cstarfdw', 1, 'cstar_fdw.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 12, 'cassandra_fdw', 'CassandraFDW','','prod', 1);
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1', 'arm', 1, '20191230', 'pg11');
 
 INSERT INTO projects VALUES ('hive', 2, 0, 'hub', 0, 
-  'https://github.com/hivedb/hive/releases', 'hidden', 1, 'hive.png', 
-  'BigSQL Queries', 'https://hiveapache.org');
+  'https://hive.apache.org', 'bring-own', 1, 'hive.png', 
+  'BigSQL Queries', 'https://hive.apache.org');
 INSERT INTO releases VALUES ('hive', 13, 'hive', 'Hive', '', 'prod', 1);
 INSERT INTO versions VALUES ('hive', '0.229', '', 1, '20191115', '');
 
-INSERT INTO projects VALUES ('pghive', 2, 0, 'hub', 0, 
-  'https://github.com/bigsql/pghive/releases', 'pghive', 1, 'pghive.png', 
+INSERT INTO projects VALUES ('hive_fdw', 2, 0, 'hub', 0, 
+  'https://github.com/bigsql/hive_fdw/releases', 'hive_fdw', 1, 'hive_fdw.png', 
   'BigSQL Queries from PG', 'https://github.com/bigsql/pghivew#pghive');
-INSERT INTO releases VALUES ('pghive-pg11', 14, 'pghive', 'pgHive',     '', 'prod', 1);
-INSERT INTO versions VALUES ('pghive-pg11', '3.2-1', 'arm', 1, '20191230', 'pg11');
+INSERT INTO releases VALUES ('hive_fdw-pg11', 14, 'hive_fdw', 'hive_fdw', '', 'prod', 1);
+INSERT INTO versions VALUES ('hive_fdw-pg11', '3.2-1', 'arm', 1, '20191230', 'pg11');
 
 INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 
-  'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql_fdw.png',
+  'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png',
   'MySQL Server CE', 'https://dev.mysql.com');
 INSERT INTO releases VALUES ('mysql', 9, 'mysql', 'MySQL', '', 'prod',  1);
 INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 1, '20191014', '');
 
-INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 
-    'mysql_fdw', 1, 'mysql.png', 'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
-INSERT INTO releases VALUES ('mysql_fdw', 10, 'mysql', 'MySQL FDW',  '', 'prod', 1);
+INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 
+  'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysq_fdw.png', 
+  'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
+INSERT INTO releases VALUES ('mysql_fdw', 10, 'mysql_fdw', 'MySQL FDW',  '', 'prod', 1);
 INSERT INTO versions VALUES ('mysql_fdw-pg11', '2.5.3-1', 'arm', 1, '20190927', 'pg11');
 
 INSERT INTO projects VALUES ('sqlsvr', 2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
@@ -248,8 +251,8 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
    INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'prod', 1);
     INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
 
-  INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability', 'https://github.com/zalando/patroni');
-   INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'test', 1);
+  INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability K8s Template', 'https://github.com/zalando/patroni');
+   INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
 
  INSERT INTO projects VALUES ('omnidb', 7, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
@@ -262,27 +265,27 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
 
  INSERT INTO categories VALUES (8, 50,  'Connectors',   'Connects');
   INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
-   INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'prod', 1);
+   INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('jdbc', '42.2.9', '', 1, '20191206', '');
 
   INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
-   INSERT INTO releases VALUES ('npgsql', 10, 'npgsql', '.net PG', '', 'prod', 1);
+   INSERT INTO releases VALUES ('npgsql', 10, 'npgsql', '.net PG', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('npgsql', '3.1.0', '', 1, '20191201', '');
 
   INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://initd.org/psycopg');
-   INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'prod', 1);
+   INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'bring-own', 1);
    INSERT INTO versions VALUES ('psycopg', '2.8.4', '', 1, '20191020', '');
 
   INSERT INTO projects VALUES ('ruby', 8, 0, 'hub', 4, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
-   INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'prod', 1);
+   INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('ruby', '1.2.2', '', 1, '20200108', '');
 
   INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
-   INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'prod', 1);
+   INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'included', 1);
     INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd', 1, '20200107', '');
 
   INSERT INTO projects VALUES ('http', 8, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
-   INSERT INTO releases VALUES ('http-pg11',         13, 'http',          'HTTP Client', '', 'prod', 1);
+   INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'included', 1);
     INSERT INTO versions VALUES ('http-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
 
   INSERT INTO projects VALUES ('pgrest',     2, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
