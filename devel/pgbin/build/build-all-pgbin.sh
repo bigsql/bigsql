@@ -20,9 +20,12 @@ function runPgBin {
   bkrstSrc=$SRC/backrest-$backrestV.tar.gz
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV"
-  cmd="$cmd -b $bncrSrc"
-  cmd="$cmd -k $bkrstSrc"
-  ##cmd="$cmd -o $odbcSrc $optional"
+
+  if [ `uname` == "Linux" ]; then
+    cmd="$cmd -b $bncrSrc"
+    cmd="$cmd -k $bkrstSrc"
+    ##cmd="$cmd -o $odbcSrc $optional"
+  fi
   $cmd
   if [[ $? -ne 0 ]]; then
     echo "Build Failed"

@@ -45,12 +45,12 @@ $scriptName [OPTIONS]
 
 Required Options:
 	-a      Target build location, the final tar.bz2 would be placed here
-        -t      PostgreSQL Source tar ball.
+	-t      PostgreSQL Source tar ball.
 
 Optional:
-        -n      Build number, defaults to 1.
+	-n      Build number, defaults to 1.
 	-c      Copy tarFile to \$IN/postgres/pgXX
-        -h      Print Usage/help.
+	-h      Print Usage/help.
 
 ";
 }
@@ -64,7 +64,7 @@ function checkPostgres {
 		exit 1
 	fi	
 
-        cd $baseDir	
+	cd $baseDir	
 	mkdir -p $workDir
 	cd $workDir
 	mkdir -p logs
@@ -131,16 +131,16 @@ function checkBouncer {
 
 
 function checkODBC {
-        cd $baseDir
-        mkdir -p $workDir
+    cd $baseDir
+    mkdir -p $workDir
 
-        cd $baseDir/$workDir
+    cd $baseDir/$workDir
 
-        odbcSourceDir=`dirname $(tar -tf $odbcSourceTar | grep "odbcapi.c")`
+    odbcSourceDir=`dirname $(tar -tf $odbcSourceTar | grep "odbcapi.c")`
 
-        tar -xzf $odbcSourceTar
+    tar -xzf $odbcSourceTar
 
-        return 0
+    return 0
 }
 
 
@@ -151,12 +151,16 @@ function buildPostgres {
 	mkdir -p $baseDir/$workDir/logs
 	buildLocation="$baseDir/$workDir/build/pg$pgShortV-$pgSrcV-$pgBldV-$OS"
 
-	conf="$conf --with-openssl --with-libxslt --with-libxml"
-	conf="$conf --disable-rpath $pgLLVM"
-        ##conf="$conf --with-python PYTHON=/usr/bin/python3 --with-perl"
-	##conf="$conf --with-uuid=ossp --with-gssapi --with-python --with-perl"
-	##conf="$conf --with-uuid=ossp --with-python --with-perl --with-ldap"
-	##conf="$conf --with-tcl --with-pam"
+	if [ `uname` == "Darwin" ]; then
+		conf="$conf --disable-rpath"
+	else
+		conf="$conf --with-openssl --with-libxslt --with-libxml"
+		conf="$conf --disable-rpath $pgLLVM"
+		##conf="$conf --with-python PYTHON=/usr/bin/python3 --with-perl"
+		##conf="$conf --with-uuid=ossp --with-gssapi --with-python --with-perl"
+		##conf="$conf --with-uuid=ossp --with-python --with-perl --with-ldap"
+		##conf="$conf --with-tcl --with-pam"
+	fi
 
 	echo "#  @`date`  $conf"
 	configCmnd="./configure --prefix=$buildLocation $conf" 

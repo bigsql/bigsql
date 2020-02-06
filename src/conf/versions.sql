@@ -122,9 +122,9 @@ INSERT INTO releases VALUES ('mysql', 9, 'mysql', 'MySQL', '', 'prod',  1);
 INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 1, '20191014', '');
 
 INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 
-  'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysq_fdw.png', 
+  'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql_fdw.png', 
   'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
-INSERT INTO releases VALUES ('mysql_fdw', 10, 'mysql_fdw', 'MySQL FDW',  '', 'prod', 1);
+INSERT INTO releases VALUES ('mysql_fdw-pg11', 10, 'mysql_fdw', 'MySQL FDW',  '', 'prod', 1);
 INSERT INTO versions VALUES ('mysql_fdw-pg11', '2.5.3-1', 'arm', 1, '20190927', 'pg11');
 
 INSERT INTO projects VALUES ('sqlsvr', 2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');

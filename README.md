@@ -2,10 +2,6 @@
 
 ## UBUNTU 16.04 LTS
 ```
-APT="sudo apt -y"
-$APT update
-$APT upgrade
-$APT install git
 EMAIL="denis@lussier.io"
 NAME="denis lussier"
 git config --global user.email "$EMAIL"
@@ -15,14 +11,21 @@ git config --global credential.helper store
 mkdir -p ~/dev/
 cd ~/dev
 git clone https://github.com/bigsql/bigsql-apg.git
-$APT install sqlite3 python3 curl wget
-#wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-$APT install openjdk-8-jdk build-essential flex bison zlib1g-dev \
-  libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath \
-  libperl-dev libpython3-dev pkg-config libevent-dev cmake \
-  libcurl4-openssl-dev *unixodbc* clang lxc lxcfs
-#sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
-#$APT install clang-6.0
+
+if [ `uname` == 'DARWIN' ]; then
+  brew install sqlite3 python3 curl wget
+  brew install gcc flex bison zlib1g libreadline libxml2 libxslt
+else
+  APT="sudo apt -y"
+  $APT install sqlite3 python3 curl wget
+  #wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+  $APT install openjdk-8-jdk build-essential flex bison zlib1g-dev \
+    libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath \
+    libperl-dev libpython3-dev pkg-config libevent-dev cmake \
+    libcurl4-openssl-dev *unixodbc* clang lxc lxcfs
+  #sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
+  #$APT install clang-6.0
+fi
 
 sudo mkdir /opt/pgbin-build
 sudo chown $USER:wheel /opt/pgbin-build
