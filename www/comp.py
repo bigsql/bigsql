@@ -17,13 +17,14 @@ def print_top():
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=5> \n' +
         '  <tr> \n' + \
         '    <td width=20%><img width=200 height=35 src=img/bigsql-banner.png /></td> \n' + \
-        '    <td width=45%><font color=white> \n' + \
-        'ARM & AMD binaries on Linux, OSX, and Windows</font>\n' + \
+        '    <td width=40%><font color=white> \n' + \
+        'ARM & AMD binaries on Linux & OSX</font>\n' + \
         '    </td>\n' + \
-        '    <td width=35%><font size=-1 color=white>\n' + \
+        '    <td width=40%><font size=-1 color=white>\n' + \
         'BUCKET=https://bigsql-apg.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
-        'python3 -c "$(curl -fsSL $INSTALLER)"</font>\n' + \
+        'python3 -c "$(curl -fsSL $INSTALLER)"<br>&nbsp;<br>\n' + \
+        'cd bigsql; ./apg install pg11; ./apg start pg11</font>\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
@@ -33,7 +34,7 @@ def print_top():
  
 def print_bottom():
   print('    </td>\n  </tr>\n</table>\n</center>\n\n<br>\n')
-  print('&copy; BigSQL 2015-2020, All rights reserved.')
+  print('&copy; BigSQL 2012-2020, All rights reserved.')
 
 
 def get_columns(d):

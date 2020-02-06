@@ -151,23 +151,23 @@ INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1
 INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm', 1, '20190522', 'pg11');
 
 INSERT INTO projects VALUES ('plv8', 3, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
-INSERT INTO releases VALUES ('plv8-pg11', 17, 'plv8', 'PL/V8', '', 'prod', 1);
+INSERT INTO releases VALUES ('plv8-pg11', 3, 'plv8', 'PL/V8', '', 'prod', 1);
 INSERT INTO versions VALUES ('plv8-pg11', '2.3.14-1', 'arm', 1, '20200109', 'pg11');
 
 INSERT INTO projects VALUES ('plpython', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
-INSERT INTO releases VALUES ('plpython-pg11', 16, 'plpython', 'PL/Python','', 'prod', 1);
+INSERT INTO releases VALUES ('plpython-pg11', 4, 'plpython', 'PL/Python','', 'prod', 1);
 INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm', 1, '20191114', 'pg11');
 
  INSERT INTO projects VALUES ('plperl', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html', 'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
-  INSERT INTO releases VALUES ('plperl-pg11', 16, 'plperl', 'PL/Perl','', 'prod', 1);
+  INSERT INTO releases VALUES ('plperl-pg11', 3, 'plperl', 'PL/Perl','', 'prod', 1);
    INSERT INTO versions VALUES ('plperl-pg11', '5', 'arm', 1, '20191114', 'pg11');
 
  INSERT INTO projects VALUES ('pljava', 3, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
-  INSERT INTO releases VALUES ('pljava-pg11', 18, 'pljava', 'PL/Java', '', 'prod', 1);
+  INSERT INTO releases VALUES ('pljava-pg11', 2, 'pljava', 'PL/Java', '', 'prod', 1);
    INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm',  1, '20191104', 'pg11');
 
  INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases', 'plpgsql', 1, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
-  INSERT INTO releases VALUES ('plpgsql-pg11', 18, 'plpgsql', 'PL/pgSQL', '', 'pre-installed', 1);
+  INSERT INTO releases VALUES ('plpgsql-pg11', 1, 'plpgsql', 'PL/pgSQL', '', 'pre-installed', 1);
    INSERT INTO versions VALUES ('plpgsql-pg11', '11.5',  'arm, amd, osx',  1, '20191114', 'pg11');
 
 -- ##
