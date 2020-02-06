@@ -105,14 +105,14 @@ INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1', 'arm', 1, '2019123
 
 INSERT INTO projects VALUES ('hive', 2, 0, 'hub', 0, 
   'https://hive.apache.org', 'bring-own', 1, 'hive.png', 
-  'BigSQL Queries', 'https://hive.apache.org');
+  'Big Data Queries', 'https://hive.apache.org');
 INSERT INTO releases VALUES ('hive', 13, 'hive', 'Hive', '', 'prod', 1);
 INSERT INTO versions VALUES ('hive', '0.229', '', 1, '20191115', '');
 
 INSERT INTO projects VALUES ('hive_fdw', 2, 0, 'hub', 0, 
   'https://github.com/bigsql/hive_fdw/releases', 'hive_fdw', 1, 'hive_fdw.png', 
-  'BigSQL Queries from PG', 'https://github.com/bigsql/pghivew#pghive');
-INSERT INTO releases VALUES ('hive_fdw-pg11', 14, 'hive_fdw', 'hive_fdw', '', 'prod', 1);
+  'Big Data Queries from PG', 'https://github.com/bigsql/pghivew#pghive');
+INSERT INTO releases VALUES ('hive_fdw-pg11', 14, 'hive_fdw', 'Hive FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('hive_fdw-pg11', '3.2-1', 'arm', 1, '20191230', 'pg11');
 
 INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 
@@ -246,7 +246,7 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
 -- ##
 INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_thread.png');
- INSERT INTO categories VALUES (7, 50, 'The World of Containers', 'Contain');
+ INSERT INTO categories VALUES (7, 50, 'Containers', 'Containers');
 
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
    INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'prod', 1);
@@ -260,12 +260,12 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
    INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'prod', 1);
     INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
 
-  INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability K8s Template', 'https://github.com/zalando/patroni');
-   INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
-    INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
-
 -- ##
 INSERT INTO categories VALUES (8, 50,  'Applications',   'Applications');
+  INSERT INTO projects VALUES ('patroni', 8, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability Template', 'https://github.com/zalando/patroni');
+   INSERT INTO releases VALUES ('patroni', 2, 'patroni', 'Patroni', '', 'bring-own', 1);
+    INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
+
  INSERT INTO projects VALUES ('omnidb', 8, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
   INSERT INTO releases VALUES ('omnidb', 11, 'omnidb', 'OmniDB', '', 'prod', 1);
    INSERT INTO versions VALUES ('omnidb', '2.17-1', 'docker', 1, '20191205', '');
@@ -298,7 +298,7 @@ INSERT INTO categories VALUES (8, 50,  'Applications',   'Applications');
    INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'included', 1);
     INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd', 1, '20200107', '');
 
-  INSERT INTO projects VALUES ('http', 8, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
+  INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
    INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'included', 1);
     INSERT INTO versions VALUES ('http-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
 
