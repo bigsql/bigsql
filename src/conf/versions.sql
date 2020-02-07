@@ -81,14 +81,17 @@ INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
  'postgres', 0, 'bruce.png', 'Best RDBMS', 'https://postgresql.org');
 
-INSERT INTO releases VALUES ('pg11', 4, 'pg', 'BigSQL PG 11', '', 'recommended', 1);
+INSERT INTO releases VALUES ('pg10', 2, 'pg', 'PostgreSQL', '', 'old-school', 1);
+INSERT INTO versions VALUES ('pg10', '10.11-7', 'arm, amd, osx', 1, '20191114','');
+
+INSERT INTO releases VALUES ('pg11', 3, 'pg', 'PostgreSQL', '', 'recommended', 1);
 INSERT INTO versions VALUES ('pg11', '11.6-7', 'arm, amd, osx', 1, '20191114','');
 
-INSERT INTO releases VALUES ('pg12', 4, 'pg', 'BigSQL PG 12', '', 'stable', 1);
+INSERT INTO releases VALUES ('pg12', 4, 'pg', 'PostgreSQL', '', 'stable', 1);
 INSERT INTO versions VALUES ('pg12', '12.1-7', 'arm, amd, osx', 1, '20191114','');
 
-INSERT INTO releases VALUES ('pgnightly', 4, 'pg', 'BigSQL PG Nightly Build', '', 'pre-alpha', 1);
-INSERT INTO versions VALUES ('pgnightly', '13', 'arm, amd, osx', 1, '19700101','');
+INSERT INTO releases VALUES ('pgweekly', 5, 'pg', 'PostgreSQL Weekly Build', '', 'pre-alpha', 1);
+INSERT INTO versions VALUES ('pgweekly', '13', 'arm, amd, osx', 1, '19700101','');
 
 -- ##
 INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 'Compatible', 'plug_compat.png');

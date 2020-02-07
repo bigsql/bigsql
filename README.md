@@ -14,7 +14,8 @@ git clone https://github.com/bigsql/bigsql-apg.git
 
 if [ `uname` == 'DARWIN' ]; then
   brew install sqlite3 python3 curl wget
-  brew install gcc flex bison zlib1g libreadline libxml2 libxslt
+  brew install gcc flex bison zlib readline libxml2 libxslt
+  brew install clang llvm libuv
 else
   APT="sudo apt -y"
   $APT install sqlite3 python3 curl wget
