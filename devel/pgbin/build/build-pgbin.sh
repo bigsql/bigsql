@@ -358,9 +358,15 @@ function updateSharedLibPaths {
 		chrpath -r "\${ORIGIN}/../lib" "$file" >> $libPathLog 2>&1
 	done
 
+	if [ `uname` == "Linux" ]; then
+		libSuffix="*so*"
+	else
+		libSuffix="*dylib*"
+	fi
+
 	cd $buildLocation/lib
 	echo "#   looping thru shared objects"
-	for file in `ls -d *so*` ; do
+	for file in `ls -d $libSuffix` ; do
 		##echo "### $file"
 		chrpath -r "\${ORIGIN}/../lib" "$file" >> $libPathLog 2>&1 
 	done
@@ -369,7 +375,7 @@ function updateSharedLibPaths {
 	if [[ -d "$buildLocation/lib/postgresql" ]]; then	
 		cd $buildLocation/lib/postgresql
 		##echo "### $file"
-        	for file in `ls -d *.so` ; do
+        	for file in `ls -d $libSuffix` ; do
                 	chrpath -r "\${ORIGIN}/../../lib" "$file" >> $libPathLog 2>&1
         	done
 	fi

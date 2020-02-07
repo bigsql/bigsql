@@ -91,11 +91,11 @@ INSERT INTO releases VALUES ('pg12', 4, 'pg', 'PostgreSQL', '', 'stable', 1);
 INSERT INTO versions VALUES ('pg12', '12.1-7', 'arm, amd, osx', 1, '20191114','');
 
 INSERT INTO releases VALUES ('pgweekly', 5, 'pg', 'PostgreSQL Weekly Build', '', 'pre-alpha', 1);
-INSERT INTO versions VALUES ('pgweekly', '13', 'arm, amd, osx', 1, '19700101','');
+INSERT INTO versions VALUES ('pgweekly', '13', 'arm, amd, osx', 0, '19700101','');
 
 -- ##
 INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 'Compatible', 'plug_compat.png');
-INSERT INTO categories VALUES (2, 30, 'Foreign Data', 'Foreign');
+INSERT INTO categories VALUES (2, 30, 'Foreign Data Integration', 'Foreign Data');
 
 INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'hidden', 1);
@@ -155,7 +155,7 @@ INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'prop
 INSERT INTO versions VALUES ('oracle', '10+', 'amd', 1, '20191010', '');
 
 -- ##
- INSERT INTO categories VALUES (3, 30, 'Stored Procedures & Functions', 'Compat');
+ INSERT INTO categories VALUES (3, 30, 'Procedures & Functions', 'Compat');
 
 INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
@@ -287,7 +287,7 @@ INSERT INTO categories VALUES (8, 50,  'Applications',   'Applications');
 
   INSERT INTO projects VALUES ('postgis', 8, 1, 'hub', 3, 'http://postgis.net', 'postgis', 0, 'postgis.png', 'PostGIS', 'http://postgis.net');
    INSERT INTO releases VALUES ('postgis-pg11', 6, 'postgis', 'PostGIS', '', 'prod', 1);
-   INSERT INTO versions VALUES ('postgis-pg11', '3.0.0', '', 1, '20191020', '');
+   INSERT INTO versions VALUES ('postgis-pg11', '3.0.0', 'arm, amd, osx', 1, '20191020', '');
 
   INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://initd.org/psycopg');
    INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'bring-own', 1);
@@ -299,7 +299,7 @@ INSERT INTO categories VALUES (8, 50,  'Applications',   'Applications');
 
   INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
    INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'included', 1);
-    INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd', 1, '20200107', '');
+    INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd, osx', 1, '20200107', '');
 
   INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
    INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'included', 1);
