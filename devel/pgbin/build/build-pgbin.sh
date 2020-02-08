@@ -152,7 +152,9 @@ function buildPostgres {
 	buildLocation="$baseDir/$workDir/build/pg$pgShortV-$pgSrcV-$pgBldV-$OS"
 
 	if [ `uname` == "Darwin" ]; then
-		conf="$conf --with-libxslt --with-libxml"
+		export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl/lib"
+		export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include/libxml2"
+		conf="$conf --with-openssl --with-libxslt --with-libxml"
 		conf="$conf --disable-rpath $pgLLVM"
 		conf="$conf --with-python PYTHON=/usr/local/bin/python3 --with-perl"
 	else
@@ -220,10 +222,6 @@ function buildPostgres {
 		echo "Make failed for docs ...."
 		return 1
 	fi
-
-	unset LDFLAGS
-	unset CPPFLAGS
-	unset LD_LIBRARY_PATH
 }
 
 

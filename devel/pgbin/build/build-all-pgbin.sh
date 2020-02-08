@@ -21,11 +21,9 @@ function runPgBin {
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV"
 
-  if [ `uname` == "Linux" ]; then
-    cmd="$cmd -b $bncrSrc"
-    cmd="$cmd -k $bkrstSrc"
-    ##cmd="$cmd -o $odbcSrc $optional"
-  fi
+  cmd="$cmd -b $bncrSrc"
+  cmd="$cmd -k $bkrstSrc"
+  cmd="$cmd -o $odbcSrc $optional"
   $cmd
   if [[ $? -ne 0 ]]; then
     echo "Build Failed"

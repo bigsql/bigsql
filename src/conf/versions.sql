@@ -203,7 +203,7 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
   INSERT INTO projects VALUES ('backrest', 4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
    INSERT INTO releases VALUES ('backrest', 4, 'backrest', 'pgBackRest', '', 'prod', 1);
-    INSERT INTO versions VALUES ('backrest', '2.22-1', 'arm, amd', 1, '20200121', '');
+    INSERT INTO versions VALUES ('backrest', '2.23-1', 'arm, amd', 1, '20200127', '');
 
   INSERT INTO projects VALUES ('audit', 4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
    INSERT INTO releases VALUES ('audit-pg11', 10, 'audit', 'pgAudit', '', 'prod', 1);
