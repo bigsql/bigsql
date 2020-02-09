@@ -228,6 +228,10 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
    INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
     INSERT INTO versions VALUES ('bulkload-pg11', '3.1.16-1', 'arm', 1, '20200121', 'pg11');
 
+  INSERT INTO projects VALUES ('repack',   5, 0, 'hub', 5, 'https://github.com/ossc-db/pg_repack/releases', 'repack', 1, 'repack.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_repack');
+   INSERT INTO releases VALUES ('repack-pg11', 6, 'repack', 'pgRepack d',  '', 'prod', 1);
+    INSERT INTO versions VALUES ('repack-pg11', '3.1.16-1', 'arm', 1, '20200121', 'pg11');
+
   INSERT INTO projects VALUES ('partman', 5, 0, 'hub', 4, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
    INSERT INTO releases VALUES ('partman-pg11', 7, 'partman', 'pgPartman',   '', 'prod', 1);
     INSERT INTO versions VALUES ('partman-pg11', '4.2.2-1',  'arm', 1, '20191016', 'pg11');
@@ -245,11 +249,8 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
     INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
 -- ##
--- INSERT INTO categories VALUES (6, 40, 'Availability','Reliable');
-
--- ##
-INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_thread.png');
- INSERT INTO categories VALUES (7, 50, 'Containers', 'Containers');
+INSERT INTO families VALUES (50, 'Tools & Client Applications', 'Tools', 'needle_thread.png');
+ INSERT INTO categories VALUES (7, 50, 'Toolchain', 'Toolchain');
 
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
    INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'prod', 1);
@@ -263,8 +264,16 @@ INSERT INTO families VALUES (50, 'Containers & Connectors', 'Useful', 'needle_th
    INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'prod', 1);
     INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
 
+  INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://github.com/llvm/llvm/releases', 'llvm', 0, 'llvm.png', 'High Level Assembly Language', 'https://llvm.sh');
+   INSERT INTO releases VALUES ('llvm', 3, 'llvm', 'LLVM', '', 'prod', 1);
+    INSERT INTO versions VALUES ('llvm', '3.0.3', 'arm', 1, '20200129', '');
+
+  INSERT INTO projects VALUES ('flex_bison', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'flex_bison', 0, 'flex_bison.png', 'High Availability Template', 'https://github.com/zalando/patroni');
+   INSERT INTO releases VALUES ('flex_bison', 4, 'flex_bison', 'Flex & Bison', '', 'bring-own', 1);
+    INSERT INTO versions VALUES ('flex_bison', '1.6.4', '', 1, '20200127', '');
+
 -- ##
-INSERT INTO categories VALUES (8, 50,  'Applications',   'Applications');
+INSERT INTO categories VALUES (8, 50,  'Client Applications',   'Applications');
   INSERT INTO projects VALUES ('patroni', 8, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability Template', 'https://github.com/zalando/patroni');
    INSERT INTO releases VALUES ('patroni', 2, 'patroni', 'Patroni', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
@@ -312,3 +321,4 @@ INSERT INTO categories VALUES (8, 50,  'Applications',   'Applications');
   INSERT INTO projects VALUES ('ddlx',       8, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
    INSERT INTO releases VALUES ('ddlx-pg11', 14, 'ddlx', 'DDLeXtact', '', 'prod', 0);
     INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm', 1, '20191024', 'pg11');
+
