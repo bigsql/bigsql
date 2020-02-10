@@ -37,6 +37,7 @@ cp -v $lib64/libsasl2*       $shared_lib/.
 cp -v $lib64/libxml2*        $shared_lib/.
 cp -v $lib64/libevent*       $shared_lib/.
 cp -v $lib64/libicuuc.so.55  $shared_lib/.
+cp -v $lib64/libicudata.so.55 $shared_lib/.
 #cp -v $lib64/libuv*          $shared_lib/.
 #cp -v $lib64/libpython3.?m.so.1.0   $shared_lib/.
 #cp -v $lib64/libcassandra.so.2   $shared_lib/.
