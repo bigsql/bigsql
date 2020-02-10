@@ -1,8 +1,8 @@
 outD=out-20200210
 
-rm -rf $outD
-mkdir $outD
+rm -rf history/$outD
+mkdir history/$outD
 
-cp -p $OUT/* $outD/.
+cp -p $OUT/* history/$outD/.
 
 ./copy-to-s3.sh $outD

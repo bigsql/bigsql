@@ -27,17 +27,25 @@ if [ ! "$pgV"  == "11" ] && [ ! "$pgV"  == "12" ]; then
   exit 1
 fi
 
-##if [ "$1" == "presto_fdw" ] || [ "$1" == "all" ]; then
-##  build presto_fdw $prestoFullV $2 presto_fdw
-##fi
+## WIP across platforms ###########################
 
-if [ "$1" == "cassandra_fdw" ] || [ "$1" == "all" ]; then
+if [ "$1" == "presto_fdw" ]; then
+  build presto_fdw $prestoFullV $2 presto_fdw
+fi
+
+if [ "$1" == "cassandra_fdw" ]; then
   build cassandra_fdw $cassFullV $2 cassandra_fdw
 fi
 
-##if [ "$1" == "pljava" ] || [ "$1" == "all" ]; then
-##  # build pljava $pljavaFullV $2 pljava
-##fi
+if [ "$1" == "pljava" ]; then
+  build pljava $pljavaFullV $2 pljava
+fi
+
+if [ "$1" == "hintplan" ]; then
+  build hintplan $hintplanFullV $2 hintplan
+fi
+
+## prod ready across platforms #######################
 
 if [ "$1" == "partman" ] || [ "$1" == "all" ]; then
   build partman $partmanFullV $2 partman
@@ -50,10 +58,6 @@ fi
 if [ "$1" == "audit" ] || [ "$1" == "all" ]; then
   build audit $auditFullV $2 audit    
 fi
-
-##if [ "$1" == "hintplan" ] || [ "$1" == "all" ]; then
-##  build hintplan $hintplanFullV $2 hintplan
-##fi
 
 if [ "$1" == "orafce" ] || [ "$1" == "all" ]; then
   build orafce $orafceFullV $2 orafce
