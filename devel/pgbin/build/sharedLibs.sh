@@ -22,7 +22,8 @@ rm -f $shared_lib/*
 
 cp -v $lib64/*readline*          $shared_lib/.
 cp -v $lib64/*termcap*           $shared_lib/.
-cp -v $lib64/libz*               $shared_lib/.
+cp -v /lib/aarch64-linux-gnu/liblzma.so.5        $shared_lib/.
+cp -v /lib/aarch64-linux-gnu/libz.so.1           $shared_lib/.
 cp -v /lib/aarch64-linux-gnu/libssl.so.1.0.0     $shared_lib/.
 cp -v /lib/aarch64-linux-gnu/libcrypto.so.1.0.0  $shared_lib/.
 #cp -v $lib64/libkrb5*        $shared_lib/.
@@ -35,6 +36,7 @@ cp -v $lib64/libsasl2*       $shared_lib/.
 #cp -v $lib64/libuuid*        $shared_lib/.
 cp -v $lib64/libxml2*        $shared_lib/.
 cp -v $lib64/libevent*       $shared_lib/.
+cp -v $lib64/libicuuc.so.55  $shared_lib/.
 #cp -v $lib64/libuv*          $shared_lib/.
 #cp -v $lib64/libpython3.?m.so.1.0   $shared_lib/.
 #cp -v $lib64/libcassandra.so.2   $shared_lib/.
