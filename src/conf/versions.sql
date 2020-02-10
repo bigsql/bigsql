@@ -159,7 +159,7 @@ INSERT INTO versions VALUES ('oracle', '10+', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases', 'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
-INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm', 1, '20190522', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm, amd', 1, '20190522', 'pg11');
 
 INSERT INTO projects VALUES ('plv8', 3, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases', 'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
 INSERT INTO releases VALUES ('plv8-pg11', 4, 'plv8', 'PL/V8', '', 'soon', 1);
@@ -167,11 +167,11 @@ INSERT INTO versions VALUES ('plv8-pg11', '2.3.14-1', 'arm', 1, '20200109', 'pg1
 
 INSERT INTO projects VALUES ('plpython', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html', 'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
 INSERT INTO releases VALUES ('plpython-pg11', 4, 'plpython', 'PL/Python','', 'included', 1);
-INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm, amd', 1, '20191114', 'pg11');
 
  INSERT INTO projects VALUES ('plperl', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html', 'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
   INSERT INTO releases VALUES ('plperl-pg11', 4, 'plperl', 'PL/Perl','', 'included', 1);
-   INSERT INTO versions VALUES ('plperl-pg11', '5', 'arm', 1, '20191114', 'pg11');
+   INSERT INTO versions VALUES ('plperl-pg11', '5', 'arm, amd', 1, '20191114', 'pg11');
 
  INSERT INTO projects VALUES ('pljava', 3, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
   INSERT INTO releases VALUES ('pljava-pg11', 4, 'pljava', 'PL/Java', '', 'soon', 1);
@@ -179,7 +179,7 @@ INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm', 1, '20191114', 'pg11')
 
  INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases', 'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/tada/pljava');
   INSERT INTO releases VALUES ('pldebugger-pg11', 3, 'pldebugger', 'PL/Debugger', '', 'soon', 1);
-   INSERT INTO versions VALUES ('pldebugger-pg11', '2',  'arm, amd, osx',  1, '20191114', 'pg11');
+   INSERT INTO versions VALUES ('pldebugger-pg11', '2',  'arm',  1, '20191114', 'pg11');
 
  INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases', 'plpgsql', 1, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
   INSERT INTO releases VALUES ('plpgsql-pg11', 1, 'plpgsql', 'PL/pgSQL', '', 'included', 1);
@@ -191,11 +191,11 @@ INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm', 1, '20191114', 'pg11')
 
   INSERT INTO projects VALUES ('pgtsql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases', 'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
    INSERT INTO releases VALUES ('pgtsql-pg11', 3, 'pgtsql', 'pgTSQL','', 'prod', 1);
-    INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1', 'arm', 1, '20191119', 'pg11');
+    INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1', 'arm, amd', 1, '20191119', 'pg11');
 
   INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 7, 'https://github.com/bigsql/plprofiler/releases', 'plprofiler', 1, 'plprofiler.png', 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
    INSERT INTO releases VALUES ('plprofiler-pg11', 2, 'plprofiler',    'plProfiler',  '', 'prod', 1);
-    INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1', 'arm', 1, '20190823', 'pg11');
+    INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1', 'arm, amd', 1, '20190823', 'pg11');
 
 -- ##
 INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capable', 'ability.png');
@@ -207,26 +207,26 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
   INSERT INTO projects VALUES ('audit', 4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases', 'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
    INSERT INTO releases VALUES ('audit-pg11', 10, 'audit', 'pgAudit', '', 'prod', 1);
-    INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
+    INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm, amd', 1, '20191225', 'pg11');
 
   INSERT INTO projects VALUES ('anon', 4, 0, 'ddlx',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases', 'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
    INSERT INTO releases VALUES ('anon-pg11', 11, 'anon', 'Anonymizer', '', 'prod', 1);
-    INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm', 1, '20191109', 'pg11');
+    INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm, amd', 1, '20191109', 'pg11');
 
 -- ##
  INSERT INTO categories VALUES (5, 40, 'Scalability', 'Scalable');
 
   INSERT INTO projects VALUES ('timescaledb',5, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
    INSERT INTO releases VALUES ('timescaledb-pg11',  2, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-    INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm', 1, '20191112', 'pg11');
+    INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 1, '20191112', 'pg11');
 
   INSERT INTO projects VALUES ('pglogical',  5, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
    INSERT INTO releases VALUES ('pglogical-pg11', 3, 'pglogical', 'pgLogical', '', 'prod', 1);
-    INSERT INTO versions VALUES ('pglogical-pg11', '2.2.2-1',  'arm', 1, '20190725', 'pg11');
+    INSERT INTO versions VALUES ('pglogical-pg11', '2.2.2-1',  'arm, amd', 1, '20190725', 'pg11');
 
   INSERT INTO projects VALUES ('bulkload',   5, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
    INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
-    INSERT INTO versions VALUES ('bulkload-pg11', '3.1.15-1', 'arm', 1, '20200121', 'pg11');
+    INSERT INTO versions VALUES ('bulkload-pg11', '3.1.15-1', 'arm, amd', 1, '20200121', 'pg11');
 
   INSERT INTO projects VALUES ('repack',   5, 0, 'hub', 5, 'https://github.com/ossc-db/pg_repack/releases', 'repack', 1, 'repack.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_repack');
    INSERT INTO releases VALUES ('repack-pg11', 6, 'repack', 'pgRepack d',  '', 'soon', 1);
@@ -234,11 +234,11 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
   INSERT INTO projects VALUES ('partman', 5, 0, 'hub', 4, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
    INSERT INTO releases VALUES ('partman-pg11', 7, 'partman', 'pgPartman',   '', 'prod', 1);
-    INSERT INTO versions VALUES ('partman-pg11', '4.2.2-1',  'arm', 1, '20191016', 'pg11');
+    INSERT INTO versions VALUES ('partman-pg11', '4.2.2-1',  'arm, amd', 1, '20191016', 'pg11');
 
   INSERT INTO projects VALUES ('hypopg', 5, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
    INSERT INTO releases VALUES ('hypopg-pg11', 8, 'hypopg', 'HypoPG', '', 'prod', 1);
-    INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',  'arm', 1, '20191123', 'pg11');
+    INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg11');
 
   INSERT INTO projects VALUES ('badger', 5, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
    INSERT INTO releases VALUES ('badger', 5, 'badger','pgBadger','', 'soon', 1);
@@ -308,7 +308,7 @@ INSERT INTO categories VALUES (8, 50,  'Client Applications',   'Applications');
 
   INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
    INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'soon', 1);
-    INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd, osx', 1, '20200107', '');
+    INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd', 1, '20200107', '');
 
   INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
    INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'prod', 1);
@@ -320,5 +320,5 @@ INSERT INTO categories VALUES (8, 50,  'Client Applications',   'Applications');
 
   INSERT INTO projects VALUES ('ddlx',       8, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
    INSERT INTO releases VALUES ('ddlx-pg11', 14, 'ddlx', 'DDLeXtact', '', 'prod', 0);
-    INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm', 1, '20191024', 'pg11');
+    INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm, amd', 1, '20191024', 'pg11');
 
