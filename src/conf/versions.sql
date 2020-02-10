@@ -131,11 +131,11 @@ INSERT INTO releases VALUES ('mysql_fdw-pg11', 10, 'mysql_fdw', 'MySQL FDW',  ''
 INSERT INTO versions VALUES ('mysql_fdw-pg11', '2.5.3-1', 'arm', 1, '20190927', 'pg11');
 
 INSERT INTO projects VALUES ('sqlsvr', 2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
-INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server', '', 'proprietary',  0);
+INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server', '', 'soon',  0);
 INSERT INTO versions VALUES ('sqlsvr', '2008+', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('sybase', 2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
-INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '', 'proprietary',  0);
+INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '', 'soon',  0);
 INSERT INTO versions VALUES ('sybase', '2019', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
@@ -151,7 +151,7 @@ INSERT INTO releases VALUES ('oracle_fdw-pg11', 7, 'oracle_fdw', 'Oracle FDW', '
 INSERT INTO versions VALUES ('oracle_fdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
 
 INSERT INTO projects VALUES ('oracle', 2, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
-INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'proprietary',  0);
+INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'soon',  0);
 INSERT INTO versions VALUES ('oracle', '10+', 'amd', 1, '20191010', '');
 
 -- ##
@@ -312,7 +312,7 @@ INSERT INTO categories VALUES (8, 50,  'Client Applications',   'Applications');
 
   INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
    INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'prod', 1);
-    INSERT INTO versions VALUES ('http-pg11', '1.3.1-1', 'arm', 1, '20191225', 'pg11');
+    INSERT INTO versions VALUES ('http-pg11', '1.3.1-1', 'arm, amd', 1, '20191225', 'pg11');
 
   INSERT INTO projects VALUES ('pgrest',     8, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
    INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own', 1);
