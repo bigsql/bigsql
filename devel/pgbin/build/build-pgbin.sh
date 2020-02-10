@@ -158,11 +158,11 @@ function buildPostgres {
 		conf="$conf --disable-rpath $pgLLVM"
 		conf="$conf --with-python PYTHON=/usr/local/bin/python3 --with-perl"
 	else
-		conf="$conf --with-openssl --with-libxslt --with-libxml"
+		conf="$conf --with-openssl --with-libxslt --with-libxml --with-libedit-preferred"
 		conf="$conf --disable-rpath $pgLLVM"
 		conf="$conf --with-python PYTHON=/usr/bin/python3 --with-perl"
-		##conf="$conf --with-uuid=ossp --with-gssapi --with-python --with-perl"
-		##conf="$conf --with-uuid=ossp --with-python --with-perl --with-ldap"
+		##conf="$conf --with-uuid=ossp --with-gssapi"
+		##conf="$conf --with-uuid=ossp --with-ldap"
 		##conf="$conf --with-tcl --with-pam"
 	fi
 

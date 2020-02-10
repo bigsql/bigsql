@@ -20,7 +20,7 @@ else
   APT="sudo apt -y"
   $APT install sqlite3 python3 curl wget
   $APT install openjdk-8-jdk build-essential flex bison zlib1g-dev \
-    libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath \
+    libxml2-dev libxslt-dev libedit-dev libssl-dev chrpath \
     libperl-dev libpython3-dev pkg-config libevent-dev cmake \
     libcurl4-openssl-dev *unixodbc* clang lxc lxcfs
 fi

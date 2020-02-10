@@ -63,9 +63,9 @@ downBuild () {
 
 
 makeInstall () {
-  echoCmd "make clean"
-  sleep 3
-  echoCmd "./configure --prefix=$PWD $options"
+  #echoCmd "make clean"
+  #sleep 3
+  echoCmd "./configure --prefix=$PWD --with-libedit-preferred $options"
   sleep 3
   echoCmd "make -j8"
   sleep 3
