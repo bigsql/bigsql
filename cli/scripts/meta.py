@@ -319,10 +319,8 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
     c.execute(sql)
     data = c.fetchall()
 
-    headers = ['Category', 'ShortCat','Component', 'Version', 
-               'ReleaseDt', 'Stage', 'Status', 'Updates']
-    keys    = ['category_desc', 'short_cat_desc', 'component', 'version', 
-               'release_date', 'stage', 'status', 'current_version']
+    headers = ['Category','Component', 'Version', 'ReleaseDt', 'Stage', 'Status', 'Updates']
+    keys    = ['short_cat_desc', 'component', 'version', 'release_date', 'stage', 'status', 'current_version']
 
     jsonList = []
     kount = 0
@@ -354,6 +352,8 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
         status = ""
 
       stage = str(row[7])
+      if stage in ("soon", "bring-own"):
+        continue
 
       is_current = str(row[8])
       if is_current == "0" and status in ("", "NotInstalled"):

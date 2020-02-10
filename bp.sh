@@ -20,7 +20,6 @@ cd $outp
 
 ./$api set GLOBAL REPO http://localhost:8000
 ./$api info
-./$api install pg11; ./$api start pg11 -y
 
 if [ ! "$1" == "" ]; then
   ./$api install $comp

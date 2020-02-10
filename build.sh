@@ -203,7 +203,7 @@ initDir () {
   fi
 
   copy-pgXX "pglogical"
-  ##copy-pgXX "timescaledb"
+  copy-pgXX "timescaledb"
   copy-pgXX "anon"
   copy-pgXX "http"
   ##copy-pgXX "cassandra_fdw"
