@@ -58,6 +58,7 @@ export REGION=us-west-2
 export BUCKET=s3://bigsql-apg-download
 
 export DEV=$HOME/dev
+export HIST=$DEV/history
 export IN=$DEV/in
 export SRC=$IN/sources
 export OUT=$DEV/out

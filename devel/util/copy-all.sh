@@ -1,4 +1,4 @@
-outD=out-20200124
+outD=out-20200210
 
 rm -rf $outD
 mkdir $outD
