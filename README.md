@@ -19,20 +19,17 @@ if [ `uname` == 'DARWIN' ]; then
 else
   APT="sudo apt -y"
   $APT install sqlite3 python3 curl wget
-  #wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
   $APT install openjdk-8-jdk build-essential flex bison zlib1g-dev \
     libxml2-dev libxslt-dev libreadline-dev libssl-dev chrpath \
     libperl-dev libpython3-dev pkg-config libevent-dev cmake \
     libcurl4-openssl-dev *unixodbc* clang lxc lxcfs
-  #sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
-  #$APT install clang-6.0
 fi
 
 sudo mkdir /opt/pgbin-build
-sudo chown $USER:wheel /opt/pgbin-build
+sudo chown $USER:$USER /opt/pgbin-build
 mkdir -p /opt/pgbin-build/pgbin/bin
 sudo mkdir /opt/pgcomponent
-sudo chown $USER:wheel /opt/pgcomponent
+sudo chown $USER:$USER /opt/pgcomponent
 mkdir -p ~/dev
 cd ~/dev
 mkdir in
