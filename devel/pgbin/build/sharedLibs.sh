@@ -20,11 +20,11 @@ shared_lib=/opt/pgbin-build/pgbin/shared/lib/
 mkdir -p $shared_lib
 rm -f $shared_lib/*
 
-cp -v /lib/aarch64-linux-gnu/liblzma.so.5        $shared_lib/.
-cp -v /lib/aarch64-linux-gnu/libz.so.1           $shared_lib/.
-cp -v /lib/aarch64-linux-gnu/libssl.so.1.0.0     $shared_lib/.
-cp -v /lib/aarch64-linux-gnu/libcrypto.so.1.0.0  $shared_lib/.
-cp -v /lib/aarch64-linux-gnu/libbsd.so.0         $shared_lib/.
+cp -v /lib/`arch`-linux-gnu/liblzma.so.5        $shared_lib/.
+cp -v /lib/`arch`-linux-gnu/libz.so.1           $shared_lib/.
+cp -v /lib/`arch`-linux-gnu/libssl.so.1.0.0     $shared_lib/.
+cp -v /lib/`arch`-linux-gnu/libcrypto.so.1.0.0  $shared_lib/.
+cp -v /lib/`arch`-linux-gnu/libbsd.so.0         $shared_lib/.
 #cp -v $lib64/libkrb5*        $shared_lib/.
 #cp -v $lib64/libcom_err*     $shared_lib/.
 #cp -v $lib64/libgssapi*      $shared_lib/.
