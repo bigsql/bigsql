@@ -26,6 +26,7 @@ cp -v /lib/`arch`-linux-gnu/libssl.so.1.0.0     $shared_lib/.
 cp -v /lib/`arch`-linux-gnu/libcrypto.so.1.0.0  $shared_lib/.
 cp -v /lib/`arch`-linux-gnu/libbsd.so.0         $shared_lib/.
 cp -v /lib/`arch`-linux-gnu/libc.so.6           $shared_lib/.
+cp -v /lib64/ld-linux-x86-64.so.2               $shared_lib/.
 #cp -v $lib64/libkrb5*        $shared_lib/.
 #cp -v $lib64/libcom_err*     $shared_lib/.
 #cp -v $lib64/libgssapi*      $shared_lib/.
