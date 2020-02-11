@@ -16,11 +16,13 @@ if [ `uname` == 'Darwin' ]; then
 else
   ## tested on Ubuntu 18
   owner_group="$USER:$USER"
+  sudo add-apt-repository universe
   sudo apt install sqlite3 python3 curl wget \
     openjdk-11-jdk build-essential flex bison zlib1g-dev \
-    libxml2-dev libxslt1-dev libedit-dev libssl-dev \
+    libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
     libperl-dev libpython3-dev pkg-config libevent-dev cmake \
-    libcurl4-openssl-dev unixodbc-dev llvm-6.0-dev
+    libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
+    odbc-postgresql llvm-6.0-dev
   rc=$?
 fi
 
