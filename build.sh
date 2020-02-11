@@ -27,7 +27,7 @@ printUsageMessage () {
   echo "#--------------------------------------------------------------------------#"
   echo "#                    Copyright (c) 2015-2020 BigSQL                        #"
   echo "#--------------------------------------------------------------------------#"
-  echo "# -p $P12  $P11"
+  echo "# -p $P12  $P11  $P10"
   echo "# -b hub-$hubV"
   echo "# -f cassandra-$cassV  presto-$presV"
   echo "# -e cassandra_fdw-$cstarV  presto_fdw-$prestoV  timescale-$timescaleV"
