@@ -557,7 +557,4 @@ rc=$?
 echo "# rc=$rc"
 echo "#"
 
-##endTime=`date +%Y-%m-%d_%H:%M:%S`
-##echo "### end at $endTime"
-
 exit 0

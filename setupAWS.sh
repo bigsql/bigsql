@@ -6,4 +6,3 @@ chmod 755 *.sh
 
 cd $BLD
 cp -p $APG/devel/pgbin/build/* .
-./sharedLibs.sh

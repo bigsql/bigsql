@@ -23,7 +23,7 @@ function runPgBin {
 
   cmd="$cmd -b $bncrSrc"
   cmd="$cmd -k $bkrstSrc"
-  ##cmd="$cmd -o $odbcSrc"
+  cmd="$cmd -o $odbcSrc"
   cmd="$cmd $optional"
   $cmd
   if [[ $? -ne 0 ]]; then
