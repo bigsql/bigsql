@@ -32,7 +32,7 @@ printUsageMessage () {
   echo "# -f cassandra-$cassV  presto-$presV"
   echo "# -e cassandra_fdw-$cstarV  presto_fdw-$prestoV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
-  echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
+  echo "#    spock-$spockV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$auditV"
   echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "#--------------------------------------------------------------------------#"
@@ -202,7 +202,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
-  copy-pgXX "pglogical"
+  copy-pgXX "spock"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
   copy-pgXX "http"
@@ -416,7 +416,7 @@ initPG () {
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
-    initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
+    initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
     initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"

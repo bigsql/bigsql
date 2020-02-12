@@ -72,7 +72,7 @@ INSERT INTO families VALUES (10, '_', '_', '_');
 INSERT INTO categories VALUES (0, 10,  'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200201', '');
+INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200213', '');
 
 -- ##
 INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source Database', 'Best RDBMS', 'postgres.png');
@@ -223,9 +223,9 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
    INSERT INTO releases VALUES ('timescaledb-pg11',  2, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
     INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 1, '20191112', 'pg11');
 
-  INSERT INTO projects VALUES ('pglogical',  5, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases', 'pglogical', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/2ndQuadrant/pglogical#pglogical-2');
-   INSERT INTO releases VALUES ('pglogical-pg11', 3, 'pglogical', 'pgLogical', '', 'prod', 1);
-    INSERT INTO versions VALUES ('pglogical-pg11', '2.2.2-1',  'arm, amd', 1, '20190725', 'pg11');
+  INSERT INTO projects VALUES ('spock',  5, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases', 'spock', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/bigsql/spock');
+   INSERT INTO releases VALUES ('spock-pg11', 3, 'spock', 'Spock', '', 'prod', 1);
+    INSERT INTO versions VALUES ('spock-pg11', '2.2.3-1',  'arm, amd', 1, '20200213', 'pg11');
 
   INSERT INTO projects VALUES ('bulkload',   5, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
    INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
