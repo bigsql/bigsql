@@ -17,10 +17,10 @@ anonV=0.5.0-1
 ddlxV=0.15-1
 omniV=2.17-1
 hypoV=1.1.3-1
-timescaleV=1.5.1-1
+timescaleV=1.6.0-1
 spockV=2.2.3-1
 profV=4.1-1
-bulkloadV=3.1.15-1
+bulkloadV=3.1.16-1
 partmanV=4.2.2-1
 auditV=1.3.1-1
 

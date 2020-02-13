@@ -221,7 +221,8 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
   INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
    INSERT INTO releases VALUES ('timescaledb-pg11',  2, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-    INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 1, '20191112', 'pg11');
+    INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 0, '20191112', 'pg11');
+    INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 1, '20200115', 'pg11');
 
   INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases', 'spock', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/bigsql/spock');
    INSERT INTO releases VALUES ('spock-pg11', 3, 'spock', 'Spock', '', 'prod', 1);
@@ -229,7 +230,8 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
 
   INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
    INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
-    INSERT INTO versions VALUES ('bulkload-pg11', '3.1.15-1', 'arm, amd', 1, '20200121', 'pg11');
+    INSERT INTO versions VALUES ('bulkload-pg11', '3.1.15-1', 'arm, amd', 0, '20190120', 'pg11');
+    INSERT INTO versions VALUES ('bulkload-pg11', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg11');
 
   INSERT INTO projects VALUES ('repack', 2, 0, 'hub', 5, 'https://github.com/reorg/pg_repack/releases', 'repack', 1, 'repack.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_repack');
    INSERT INTO releases VALUES ('repack-pg11', 6, 'repack', 'pgRepack d',  '', 'soon', 1);
