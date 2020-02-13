@@ -32,11 +32,20 @@ cp -v $lib64/libxslt.so*     $shared_lib/.
 cp -v $lib64/liblber*        $shared_lib/.
 cp -v $lib64/libsasl2*       $shared_lib/.
 cp -v $lib64/libevent*       $shared_lib/.
-cp -v $lib64/libnss3*        $shared_lib/.
-cp -v $lib64/libnssutil3*    $shared_lib/.
-cp -v $lib64/libsmime*       $shared_lib/.
-cp -v $lib64/libplds4*       $shared_lib/.
-cp -v $lib64/libplc4*        $shared_lib/.
+
+cp -v $lib64/libnss3*             $shared_lib/.
+cp -v $lib64/libnspr4*            $shared_lib/.
+cp -v $lib64/libnssutil3*         $shared_lib/.
+cp -v $lib64/libsmime*            $shared_lib/.
+cp -v $lib64/libplds4*            $shared_lib/.
+cp -v $lib64/libplc4*             $shared_lib/.
+cp -v $lib64/libselinux.so.1      $shared_lib/.
+cp -v $lib64/libcap-ng.so.0       $shared_lib/.
+cp -v $lib64/libaudit.so.1        $shared_lib/.
+cp -v $lib64/libresolv.so.2       $shared_lib/.
+cp -v $lib64/liblzma.so.5         $shared_lib/.
+cp -v $lib64/libcom_err.so.2      $shared_lib/.
+cp -v $lib64/libkeyutils.so.1     $shared_lib/.
 cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
 #cp -v $lib64/libcassandra.so.2   $shared_lib/.
 
