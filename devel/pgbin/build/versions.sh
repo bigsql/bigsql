@@ -90,7 +90,7 @@ ddlxFullV=0.15
 ddlxShortV=
 ddlxBuildV=1
 
-auditFullV=1.3.1
+auditFullV=1.4.0
 auditShortV=
 auditBuildV=1
 
@@ -114,7 +114,7 @@ pgTSQLFullV=3.0
 pgTSQLShortV=
 pgTSQLBuildV=1
 
-bulkloadFullV=3.1.15
+bulkloadFullV=3.1.16
 bulkloadShortV=
 bulkloadBuildV=1
 
@@ -126,7 +126,7 @@ pgrepackFullVersion=1.4.4
 pgrepackShortVersion=
 pgrepackBuildV=1
 
-partmanFullV=4.2.2
+partmanFullV=4.3.0
 partmanShortV=
 partmanBuildV=1
 
@@ -134,7 +134,7 @@ hintplanFullV=1.3.4
 hintplanShortV=
 hintplanBuildV=1
 
-timescaledbFullV=1.5.1
+timescaledbFullV=1.6.0
 timescaledbShortV=
 timescaledbBuildV=1
 

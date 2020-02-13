@@ -21,7 +21,7 @@ timescaleV=1.6.0-1
 spockV=2.2.3-1
 profV=4.1-1
 bulkloadV=3.1.16-1
-partmanV=4.2.2-1
+partmanV=4.3.0-1
 auditV=1.3.1-1
 
 cstarV=3.1.5-1
