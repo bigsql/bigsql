@@ -7,6 +7,14 @@ git config --global user.name "$NAME"
 git config --global push.default simple
 git config --global credential.helper store
 
+yum --version
+rc=$?
+if [ "$rc" == "0" ]; then
+  YUM="y"
+else
+  YUM="n"
+fi
+
 if [ `uname` == 'Darwin' ]; then
   owner_group="$USER:wheel"
   brew install sqlite3 python3 curl wget \
@@ -14,16 +22,29 @@ if [ `uname` == 'Darwin' ]; then
    llvm libuv libevent pkg-config unixodbc
   rc=$?
 else
-  ## tested on Ubuntu 18
-  owner_group="$USER:$USER"
-  sudo add-apt-repository universe
-  sudo apt install sqlite3 python3 curl wget \
-    openjdk-11-jdk build-essential flex bison zlib1g-dev \
-    libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
-    libperl-dev libpython3-dev pkg-config libevent-dev cmake \
-    libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
-    odbc-postgresql llvm-6.0-dev
-  rc=$?
+  if [ "$YUM" == "y" ]; then
+    ## CentOS 7 for AMD builds
+    sudo yum -y install -y epel-release
+    sudo yum -y install python3
+    sudo yum -y groupinstall 'development tools'
+    sudo yum install bison-devel libedit-devel zlib-devel \
+      openssl-devel libmxl2-devel libxslt-devel libevent-devel \
+      perl-ExtUtils-Embed sqlite-devel wget curl java-1.8.0-openjdk \
+      java-1.8.0-openjdk-devel openjade pam-devel openldap-devel \
+      uuid-devel python3-devel protobuf-c-devel chrpath docbook-dtds \
+      docbook-style-dsssl docbook-style-xsl mkdocs highlight
+  else
+    ## Ubuntu 16 for ARM builds
+    owner_group="$USER:$USER"
+    sudo add-apt-repository universe
+    sudo apt install sqlite3 python3 curl wget \
+      openjdk-11-jdk build-essential flex bison zlib1g-dev \
+      libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
+      libperl-dev libpython3-dev pkg-config libevent-dev cmake \
+      libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
+      odbc-postgresql llvm-6.0-dev
+    rc=$?
+  fi
 fi
 
 echo "rc=$rc"
@@ -46,7 +67,7 @@ cd ~
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
-sudo pip3 install awscli
+sudo pip install awscli
 mkdir -p ~/.aws
 cd ~/.aws
 touch config
@@ -78,8 +99,15 @@ export CLI=$APG/cli/scripts
 export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
+## for Ubuntu
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin
 export PATH=$PATH:$JAVA_HOME/bin
+
+## for Centos 7
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
+export PATH=/usr/local/bin:$PATH
 
 echo ""
 echo "Goodbye!"
