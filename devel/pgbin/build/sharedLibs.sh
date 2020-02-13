@@ -19,7 +19,11 @@ shared_lib=/opt/pgbin-build/pgbin/shared/lib/
 mkdir -p $shared_lib
 rm -f $shared_lib/*
 
-cp -v $lib64/libz*           $shared_lib/.
+cp -v $lib64/libz.so.1       $shared_lib/.
+cp -v $lib64/libc.so.6       $shared_lib/.
+cp -v $lib64/libm.so.6       $shared_lib/.
+cp -v $lib64/librt.so.1       $shared_lib/.
+cp -v $lib64/libdl.so.2       $shared_lib/.
 cp -v $lib64/libssl*         $shared_lib/.
 cp -v $lib64/libcrypt.so.1   $shared_lib/.
 cp -v $lib64/libcrypto.so.10 $shared_lib/.
@@ -46,6 +50,8 @@ cp -v $lib64/libresolv.so.2       $shared_lib/.
 cp -v $lib64/liblzma.so.5         $shared_lib/.
 cp -v $lib64/libcom_err.so.2      $shared_lib/.
 cp -v $lib64/libkeyutils.so.1     $shared_lib/.
+cp -v $lib64/libthread*           $shared_lib/.
+cp -v $lib64/libpam.so.0          $shared_lib/.
 cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
 #cp -v $lib64/libcassandra.so.2   $shared_lib/.
 
