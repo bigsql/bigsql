@@ -90,7 +90,8 @@ ddlxFullV=0.15
 ddlxShortV=
 ddlxBuildV=1
 
-auditFullV=1.4.0
+auditFull11V=1.3.1
+auditFull12V=1.4.0
 auditShortV=
 auditBuildV=1
 

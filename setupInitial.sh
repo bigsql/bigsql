@@ -20,7 +20,6 @@ if [ `uname` == 'Darwin' ]; then
   brew install sqlite3 python3 curl wget \
    gcc flex bison zlib readline libxml2 libxslt \
    llvm libuv libevent pkg-config unixodbc
-  rc=$?
 else
   owner_group="$USER:$USER"
   if [ "$YUM" == "y" ]; then
@@ -42,7 +41,6 @@ else
       libperl-dev libpython3-dev libtcl-dev pkg-config libevent-dev cmake \
       libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
       odbc-postgresql llvm-6.0-dev
-    rc=$?
   fi
 fi
 

@@ -56,7 +56,12 @@ if [ "$1" == "bulkload" ] || [ "$1" == "all" ]; then
 fi
 
 if [ "$1" == "audit" ] || [ "$1" == "all" ]; then
-  build audit $auditFullV $2 audit    
+  echo "2=$2"
+  if [ "$2" == "11" ]; then
+    build audit $auditFull11V $2 audit    
+  else
+    build audit $auditFull12V $2 audit    
+  fi
 fi
 
 if [ "$1" == "orafce" ] || [ "$1" == "all" ]; then
