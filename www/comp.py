@@ -16,9 +16,9 @@ def print_top():
 
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td><img width=150 src=img/pgsql-io-banner.png /></td> \n' + \
-        '    <td><b><font color=whitesmoke>\n' + \
-        'ARM & AMD binaries on Linux, OSX & Windows</font></b>\n' + \
+        '    <td><img width=150 src=img/bigsql-banner.png /></td> \n' + \
+        '    <td><font size=-1 color=whitesmoke>\n' + \
+        'ARM & AMD binaries on Linux, OSX & Windows</font>\n' + \
         '    </td>\n' + \
         '    <td><font size=-1 color=whitesmoke>\n' + \
         'BUCKET=https://bigsql-apg-download.s3.amazonaws.com<br>\n' + \
