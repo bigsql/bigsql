@@ -29,15 +29,14 @@ printUsageMessage () {
   echo "#--------------------------------------------------------------------------#"
   echo "# -p $P12  $P11  $P10"
   echo "# -b hub-$hubV"
-  echo "# -f cassandra-$cassV  presto-$presV"
+  echo "# -f cassandra-$cstarV  presto-$presV"
   echo "# -e cassandra_fdw-$cstarV  presto_fdw-$prestoV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    spock-$spockV  plprofiler-$profV  pgtsql-$tsqlV"
-  echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$auditV"
-  echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
+  echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$audit11V, $audit12V"
+##  echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b -fek"
-  echo "# ./build.sh -X l64 -c $bundle -N $P12 -p 12 -b -fek"
   echo "#--------------------------------------------------------------------------#"
 }
 
@@ -406,27 +405,28 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
-  if [ "$pgM" == "11" ] && [ `uname` == "Linux" ]; then 
-    #initC "minikube" "minikube" "$minikubeV" "$outPlat" "minikube"  "" "" "nil"
-    #initC "docker"   "docker"   "$dockerV"   "$outPlat" "docker"    "" "" "nil"
-    #initC "patroni"  "patroni"  "$patroniV"  "" "postgres/patroni"  "" "" "nil"
-
-    initC "audit-pg$pgM" "audit" "$auditV" "$outPlat" "postgres/audit" "" "" "nil"
-    initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
-    initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
-    initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
-    initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
-    initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/logical" "" "" "nil"
+  if [ "$pgM" == "11" ]; then 
+    initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
-    initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
+    initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
-    initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
-    initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
-    initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
     #if [ "$plat" == "amd" ]; then
     #  initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
     #  initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
     #fi
+  fi
+  if [ "$pgM" == "12" ]; then 
+    initC "audit-pg$pgM" "audit" "$audit12V" "$outPlat" "postgres/audit" "" "" "nil"
+  fi
+  if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
+    initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
+    initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
+    initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
+    initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
+    initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
+    initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
+    initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
+    initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
   fi
 }
 
