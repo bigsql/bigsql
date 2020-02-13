@@ -25,14 +25,13 @@ else
   owner_group="$USER:$USER"
   if [ "$YUM" == "y" ]; then
     ## CentOS 7 for AMD builds
-    sudo yum -y install -y epel-release
-    sudo yum -y install python3
+    sudo yum -y install -y epel-release python-pip
     sudo yum -y groupinstall 'development tools'
-    sudo yum install bison-devel libedit-devel zlib-devel \
+    sudo yum -y install bison-devel libedit-devel zlib-devel \
       openssl-devel libmxl2-devel libxslt-devel libevent-devel \
       perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-1.8.0-openjdk \
       java-1.8.0-openjdk-devel openjade pam-devel openldap-devel \
-      uuid-devel python3-devel protobuf-c-devel chrpath docbook-dtds \
+      uuid-devel curl-devel protobuf-c-devel chrpath docbook-dtds \
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
   else
     ## Ubuntu 16 for ARM builds
@@ -47,6 +46,7 @@ else
   fi
 fi
 
+
 sudo mkdir /opt/pgbin-build
 sudo chown $owner_group /opt/pgbin-build
 mkdir -p /opt/pgbin-build/pgbin/bin
@@ -60,7 +60,7 @@ mkdir -p history
 
 cd ~
 wget https://bootstrap.pypa.io/get-pip.py
-sudo python3 get-pip.py
+sudo python get-pip.py
 rm get-pip.py
 sudo pip install awscli
 mkdir -p ~/.aws
@@ -68,6 +68,8 @@ cd ~/.aws
 touch config
 # vi config
 chmod 600 config
+
+sudo yum -y install python3 python3-devel
 
 ## ENV for ~/.bashrc or ~/.bash_profile 
 alias git-push="cd ~/dev/bigsql-apg; git status; git add .; git commit -m wip; git push"
@@ -95,8 +97,8 @@ export PSX=$APG/out/posix
 export REPO=http://localhost:8000
 
 ## for Ubuntu
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin
-export PATH=$PATH:$JAVA_HOME/bin
+##export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin
+##export PATH=$PATH:$JAVA_HOME/bin
 
 ## for Centos 7
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
