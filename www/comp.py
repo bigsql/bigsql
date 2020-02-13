@@ -2,9 +2,9 @@ import sqlite3, sys
 
 isSHOW_COMP_PLAT = 'Y'
 BR = "<br>"
-WIDTH = 1000
-COL_SIZE = 210
-NUM_COLS = 4
+WIDTH = 875
+COL_SIZE = 250
+NUM_COLS = 3
 FONT_SIZE = 2
 IMG_SIZE = 25
 BORDER=0
@@ -16,8 +16,8 @@ def print_top():
 
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td><img src=img/pgsql-io-banner.png /></td> \n' + \
-        '    <td><b><font size=+0 color=whitesmoke>\n' + \
+        '    <td><img width=150 src=img/pgsql-io-banner.png /></td> \n' + \
+        '    <td><b><font color=whitesmoke>\n' + \
         'ARM & AMD binaries on Linux, OSX & Windows</font></b>\n' + \
         '    </td>\n' + \
         '    <td><font size=-1 color=whitesmoke>\n' + \

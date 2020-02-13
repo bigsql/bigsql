@@ -98,62 +98,62 @@ INSERT INTO versions VALUES ('pgweekly', '13', 'arm, amd, osx', 0, '19700101',''
 
 -- ##
 INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 'Compatible', 'plug_compat.png');
-INSERT INTO categories VALUES (2, 30, 'Foreign Data Integration', 'Foreign Data');
+INSERT INTO categories VALUES (5, 30, 'Foreign Data Integration', 'Foreign Data');
 
-INSERT INTO projects VALUES ('cassandra', 2, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
+INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'soon', 1);
 INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 1, '20191029', '');
 
-INSERT INTO projects VALUES ('cassandra_fdw', 2, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
+INSERT INTO projects VALUES ('cassandra_fdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
   'cstarfdw', 1, 'cstar_fdw.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 INSERT INTO releases VALUES ('cassandra_fdw-pg11', 12, 'cassandra_fdw', 'CassandraFDW','','soon', 1);
 INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1', 'arm', 1, '20191230', 'pg11');
 
-INSERT INTO projects VALUES ('hive', 2, 0, 'hub', 0, 
+INSERT INTO projects VALUES ('hive', 5, 0, 'hub', 0, 
   'https://hive.apache.org', 'bring-own', 1, 'hive.png', 
   'Big Data Queries', 'https://hive.apache.org');
 INSERT INTO releases VALUES ('hive', 13, 'hive', 'Hive', '', 'soon', 1);
 INSERT INTO versions VALUES ('hive', '0.229', '', 1, '20191115', '');
 
-INSERT INTO projects VALUES ('hive_fdw', 2, 0, 'hub', 0, 
+INSERT INTO projects VALUES ('hive_fdw', 5, 0, 'hub', 0, 
   'https://github.com/bigsql/hive_fdw/releases', 'hive_fdw', 1, 'hive_fdw.png', 
   'Big Data Queries from PG', 'https://github.com/bigsql/pghivew#pghive');
 INSERT INTO releases VALUES ('hive_fdw-pg11', 14, 'hive_fdw', 'Hive FDW', '', 'soon', 1);
 INSERT INTO versions VALUES ('hive_fdw-pg11', '3.2-1', 'arm', 1, '20191230', 'pg11');
 
-INSERT INTO projects VALUES ('mysql', 2, 0, 'hub', 0, 
+INSERT INTO projects VALUES ('mysql', 5, 0, 'hub', 0, 
   'https://dev.mysql.com/downloads/mysql', 'mysql', 0, 'mysql.png',
   'MySQL Server CE', 'https://dev.mysql.com');
 INSERT INTO releases VALUES ('mysql', 9, 'mysql', 'MySQL', '', 'soon',  1);
 INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 1, '20191014', '');
 
-INSERT INTO projects VALUES ('mysql_fdw',  2, 0, 'hub', 0, 
+INSERT INTO projects VALUES ('mysql_fdw', 5, 0, 'hub', 0, 
   'https://github.com/EnterpriseDB/mysql_fdw/releases', 'mysql_fdw', 1, 'mysql_fdw.png', 
   'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 INSERT INTO releases VALUES ('mysql_fdw-pg11', 10, 'mysql_fdw', 'MySQL FDW',  '', 'soon', 1);
 INSERT INTO versions VALUES ('mysql_fdw-pg11', '2.5.3-1', 'arm', 1, '20190927', 'pg11');
 
-INSERT INTO projects VALUES ('sqlsvr', 2, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
+INSERT INTO projects VALUES ('sqlsvr', 5, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019', 'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
 INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server', '', 'soon',  0);
 INSERT INTO versions VALUES ('sqlsvr', '2008+', 'amd', 1, '20191010', '');
 
-INSERT INTO projects VALUES ('sybase', 2, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
+INSERT INTO projects VALUES ('sybase', 5, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
 INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '', 'soon',  0);
 INSERT INTO versions VALUES ('sybase', '2019', 'amd', 1, '20191010', '');
 
-INSERT INTO projects VALUES ('tds_fdw',    2, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
+INSERT INTO projects VALUES ('tds_fdw', 5, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases', 'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
 INSERT INTO releases VALUES ('tds_fdw-pg11', 4, 'tds_fdw', 'TDS FDW', '', 'soon', 1);
 INSERT INTO versions VALUES ('tds_fdw-pg11', '2.0.1-1', 'arm',  1, '20191202', 'pg11');
 
-INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases', 'ora2pg', 1, 'ora2pg.png', 'Migrate from Oracle to PostgreSQL', 'https://ora2pg.darold.net');
+INSERT INTO projects VALUES ('ora2pg', 5, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases', 'ora2pg', 1, 'ora2pg.png', 'Migrate from Oracle to PostgreSQL', 'https://ora2pg.darold.net');
 INSERT INTO releases VALUES ('ora2pg', 7, 'ora2pg', 'Oracle to Postgres', '', 'soon', 0);
 INSERT INTO versions VALUES ('ora2pg', '20.0', '', 1, '20190118', '');
 
-INSERT INTO projects VALUES ('oracle_fdw', 2, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle_fdw.png', 'Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
+INSERT INTO projects VALUES ('oracle_fdw', 5, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases', 'oracle_fdw', 1, 'oracle_fdw.png', 'Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
 INSERT INTO releases VALUES ('oracle_fdw-pg11', 7, 'oracle_fdw', 'Oracle FDW', '', 'soon', 1);
 INSERT INTO versions VALUES ('oracle_fdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
 
-INSERT INTO projects VALUES ('oracle', 2, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
+INSERT INTO projects VALUES ('oracle', 5, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
 INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'soon',  0);
 INSERT INTO versions VALUES ('oracle', '10+', 'amd', 1, '20191010', '');
 
@@ -217,37 +217,37 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
     INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm, amd', 1, '20191109', 'pg11');
 
 -- ##
- INSERT INTO categories VALUES (5, 40, 'Scalability', 'Scalable');
+ INSERT INTO categories VALUES (2, 40, 'Scalability', 'Scalable');
 
-  INSERT INTO projects VALUES ('timescaledb',5, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
+  INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
    INSERT INTO releases VALUES ('timescaledb-pg11',  2, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
     INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 1, '20191112', 'pg11');
 
-  INSERT INTO projects VALUES ('spock',  5, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases', 'spock', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/bigsql/spock');
+  INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases', 'spock', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/bigsql/spock');
    INSERT INTO releases VALUES ('spock-pg11', 3, 'spock', 'Spock', '', 'prod', 1);
     INSERT INTO versions VALUES ('spock-pg11', '2.2.3-1',  'arm, amd', 1, '20200213', 'pg11');
 
-  INSERT INTO projects VALUES ('bulkload',   5, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
+  INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
    INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
     INSERT INTO versions VALUES ('bulkload-pg11', '3.1.15-1', 'arm, amd', 1, '20200121', 'pg11');
 
-  INSERT INTO projects VALUES ('repack',   5, 0, 'hub', 5, 'https://github.com/ossc-db/pg_repack/releases', 'repack', 1, 'repack.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_repack');
+  INSERT INTO projects VALUES ('repack', 2, 0, 'hub', 5, 'https://github.com/reorg/pg_repack/releases', 'repack', 1, 'repack.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_repack');
    INSERT INTO releases VALUES ('repack-pg11', 6, 'repack', 'pgRepack d',  '', 'soon', 1);
-    INSERT INTO versions VALUES ('repack-pg11', '3.1.16-1', 'arm', 1, '20200121', 'pg11');
+    INSERT INTO versions VALUES ('repack-pg11', '1.4.5', 'arm, amd', 1, '20191004', 'pg11');
 
-  INSERT INTO projects VALUES ('partman', 5, 0, 'hub', 4, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
+  INSERT INTO projects VALUES ('partman', 2, 0, 'hub', 4, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
    INSERT INTO releases VALUES ('partman-pg11', 7, 'partman', 'pgPartman',   '', 'prod', 1);
     INSERT INTO versions VALUES ('partman-pg11', '4.2.2-1',  'arm, amd', 1, '20191016', 'pg11');
 
-  INSERT INTO projects VALUES ('hypopg', 5, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
+  INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
    INSERT INTO releases VALUES ('hypopg-pg11', 8, 'hypopg', 'HypoPG', '', 'prod', 1);
     INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg11');
 
-  INSERT INTO projects VALUES ('badger', 5, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
+  INSERT INTO projects VALUES ('badger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
    INSERT INTO releases VALUES ('badger', 5, 'badger','pgBadger','', 'soon', 1);
     INSERT INTO versions VALUES ('badger', '11.1-1', '', 1, '20190916', '');
 
-  INSERT INTO projects VALUES ('bouncer', 5, 0, 'hub', 3, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
+  INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
    INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'included', 1);
     INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
