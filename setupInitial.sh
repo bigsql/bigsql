@@ -22,6 +22,7 @@ if [ `uname` == 'Darwin' ]; then
    llvm libuv libevent pkg-config unixodbc
   rc=$?
 else
+  owner_group="$USER:$USER"
   if [ "$YUM" == "y" ]; then
     ## CentOS 7 for AMD builds
     sudo yum -y install -y epel-release
@@ -29,27 +30,21 @@ else
     sudo yum -y groupinstall 'development tools'
     sudo yum install bison-devel libedit-devel zlib-devel \
       openssl-devel libmxl2-devel libxslt-devel libevent-devel \
-      perl-ExtUtils-Embed sqlite-devel wget curl java-1.8.0-openjdk \
+      perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-1.8.0-openjdk \
       java-1.8.0-openjdk-devel openjade pam-devel openldap-devel \
       uuid-devel python3-devel protobuf-c-devel chrpath docbook-dtds \
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
   else
     ## Ubuntu 16 for ARM builds
-    owner_group="$USER:$USER"
     sudo add-apt-repository universe
     sudo apt install sqlite3 python3 curl wget \
       openjdk-11-jdk build-essential flex bison zlib1g-dev \
       libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
-      libperl-dev libpython3-dev pkg-config libevent-dev cmake \
+      libperl-dev libpython3-dev libtcl-dev pkg-config libevent-dev cmake \
       libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
       odbc-postgresql llvm-6.0-dev
     rc=$?
   fi
-fi
-
-echo "rc=$rc"
-if [ ! "$rc" == "0" ]; then
-  exit $rc
 fi
 
 sudo mkdir /opt/pgbin-build
