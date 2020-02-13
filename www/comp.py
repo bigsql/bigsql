@@ -21,10 +21,10 @@ def print_top():
         'ARM & AMD binaries on Linux, OSX & Windows</font></b>\n' + \
         '    </td>\n' + \
         '    <td><font size=-1 color=whitesmoke>\n' + \
-        'BUCKET=https://pgsql-io.s3.amazonaws.com<br>\n' + \
+        'BUCKET=https://bigsql-apg-download.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
-        'python3 -c "$(curl -fsSL $INSTALLER)"<br>&nbsp;<br>\n' + \
-        'cd pgsql; ./io install pg11; ./io start pg11; ./io help</font>\n' + \
+        'python -c "$(curl -fsSL $INSTALLER)"<br>&nbsp;<br>\n' + \
+        'cd bigsql; ./apg install pg11; ./apg start pg11; ./apg help</font>\n' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')

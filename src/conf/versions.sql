@@ -228,40 +228,44 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
  INSERT INTO categories VALUES (2, 40, 'Scalability', 'Scalable');
 
   INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases', 'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
-   INSERT INTO releases VALUES ('timescaledb-pg11',  2, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
+   INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
     INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 0, '20191112', 'pg11');
     INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 1, '20200115', 'pg11');
 
   INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases', 'spock', 1, 'spock.png', 'Logical Streaming Replication', 'https://github.com/bigsql/spock');
-   INSERT INTO releases VALUES ('spock-pg11', 3, 'spock', 'Spock', '', 'prod', 1);
+   INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'Spock', '', 'prod', 1);
     INSERT INTO versions VALUES ('spock-pg11', '2.2.3-1',  'arm, amd', 1, '20200213', 'pg11');
 
+  INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net', 'postgis', 0, 'postgis.png', 'PostGIS', 'http://postgis.net');
+   INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'soon', 1);
+   INSERT INTO versions VALUES ('postgis-pg12', '3.0.0', 'arm, amd, osx', 1, '20191020', 'pg12');
+
   INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases', 'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
-   INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
-   INSERT INTO releases VALUES ('bulkload-pg12', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
+   INSERT INTO releases VALUES ('bulkload-pg11', 4, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
+   INSERT INTO releases VALUES ('bulkload-pg12', 4, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
     INSERT INTO versions VALUES ('bulkload-pg11', '3.1.15-1', 'arm, amd', 0, '20190120', 'pg11');
     INSERT INTO versions VALUES ('bulkload-pg11', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg11');
     INSERT INTO versions VALUES ('bulkload-pg12', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg12');
 
-  INSERT INTO projects VALUES ('repack', 2, 0, 'hub', 5, 'https://github.com/reorg/pg_repack/releases', 'repack', 1, 'repack.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_repack');
-   INSERT INTO releases VALUES ('repack-pg11', 6, 'repack', 'pgRepack d',  '', 'soon', 1);
+  INSERT INTO projects VALUES ('repack', 2, 0, 'hub', 5, 'https://github.com/reorg/pg_repack/releases', 'repack', 1, 'repack.png', 'Compress Tables via Re-org', 'https://github.com/reorg/pg_repack');
+   INSERT INTO releases VALUES ('repack-pg11', 5, 'repack', 'pgRepack',  '', 'soon', 1);
     INSERT INTO versions VALUES ('repack-pg11', '1.4.5', 'arm, amd', 1, '20191004', 'pg11');
 
   INSERT INTO projects VALUES ('partman', 2, 0, 'hub', 4, 'https://github.com/pgpartman/pg_partman/releases', 'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
-   INSERT INTO releases VALUES ('partman-pg11', 7, 'partman', 'pgPartman',   '', 'prod', 1);
-   INSERT INTO releases VALUES ('partman-pg12', 7, 'partman', 'pgPartman',   '', 'prod', 1);
+   INSERT INTO releases VALUES ('partman-pg11', 6, 'partman', 'pgPartman',   '', 'prod', 1);
+   INSERT INTO releases VALUES ('partman-pg12', 6, 'partman', 'pgPartman',   '', 'prod', 1);
     INSERT INTO versions VALUES ('partman-pg11', '4.2.2-1',  'arm, amd', 0, '20191016', 'pg11');
     INSERT INTO versions VALUES ('partman-pg11', '4.3.0-1',  'arm, amd', 1, '20200206', 'pg11');
     INSERT INTO versions VALUES ('partman-pg12', '4.3.0-1',  'arm, amd', 1, '20200206', 'pg12');
 
   INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
-   INSERT INTO releases VALUES ('hypopg-pg11', 8, 'hypopg', 'HypoPG', '', 'prod', 1);
-   INSERT INTO releases VALUES ('hypopg-pg12', 8, 'hypopg', 'HypoPG', '', 'prod', 1);
+   INSERT INTO releases VALUES ('hypopg-pg11', 7, 'hypopg', 'HypoPG', '', 'prod', 1);
+   INSERT INTO releases VALUES ('hypopg-pg12', 7, 'hypopg', 'HypoPG', '', 'prod', 1);
     INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg11');
     INSERT INTO versions VALUES ('hypopg-pg12', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg12');
 
   INSERT INTO projects VALUES ('badger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
-   INSERT INTO releases VALUES ('badger', 5, 'badger','pgBadger','', 'soon', 1);
+   INSERT INTO releases VALUES ('badger', 8, 'badger','pgBadger','', 'soon', 1);
     INSERT INTO versions VALUES ('badger', '11.1-1', '', 1, '20190916', '');
 
   INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
@@ -284,26 +288,26 @@ INSERT INTO families VALUES (50, 'Tools & Client Applications', 'Tools', 'needle
    INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
 
+  INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
+   INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
+    INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
+
   INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://github.com/llvm/llvm/releases', 'llvm', 0, 'llvm.png', 'High Level Assembly Language', 'https://llvm.sh');
-   INSERT INTO releases VALUES ('llvm', 3, 'llvm', 'LLVM', '', 'bring-own', 1);
+   INSERT INTO releases VALUES ('llvm', 5, 'llvm', 'LLVM', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('llvm', '3.0.3', 'arm', 1, '20200129', '');
 
   INSERT INTO projects VALUES ('flex_bison', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'flex_bison', 0, 'flex_bison.png', 'High Availability Template', 'https://github.com/zalando/patroni');
-   INSERT INTO releases VALUES ('flex_bison', 4, 'flex_bison', 'Flex & Bison', '', 'bring-own', 1);
+   INSERT INTO releases VALUES ('flex_bison', 6, 'flex_bison', 'Flex & Bison', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('flex_bison', '1.6.4', '', 1, '20200127', '');
 
 -- ##
 INSERT INTO categories VALUES (8, 50,  'Client Applications',   'Applications');
-  INSERT INTO projects VALUES ('patroni', 8, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'High Availability Template', 'https://github.com/zalando/patroni');
-   INSERT INTO releases VALUES ('patroni', 2, 'patroni', 'Patroni', '', 'bring-own', 1);
-    INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
-
  INSERT INTO projects VALUES ('omnidb', 8, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
   INSERT INTO releases VALUES ('omnidb', 11, 'omnidb', 'OmniDB', '', 'bring-own', 1);
    INSERT INTO versions VALUES ('omnidb', '2.17-1', 'docker', 1, '20191205', '');
 
  INSERT INTO projects VALUES ('pgadmin4', 8, 1234, 'docker', 1, 'https://pgadmin.org', 'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
-  INSERT INTO releases VALUES ('pgadmin4', 12, 'pgadmin4', 'pgAdmin 4', '', 'bring-own', 1);
+  INSERT INTO releases VALUES ('pgadmin4', 1, 'pgadmin4', 'pgAdmin 4', '', 'bring-own', 1);
    INSERT INTO versions VALUES ('pgadmin4', '4.17', 'docker', 1, '20200109', '');
 
   INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
@@ -313,10 +317,6 @@ INSERT INTO categories VALUES (8, 50,  'Client Applications',   'Applications');
   INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
    INSERT INTO releases VALUES ('npgsql', 10, 'npgsql', '.net PG', '', 'bring-own', 1);
     INSERT INTO versions VALUES ('npgsql', '3.1.0', '', 1, '20191201', '');
-
-  INSERT INTO projects VALUES ('postgis', 8, 1, 'hub', 3, 'http://postgis.net', 'postgis', 0, 'postgis.png', 'PostGIS', 'http://postgis.net');
-   INSERT INTO releases VALUES ('postgis-pg11', 6, 'postgis', 'PostGIS', '', 'soon', 1);
-   INSERT INTO versions VALUES ('postgis-pg11', '3.0.0', 'arm, amd, osx', 1, '20191020', '');
 
   INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://initd.org/psycopg');
    INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'bring-own', 1);
