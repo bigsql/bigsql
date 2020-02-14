@@ -15,7 +15,7 @@ def print_top():
 
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td><img width=200 src=img/bigsql-banner.png /></td> \n' + \
+        '    <td><img width=275 src=img/pgsql-banner.png /></td> \n' + \
         '    <td><font size=+1 color=whitesmoke>\n' + \
         'ARM & AMD on EL7+</font>\n' + \
         '    </td>\n' + \
