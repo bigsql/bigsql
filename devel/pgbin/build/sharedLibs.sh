@@ -20,7 +20,6 @@ mkdir -p $shared_lib
 rm -f $shared_lib/*
 
 cp -v $lib64/libz.so.1       $shared_lib/.
-cp -v $lib64/libc.so.6       $shared_lib/.
 cp -v $lib64/libm.so.6       $shared_lib/.
 cp -v $lib64/librt.so.1       $shared_lib/.
 cp -v $lib64/libdl.so.2       $shared_lib/.
@@ -46,14 +45,14 @@ cp -v $lib64/libplds4*            $shared_lib/.
 cp -v $lib64/libplc4*             $shared_lib/.
 cp -v $lib64/libpcre.so.1         $shared_lib/.
 cp -v $lib64/libfreebl3.so        $shared_lib/.
-cp -v $lib64/libselinux.so.1      $shared_lib/.
+#cp -v $lib64/libselinux.so.1      $shared_lib/.
 cp -v $lib64/libcap-ng.so.0       $shared_lib/.
 cp -v $lib64/libaudit.so.1        $shared_lib/.
 cp -v $lib64/libresolv.so.2       $shared_lib/.
 cp -v $lib64/liblzma.so.5         $shared_lib/.
 cp -v $lib64/libcom_err.so.2      $shared_lib/.
 cp -v $lib64/libkeyutils.so.1     $shared_lib/.
-cp -v $lib64/libpthread.so.0      $shared_lib/.
+#cp -v $lib64/libpthread.so.0      $shared_lib/.
 cp -v $lib64/libpam.so.0          $shared_lib/.
 cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
 #cp -v $lib64/libcassandra.so.2   $shared_lib/.
