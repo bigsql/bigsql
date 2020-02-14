@@ -1,14 +1,13 @@
 import sqlite3, sys
 
-isSHOW_COMP_PLAT = 'Y'
+isSHOW_COMP_PLAT = 'N'
 BR = "<br>"
-WIDTH = 875
-COL_SIZE = 250
-NUM_COLS = 3
+WIDTH = 1100
+COL_SIZE = 190
+NUM_COLS = 5
 FONT_SIZE = 2
 IMG_SIZE = 25
 BORDER=0
-SEP_WIDTH = NUM_COLS * (COL_SIZE + IMG_SIZE + 9)
 
 
 def print_top():
@@ -16,9 +15,9 @@ def print_top():
 
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td><img width=150 src=img/bigsql-banner.png /></td> \n' + \
-        '    <td><font size=-1 color=whitesmoke>\n' + \
-        'ARM & AMD binaries on Linux, OSX & Windows</font>\n' + \
+        '    <td><img width=200 src=img/bigsql-banner.png /></td> \n' + \
+        '    <td><font size=+1 color=whitesmoke>\n' + \
+        'ARM & AMD on EL7+</font>\n' + \
         '    </td>\n' + \
         '    <td><font size=-1 color=whitesmoke>\n' + \
         'BUCKET=https://bigsql-apg-download.s3.amazonaws.com<br>\n' + \
@@ -112,7 +111,7 @@ def print_row_detail(pCol, pBR):
   print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + \
     "><a href=" + project_url + ">" + release_name + \
     "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
-    "</a>&nbsp;<font color=red size=" + str(FONT_SIZE) + "><sup>" + \
+    "</a>&nbsp;<font color=red size=-1><sup>" + \
     rel_date_display +"</sup></font>" + \
     platd + pBR + "<i>" + proj_desc + "</font></i></td>")
 
