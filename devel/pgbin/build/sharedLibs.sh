@@ -36,7 +36,8 @@ cp -v $lib64/liblber*        $shared_lib/.
 cp -v $lib64/libsasl2*       $shared_lib/.
 cp -v $lib64/libevent*       $shared_lib/.
 
-cp -v $lib64/lib*crypto.so.10     $shared_lib/.
+cp -v $lib64/libcrypto.so.10      $shared_lib/.
+cp -v $lib64/libk5crypto.so.3     $shared_lib/.
 cp -v $lib64/libnss3*             $shared_lib/.
 cp -v $lib64/libnspr4*            $shared_lib/.
 cp -v $lib64/libnssutil3*         $shared_lib/.
