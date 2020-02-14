@@ -2,9 +2,9 @@ import sqlite3, sys
 
 isSHOW_COMP_PLAT = 'N'
 BR = "<br>"
-WIDTH = 1100
+WIDTH = 900
 COL_SIZE = 190
-NUM_COLS = 5
+NUM_COLS = 4
 FONT_SIZE = 2
 IMG_SIZE = 25
 BORDER=0
@@ -15,11 +15,11 @@ def print_top():
 
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td><img width=275 src=img/pgsql-banner.png /></td> \n' + \
-        '    <td><font size=+1 color=whitesmoke>\n' + \
-        'ARM & AMD on EL7+</font>\n' + \
+        '    <td width=275><img width=275 src=img/pgsql-banner.png /></td> \n' + \
+        '    <td width=250><center><font size=+1 color=whitesmoke>\n' + \
+        'Linux on ARM & AMD<br>+ OSX & Windows</font></center>\n' + \
         '    </td>\n' + \
-        '    <td><font size=-1 color=whitesmoke>\n' + \
+        '    <td width=375><font size=-1 color=whitesmoke>\n' + \
         'BUCKET=https://bigsql-apg-download.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
         'python -c "$(curl -fsSL $INSTALLER)"<br>&nbsp;<br>\n' + \
