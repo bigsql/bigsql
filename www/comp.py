@@ -2,9 +2,9 @@ import sqlite3, sys
 
 isSHOW_COMP_PLAT = 'N'
 BR = "<br>"
-WIDTH = 900
+WIDTH = 1100
 COL_SIZE = 190
-NUM_COLS = 4
+NUM_COLS = 5
 FONT_SIZE = 2
 IMG_SIZE = 25
 BORDER=0
@@ -15,15 +15,22 @@ def print_top():
 
   print('<table height=100 width=' + str(WIDTH) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td width=275><img width=275 src=img/pgsql-banner.png /></td> \n' + \
-        '    <td width=250><center><font size=+1 color=whitesmoke>\n' + \
-        'Linux on ARM & AMD<br>+ OSX & Windows</font></center>\n' + \
-        '    </td>\n' + \
-        '    <td width=375><font size=-1 color=whitesmoke>\n' + \
-        'BUCKET=https://bigsql-apg-download.s3.amazonaws.com<br>\n' + \
+        '    <td><img width=325 src=img/pgsql-banner.png /></td> \n' + \
+        '    <td width=375><center><font color=whitesmoke>\n' + \
+        '     Linux on ARM & AMD plus OSX & Windows<br>&nbsp;<br>\n' + \
+        '      <a href=""><font color=whitesmoke>FAQ</font></a>&nbsp;&nbsp;&nbsp;\n' + \
+        '      <a href=""><font color=whitesmoke>About Us</font></a>\n' + \
+        '    </font></center></td>\n' + \
+        '    <td width=400><font size=-1 color=whitesmoke>\n' + \
+        '<center><b>Installation Instructions:</b></center>\n' + \
+        '<code>BUCKET=https://bigsql-apg-download.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
-        'python -c "$(curl -fsSL $INSTALLER)"<br>&nbsp;<br>\n' + \
-        'cd bigsql; ./apg install pg11; ./apg start pg11; ./apg help</font>\n' + \
+        'python -c "$(curl -fsSL $INSTALLER)</code>"\n' + \
+        '<br>&nbsp;<br>\n' + \
+        '<center><b>Usage Instructions:</b></center>\n' + \
+        '<code>cd bigsql; ./apg info; ./apg list; ./apg help;\n' + \
+        './apg install pg11; ./apg start pg11;\n'
+        './apg install all-extensions</code>' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
