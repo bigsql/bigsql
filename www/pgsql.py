@@ -1,8 +1,8 @@
 
-def print_header():
+def print_header(pWidth):
   print('<center><table><tr><td> \n')
 
-  print('<table height=100 width=900 border=0 bgcolor=black cellpadding=2> \n' +
+  print('<table height=100 width=' + str(pWidth) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
         '    <td><img width=325 src=img/pgsql-banner.png /></td> \n' + \
         '    <td width=375><center><font color=whitesmoke>\n' + \

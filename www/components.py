@@ -9,14 +9,21 @@ FONT_SIZE = 2
 IMG_SIZE = 25
 BORDER=0
 
+if NUM_COLS == 1:
+  BR = "&nbsp;"
+  FONT_SIZE = 4
+  COLS_SIZE = 600
+  IMG_SIZE = 35
+  BORDER=1
+
 
 def print_top():
-  pgsql.print_header()
-  print('<table border=' + str(BORDER) + ' bgcolor=white cellpadding=2>')
+  pgsql.print_header(WIDTH)
+  print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=white cellpadding=2>')
 
  
 def print_bottom():
-  print('    </td>\n  </tr>\n</table>\n</center>\n\n<br>\n')
+  print('\n</td></tr></table></center><br>\n')
   pgsql.print_footer()
 
 
@@ -90,8 +97,8 @@ def print_row_detail(pCol, pBR):
   else:
     rel_date_display = rel_day + "-" + rel_month + rel_yy_display
 
-  print("  <td>&nbsp;<img src=img/" + image_file + " height=" + \
-    str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
+  print("  <td width=" + str(IMG_SIZE) + ">&nbsp;<img src=img/" + image_file + \
+    " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
   print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + \
     "><a href=" + project_url + ">" + release_name + \
     "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
@@ -101,7 +108,8 @@ def print_row_detail(pCol, pBR):
 
   if pCol == NUM_COLS:
     print("</tr>")
-    print("<tr><td></td></tr>")
+    if NUM_COLS != 1:
+      print("<tr><td></td></tr>")
 
   return
 
