@@ -151,11 +151,8 @@ for d in data:
   if isSHOW_COMP_PLAT == "Y":
     platd = BR + component + " [" + platform + "] " + stage
 
-  #print('DEBUG rel_date = ' + rel_date)
   year_day = int(rel_date[:6])
-  #print('DEBUG year_day=' + str(year_day))
   months_old = 202001 - year_day
-  #print('DEBUG months_old =' + str(months_old))
   if months_old < 99:
     rel_yy_display = ""
   else:
