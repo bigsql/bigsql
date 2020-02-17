@@ -41,7 +41,7 @@ def discover(p_ver, p_isSILENT=False, p_isJSON=False, p_isYES=False):
     repo = "pgdg" + p_ver.replace(".","")
     if not p_isYES and not p_isJSON:
       try:
-        p_install = raw_input("Do you want to install BigSQL CLI for existing {0} instance:(y/n)".format(repo))
+        p_install = raw_input("Do you want to install CLI for existing {0} instance:(y/n)".format(repo))
         if p_install in ("y", "Y"):
           p_isYES=True
       except Exception as e:

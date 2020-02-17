@@ -362,13 +362,13 @@ def info(p_json, p_home, p_repo, print_flag=True):
     admin_display = ""
 
   print(style_start + ("#" * 65) + style_end)
-  print(style_start + "#       BigSQL: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#     PGSQL.IO: " + style_end + "v" + ver + "  " + p_home)
   print(style_start + "#  User & Host: " + style_end + p_user + admin_display + "  " + host_display)
   print(style_start + "#           OS: " + style_end + os.rstrip() + " - " + str(plat))
   print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
   print(style_start + "#     Hardware: " + style_end + mem + ", " + cores + " " + cpu)
 
-  default_repo = "https://bigsql-apg-download.s3.amazonaws.com/REPO"
+  default_repo = "https://pgsql-io-download.s3.amazonaws.com/REPO"
   if p_repo != default_repo:
     print(style_start + "#     Repo URL: " + style_end + p_repo)
 

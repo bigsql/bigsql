@@ -1,4 +1,4 @@
-# BIGSQL-APG
+# PGSQL-IO
 
 EMAIL="denis@lussier.io"
 NAME="denis lussier"
@@ -70,19 +70,19 @@ chmod 600 config
 sudo yum -y install python3 python3-devel
 
 ## ENV for ~/.bashrc or ~/.bash_profile 
-alias git-push="cd ~/dev/bigsql-apg; git status; git add .; git commit -m wip; git push"
-alias bp="cd ~/dev/bigsql-apg; . ./bp.sh"
-alias http="cd ~/dev/bigsql-apg; ./startHTTP.sh"
+alias git-push="cd ~/dev/pgsql-io; git status; git add .; git commit -m wip; git push"
+alias bp="cd ~/dev/pgsql-io; . ./bp.sh"
+alias http="cd ~/dev/pgsql-io; ./startHTTP.sh"
 
 export REGION=us-west-2
-export BUCKET=s3://bigsql-apg-download
+export BUCKET=s3://pgsql-io-download
 
 export DEV=$HOME/dev
 export HIST=$DEV/history
 export IN=$DEV/in
 export SRC=$IN/sources
 export OUT=$DEV/out
-export APG=$DEV/bigsql-apg
+export APG=$DEV/pgsql-io
 export VER=$APG/src/conf/versions.sql
 export BLD=/opt/pgbin-build/pgbin/bin
 

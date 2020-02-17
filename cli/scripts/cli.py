@@ -7,8 +7,7 @@ if sys.version_info < (2, 7):
 
 IS_64BITS = sys.maxsize > 2**32
 if not IS_64BITS:
-  print("This is a 32bit machine and BigSQL packages are 64bit.\n"
-        "Cannot continue")
+  print("This is a 32bit machine and we are 64bit.")
   sys.exit(1)
 
 import os

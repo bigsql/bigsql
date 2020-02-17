@@ -1,7 +1,7 @@
 import sys, os
 
-MY_VER="6.0"
-MY_REPO=os.getenv("MY_REPO", "https://bigsql-apg-download.s3.amazonaws.com/REPO")
+MY_VER="6.1"
+MY_REPO=os.getenv("MY_REPO", "https://pgsql-io-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
   print("ERROR: Requires Python 2.7 or greater")
@@ -21,11 +21,11 @@ if not IS_64BITS:
   print("ERROR: This is a 32-bit machine and our packages are 64-bit.")
   sys.exit(1)
 
-if os.path.exists("bigsql"):
-  print("ERROR: Cannot install over an existing 'bigsql' directory.")
+if os.path.exists("pgsql"):
+  print("ERROR: Cannot install over an existing 'pgsql' directory.")
   sys.exit(1)
 
-my_file="bigsql-apg-" + MY_VER + ".tar.bz2"
+my_file="pgsql-io-" + MY_VER + ".tar.bz2"
 f = MY_REPO + "/" + my_file
 
 if not os.path.exists(my_file):
@@ -51,10 +51,10 @@ except Exception as e:
   sys.exit(1)
 
 print("\nSetting REPO to " + MY_REPO)
-cmd = "bigsql" + os.sep + "apg"
+cmd = "pgsql" + os.sep + "io"
 os.system(cmd + " set GLOBAL REPO " + MY_REPO)
 
-print("\nBigSQL installed.  Try '" + cmd + " help' to get started.\n")
+print("\nPGSQL installed.  Try '" + cmd + " help' to get started.\n")
 
 sys.exit(0)
 

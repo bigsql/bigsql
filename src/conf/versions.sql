@@ -4,18 +4,18 @@ DROP TABLE IF EXISTS versions;
 DROP TABLE IF EXISTS releases;
 DROP TABLE IF EXISTS projects;
 DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS families;
+-- DROP TABLE IF EXISTS families;
 
-CREATE TABLE families (
-  family      INTEGER NOT NULL PRIMARY KEY,
-  description TEXT,
-  short_desc  TEXT,
-  image       TEXT
-);
+-- CREATE TABLE families (
+--   family      INTEGER NOT NULL PRIMARY KEY,
+--   description TEXT,
+--   short_desc  TEXT,
+--   image       TEXT
+-- );
 
 CREATE TABLE categories (
   category    INTEGER NOT NULL PRIMARY KEY,
-  family      INTEGER NOT NULL REFERENCES families(family),
+--  family      INTEGER NOT NULL REFERENCES families(family),
   description TEXT    NOT NULL,
   short_desc  TEXT    NOT NULL
 );
@@ -68,14 +68,15 @@ CREATE VIEW v_versions AS
      AND r.component = v.component;
 
 -- ##
-INSERT INTO families VALUES (10, '_', '_', '_');
+-- INSERT INTO families VALUES (10, '_', '_', '_');
 INSERT INTO categories VALUES (0, 10,  'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
+INSERT INTO versions VALUES ('hub', '6.1', '', 1, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200213', '');
 
 -- ##
-INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source Database', 'Best RDBMS', 'postgres.png');
+-- INSERT INTO families  VALUES (20, 'Worlds Most Advanced Open Source Database', 'Best RDBMS', 'postgres.png');
 INSERT INTO categories VALUES (1, 20, 'Worlds Best RDBMS', 'Postgres');
 
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
@@ -94,7 +95,7 @@ INSERT INTO releases VALUES ('pgweekly', 5, 'pg', 'PostgreSQL Weekly Build', '',
 INSERT INTO versions VALUES ('pgweekly', '13', 'arm, amd', 0, '19700101','');
 
 -- ##
-INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 'Compatible', 'plug_compat.png');
+-- INSERT INTO families VALUES (30, 'Compatability, Migration & Interoperability', 'Compatible', 'plug_compat.png');
 INSERT INTO categories VALUES (5, 30, 'Foreign Data Integration', 'Foreign Data');
 
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
@@ -202,7 +203,7 @@ INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm, amd', 1, '20191114', 'p
     INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 0, '20190823', 'pg12');
 
 -- ##
-INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capable', 'ability.png');
+-- INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capable', 'ability.png');
  INSERT INTO categories VALUES (4, 40,'Security', 'Secure');
 
   INSERT INTO projects VALUES ('backrest', 4, 0, 'hub', 0, 'https://pgbackrest.org/release.html', 'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
@@ -271,7 +272,7 @@ INSERT INTO families VALUES (40, 'Security, Scalability & Availability', 'Capabl
     INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
 -- ##
-INSERT INTO families VALUES (50, 'Tools & Client Applications', 'Tools', 'needle_thread.png');
+-- INSERT INTO families VALUES (50, 'Tools & Client Applications', 'Tools', 'needle_thread.png');
  INSERT INTO categories VALUES (7, 50, 'Toolchain', 'Toolchain');
 
   INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');

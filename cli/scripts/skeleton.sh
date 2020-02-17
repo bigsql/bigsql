@@ -1,35 +1,35 @@
 
 function test11 {
-  ./apg install pg11; 
-  ./apg start pg11 -y -d demo; 
-  ./apg install pgtsql-pg11        -d demo; ./apg status
-  ./apg install http-pg11          -d demo; ./apg status
-  ./apg install timescaledb-pg11   -d demo; ./apg status
-  ./apg install plprofiler-pg11    -d demo; ./apg status
-  ./apg install hypopg-pg11        -d demo; ./apg status
-  ./apg install orafce-pg11        -d demo; ./apg status
-  ./apg install spock-pg11         -d demo; ./apg status
-  ./apg install bulkload-pg11      -d demo; ./apg status
-  ./apg install partman-pg11       -d demo; ./apg status
-  ./apg install audit-pg11         -d demo; ./apg status
-  ./apg install ddlx-pg11          -d demo; ./apg status
-  ./apg install anon-pg11          -d demo; ./apg status
-  ##./apg install presto_fdw-pg11    -d demo; ./apg status
-  ##./apg install cassandra_fdw-pg11 -d demo; ./apg status
+  ./io install pg11; 
+  ./io start pg11 -y -d demo; 
+  ./io install pgtsql-pg11        -d demo; ./io status
+  ./io install http-pg11          -d demo; ./io status
+  ./io install timescaledb-pg11   -d demo; ./io status
+  ./io install plprofiler-pg11    -d demo; ./io status
+  ./io install hypopg-pg11        -d demo; ./io status
+  ./io install orafce-pg11        -d demo; ./io status
+  ./io install spock-pg11         -d demo; ./io status
+  ./io install bulkload-pg11      -d demo; ./io status
+  ./io install partman-pg11       -d demo; ./io status
+  ./io install audit-pg11         -d demo; ./io status
+  ./io install ddlx-pg11          -d demo; ./io status
+  ./io install anon-pg11          -d demo; ./io status
+  ##./io install presto_fdw-pg11    -d demo; ./io status
+  ##./io install cassandra_fdw-pg11 -d demo; ./io status
 }
 
 function test12 {
-  ./apg install pg12; 
-  ./apg start pg12 -y -d demo;
-  ./apg install http-pg12          -d demo; ./apg status
-  ./apg install plprofiler-pg12    -d demo; ./apg status
-  ./apg install hypopg-pg12        -d demo; ./apg status
-  ./apg install orafce-pg12        -d demo; ./apg status
-  ./apg install bulkload-pg12      -d demo; ./apg status
-  ./apg install partman-pg12       -d demo; ./apg status
-  ./apg install audit-pg12         -d demo; ./apg status
-  ./apg install ddlx-pg12          -d demo; ./apg status
-  ./apg install anon-pg12          -d demo; ./apg status
+  ./io install pg12; 
+  ./io start pg12 -y -d demo;
+  ./io install http-pg12          -d demo; ./io status
+  ./io install plprofiler-pg12    -d demo; ./io status
+  ./io install hypopg-pg12        -d demo; ./io status
+  ./io install orafce-pg12        -d demo; ./io status
+  ./io install bulkload-pg12      -d demo; ./io status
+  ./io install partman-pg12       -d demo; ./io status
+  ./io install audit-pg12         -d demo; ./io status
+  ./io install ddlx-pg12          -d demo; ./io status
+  ./io install anon-pg12          -d demo; ./io status
 }
 
 cd ../..

@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-MY_VERSION = "6.0"
+MY_VERSION = "6.1"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -1678,7 +1678,7 @@ def has_admin_rights():
 
 
 ####################################################################################
-# return the default BIGSQL platform based on the OS
+# return the default platform based on the OS
 ####################################################################################
 def get_default_pf():
   if get_platform() == "Darwin":
@@ -1692,7 +1692,7 @@ def get_default_pf():
 
 
 ####################################################################################
-# return the BIGSQL platform
+# return the platform
 ####################################################################################
 def get_pf():
   return (get_os())
@@ -1909,7 +1909,7 @@ def http_get_file(p_json, p_file_name, p_url, p_out_dir, p_display_status, p_msg
     while True:
       if not p_file_name.endswith(".txt") \
               and not p_file_name.startswith("install.py") \
-              and not p_file_name.startswith("bigsql-apg") \
+              and not p_file_name.startswith("pgsql-io") \
               and not os.path.isfile(pid_file):
         raise KeyboardInterrupt("No lock file exists.")
       buffer = u.read(block_sz)
