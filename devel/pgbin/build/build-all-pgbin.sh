@@ -19,7 +19,7 @@ function runPgBin {
   odbcSrc=$SRC/psqlodbc-$odbcV.tar.gz
   bkrstSrc=$SRC/backrest-$backrestV.tar.gz
  
-  cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV"
+  cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV "
 
   cmd="$cmd -b $bncrSrc"
   cmd="$cmd -k $bkrstSrc"
@@ -40,6 +40,8 @@ function runPgBin {
 
 ## validate input parm
 majorV="$1"
+optional="$2"
+
 if [ "$majorV" == "95" ]; then
   pgV=$pg95V
   pgBuildV=$pg95BuildV
@@ -55,11 +57,7 @@ elif [ "$majorV" == "11" ]; then
 elif [ "$majorV" == "12" ]; then
   pgV=$pg12V
   pgBuildV=$pg12BuildV
-else
-  echo "ERROR:  PG version not in (95, 96, 10, 11, 12, all)"
-  exit 1
 fi
-optional="$2"
 
 if [ "$majorV" == "all" ]; then
   runPgBin "$binBld" "$pgSrc-$pg95V.tar.gz" "$pg95BuildV"
