@@ -1,10 +1,10 @@
 
-v94=9.4.25
-v95=9.5.20
-v96=9.6.16
-v10=10.11
-v11=11.6
-v12=12.1
+v94=9.4.26
+v95=9.5.21
+v96=9.6.17
+v10=10.12
+v11=11.7
+v12=12.2
 v13=13devel
 
 fatalError () {
@@ -88,10 +88,10 @@ elif [ "$1" == "10" ]; then
   options=""
   downBuild $v10
 elif [ "$1" == "11" ]; then
-  options="--with-llvm"
+  options=""
   downBuild $v11
 elif [ "$1" == "12" ]; then
-  options=""
+  options="--without-llvm"
   downBuild $v12
 elif [ "$1" == "13" ]; then
   options=""

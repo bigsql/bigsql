@@ -14,5 +14,6 @@ export PATH=$PGHOME/bin:$PATH
 echo "# PGHOME = $PGHOME"
 echo "#   PATH = $PATH"
 echo "# Success!"
-cd $1/contrib
+cd $1/contrib/$2
+
 pwd
