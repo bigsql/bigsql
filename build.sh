@@ -25,7 +25,7 @@ fi
 
 printUsageMessage () {
   echo "#--------------------------------------------------------------------------#"
-  echo "#                    Copyright (c) 2015-2020 BigSQL                        #"
+  echo "#        Copyright (c) 2015-2020 PostgreSQL Global Development Group       #"
   echo "#--------------------------------------------------------------------------#"
   echo "# -p $P12  $P11  $P10"
   echo "# -b hub-$hubV"

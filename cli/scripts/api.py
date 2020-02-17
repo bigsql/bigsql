@@ -362,7 +362,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     admin_display = ""
 
   print(style_start + ("#" * 65) + style_end)
-  print(style_start + "#     PGSQL.IO: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#    PGSQL Hub: " + style_end + "v" + ver + "  " + p_home)
   print(style_start + "#  User & Host: " + style_end + p_user + admin_display + "  " + host_display)
   print(style_start + "#           OS: " + style_end + os.rstrip() + " - " + str(plat))
   print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
