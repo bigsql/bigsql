@@ -63,20 +63,30 @@ INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
 INSERT INTO versions VALUES ('hub', '6.1', '', 1, '20200315', '');
-INSERT INTO versions VALUES ('hub', '6.0', '', 1, '20200213', '');
+INSERT INTO versions VALUES ('hub', '6.0', '', 0, '20200213', '');
 
 -- ##
 INSERT INTO categories VALUES (1, 'Worlds Best RDBMS', 'Postgres');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
  'postgres', 0, 'bruce.png', 'Best RDBMS', 'https://postgresql.org');
+
+INSERT INTO releases VALUES ('pg95', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
+INSERT INTO versions VALUES ('pg95', '9.5.21-2', 'arm, amd', 1, '20200213','');
+
+INSERT INTO releases VALUES ('pg96', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
+INSERT INTO versions VALUES ('pg96', '9.6.17-2', 'arm, amd', 1, '20200213','');
+
 INSERT INTO releases VALUES ('pg10', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg10', '10.12-1', 'arm, amd', 1, '20200213','');
+INSERT INTO versions VALUES ('pg10', '10.12-1', 'arm, amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg10', '10.12-2', 'arm, amd', 1, '20200213','');
+
 INSERT INTO releases VALUES ('pg11', 3, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg11', '11.7-1', 'arm, amd', 1, '20200213','');
+INSERT INTO versions VALUES ('pg11', '11.7-1', 'arm, amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg11', '11.7-2', 'arm, amd', 1, '20200213','');
+
 INSERT INTO releases VALUES ('pg12', 4, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg12', '12.2-1', 'arm, amd', 1, '20200213','');
-INSERT INTO releases VALUES ('pgweekly', 5, 'pg', 'PostgreSQL Weekly Build', '', 'soon', 1);
-INSERT INTO versions VALUES ('pgweekly', '13', 'arm, amd', 0, '19700101','');
+INSERT INTO versions VALUES ('pg12', '12.2-1', 'arm, amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg12', '12.2-2', 'arm, amd', 1, '20200213','');
 
 -- ##
 INSERT INTO categories VALUES (5, 'Foreign Data Integration', 'Foreign Data');

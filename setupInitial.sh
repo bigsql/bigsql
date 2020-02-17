@@ -82,16 +82,16 @@ export HIST=$DEV/history
 export IN=$DEV/in
 export SRC=$IN/sources
 export OUT=$DEV/out
-export APG=$DEV/pgsql-io
-export VER=$APG/src/conf/versions.sql
+export IO=$DEV/pgsql-io
+export VER=$IO/src/conf/versions.sql
 export BLD=/opt/pgbin-build/pgbin/bin
 
-export DEVEL=$APG/devel
+export DEVEL=$IO/devel
 export PG=$DEVEL/pg
 export PGBIN=$DEVEL/pgbin
 export UTIL=$DEVEL/util
-export CLI=$APG/cli/scripts
-export PSX=$APG/out/posix
+export CLI=$IO/cli/scripts
+export PSX=$IO/out/posix
 export REPO=http://localhost:8000
 
 ## for Ubuntu
