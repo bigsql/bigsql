@@ -7,23 +7,25 @@ git config --global user.name "$NAME"
 git config --global push.default simple
 git config --global credential.helper store
 
-yum --version
-rc=$?
-if [ "$rc" == "0" ]; then
-  YUM="y"
-else
-  YUM="n"
-fi
 
 if [ `uname` == 'Darwin' ]; then
   owner_group="$USER:wheel"
   brew install sqlite3 python3 curl wget \
    gcc flex bison zlib readline libxml2 libxslt \
    llvm libuv libevent pkg-config unixodbc
-else
+fi
+
+if [ `uname` == 'Linux' ]; then
   owner_group="$USER:$USER"
+  yum --version
+  rc=$?
+  if [ "$rc" == "0" ]; then
+    YUM="y"
+  else
+    YUM="n"
+  fi
   if [ "$YUM" == "y" ]; then
-    ## CentOS 7 for AMD builds
+    ## tested on CentOS 7
     sudo yum -y install -y epel-release python-pip
     sudo yum -y groupinstall 'development tools'
     sudo yum -y install bison-devel libedit-devel zlib-devel \
@@ -33,7 +35,7 @@ else
       uuid-devel curl-devel protobuf-c-devel chrpath docbook-dtds \
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
   else
-    ## Ubuntu 16 for ARM builds
+    ## tested on Ubunut 16
     sudo add-apt-repository universe
     sudo apt install sqlite3 python3 curl wget \
       openjdk-11-jdk build-essential flex bison zlib1g-dev \
