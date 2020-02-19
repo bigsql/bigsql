@@ -167,12 +167,12 @@ INSERT INTO versions VALUES ('plv8-pg11', '2.3.14-1', 'arm', 1, '20200109', 'pg1
 INSERT INTO projects VALUES ('plpython', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plpython.html',
   'plpython', 1, 'python.png', 'Python3 Stored Procedures', 'https://www.postgresql.org/docs/11/plpython.html');
 INSERT INTO releases VALUES ('plpython-pg11', 4, 'plpython', 'PL/Python','', 'included', 1);
-INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm, amd', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('plpython-pg11', '3', 'arm, amd', 1, '20200213', 'pg11');
 
 INSERT INTO projects VALUES ('plperl', 3, 0, 'hub', 0, 'https://www.postgresql.org/docs/11/plperl.html',
   'plperl', 1, 'perl.png', 'Perl Stored Procedures', 'https://www.postgresql.org/docs/11/plperl.html');
 INSERT INTO releases VALUES ('plperl-pg11', 4, 'plperl', 'PL/Perl','', 'included', 1);
-INSERT INTO versions VALUES ('plperl-pg11', '5', 'arm, amd', 1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('plperl-pg11', '5', 'arm, amd', 1, '20200213', 'pg11');
 
 INSERT INTO projects VALUES ('pljava', 3, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 
   'pljava', 1, 'java.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
@@ -187,7 +187,7 @@ INSERT INTO versions VALUES ('pldebugger-pg11', '2',  'arm',  1, '20191114', 'pg
 INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases',
   'plpgsql', 1, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
 INSERT INTO releases VALUES ('plpgsql-pg11', 1, 'plpgsql', 'PL/pgSQL', '', 'included', 1);
-INSERT INTO versions VALUES ('plpgsql-pg11', '12',  'arm, amd',  1, '20191114', 'pg11');
+INSERT INTO versions VALUES ('plpgsql-pg11', '11',  'arm, amd',  1, '20200213', 'pg11');
 
 INSERT INTO projects VALUES ('pgosql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
 INSERT INTO releases VALUES ('pgosql-pg11', 8, 'pgosql', 'pgOSQL', '', 'soon', 1);
