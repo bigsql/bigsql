@@ -89,7 +89,7 @@ INSERT INTO versions VALUES ('pg12', '12.2-1', 'arm, amd', 0, '20200213','');
 INSERT INTO versions VALUES ('pg12', '12.2-2', 'arm, amd', 1, '20200213','');
 
 -- ##
-INSERT INTO categories VALUES (5, 'Foreign Data Integration', 'Foreign Data');
+INSERT INTO categories VALUES (5, 'Foreign Data Wrappers', 'FDWs');
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 
   'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'soon', 1);
@@ -135,7 +135,7 @@ INSERT INTO projects VALUES ('tds_fdw', 5, 0, 'hub', 0, 'https://github.com/tds-
 INSERT INTO releases VALUES ('tds_fdw-pg11', 4, 'tds_fdw', 'TDS FDW', '', 'soon', 1);
 INSERT INTO versions VALUES ('tds_fdw-pg11', '2.0.1-1', 'arm',  1, '20191202', 'pg11');
 
-INSERT INTO projects VALUES ('ora2pg', 5, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
+INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
 INSERT INTO releases VALUES ('ora2pg', 7, 'ora2pg', 'Oracle to PG', '', 'prod', 0);
 INSERT INTO versions VALUES ('ora2pg', '20.0', '', 1, '20190118', '');
@@ -208,19 +208,19 @@ INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 0, '2019082
 -- ##
 INSERT INTO categories VALUES (4, 'Security', 'Secure');
 
-INSERT INTO projects VALUES ('backrest', 4, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
+INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
-INSERT INTO releases VALUES ('backrest', 4, 'backrest', 'pgBackRest', '', 'included', 1);
+INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'included', 1);
 INSERT INTO versions VALUES ('backrest', '2.23-1', 'arm, amd', 1, '20200127', '');
 
-INSERT INTO projects VALUES ('audit', 4, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
+INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
   'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
 INSERT INTO releases VALUES ('audit-pg11', 10, 'audit', 'pgAudit', '', 'prod', 1);
 INSERT INTO releases VALUES ('audit-pg12', 10, 'audit', 'pgAudit', '', 'prod', 1);
 INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm, amd', 1, '20190617', 'pg11');
 INSERT INTO versions VALUES ('audit-pg12', '1.4.0-1', 'arm, amd', 0, '20190927', 'pg12');
 
-INSERT INTO projects VALUES ('anon', 4, 0, 'ddlx',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
+INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
   'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO releases VALUES ('anon-pg11', 11, 'anon', 'Anonymizer', '', 'prod', 1);
 INSERT INTO releases VALUES ('anon-pg12', 11, 'anon', 'Anonymizer', '', 'prod', 1);
@@ -228,7 +228,7 @@ INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm, amd', 1, '20191109', 
 INSERT INTO versions VALUES ('anon-pg12', '0.5.0-1', 'arm, amd', 0, '20191109', 'pg12');
 
 -- ##
-INSERT INTO categories VALUES (2, 'Scalability', 'Scalable');
+INSERT INTO categories VALUES (2, 'Applications', 'Applics');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
@@ -288,8 +288,8 @@ INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '
 INSERT INTO categories VALUES (7, 'Toolchain', 'Toolchain');
 
 INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'soon', 1);
-INSERT INTO versions VALUES ('docker', '19.03.5', 'arm', 1, '20191113', '');
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('docker', '19.03.6', 'arm', 1, '20200212', '');
 
 INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
@@ -319,13 +319,13 @@ INSERT INTO versions VALUES ('omnidb', '2.17-1', 'docker', 0, '20191205', '');
 
 INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
 INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('jdbc', '42.2.9', '', 1, '20191206', '');
+INSERT INTO versions VALUES ('jdbc', '42.2.10', '', 1, '20200130', '');
 
-INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://github.com/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
+INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://www.nuget.org/packages/Npgsql/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
 INSERT INTO releases VALUES ('npgsql', 10, 'npgsql', '.net PG', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('npgsql', '3.1.0', '', 1, '20191201', '');
+INSERT INTO versions VALUES ('npgsql', '4.1.3', '', 1, '20200131', '');
 
-INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'http://initd.org/psycopg', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://initd.org/psycopg');
+INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'https://pypi.org/project/psycopg2/', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://psycopg.org');
 INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('psycopg', '2.8.4', '', 1, '20191020', '');
 
@@ -347,9 +347,11 @@ INSERT INTO projects VALUES ('pgrest',     8, 0, 'hub', 3, 'https://github.com/p
 INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('pgrest', '0.0.7-1', 'arm', 1, '20130813', '');
 
-INSERT INTO projects VALUES ('ddlx',       8, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('ddlx',       2, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 INSERT INTO releases VALUES ('ddlx-pg11', 14, 'ddlx', 'DDLeXtact', '', 'prod', 0);
 INSERT INTO releases VALUES ('ddlx-pg12', 14, 'ddlx', 'DDLeXtact', '', 'prod', 0);
-INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm, amd', 1, '20191024', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11', '0.16-1', 'arm, amd', 1, '20191110', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg11', '0.15-1', 'arm, amd', 0, '20191024', 'pg11');
+INSERT INTO versions VALUES ('ddlx-pg12', '0.16-1', 'arm, amd', 0, '20191110', 'pg12');
 INSERT INTO versions VALUES ('ddlx-pg12', '0.15-1', 'arm, amd', 0, '20191024', 'pg12');
 

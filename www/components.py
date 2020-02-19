@@ -43,6 +43,8 @@ def get_columns(d):
   project_url = str(d[8])
 
   platform = str(d[9])
+  if platform == "":
+    platform = "arm, amd"
 
   rel_date = str(d[10])
   rel_yy = rel_date[2:4]
