@@ -1,2 +1,0 @@
-
-./provision-nginx.sh remove 

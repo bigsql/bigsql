@@ -1,2 +1,0 @@
-
-./action-nginx.sh restart

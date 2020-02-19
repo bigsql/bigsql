@@ -32,7 +32,7 @@ printUsageMessage () {
   echo "# -f cassandra-$cstarV  presto-$presV"
   echo "# -e cassandra_fdw-$cstarV  presto_fdw-$prestoV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
-  echo "#    spock-$spockV  plprofiler-$profV  pgtsql-$tsqlV"
+  echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$audit11V, $audit12V"
 ##  echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "#--------------------------------------------------------------------------#"
@@ -201,7 +201,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
-  copy-pgXX "spock"
+  copy-pgXX "pglogical"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
   copy-pgXX "http"
@@ -408,7 +408,6 @@ initPG () {
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
-    initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
     #if [ "$plat" == "amd" ]; then
     #  initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
@@ -419,6 +418,7 @@ initPG () {
     initC "audit-pg$pgM" "audit" "$audit12V" "$outPlat" "postgres/audit" "" "" "nil"
   fi
   if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
+    initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"

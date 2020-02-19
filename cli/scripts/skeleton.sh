@@ -8,7 +8,7 @@ function test11 {
   ./io install plprofiler-pg11    -d demo; ./io status
   ./io install hypopg-pg11        -d demo; ./io status
   ./io install orafce-pg11        -d demo; ./io status
-  ./io install spock-pg11         -d demo; ./io status
+  ./io install pglogical-pg11     -d demo; ./io status
   ./io install bulkload-pg11      -d demo; ./io status
   ./io install partman-pg11       -d demo; ./io status
   ./io install audit-pg11         -d demo; ./io status
@@ -25,6 +25,7 @@ function test12 {
   ./io install plprofiler-pg12    -d demo; ./io status
   ./io install hypopg-pg12        -d demo; ./io status
   ./io install orafce-pg12        -d demo; ./io status
+  ./io install pglogical-pg12     -d demo; ./io status
   ./io install bulkload-pg12      -d demo; ./io status
   ./io install partman-pg12       -d demo; ./io status
   ./io install audit-pg12         -d demo; ./io status

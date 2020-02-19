@@ -791,7 +791,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-spock:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -831,7 +831,7 @@ while true; do
     --build-cstore-fdw ) buildCstoreFDW=true; cstoreFDWSource=$2; shift; shift ;;
     --build-parquet-fdw ) buildParquetFDW=true; parquetFDWSource=$2; shift; shift ;;
     --build-pgrepack ) buildpgRepack=true; pgrepackSource=$2; shift; shift ;;
-    --build-spock ) buildSpock=true; Source=$2; shift; shift ;;
+    --build-pglogical ) buildPgLogical=true; Source=$2; shift; shift ;;
     --build-hintplan ) buildHintPlan=true; Source=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
     --build-pgagent ) buildPGAgent=true; pgAgentSource=$2; shift; shift ;;
@@ -903,8 +903,8 @@ if [ "$buildWalg" == "true" ]; then
 	buildComp wal_g "$walgShortV" "$walgFullV" "$walgBuildV" "$Source"
 fi
 
-if [[ $buildSpock == "true" ]]; then
-	buildComp spock  "$spockShortV" "$spockFullV" "$spockBuildV" "$Source"
+if [[ $buildPgLogical == "true" ]]; then
+	buildComp pglogical  "$pgLogicalShortV" "$pgLogicalFullV" "$pgLogicalBuildV" "$Source"
 fi
 
 if [[ $buildPLDebugger == "true" ]]; then

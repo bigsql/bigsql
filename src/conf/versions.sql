@@ -236,10 +236,11 @@ INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd', 0, '20191112', 'pg11');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 1, '20200115', 'pg11');
 
-INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
-  'spock', 1, 'spock.png', 'pgLogical2 Replication', 'https://github.com/bigsql/spock');
-INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'Spock', '', 'prod', 1);
-INSERT INTO versions VALUES ('spock-pg11', '2.2.3-1',  'arm, amd', 1, '20200213', 'pg11');
+INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
+  'pglogical', 1, 'pglogical.png', 'pgLogical2 Replication', 'https://github.com/2ndQuadrant/pglogical');
+INSERT INTO releases VALUES ('pglogical-pg11', 2, 'pglogical', 'pgLogical 2', '', 'prod', 1);
+INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg12', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg12');
 
 INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net',
   'postgis', 0, 'postgis.png', 'PostGIS', 'http://postgis.net');

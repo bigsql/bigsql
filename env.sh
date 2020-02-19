@@ -16,7 +16,7 @@ ddlxV=0.15-1
 omniV=2.17-1
 hypoV=1.1.3-1
 timescaleV=1.6.0-1
-spockV=2.2.3-1
+logicalV=2.3.0-1
 profV=4.1-1
 bulkloadV=3.1.16-1
 partmanV=4.3.0-1
@@ -30,10 +30,6 @@ presV=0.229
 prestoV=3.2.1-1
 
 tsqlV=3.0-1
-patroniV=1.6.3
-
-minikubeV=1.6.2
-dockerV=19.03.5
 
 mysqlfdwV=2.0.5-1
 
