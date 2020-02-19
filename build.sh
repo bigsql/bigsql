@@ -34,6 +34,7 @@ printUsageMessage () {
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$audit11V, $audit12V"
+  echo "#    badger-$badgerV  ora2pg-$ora2pgV"
 ##  echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b -fek"
@@ -404,6 +405,9 @@ initPG () {
 
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
+
+  initC "pgbadger" "pgbadger" "$badgerV" "" "postgres/badger" "" "" "nil"
+  initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"

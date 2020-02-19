@@ -136,8 +136,8 @@ INSERT INTO releases VALUES ('tds_fdw-pg11', 4, 'tds_fdw', 'TDS FDW', '', 'soon'
 INSERT INTO versions VALUES ('tds_fdw-pg11', '2.0.1-1', 'arm',  1, '20191202', 'pg11');
 
 INSERT INTO projects VALUES ('ora2pg', 5, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
-  'ora2pg', 1, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
-INSERT INTO releases VALUES ('ora2pg', 7, 'ora2pg', 'Oracle to PG', '', 'soon', 0);
+  'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
+INSERT INTO releases VALUES ('ora2pg', 7, 'ora2pg', 'Oracle to PG', '', 'prod', 0);
 INSERT INTO versions VALUES ('ora2pg', '20.0', '', 1, '20190118', '');
 
 INSERT INTO projects VALUES ('oracle_fdw', 5, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
@@ -276,9 +276,9 @@ INSERT INTO releases VALUES ('hypopg-pg12', 7, 'hypopg', 'HypoPG', '', 'prod', 1
 INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg11');
 INSERT INTO versions VALUES ('hypopg-pg12', '1.1.3-1',  'arm, amd', 0, '20191123', 'pg12');
 
-INSERT INTO projects VALUES ('badger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
-INSERT INTO releases VALUES ('badger', 8, 'badger','pgBadger','', 'soon', 1);
-INSERT INTO versions VALUES ('badger', '11.1-1', '', 1, '20190916', '');
+INSERT INTO projects VALUES ('pgbadger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
+INSERT INTO releases VALUES ('pgbadger', 8, 'pgbadger','pgBadger','', 'prod', 1);
+INSERT INTO versions VALUES ('pgbadger', '11.1', '', 1, '20190916', '');
 
 INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
 INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'included', 1);

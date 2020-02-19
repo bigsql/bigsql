@@ -33,6 +33,9 @@ tsqlV=3.0-1
 
 mysqlfdwV=2.0.5-1
 
+badgerV=11.1
+ora2pgV=20.0
+
 HUB="$PWD"
 SRC="$HUB/src"
 zipOut="off"
