@@ -129,9 +129,9 @@ pgLogicalFullV=2.3.0
 pgLogicalShortV=
 pgLogicalBuildV=1
 
-pgrepackFullVersion=1.4.4
-pgrepackShortVersion=
-pgrepackBuildV=1
+repackFullV=1.4.5
+repackShortV=
+repackBuildV=1
 
 partmanFullV=4.3.0
 partmanShortV=

@@ -34,8 +34,7 @@ printUsageMessage () {
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$audit11V, $audit12V"
-  echo "#    badger-$badgerV  ora2pg-$ora2pgV"
-##  echo "# -k minikube-$minikubeV  docker-$dockerV  patroni-$patroniV"
+  echo "#    badger-$badgerV  ora2pg-$ora2pgV  repack-$repackV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b -fek"
   echo "#--------------------------------------------------------------------------#"
@@ -423,6 +422,7 @@ initPG () {
   fi
   if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
+    initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"

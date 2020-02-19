@@ -47,6 +47,10 @@ fi
 
 ## prod ready across platforms #######################
 
+if [ "$1" == "repack" ] || [ "$1" == "all" ]; then
+  build repack $repackFullV $2 repack
+fi
+
 if [ "$1" == "partman" ] || [ "$1" == "all" ]; then
   build partman $partmanFullV $2 partman
 fi

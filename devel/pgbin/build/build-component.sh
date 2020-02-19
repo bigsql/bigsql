@@ -717,37 +717,6 @@ function buildParquetFDWComponent {
         packageComponent $componentBundle
 }
 
-function buildpgRepackComponent {
-
-        componentName="repack$pgrepackShortVersion-pg$pgShortVersion-$pgrepackFullVersion-$pgrepackBuildV-$buildOS"
-        mkdir -p "$baseDir/$workDir/logs"
-        cd "$baseDir/$workDir"
-        mkdir pgrepack && tar -xf $pgrepackSource --strip-components=1 -C pgrepack
-        cd pgrepack
-
-        buildLocation="$baseDir/$workDir/build/$componentName"
-
-        prepComponentBuildDir $buildLocation
-
-
-        PATH=$buildLocation/bin:$PATH
-        USE_PGXS=1 make > $baseDir/$workDir/logs/pgrepack_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-                 USE_PGXS=1 make install > $baseDir/$workDir/logs/pgrepack_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                        echo "pgRepack install failed, check logs for details."
-                fi
-        else
-                echo "pgRepack Make failed, check logs for details."
-                return 1
-        fi
-
-        componentBundle=$componentName
-        cleanUpComponentDir $buildLocation
-        updateSharedLibs
-        packageComponent $componentBundle
-}
-
 
 function buildTimeScaleDBComponent {
 
@@ -791,7 +760,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-pgrepack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -830,7 +799,7 @@ while true; do
     --build-bulkload ) buildBulkLoad=true; Source=$2; shift; shift ;;
     --build-cstore-fdw ) buildCstoreFDW=true; cstoreFDWSource=$2; shift; shift ;;
     --build-parquet-fdw ) buildParquetFDW=true; parquetFDWSource=$2; shift; shift ;;
-    --build-pgrepack ) buildpgRepack=true; pgrepackSource=$2; shift; shift ;;
+    --build-repack ) buildRepack=true; Source=$2; shift; shift ;;
     --build-pglogical ) buildPgLogical=true; Source=$2; shift; shift ;;
     --build-hintplan ) buildHintPlan=true; Source=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
@@ -903,6 +872,10 @@ if [ "$buildWalg" == "true" ]; then
 	buildComp wal_g "$walgShortV" "$walgFullV" "$walgBuildV" "$Source"
 fi
 
+if [[ $buildRepack == "true" ]]; then
+	buildComp repack  "$repackShortV" "$repackFullV" "$repackBuildV" "$Source"
+fi
+
 if [[ $buildPgLogical == "true" ]]; then
 	buildComp pglogical  "$pgLogicalShortV" "$pgLogicalFullV" "$pgLogicalBuildV" "$Source"
 fi
@@ -948,9 +921,6 @@ if [[ $buildCstoreFDW == "true" ]]; then
 fi
 if [[ $buildParquetFDW == "true" ]]; then
 	buildParquetFDWComponent
-fi
-if [[ $buildpgRepack == "true" ]]; then
-	buildpgRepackComponent
 fi
 if [[ $buildHintPlan == "true" ]]; then
         buildComp hintplan "$hintplanShortV" "$hintplanFullV" "$hintplanBuildV" "$Source"
