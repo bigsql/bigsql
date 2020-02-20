@@ -26,4 +26,4 @@ def print_header(pWidth):
 
  
 def print_footer():
-  print('&copy; BigSQL 2012-2020, All rights reserved.')
+  print('&copy; PGSQL-IO 2020, All rights reserved.')

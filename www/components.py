@@ -1,12 +1,13 @@
 import sqlite3, sys, pgsql
 
-isSHOW_COMP_PLAT = 'Y'
+isSHOW_COMP_PLAT = "N"
+isSHOW_DESCRIPTION = "Y"
 BR = "<br>"
 WIDTH = 900
-COL_SIZE = 190
+COL_SIZE = 200
 NUM_COLS = 4
 FONT_SIZE = 2
-IMG_SIZE = 25
+IMG_SIZE = 27
 BORDER=0
 
 if NUM_COLS == 1:
@@ -94,14 +95,19 @@ def print_row_header(pBR):
 
 
 def print_row_detail(pCol, pBR):
+  global proj_desc, component
+
   if rel_date == '19700101':
     rel_date_display = ""
   else:
     rel_date_display = rel_day + "-" + rel_month + rel_yy_display
 
+  if isSHOW_DESCRIPTION == "N" or component[0:3] in ("pg9", "pg1"):
+    proj_desc = ""
+
   print("  <td width=" + str(IMG_SIZE) + ">&nbsp;<img src=img/" + image_file + \
     " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
-  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + \
+  print("  <td width=" +str( COL_SIZE) + ">&nbsp;<br><font size=" + str(FONT_SIZE) + \
     "><a href=" + project_url + ">" + release_name + \
     "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
     "</a>&nbsp;<font color=red size=-1><sup>" + \
