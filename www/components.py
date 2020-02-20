@@ -1,6 +1,6 @@
 import sqlite3, sys, pgsql
 
-isSHOW_COMP_PLAT = "N"
+isSHOW_COMP_PLAT = "Y"
 isSHOW_DESCRIPTION = "Y"
 BR = "<br>"
 WIDTH = 900
