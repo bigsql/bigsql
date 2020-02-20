@@ -14,6 +14,7 @@ if [ -d $outp ]; then
   rm -rf $outp
 fi
 
+./startHTTP.sh
 ./build.sh -X posix -R
 
 cd $outp
