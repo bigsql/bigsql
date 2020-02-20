@@ -57,5 +57,9 @@ cp -v $lib64/libpam.so.0          $shared_lib/.
 cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
 #cp -v $lib64/libcassandra.so.2   $shared_lib/.
 
+cp -v $lib64/libproj*             $shared_lib/.
+cp -v $lib64/libjson-c*           $shared_lib/.
+cp -v /usr/local/lib/*so*         $shared_lib/.
+
 rm -f $shared_lib/*.a
 

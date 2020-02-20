@@ -63,6 +63,15 @@ if [ "$1" == "bulkload" ] || [ "$1" == "all" ]; then
   build bulkload $bulkloadFullV $2 bulkload
 fi
 
+if [ "$1" == "postgis" ] || [ "$1" == "all" ]; then
+  echo "2=$2"
+  if [ "$2" == "11" ]; then
+    build postgis $postgisFull25V $2 postgis  
+  else
+    build postgis $postgisFull30V $2 postgis  
+  fi
+fi
+
 if [ "$1" == "audit" ] || [ "$1" == "all" ]; then
   echo "2=$2"
   if [ "$2" == "11" ]; then

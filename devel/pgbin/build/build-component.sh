@@ -330,7 +330,7 @@ function buildComp {
 
         USE_PGXS=1 make > $make_log 2>&1
         if [[ $? -eq 0 ]]; then
-                USE_PGXS=1 make install > $install_log 2>&1
+                USE_PGXS=1 sudo make install > $install_log 2>&1
                 if [[ $? -ne 0 ]]; then
                         echo " "
                         echo "ERROR: Install failed, check install_log"
@@ -711,7 +711,7 @@ while true; do
     --with-pgver ) pgVer=$2; shift; shift; ;;
     --with-pgbin ) pgBinPassed=true; pgBin=$2; shift; shift; ;;
     --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift; ;;
-    --build-postgis ) buildPostGIS=true; postGISSource=$2;shift; shift ;;
+    --build-postgis ) buildPostGIS=true; Source=$2; shift; shift ;;
     --build-bouncer ) buildBouncer=true; Source=$2; shift; shift; ;;
     --build-presto_fdw ) buildAthena=true; Source=$2; shift; shift ;;
     --build-cassandra_fdw ) buildCassandra=true; Source=$2; shift; shift ;;
@@ -776,16 +776,20 @@ if [[ $buildOrafce == "true" ]]; then
 	buildComp orafce "$orafceShortV" "$orafceFullV" "$orafceBuildV" "$Source"
 fi
 
-if [[ $buildPostGIS == "true" ]]; then
-	buildPostGISComponent
-fi
-
 if [[ $buildTDSFDW == "true" ]]; then
 	buildTDSFDWComponent
 fi
 
 if [[ $buildOracleFDW == "true" ]]; then
 	buildComp oraclefdw "$oFDWShortVersion" "$oFDWFullVersion" "$oFDWBuildV" "$Source"
+fi
+
+if [[ $buildPostGIS ==  "true" ]]; then
+	if [ "$pgShortVersion" == "11" ]; then
+		buildComp postgis "25" "$postgisFull25V" "$postgisBuildV" "$Source"
+	else
+		buildComp postgis "30" "$postgisFull30V" "$postgisBuildV" "$Source"
+	fi
 fi
 
 if [[ $buildAudit == "true" ]]; then

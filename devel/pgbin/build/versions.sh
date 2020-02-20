@@ -32,8 +32,8 @@ walgShortV=
 walgBuildV=1
 
 
-postgisFullV=3.0.0
-postgisShortV=30
+postgisFull25V=2.5.3
+postgisFull30V=3.0.0
 postgisBuildV=1
 
 backgroundFullVersion=1.0
