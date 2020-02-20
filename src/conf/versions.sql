@@ -260,8 +260,8 @@ INSERT INTO versions VALUES ('bulkload-pg11', '3.1.16-1', 'arm, amd', 1, '202001
 INSERT INTO projects VALUES ('repack', 2, 0, 'hub', 5, 'https://github.com/reorg/pg_repack/releases',
   'repack', 1, 'repack.png', 'Remove Table/Index Bloat' , 'https://github.com/reorg/pg_repack');
 INSERT INTO releases VALUES ('repack-pg11', 5, 'repack', 'pgRepack',  '', 'prod', 1);
-INSERT INTO versions VALUES ('repack-pg11', '1.4.5', 'arm, amd', 1, '20191004', 'pg11');
-INSERT INTO versions VALUES ('repack-pg12', '1.4.5', 'arm, amd', 0, '20191004', 'pg12');
+INSERT INTO versions VALUES ('repack-pg11', '1.4.5-1', 'arm, amd', 1, '20191004', 'pg11');
+INSERT INTO versions VALUES ('repack-pg12', '1.4.5-1', 'arm, amd', 0, '20191004', 'pg12');
 
 INSERT INTO projects VALUES ('partman', 2, 0, 'hub', 4, 'https://github.com/pgpartman/pg_partman/releases',
   'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');

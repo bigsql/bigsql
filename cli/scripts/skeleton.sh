@@ -11,6 +11,7 @@ function test11 {
   ./io install pglogical-pg11     -d demo; ./io status
   ./io install bulkload-pg11      -d demo; ./io status
   ./io install partman-pg11       -d demo; ./io status
+  ./io install repack-pg11        -d demo; ./io status
   ./io install audit-pg11         -d demo; ./io status
   ./io install ddlx-pg11          -d demo; ./io status
   ./io install anon-pg11          -d demo; ./io status
@@ -28,6 +29,7 @@ function test12 {
   ./io install pglogical-pg12     -d demo; ./io status
   ./io install bulkload-pg12      -d demo; ./io status
   ./io install partman-pg12       -d demo; ./io status
+  ./io install repack-pg12        -d demo; ./io status
   ./io install audit-pg12         -d demo; ./io status
   ./io install ddlx-pg12          -d demo; ./io status
   ./io install anon-pg12          -d demo; ./io status
