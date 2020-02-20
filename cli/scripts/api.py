@@ -388,18 +388,9 @@ def info_component(p_comp_dict, p_kount):
     if p_kount > 1:
         print(style_start + ("-" * 90) + style_end)
 
-    if len(p_comp_dict['home_url']) > 0:
-        print(style_start + "     Project: " + style_end + p_comp_dict['project'] + " (" + p_comp_dict['home_url'] + ")")
-    else:
-        print(style_start + "     Project: " + style_end + p_comp_dict['project'])
+    print(style_start + "     Project: " + style_end + p_comp_dict['project'] + " (" + p_comp_dict['project_url'] + ")" )
 
-    if "built_on" in p_comp_dict:
-        print(style_start + "   Component: " + style_end +
-              p_comp_dict['component'] + " " +
-              p_comp_dict['version'] + " built on " +
-              p_comp_dict['built_on'])
-    else:
-        print(style_start + "   Component: " + style_end + p_comp_dict['component'] + " " + p_comp_dict['version'])
+    print(style_start + "   Component: " + style_end + p_comp_dict['component'] + " " + p_comp_dict['version'] + " (" + p_comp_dict['sources_url'] + ")")
 
     if p_comp_dict['port'] > 1:
         print(style_start + "        port: " + style_end + str(p_comp_dict['port']))
@@ -428,8 +419,8 @@ def info_component(p_comp_dict, p_kount):
         print(style_start + " connections: " + style_end + p_comp_dict['connections'])
     print(style_start + "Release Date: " + style_end + p_comp_dict['release_date'] + \
           style_start + "  Stage: " + style_end + p_comp_dict['stage'])
-    if len(p_comp_dict['sup_plat']) > 0:
-        print(style_start + "Supported On: " + style_end + p_comp_dict['sup_plat'])
+    if p_comp_dict['platform'] > "":
+      print(style_start + "Supported On: " + style_end + "[" + p_comp_dict['platform'] + "]")
     print(style_start + "   IsCurrent: " + style_end + str(p_comp_dict['is_current']) + \
           style_start + "  IsInstalled: " + style_end + str(p_comp_dict['is_installed']))
     if p_comp_dict['relnotes']:

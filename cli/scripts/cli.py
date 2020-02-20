@@ -1481,7 +1481,7 @@ try:
             ins_release_dt=str(data[8])
 
         sql = "SELECT c.category, c.description, p.project, r.component, v.version, \n" + \
-              "       v.platform, '', r.doc_url, v.is_current, \n" + \
+              "       v.platform, p.sources_url, p.project_url, v.is_current, \n" + \
               "       " + str(is_installed) + " as is_installed, r.stage, \n" + \
               "       '', v.release_date, p.is_extension, \n" + \
               "       r.disp_name, '' \n" + \
@@ -1514,8 +1514,8 @@ try:
           comp = row[3]
           ver = row[4]
           plat = row[5]
-          home_url = row[6]
-          doc_url = row[7]
+          sources_url = row[6]
+          project_url = row[7]
           is_current = row[8]
           is_installed = row[9]
           stage = row[10]
@@ -1537,14 +1537,13 @@ try:
           compDict['project']=proj
           compDict['component']=comp
           compDict['platform']=plat
-          compDict['home_url']=home_url
-          compDict['doc_url']=doc_url
+          compDict['sources_url']=sources_url
+          compDict['project_url']=project_url
           compDict['is_installed']=is_installed
           compDict['is_extension']=is_extension 
           compDict['disp_name']=disp_name
           compDict['release_desc']=release_desc
           current_version = meta.get_current_version(comp)
-          is_current = 0
           compDict['version'] = ver
           if is_installed == 1:
             compDict['ins_release_dt'] = ins_release_dt[:4] + '-' + ins_release_dt[4:6] + '-' + ins_release_dt[6:]
