@@ -215,6 +215,7 @@ initDir () {
   copy-pgXX "repack"
   copy-pgXX "bulkload"
   copy-pgXX "audit"   
+  copy-pgXX "postgis"   
 
   if [ -f $myNewDir/LICENSE.TXT ]; then
     mv $myNewDir/LICENSE.TXT $myNewDir/$pComponent-LICENSE.TXT
@@ -411,17 +412,17 @@ initPG () {
   initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
+    initC "postgis-pg$pgM" "postgis" "$postgis25V" "$outPlat" "postgres/postgis" "" "" "nil"
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
-    #if [ "$plat" == "amd" ]; then
-    #  initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
-    #  initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
-    #fi
   fi
+
   if [ "$pgM" == "12" ]; then 
+    initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
     initC "audit-pg$pgM" "audit" "$audit12V" "$outPlat" "postgres/audit" "" "" "nil"
   fi
+
   if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
@@ -433,6 +434,10 @@ initPG () {
     initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
+    #if [ "$plat" == "amd" ]; then
+    #  initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
+    #  initC "cassandra_fdw-pg$pgM" "cassandra_fdw" "$cstarV"  "$plat" "postgres/cassandra_fdw" "" "" "nil"
+    #fi
   fi
 }
 
