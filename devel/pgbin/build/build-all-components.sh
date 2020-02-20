@@ -45,6 +45,10 @@ if [ "$1" == "hintplan" ]; then
   build hintplan $hintplanFullV $2 hintplan
 fi
 
+if [ "$1" == "plv8" ]; then
+  build plv8 $plv8FullV $2 plv8
+fi
+
 ## prod ready across platforms #######################
 
 if [ "$1" == "repack" ] || [ "$1" == "all" ]; then

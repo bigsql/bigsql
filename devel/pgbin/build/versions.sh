@@ -32,8 +32,8 @@ walgShortV=
 walgBuildV=1
 
 
-postgisFullVersion=2.5.3
-postgisShortVersion=25
+postgisFullV=3.0.0
+postgisShortV=30
 postgisBuildV=1
 
 backgroundFullVersion=1.0
@@ -79,6 +79,10 @@ cstoreFDWBuildV=1
 plProfilerFullVersion=4.1
 plProfilerShortVersion=
 plprofilerBuildV=1
+
+plv8FullV=2.3.14
+plv8ShortV=
+plv8BuildV=1
 
 debugFullV=1.1
 debugShortV=

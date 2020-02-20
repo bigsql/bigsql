@@ -32,8 +32,11 @@ if [ `uname` == 'Linux' ]; then
       openssl-devel libmxl2-devel libxslt-devel libevent-devel \
       perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-1.8.0-openjdk \
       java-1.8.0-openjdk-devel openjade pam-devel openldap-devel \
+      gdal-devel geos-devel json-c-devel proj-devel \
       uuid-devel curl-devel protobuf-c-devel chrpath docbook-dtds \
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
+    sudo yum -y install clang llvm5.0 centos-release-scl-rh
+    sudo yum -y install llvm-toolset-7-llvm devtoolset-7 llvm-toolset-7-clang
   else
     ## tested on Ubunut 16
     sudo add-apt-repository universe

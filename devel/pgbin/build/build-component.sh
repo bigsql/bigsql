@@ -552,70 +552,6 @@ function buildPlJavaComponent {
 	packageComponent $componentBundle
 }
 
-function buildPlV8Component {
-
-	componentName="plv8$plV8ShortVersion-pg$pgShortVersion-$plV8FullVersion-$plV8BuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir plv8 && tar -xf $plV8Source --strip-components=1 -C plv8
-	cd plv8
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-	PATH=$buildLocation/bin:$PATH
-        tar -xf /opt/pgbin-build/sources/v8_build.tar.gz
-	make static > $baseDir/$workDir/logs/plv8_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-        	make install > $baseDir/$workDir/logs/plv8_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                                echo "Failed to install PL/V8 ..."
-                fi
-        else
-        	echo "Make failed for PL/V8 .... "
-        fi
-        rm -rf build
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
-
-function buildPlProfilerComponent {
-
-	componentName="plprofiler$plProfilerShortVersion-pg$pgShortVersion-$plProfilerFullVersion-$plprofilerBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir plprofiler && tar -xf $plProfilerSource --strip-components=1 -C plprofiler
-	cd plprofiler
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-	PATH=$buildLocation/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/plprofiler_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-        	USE_PGXS=1 make install > $baseDir/$workDir/logs/plprofiler_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                                echo "Failed to install PlProfiler ..."
-                fi
-                mkdir -p $buildLocation/python/site-packages
-                cd python-plprofiler
-        	cp -R plprofiler $buildLocation/python/site-packages
-        	#cp plprofiler-bin.py $buildLocation/bin/plprofiler
-        	cd $buildLocation/python/site-packages
-        	#tar -xf $psycopgSource
-        else
-        	echo "Make failed for PlProfiler .... "
-        fi
-        rm -rf build
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
 
 function buildBackgroundComponent {
 
@@ -792,7 +728,7 @@ while true; do
     --build-pldebugger ) buildPLDebugger=true; Source=$2; shift; shift ;;
     --build-partman ) buildPartman=true; Source=$2; shift; shift ;;
     --build-plr ) buildPlr=true; plrSource=$2; shift; shift ;;
-    --build-plv8 ) buildPlV8=true; plV8Source=$2; shift; shift ;;
+    --build-plv8 ) buildPlV8=true; Source=$2; shift; shift ;;
     --build-pljava ) buildPlJava=true; Source=$2; shift; shift ;;
     --build-plprofiler ) buildPlProfiler=true; plProfilerSource=$2; shift; shift ;;
     --build-background ) buildBackground=true; backgroundSource=$2; shift; shift ;;
@@ -902,7 +838,7 @@ if [[ $buildPlJava == "true" ]]; then
 fi
 
 if [[ $buildPlV8 == "true" ]]; then
-	buildPlV8Component
+    buildComp plv8  "$plv8ShortV" "$plv8FullV" "$plv8BuildV" "$Source"
 fi
 if [[ $buildTSQL == "true" ]]; then
 	buildTSQLComponent
