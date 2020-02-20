@@ -35,6 +35,7 @@ printUsageMessage () {
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$audit11V, $audit12V"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  repack-$repackV"
+  echo "#    postgis-$postgis25V, $postgis30V"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b -fek"
   echo "#--------------------------------------------------------------------------#"
