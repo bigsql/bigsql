@@ -459,36 +459,6 @@ function buildPgMpComponent {
 }
 
 
-function buildMySQLFDWComponent {
-
-	componentName="mysql_fdw$mysqlFDWShortVersion-pg$pgShortVersion-$mysqlFDWFullVersion-$mysqlFDWBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir mysql_fdw && tar -xf $mysqlFDWSource --strip-components=1 -C mysql_fdw
-	cd mysql_fdw
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-	PATH=$buildLocation/bin:/opt/pgbin-build/pgbin/shared/linux_64/mysql/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/mysqlfdw_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/mysqlfdw_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "MySQL FDW install failed, check logs for details."
-		fi
-	else
-		echo "MySQL FDW Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
-
 function buildPlRComponent {
 
 	componentName="plr$plRShortVersion-pg$pgShortVersion-$plRFullVersion-$plRBuildV-$buildOS"
@@ -696,7 +666,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandra_fdw:,build-pgtsql:,build-tds-fdw:,build-mongo-fdw:,build-mysql-fdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -713,12 +683,12 @@ while true; do
     --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift; ;;
     --build-postgis ) buildPostGIS=true; Source=$2; shift; shift ;;
     --build-bouncer ) buildBouncer=true; Source=$2; shift; shift; ;;
-    --build-presto_fdw ) buildAthena=true; Source=$2; shift; shift ;;
-    --build-cassandra_fdw ) buildCassandra=true; Source=$2; shift; shift ;;
+    --build-prestofdw ) buildAthena=true; Source=$2; shift; shift ;;
+    --build-cassandrafdw ) buildCassandra=true; Source=$2; shift; shift ;;
     --build-pgtsql ) buildTSQL=true; tsqlSource=$2; shift; shift ;;
-    --build-tds-fdw ) buildTDSFDW=true; tdsFDWSource=$2; shift; shift ;;
-    --build-mongo-fdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
-    --build-mysql-fdw ) buildMySQLFDW=true; mysqlFDWSource=$2; shift; shift ;;
+    --build-tdsfdw ) buildTDSFDW=true; tdsFDWSource=$2; shift; shift ;;
+    --build-mongofdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
+    --build-mysqlfdw ) buildMySQLFDW=true; Source=$2; shift; shift ;;
     --build-oraclefdw ) buildOracleFDW=true; Source=$2; shift; shift ;;
     --build-orafce ) buildOrafce=true; Source=$2; shift; shift ;;
     --build-audit ) buildAudit=true; Source=$2; shift; shift ;;
@@ -784,6 +754,10 @@ if [[ $buildOracleFDW == "true" ]]; then
 	buildComp oraclefdw "$oFDWShortVersion" "$oFDWFullVersion" "$oFDWBuildV" "$Source"
 fi
 
+if [[ $buildMySQLFDW == "true" ]]; then
+	buildComp mysqlfdw "$mysqlfdwV" "$mysqlfdwFullV" "$mysqlfdwBuildV" "$Source"
+fi
+
 if [[ $buildPostGIS ==  "true" ]]; then
 	if [ "$pgShortVersion" == "11" ]; then
 		buildComp postgis "$postgisShortV" "$postgisFull25V" "$postgisBuildV" "$Source"
@@ -826,10 +800,6 @@ fi
 
 if [[ $buildPartman == "true" ]]; then
     buildComp partman "$partmanShortV" "$partmanFullV" "$partmanBuildV" "$Source"
-fi
-
-if [[ $buildMySQLFDW == "true" ]]; then
-	buildMySQLFDWComponent
 fi
 
 if [[ $buildPlr == "true" ]]; then

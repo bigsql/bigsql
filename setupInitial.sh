@@ -32,7 +32,7 @@ if [ `uname` == 'Linux' ]; then
       openssl-devel libmxl2-devel libxslt-devel libevent-devel \
       perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-1.8.0-openjdk \
       java-1.8.0-openjdk-devel openjade pam-devel openldap-devel \
-      gdal-devel geos-devel json-c-devel proj-devel \
+      gdal-devel geos-devel json-c-devel proj-devel mysql-devel \
       uuid-devel curl-devel protobuf-c-devel chrpath docbook-dtds \
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
     sudo yum -y install clang llvm5.0 centos-release-scl-rh

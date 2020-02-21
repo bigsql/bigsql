@@ -2,6 +2,7 @@
 function test11 {
   ./io install pg11; 
   ./io start pg11 -y -d demo; 
+  ./io install mysqlfdw-pg11      -d demo; ./io status
   ./io install postgis-pg11       -d demo; ./io status
   ./io install repack-pg11        -d demo; ./io status
   ./io install pgtsql-pg11        -d demo; ./io status
@@ -23,6 +24,7 @@ function test11 {
 function test12 {
   ./io install pg12; 
   ./io start pg12 -y -d demo;
+  ./io install mysqlfdw-pg11      -d demo; ./io status
   ./io install postgis-pg12       -d demo; ./io status
   ./io install repack-pg12        -d demo; ./io status
   ./io install http-pg12          -d demo; ./io status

@@ -115,4 +115,8 @@ if [ "$1" == "http" ] || [ "$1" == "all" ]; then
   build http $httpFullV $2 http
 fi
 
+if [ "$1" == "mysqlfdw" ] || [ "$1" == "all" ]; then
+  build mysqlfdw $mysqlfdwFullV $2 mysqlfdw
+fi
+
 exit 0

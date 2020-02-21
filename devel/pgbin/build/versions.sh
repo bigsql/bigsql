@@ -61,9 +61,9 @@ tdsFDWFullVersion=1.0.7
 tdsFDWShortVersion=1
 tdsFDWBuildV=1
 
-mysqlFDWFullVersion=2.5.0
-mysqlFDWShortVersion=2
-mysqlFDWBuildV=1
+mysqlfdwFullV=2.5.3
+mysqlfdwShortV=
+mysqlfdwBuildV=1
 
 pgmpFullVersion=1.2.2
 pgmpShortVersion=
