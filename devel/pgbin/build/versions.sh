@@ -53,13 +53,13 @@ orafceFullV=3.8.0
 orafceShortV=
 orafceBuildV=1
 
-oFDWFullVersion=2.2.0
-oFDWShortVersion=
-oFDWBuildV=1
+oraclefdwFullV=2.2.0
+oraclefdwShortV=
+oraclefdwBuildV=1
 
-tdsFDWFullVersion=1.0.7
-tdsFDWShortVersion=1
-tdsFDWBuildV=1
+tdsfdwFullV=1.0.7
+tdsfdwShortV=
+tdsfdwBuildV=1
 
 mysqlfdwFullV=2.5.3
 mysqlfdwShortV=

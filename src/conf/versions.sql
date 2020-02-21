@@ -135,20 +135,24 @@ INSERT INTO projects VALUES ('sybase', 5, 0, 'hub', 0, 'https://sap.com/products
 INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '', 'soon',  0);
 INSERT INTO versions VALUES ('sybase', '2019', 'amd', 0, '20191010', '');
 
-INSERT INTO projects VALUES ('tds_fdw', 5, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases',
-  'tds_fdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
-INSERT INTO releases VALUES ('tds_fdw-pg11', 4, 'tds_fdw', 'TDS FDW', '', 'soon', 1);
-INSERT INTO versions VALUES ('tds_fdw-pg11', '2.0.1-1', 'arm',  1, '20191202', 'pg11');
+INSERT INTO projects VALUES ('tdsfdw', 5, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases',
+  'tdsfdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
+INSERT INTO releases VALUES ('tdsfdw-pg11', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('tdsfdw-pg12', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
+INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'arm, amd',  1, '20191202', 'pg11');
+INSERT INTO versions VALUES ('tdsfdw-pg12', '2.0.1-1', 'arm, amd',  1, '20191202', 'pg12');
 
 INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
 INSERT INTO releases VALUES ('ora2pg', 7, 'ora2pg', 'Oracle to PG', '', 'prod', 0);
 INSERT INTO versions VALUES ('ora2pg', '20.0', '', 1, '20190118', '');
 
-INSERT INTO projects VALUES ('oracle_fdw', 5, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
-  'oracle_fdw', 1, 'oracle_fdw.png', 'Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
-INSERT INTO releases VALUES ('oracle_fdw-pg11', 7, 'oracle_fdw', 'Oracle FDW', '', 'soon', 1);
-INSERT INTO versions VALUES ('oracle_fdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
+INSERT INTO projects VALUES ('oraclefdw', 5, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
+  'oraclefdw', 1, 'oracle_fdw.png', 'Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
+INSERT INTO releases VALUES ('oraclefdw-pg11', 7, 'oraclefdw', 'Oracle FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('oraclefdw-pg12', 7, 'oraclefdw', 'Oracle FDW', '', 'prod', 1);
+INSERT INTO versions VALUES ('oraclefdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
+INSERT INTO versions VALUES ('oraclefdw-pg12','2.2.0-1', 'amd', 1, '20191010', 'pg12');
 
 INSERT INTO projects VALUES ('oracle', 5, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
   'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');

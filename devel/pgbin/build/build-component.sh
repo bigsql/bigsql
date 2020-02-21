@@ -227,37 +227,6 @@ function buildTSQLComponent {
 	packageComponent $componentBundle
 }
 
-function buildOracleFDWComponent {
-
-	componentName="oraclefdw$oFDWShortVersion-pg$pgShortVersion-$oFDWFullVersion-$oFDWBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir oraclefdw && tar -xf $oracleFDWSource --strip-components=1 -C oraclefdw
-	cd oraclefdw
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-
-	PATH=$buildLocation/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/oraclefdw_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/oraclefdw_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "Oracle FDW install failed, check logs for details."
-		fi
-	else
-		echo "Oracle FDW Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
-
 
 function buildSetUserComponent {
 
@@ -751,11 +720,11 @@ if [[ $buildTDSFDW == "true" ]]; then
 fi
 
 if [[ $buildOracleFDW == "true" ]]; then
-	buildComp oraclefdw "$oFDWShortVersion" "$oFDWFullVersion" "$oFDWBuildV" "$Source"
+	buildComp oraclefdw "$oraclefdwShortV" "$oraclefdwFullV" "$oraclefdwBuildV" "$Source"
 fi
 
 if [[ $buildMySQLFDW == "true" ]]; then
-	buildComp mysqlfdw "$mysqlfdwV" "$mysqlfdwFullV" "$mysqlfdwBuildV" "$Source"
+	buildComp mysqlfdw "$mysqlfdwShortV" "$mysqlfdwFullV" "$mysqlfdwBuildV" "$Source"
 fi
 
 if [[ $buildPostGIS ==  "true" ]]; then

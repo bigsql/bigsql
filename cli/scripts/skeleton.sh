@@ -2,6 +2,7 @@
 function test11 {
   ./io install pg11; 
   ./io start pg11 -y -d demo; 
+  ./io install oraclefdw-pg11     -d demo; ./io status
   ./io install mysqlfdw-pg11      -d demo; ./io status
   ./io install postgis-pg11       -d demo; ./io status
   ./io install repack-pg11        -d demo; ./io status

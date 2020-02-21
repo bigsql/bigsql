@@ -119,4 +119,8 @@ if [ "$1" == "mysqlfdw" ] || [ "$1" == "all" ]; then
   build mysqlfdw $mysqlfdwFullV $2 mysqlfdw
 fi
 
+if [ "$1" == "oraclefdw" ] || [ "$1" == "all" ]; then
+  build oraclefdw $oraclefdwFullV $2 oraclefdw
+fi
+
 exit 0
