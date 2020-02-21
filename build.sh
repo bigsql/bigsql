@@ -35,7 +35,7 @@ printUsageMessage () {
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  audit-$audit11V, $audit12V"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  repack-$repackV  oraclefdw-$oraclefdwV"
-  echo "#    postgis-$postgis25V, $postgis30V  mysqlfdw-$mysqlfdwV"
+  echo "#    postgis-$postgis25V, $postgis30V  mysqlfdw-$mysqlfdwV tdsfdw-$tdsfdwV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b -fek"
   echo "#--------------------------------------------------------------------------#"
@@ -218,6 +218,7 @@ initDir () {
   copy-pgXX "postgis"   
   copy-pgXX "mysqlfdw"  
   copy-pgXX "oraclefdw"  
+  copy-pgXX "tdsfdw"  
 
   if [ -f $myNewDir/LICENSE.TXT ]; then
     mv $myNewDir/LICENSE.TXT $myNewDir/$pComponent-LICENSE.TXT
@@ -427,6 +428,7 @@ initPG () {
 
   if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
+    initC "tdsfdw-pg$pgM" "tdsfdw" "$tdsfdwV" "$outPlat" "postgres/tdsfdw" "" "" "nil"
     initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
     initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"

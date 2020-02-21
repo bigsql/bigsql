@@ -123,4 +123,8 @@ if [ "$1" == "oraclefdw" ] || [ "$1" == "all" ]; then
   build oraclefdw $oraclefdwFullV $2 oraclefdw
 fi
 
+if [ "$1" == "tdsfdw" ] || [ "$1" == "all" ]; then
+  build tdsfdw $tdsfdwFullV $2 tdsfdw
+fi
+
 exit 0

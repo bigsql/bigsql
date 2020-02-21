@@ -66,6 +66,16 @@ cp -v $ORACLE_HOME/libipc1.so        $shared_lib/.
 cp -v $ORACLE_HOME/libnnz12.so       $shared_lib/.
 cp -v $ORACLE_HOME/libons.so         $shared_lib/.
 
+cp -v $lib64/libsybdb.so.5           $shared_lib/.
+cp -v $lib64/libhogweed.so.2         $shared_lib/.
+cp -v $lib64/libgnutls.so.28         $shared_lib/.
+cp -v $lib64/libnettle.so.4          $shared_lib/.
+cp -v $lib64/libgmp.so.10            $shared_lib/.
+cp -v $lib64/libp11-kit.so.0         $shared_lib/.
+cp -v $lib64/libtasn1.so.6           $shared_lib/.
+cp -v $lib64/libselinux.so.1         $shared_lib/.
+cp -v $lib64/libffi.so.6             $shared_lib/.
+
 cp -v $lib64/libproj*             $shared_lib/.
 cp -v $lib64/libjson-c*           $shared_lib/.
 cp -v /usr/local/lib/*so*         $shared_lib/.

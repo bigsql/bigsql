@@ -60,21 +60,6 @@ function prepComponentBuildDir {
 	cp $PGHOME/lib/libcrypto.so* $buildLocation/lib/
         cp $PGHOME/lib/postgresql/plpgsql.so $buildLocation/lib/postgresql/
 
-	if [[ $buildCassandra == "true" && ! ${buildLocation/cassandra} == "$buildLocation" ]]; then
-		cp "$sharedLibs/linux_64/lib/libcassandra.so.2" $buildLocation/lib/
-		cp "$sharedLibs/linux_64/lib/libuv.so.1" $buildLocation/lib/
-	fi
-
-	if [[ $buildTDSFDW == "true" && ! ${buildLocation/tds} == "$buildLocation" ]]; then
-		cp "$sharedLibs/$buildOS/lib/libsybdb.so.5" $buildLocation/lib/
-		cp "$sharedLibs/$buildOS/bin/tsql" $buildLocation/bin/
-	fi
-	
-	if [[ $buildPlr == "true" && ! ${buildLocation/plr} == "$buildLocation" ]]; then
-		cp "$sharedLibs/$buildOS/R323/lib64/R/lib/libR.so" $buildLocation/lib/
-		cp "$sharedLibs/$buildOS/R323/lib64/R/lib/libRblas.so" $buildLocation/lib/
-	fi
-
 }
 
 
@@ -165,36 +150,6 @@ function buildPgBouncerComponent {
 	packageComponent $componentBundle
 }
 
-function buildTDSFDWComponent {
-
-	componentName="tds_fdw$tdsFDWShortVersion-pg$pgShortVersion-$tdsFDWFullVersion-$tdsFDWBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir tds_fdw && tar -xf $tdsFDWSource --strip-components=1 -C tds_fdw
-	cd tds_fdw
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-
-	PATH=$buildLocation/bin:$PATH
-	USE_PGXS=1 make > $baseDir/$workDir/logs/tdsfdw_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/tds_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "TDS FDW install failed, check logs for details."
-		fi
-	else
-		echo "TDS FDW Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
-}
 
 function buildTSQLComponent {
 
@@ -655,7 +610,7 @@ while true; do
     --build-prestofdw ) buildAthena=true; Source=$2; shift; shift ;;
     --build-cassandrafdw ) buildCassandra=true; Source=$2; shift; shift ;;
     --build-pgtsql ) buildTSQL=true; tsqlSource=$2; shift; shift ;;
-    --build-tdsfdw ) buildTDSFDW=true; tdsFDWSource=$2; shift; shift ;;
+    --build-tdsfdw ) buildTDSFDW=true; Source=$2; shift; shift ;;
     --build-mongofdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
     --build-mysqlfdw ) buildMySQLFDW=true; Source=$2; shift; shift ;;
     --build-oraclefdw ) buildOracleFDW=true; Source=$2; shift; shift ;;
@@ -716,7 +671,7 @@ if [[ $buildOrafce == "true" ]]; then
 fi
 
 if [[ $buildTDSFDW == "true" ]]; then
-	buildTDSFDWComponent
+	buildComp tdsfdw "$tdsfdwShortV" "$tdsfdwFullV" "$tdsfdwBuildV" "$Source"
 fi
 
 if [[ $buildOracleFDW == "true" ]]; then
