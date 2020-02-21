@@ -9,6 +9,7 @@ NUM_COLS = 4
 FONT_SIZE = 2
 IMG_SIZE = 27
 BORDER=0
+ALL_PLATFORMS = "arm, amd"
 
 if NUM_COLS == 1:
   BR = "&nbsp;"
@@ -44,8 +45,10 @@ def get_columns(d):
   project_url = str(d[8])
 
   platform = str(d[9])
-  if platform == "":
-    platform = "arm, amd"
+  if ((platform == "") or (platform == ALL_PLATFORMS)):
+    platform = ""
+  else:
+    platform = "[" + platform + "]"
 
   rel_date = str(d[10])
   rel_yy = rel_date[2:4]
@@ -144,9 +147,15 @@ print_top()
 col = 0
 
 for d in data:
-  i = i + 1
+  if i == 0:
+    old_d = d
+    i = 1
+    next
 
-  get_columns(d)
+  i = i + 1
+  
+  this_comp = str(d[3])
+  get_columns(old_d)
 
   if (old_cat_desc != cat_desc):
     print_row_header(BR)
@@ -157,7 +166,7 @@ for d in data:
 
   platd = ""
   if isSHOW_COMP_PLAT == "Y":
-    platd = BR + component + " [" + platform + "] " + stage
+    platd = BR + component + " " + platform + " " + stage
 
   year_day = int(rel_date[:6])
   months_old = 202001 - year_day
@@ -174,6 +183,7 @@ for d in data:
     col = col + 1
 
   old_cat_desc = cat_desc
+  old_d = d
 
 print_bottom()
 sys.exit(0)
