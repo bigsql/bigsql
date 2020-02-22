@@ -29,12 +29,12 @@ fi
 
 ## WIP across platforms ###########################
 
-if [ "$1" == "presto_fdw" ]; then
-  build presto_fdw $prestoFullV $2 presto_fdw
+if [ "$1" == "hivefdw" ]; then
+  build hivefdw $hiveFullV $2 hivefdw
 fi
 
-if [ "$1" == "cassandra_fdw" ]; then
-  build cassandra_fdw $cassFullV $2 cassandra_fdw
+if [ "$1" == "cassandrafdw" ]; then
+  build cassandrafdw $cassFullV $2 cassandrafdw
 fi
 
 if [ "$1" == "pljava" ]; then

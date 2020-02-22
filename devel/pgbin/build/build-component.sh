@@ -216,15 +216,15 @@ function buildSetUserComponent {
 
 function buildComp {
 	comp="$1"
-        ##echo "#        comp: $comp"
+        echo "#        comp: $comp"
         shortV="$2"
-        ##echo "#      shortV: $shortV"
+        echo "#      shortV: $shortV"
         fullV="$3"
-        ##echo "#       fullV: $fullV"
+        echo "#       fullV: $fullV"
         buildV="$4"
-        ##echo "#      buildV: $buildV"
+        echo "#      buildV: $buildV"
         src="$5"
-        ##echo "#         src: $src"
+        echo "#         src: $src"
 
         componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
         ##echo "#      compNm: $componentName"
@@ -590,7 +590,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-presto_fdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -607,8 +607,8 @@ while true; do
     --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift; ;;
     --build-postgis ) buildPostGIS=true; Source=$2; shift; shift ;;
     --build-bouncer ) buildBouncer=true; Source=$2; shift; shift; ;;
-    --build-prestofdw ) buildAthena=true; Source=$2; shift; shift ;;
-    --build-cassandrafdw ) buildCassandra=true; Source=$2; shift; shift ;;
+    --build-hivefdw ) buildHiveFDW=true; Source=$2; shift; shift ;;
+    --build-cassandrafdw ) buildCassandraFDW=true; Source=$2; shift; shift ;;
     --build-pgtsql ) buildTSQL=true; tsqlSource=$2; shift; shift ;;
     --build-tdsfdw ) buildTDSFDW=true; Source=$2; shift; shift ;;
     --build-mongofdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
@@ -658,12 +658,12 @@ getPGVersion
 
 PGHOME=$pgBin
 
-if [[ $buildCassandra == "true" ]]; then
-	buildComp cassandra_fdw "$cassShortV" "$cassFullV" "$cassBuildV" "$Source"
+if [[ $buildCassandraFDW == "true" ]]; then
+	buildComp cassandrafdw "$cassShortV" "$cassFullV" "$cassBuildV" "$Source"
 fi
 
-if [[ $buildAthena == "true" ]]; then
-	buildComp presto_fdw "$prestoShortV" "$prestoFullV" "$prestoBuildV" "$Source"
+if [[ $buildHiveFDW == "true" ]]; then
+	buildComp hivefdw "$hiveShortV" "$hiveFullV" "$hiveBuildV" "$Source"
 fi
 
 if [[ $buildOrafce == "true" ]]; then
