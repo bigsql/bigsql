@@ -8,6 +8,7 @@ P11=11.7-2
 P10=10.12-2
 P96=9.6.17-2
 P95=9.5.21-2
+P94=9.4.26-2
 
 orafceV=3.8.0-1
 httpV=1.3.1-1
@@ -31,13 +32,14 @@ postgis30V=3.0.0-1
 cstarV=3.1.5-1
 
 presV=0.229
-prestoV=3.2.1-1
 
 tsqlV=3.0-1
 
 mysqlfdwV=2.5.3-1
 oraclefdwV=2.2.0-1
 tdsfdwV=2.0.1-1
+cstarfdwV=3.1.5-1
+hivefdwV=3.2.1-1
 
 badgerV=11.1
 ora2pgV=20.0

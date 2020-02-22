@@ -76,6 +76,12 @@ cp -v $lib64/libtasn1.so.6           $shared_lib/.
 cp -v $lib64/libselinux.so.1         $shared_lib/.
 cp -v $lib64/libffi.so.6             $shared_lib/.
 
+cp="cp -v $lib64"
+sl="$shared_lib/."
+$cp/libcassandra.so.2 $sl
+$cp/libuv.so.1        $sl
+$cp/libnsl.so.1       $sl
+
 cp -v $lib64/libproj*             $shared_lib/.
 cp -v $lib64/libjson-c*           $shared_lib/.
 cp -v /usr/local/lib/*so*         $shared_lib/.

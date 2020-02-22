@@ -71,6 +71,9 @@ function cleanUpComponentDir {
 	rm -rf lib/postgresql/pgxs
 	rm -rf lib/libpgport.a
 	rm -rf lib/libpgcommon.a
+        rm -rf lib/libssl*
+        rm -rf lib/libpq*
+        rm -rf lib/libcrypto*
 
 	if [[ ! "$(ls -A bin)" ]]; then
 		rm -rf bin
@@ -216,15 +219,15 @@ function buildSetUserComponent {
 
 function buildComp {
 	comp="$1"
-        echo "#        comp: $comp"
+        ##echo "#        comp: $comp"
         shortV="$2"
-        echo "#      shortV: $shortV"
+        ##echo "#      shortV: $shortV"
         fullV="$3"
-        echo "#       fullV: $fullV"
+        ##echo "#       fullV: $fullV"
         buildV="$4"
-        echo "#      buildV: $buildV"
+        ##echo "#      buildV: $buildV"
         src="$5"
-        echo "#         src: $src"
+        ##echo "#         src: $src"
 
         componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
         ##echo "#      compNm: $componentName"

@@ -98,10 +98,12 @@ INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apa
 INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'soon', 1);
 INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 0, '20191029', '');
 
-INSERT INTO projects VALUES ('cassandra_fdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
+INSERT INTO projects VALUES ('cassandrafdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
   'cstarfdw', 1, 'cstar.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
-INSERT INTO releases VALUES ('cassandra_fdw-pg11', 12, 'cassandra_fdw', 'CassandraFDW','','soon', 1);
-INSERT INTO versions VALUES ('cassandra_fdw-pg11', '3.1.5-1', 'arm', 1, '20191230', 'pg11');
+INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
+INSERT INTO versions VALUES ('cassandrafdw-pg11', '3.1.5-1', 'arm, amd', 1, '20191230', 'pg11');
+INSERT INTO versions VALUES ('cassandrafdw-pg12', '3.1.5-1', 'arm, amd', 1, '20191230', 'pg12');
 
 INSERT INTO projects VALUES ('hive', 5, 0, 'hub', 0, 'https://hive.apache.org', 
   'bring-own', 1, 'hive.png', 'Big Data Queries', 'https://hive.apache.org');
