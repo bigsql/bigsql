@@ -39,7 +39,7 @@ mysqlfdwV=2.5.3-1
 oraclefdwV=2.2.0-1
 tdsfdwV=2.0.1-1
 cstarfdwV=3.1.5-1
-hivefdwV=3.2.1-1
+hivefdwV=3.3.1-1
 
 badgerV=11.1
 ora2pgV=20.0

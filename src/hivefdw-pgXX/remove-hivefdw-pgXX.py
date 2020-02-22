@@ -5,5 +5,5 @@
 
 import util
 
-util.remove_pgconf_keyval("pgXX", "shared_preload_libraries", "presto_fdw")
+util.remove_pgconf_keyval("pgXX", "shared_preload_libraries", "hive_fdw")
 

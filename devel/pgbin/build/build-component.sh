@@ -230,7 +230,7 @@ function buildComp {
         ##echo "#         src: $src"
 
         componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
-        ##echo "#      compNm: $componentName"
+        echo "#      compNm: $componentName"
         mkdir -p "$baseDir/$workDir/logs"
         cd "$baseDir/$workDir"
 	rm -rf $comp
@@ -250,7 +250,7 @@ function buildComp {
         install_log="$log_dir/$comp-install.log"
         echo "# install_log: $install_log"
 
-        if [ "$comp" == "presto_fdw" ]; then
+        if [ "$comp" == "hivefdw" ]; then
            buildLib=$buildLocation/lib
            ln -s $JAVA_HOME/jre/lib/amd64/server/libjvm.so $buildLib/libjvm.so
         fi
@@ -261,14 +261,14 @@ function buildComp {
                 if [[ $? -ne 0 ]]; then
                         echo " "
                         echo "ERROR: Install failed, check install_log"
-                        #tail -10 $install_log
+                        tail -20 $install_log
                         echo ""
                 fi
         else
                 echo " "
                 echo "ERROR: Make failed, check make_log"
                 echo " "
-                #tail -10 $make_log
+                tail -20 $make_log
                 return 1
         fi
 
@@ -666,7 +666,7 @@ if [[ $buildCassandraFDW == "true" ]]; then
 fi
 
 if [[ $buildHiveFDW == "true" ]]; then
-	buildComp hivefdw "$hiveShortV" "$hiveFullV" "$hiveBuildV" "$Source"
+	buildComp hivefdw "$hivefdwShortV" "$hivefdwFullV" "$hivefdwBuildV" "$Source"
 fi
 
 if [[ $buildOrafce == "true" ]]; then

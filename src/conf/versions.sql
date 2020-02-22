@@ -110,10 +110,12 @@ INSERT INTO projects VALUES ('hive', 5, 0, 'hub', 0, 'https://hive.apache.org',
 INSERT INTO releases VALUES ('hive', 13, 'hive', 'Hive', '', 'soon', 1);
 INSERT INTO versions VALUES ('hive', '0.229', '', 0, '20191115', '');
 
-INSERT INTO projects VALUES ('hive_fdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 
-  'hive_fdw', 1, 'hive.png', 'Big Data Queries from PG', 'https://github.com/bigsql/pghivew#pghive');
-INSERT INTO releases VALUES ('hive_fdw-pg11', 14, 'hive_fdw', 'Hive FDW', '', 'soon', 1);
-INSERT INTO versions VALUES ('hive_fdw-pg11', '3.2-1', 'arm', 1, '20191230', 'pg11');
+INSERT INTO projects VALUES ('hivefdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 
+  'hive_fdw', 1, 'hive.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
+INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
+INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'arm, amd', 1, '20200222', 'pg11');
+INSERT INTO versions VALUES ('hivefdw-pg12', '3.3.1-1', 'arm, amd', 1, '20200222', 'pg12');
 
 INSERT INTO projects VALUES ('mysql', 5, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 
   'mysql', 0, 'mysql.png', 'MySQL Server CE', 'https://dev.mysql.com');

@@ -41,7 +41,7 @@ backgroundFullVersion=1.0
 backgroundShortVersion=1
 backgroundBuildV=1
 
-prestoFullV=3.2.1
+prestoFullV=0.229
 prestoShortV=
 prestoBuildV=1
 
@@ -64,6 +64,10 @@ tdsfdwBuildV=1
 mysqlfdwFullV=2.5.3
 mysqlfdwShortV=
 mysqlfdwBuildV=1
+
+hivefdwFullV=3.3.1
+hivefdwShortV=
+hivefdwBuildV=1
 
 pgmpFullVersion=1.2.2
 pgmpShortVersion=

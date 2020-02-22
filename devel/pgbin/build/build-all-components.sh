@@ -27,15 +27,8 @@ if [ ! "$pgV"  == "11" ] && [ ! "$pgV"  == "12" ]; then
   exit 1
 fi
 
+
 ## WIP across platforms ###########################
-
-if [ "$1" == "hivefdw" ]; then
-  build hivefdw $hiveFullV $2 hivefdw
-fi
-
-if [ "$1" == "cassandrafdw" ]; then
-  build cassandrafdw $cassFullV $2 cassandrafdw
-fi
 
 if [ "$1" == "pljava" ]; then
   build pljava $pljavaFullV $2 pljava
@@ -50,6 +43,14 @@ if [ "$1" == "plv8" ]; then
 fi
 
 ## prod ready across platforms #######################
+
+if [ "$1" == "hivefdw" ]; then
+  build hivefdw $hivefdwFullV $2 hivefdw
+fi
+
+if [ "$1" == "cassandrafdw" ]; then
+  build cassandrafdw $cassFullV $2 cassandrafdw
+fi
 
 if [ "$1" == "repack" ] || [ "$1" == "all" ]; then
   build repack $repackFullV $2 repack

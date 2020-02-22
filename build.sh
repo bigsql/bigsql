@@ -207,7 +207,7 @@ initDir () {
   copy-pgXX "anon"
   copy-pgXX "http"
   copy-pgXX "cassandrafdw"
-  ##copy-pgXX "presto_fdw"
+  copy-pgXX "hivefdw"
   copy-pgXX "plprofiler"
   copy-pgXX "pgtsql"
   copy-pgXX "hypopg"
@@ -432,6 +432,7 @@ initPG () {
     initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
     initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
     initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$plat" "postgres/cassandrafdw" "" "" "nil"
+    initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$plat" "postgres/hivefdw" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
     initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
@@ -441,9 +442,6 @@ initPG () {
     initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
-    #if [ "$plat" == "amd" ]; then
-    #  initC "presto_fdw-pg$pgM"    "presto_fdw"    "$prestoV" "$plat" "postgres/presto_fdw"    "" "" "nil"
-    #fi
   fi
 }
 
