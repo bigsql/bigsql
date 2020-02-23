@@ -31,9 +31,12 @@ postgis30V=3.0.0-1
 
 cstarV=3.1.5-1
 
-presV=0.229
+prestoV=0.229
 
 tsqlV=3.0-1
+pljavaV=1.5.5-1
+debuggerV=1.3.0-1
+agentV=4.0-1
 
 mysqlfdwV=2.5.3-1
 oraclefdwV=2.2.0-1
