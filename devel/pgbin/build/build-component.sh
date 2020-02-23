@@ -92,6 +92,11 @@ function  packageComponent {
 
 	if [ "$copyBin" == "true" ]; then
 		cp -pv $bundle $IN/postgres/$compDir/.
+	elif [ "$noTar" == "true" ]; then
+		echo "NO TAR"
+		cd $targetDir/$workDir/
+		tar -xvf $componentBundle.tar.bz2
+		echo "cd $targetDir/$workDir/$componentBundle/lib/postgresql"
 	fi
 
 }
@@ -593,7 +598,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -646,6 +651,7 @@ while true; do
     --build-number ) buildNumber=$2; shift; shift ;;
     --copy-bin ) copyBin=true; shift; shift; ;;
     --no-copy-bin ) copyBin=false; shift; shift; ;;
+    --no-tar ) copyBin=false; noTar=true; shift; shift; ;;
     -- ) shift; break ;;
     -* ) echo "Invalid Option Passed"; exit 1; ;;
     * ) break ;;
@@ -792,8 +798,6 @@ fi
 
 destDir=`date +%Y-%m-%d`
 fullDestDir=/opt/pgbin-builds/$destDir
-#ssh build@$pgcentral "mkdir -p $fullDestDir"
-#scp $targetDir/$workDir/$componentBundle.tar.bz2 build@$pgcentral:$fullDestDir/
 
 exit 0
 
