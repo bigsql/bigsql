@@ -194,29 +194,27 @@ INSERT INTO releases VALUES ('pljava-pg12', 4, 'pljava', 'PL/Java', '', 'prod', 
 INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm, amd',  1, '20191104', 'pg11');
 INSERT INTO versions VALUES ('pljava-pg12', '1.5.5-1',  'arm, amd',  1, '20191104', 'pg12');
 
-INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases',
-  'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/tada/pljava');
-INSERT INTO releases VALUES ('pldebugger-pg11', 3, 'pldebugger', 'PL/Debugger', '', 'soon', 1);
-INSERT INTO versions VALUES ('pldebugger-pg11', '2',  'arm',  1, '20191114', 'pg11');
+INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/bigsql/pldebugger/releases',
+  'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/bigsql/pldebugger#pldebugger');
+INSERT INTO releases VALUES ('pldebugger-pg11', 3, 'pldebugger', 'PL/Debugger', '', 'prod', 1);
+INSERT INTO releases VALUES ('pldebugger-pg12', 3, 'pldebugger', 'PL/Debugger', '', 'prod', 1);
+INSERT INTO versions VALUES ('pldebugger-pg11', '2.0-1',  'arm, amd',  1, '20200224', 'pg11');
+INSERT INTO versions VALUES ('pldebugger-pg12', '2.0-1',  'arm, amd',  1, '20200224', 'pg12');
 
 INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases',
-  'plpgsql', 1, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
-INSERT INTO releases VALUES ('plpgsql-pg11', 1, 'plpgsql', 'PL/pgSQL', '', 'included', 1);
-INSERT INTO versions VALUES ('plpgsql-pg11', '11',  'arm, amd',  1, '20200213', 'pg11');
-
-INSERT INTO projects VALUES ('pgosql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgosql/releases', 'pgosql', 1, 'sailboat.png', 'PL/SQL Procedures', 'https://github.com/bigsql/pgosql#pgosql');
-INSERT INTO releases VALUES ('pgosql-pg11', 8, 'pgosql', 'pgOSQL', '', 'soon', 1);
-INSERT INTO versions VALUES ('pgosql-pg11', '2.0-1', 'arm', 0, '20191211', 'pg11');
+  'plpgsql', 0, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
+INSERT INTO releases VALUES ('plpgsql', 1, 'plpgsql', 'PL/pgSQL', '', 'included', 1);
+INSERT INTO versions VALUES ('plpgsql', '12',  'arm, amd',  1, '20200213', '');
 
 INSERT INTO projects VALUES ('pgtsql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
   'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');
-INSERT INTO releases VALUES ('pgtsql-pg11', 3, 'pgtsql', 'pgTSQL','', 'prod', 1);
+INSERT INTO releases VALUES ('pgtsql-pg11', 3, 'pgtsql', 'PL/pgTSQL','', 'prod', 1);
 INSERT INTO versions VALUES ('pgtsql-pg11', '3.0-1', 'arm, amd', 1, '20191119', 'pg11');
 
 INSERT INTO projects VALUES ('plprofiler', 3, 0, 'hub', 7, 'https://github.com/bigsql/plprofiler/releases',
   'plprofiler', 1, 'plprofiler.png', 'Stored Procedure Profiler', 'https://github.com/bigsql/plprofiler#plprofiler');
-INSERT INTO releases VALUES ('plprofiler-pg11', 2, 'plprofiler',    'plProfiler',  '', 'prod', 1);
-INSERT INTO releases VALUES ('plprofiler-pg12', 2, 'plprofiler',    'plProfiler',  '', 'prod', 1);
+INSERT INTO releases VALUES ('plprofiler-pg11', 2, 'plprofiler',    'PL/Profiler',  '', 'prod', 1);
+INSERT INTO releases VALUES ('plprofiler-pg12', 2, 'plprofiler',    'PL/Profiler',  '', 'prod', 1);
 INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1', 'arm, amd', 1, '20190823', 'pg11');
 INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '20190823', 'pg12');
 
@@ -268,7 +266,7 @@ INSERT INTO versions VALUES ('postgis-pg12', '3.0.0-1', 'arm, amd', 1, '20191020
 INSERT INTO projects VALUES ('pgadmin4', 2, 1234, 'docker', 1, 'https://pgadmin.org',
   'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
 INSERT INTO releases VALUES ('pgadmin4', 3, 'pgadmin4', 'pgAdmin 4', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('pgadmin4', '4.17', 'docker', 1, '20200109', '');
+INSERT INTO versions VALUES ('pgadmin4', '4.18', 'docker', 1, '20200206', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
@@ -292,17 +290,20 @@ INSERT INTO versions VALUES ('partman-pg11', '4.2.2-1',  'arm, amd', 0, '2019101
 INSERT INTO versions VALUES ('partman-pg11', '4.3.0-1',  'arm, amd', 1, '20200206', 'pg11');
 INSERT INTO versions VALUES ('partman-pg12', '4.3.0-1',  'arm, amd', 1, '20200206', 'pg12');
 
-INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases', 'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
+INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases',
+  'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');
 INSERT INTO releases VALUES ('hypopg-pg11', 7, 'hypopg', 'HypoPG', '', 'prod', 1);
 INSERT INTO releases VALUES ('hypopg-pg12', 7, 'hypopg', 'HypoPG', '', 'prod', 1);
 INSERT INTO versions VALUES ('hypopg-pg11', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg11');
 INSERT INTO versions VALUES ('hypopg-pg12', '1.1.3-1',  'arm, amd', 1, '20191123', 'pg12');
 
-INSERT INTO projects VALUES ('pgbadger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases', 'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
+INSERT INTO projects VALUES ('pgbadger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases',
+  'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
 INSERT INTO releases VALUES ('pgbadger', 8, 'pgbadger','pgBadger','', 'prod', 1);
 INSERT INTO versions VALUES ('pgbadger', '11.1', '', 1, '20190916', '');
 
-INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'https://pgbackrest.org/release.html', 'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'https://pgbackrest.org');
+INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'http://pgbouncer.org',
+  'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'http://pgbouncer.org');
 INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'included', 1);
 INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
