@@ -55,10 +55,21 @@ cp -v $lib64/libkeyutils.so.1     $shared_lib/.
 #cp -v $lib64/libpthread.so.0      $shared_lib/.
 cp -v $lib64/libpam.so.0          $shared_lib/.
 cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
-#cp -v $lib64/libcassandra.so.2   $shared_lib/.
 
+# pg_agent
+cp -v $lib64/libicu*so.50         $shared_lib/.
+cp -v $lib64/libboost_filesystem-mt.so.1.53.0 $shared_lib/.
+cp -v $lib64/libboost_regex-mt.so.1.53.0      $shared_lib/.
+cp -v $lib64/libboost_date_time-mt.so.1.53.0  $shared_lib/.
+cp -v $lib64/libboost_thread-mt.so.1.53.0     $shared_lib/.
+cp -v $lib64/libboost_system-mt.so.1.53.0     $shared_lib/.
+cp -v $lib64/libboost_chrono-mt.so.1.53.0     $shared_lib/.
+cp -v $lib64/libboost_atomic-mt.so.1.53.0     $shared_lib/.
+
+# mysql_fdw
 cp -v $lib64/mysql/libmysqlclient.so $shared_lib/.
 
+# oracle_fdw
 cp -v $ORACLE_HOME/libclntsh.so.12.1 $shared_lib/.
 cp -v $ORACLE_HOME/libclntshcore.so.12.1 $shared_lib/.
 cp -v $ORACLE_HOME/libmql1.so        $shared_lib/.
@@ -66,6 +77,7 @@ cp -v $ORACLE_HOME/libipc1.so        $shared_lib/.
 cp -v $ORACLE_HOME/libnnz12.so       $shared_lib/.
 cp -v $ORACLE_HOME/libons.so         $shared_lib/.
 
+# tds_fdw
 cp -v $lib64/libsybdb.so.5           $shared_lib/.
 cp -v $lib64/libhogweed.so.2         $shared_lib/.
 cp -v $lib64/libgnutls.so.28         $shared_lib/.
@@ -76,6 +88,7 @@ cp -v $lib64/libtasn1.so.6           $shared_lib/.
 cp -v $lib64/libselinux.so.1         $shared_lib/.
 cp -v $lib64/libffi.so.6             $shared_lib/.
 
+# cassandra_fdw
 cp="cp -v $lib64"
 sl="$shared_lib/."
 $cp/libcassandra.so.2 $sl

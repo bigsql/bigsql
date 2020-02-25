@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This script generates a relocatable build for PostgreSQL that includes
-#   pgBouncer, psqlODBC, and pgBackrest
+#   pgBouncer, pgagent, psqlODBC, and pgBackrest
 #
 
 #set -x
@@ -144,6 +144,20 @@ function checkODBC {
 }
 
 
+function checkAgent {
+    cd $baseDir
+    mkdir -p $workDir
+
+    cd $baseDir/$workDir
+
+    agentSourceDir=`dirname $(tar -tf $agentSourceTar | grep "pgAgent.cpp")`
+
+    tar -xzf $agentSourceTar
+
+    return 0
+}
+
+
 function buildPostgres {
 	echo "# buildPostgres()"	
 
@@ -222,6 +236,19 @@ function buildPostgres {
 		echo "Make failed for docs ...."
 		return 1
 	fi
+}
+
+
+function buildAgent {
+	echo "# buildAgent()"
+	cd $baseDir/$workDir/$agentSourceDir
+
+    configCmd="cmake -DCMAKE_INSTALL_PREFIX=$buildLocation --config cfg ."
+    echo "#  configCmd = $configCmd"
+	log=$baseDir/$workDir/logs/pgagent_build.log
+    $configCmd    > $log 2>&1
+    make         >> $log 2>&1
+    make install >> $log 2>&1
 }
 
 
@@ -471,7 +498,7 @@ fi
 echo "### $scriptName ###"
 
 optional=""
-while getopts "t:a:b:k:o:n:hc" opt; do
+while getopts "t:a:b:k:o:g:n:hc" opt; do
 	case $opt in
 		t)
 			if [[ $OPTARG = -* ]]; then
@@ -497,6 +524,14 @@ while getopts "t:a:b:k:o:n:hc" opt; do
 			pgBouncerTar=$OPTARG
 			buildBouncer=1
 			echo "# -b $pgBouncerTar"
+		;;
+		g) 	if [[ $OPTARG = -* ]]; then
+				((OPTIND--))
+				continue
+			fi
+			agentSourceTar=$OPTARG
+			buildAgent=1
+			echo "# -g $agentSourceTar"
 		;;
 		k) 	if [[ $OPTARG = -* ]]; then
 				((OPTIND--))
@@ -544,6 +579,10 @@ fi
 
 if [ "$buildBackrest" == "1" ]; then
   buildApp "checkBackrest" "buildBackrest"
+fi
+
+if [ "$buildAgent" == "1" ]; then
+  buildApp "checkAgent" "buildAgent"
 fi
 
 if [ "$buildODBC" == "1" ]; then

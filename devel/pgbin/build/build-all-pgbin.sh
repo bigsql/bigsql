@@ -18,11 +18,13 @@ function runPgBin {
   bncrSrc=$SRC/pgbouncer-$bouncerV.tar.gz
   odbcSrc=$SRC/psqlodbc-$odbcV.tar.gz
   bkrstSrc=$SRC/backrest-$backrestV.tar.gz
+  agentSrc=$SRC/agent-$agentV.tar.gz
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV "
 
   cmd="$cmd -b $bncrSrc"
   cmd="$cmd -k $bkrstSrc"
+  cmd="$cmd -g $agentSrc"
   #cmd="$cmd -o $odbcSrc"
   cmd="$cmd $optional"
   $cmd

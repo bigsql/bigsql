@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set -x
+## set -x
 
 source ./versions.sh
 buildOS=$OS
@@ -223,8 +223,8 @@ function buildSetUserComponent {
 
 
 function buildComp {
-	comp="$1"
-        ##echo "#        comp: $comp"
+        comp="$1"
+        echo "#        comp: $comp"
         shortV="$2"
         ##echo "#      shortV: $shortV"
         fullV="$3"
@@ -238,14 +238,13 @@ function buildComp {
         echo "#      compNm: $componentName"
         mkdir -p "$baseDir/$workDir/logs"
         cd "$baseDir/$workDir"
-	rm -rf $comp
+        rm -rf $comp
         mkdir $comp  && tar -xf $src --strip-components=1 -C $comp
         cd $comp
 
         buildLocation="$baseDir/$workDir/build/$componentName"
 
         prepComponentBuildDir $buildLocation
-
 
         PATH=$buildLocation/bin:$PATH
         log_dir="$baseDir/$workDir/logs"
@@ -260,7 +259,7 @@ function buildComp {
            ln -s $JAVA_HOME/jre/lib/amd64/server/libjvm.so $buildLib/libjvm.so
         fi
 
-        USE_PGXS=1 make > $make_log 2>&1
+        USE_PGXS=1 make >> $make_log 2>&1
         if [[ $? -eq 0 ]]; then
                 USE_PGXS=1 sudo make install > $install_log 2>&1
                 if [[ $? -ne 0 ]]; then
@@ -268,6 +267,7 @@ function buildComp {
                         echo "ERROR: Install failed, check install_log"
                         tail -20 $install_log
                         echo ""
+                        return 1
                 fi
         else
                 echo " "
@@ -280,40 +280,6 @@ function buildComp {
         componentBundle=$componentName
         cleanUpComponentDir $buildLocation
         updateSharedLibs
-        packageComponent $componentBundle
-}
-
-
-function buildPGAgentComponent {
-
-        componentName="pgagent$pgAgentShortVersion-pg$pgShortVersion-$pgAgentFullVersion-$pgAgentBuildV-$buildOS"
-        mkdir -p "$baseDir/$workDir/logs"
-        cd "$baseDir/$workDir"
-        mkdir pgagent  && tar -xf $pgAgentSource --strip-components=1 -C pgagent
-        cd pgagent
-
-        buildLocation="$baseDir/$workDir/build/$componentName"
-
-        prepComponentBuildDir $buildLocation
-
-
-        PATH=$buildLocation/bin:$PATH
-        log_dir="$baseDir/$workDir/logs"
-        make_log="$log_dir/pgagent_make.log"
-        install_log="$log_dir/pgagent_install.log"
-        ls -l
-        ccmake .
-        USE_PGXS=1 make > $make_log 2>&1
-        if [[ $? -ne 0 ]]; then
-                echo " "
-                echo "pgagent Make failed, check logs for details."
-                echo " "
-                cat $make_log
-                return 1
-        fi
-
-        componentBundle=$componentName
-        cleanUpComponentDir $buildLocation
         packageComponent $componentBundle
 }
 
@@ -448,6 +414,42 @@ function buildPlJavaComponent {
 #                #return 1
 #	fi
 
+	componentBundle=$componentName
+	cleanUpComponentDir $buildLocation
+	updateSharedLibs
+	packageComponent $componentBundle
+}
+
+
+function buildPlProfilerComponent {
+
+	componentName="plprofiler$plProfilerShortVersion-pg$pgShortVersion-$plProfilerFullVersion-$plprofilerBuildV-$buildOS"
+	mkdir -p "$baseDir/$workDir/logs"
+	cd "$baseDir/$workDir"
+	mkdir plprofiler && tar -xf $plProfilerSource --strip-components=1 -C plprofiler
+	cd plprofiler
+
+	buildLocation="$baseDir/$workDir/build/$componentName"
+
+	prepComponentBuildDir $buildLocation
+
+	PATH=$buildLocation/bin:$PATH
+	USE_PGXS=1 make > $baseDir/$workDir/logs/plprofiler_make.log 2>&1
+        if [[ $? -eq 0 ]]; then
+        	USE_PGXS=1 make install > $baseDir/$workDir/logs/plprofiler_install.log 2>&1
+                if [[ $? -ne 0 ]]; then
+                                echo "Failed to install PlProfiler ..."
+                fi
+                mkdir -p $buildLocation/python/site-packages
+                cd python-plprofiler
+        	cp -R plprofiler $buildLocation/python/site-packages
+        	#cp plprofiler-bin.py $buildLocation/bin/plprofiler
+        	cd $buildLocation/python/site-packages
+        	#tar -xf $psycopgSource
+        else
+        	echo "Make failed for PlProfiler .... "
+        fi
+        rm -rf build
 	componentBundle=$componentName
 	cleanUpComponentDir $buildLocation
 	updateSharedLibs
@@ -598,7 +600,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-pgagent:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -612,11 +614,11 @@ while true; do
   case "$1" in
     --with-pgver ) pgVer=$2; shift; shift; ;;
     --with-pgbin ) pgBinPassed=true; pgBin=$2; shift; shift; ;;
-    --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift; ;;
+    --target-dir ) targetDirPassed=true; targetDir=$2; shift; shift ;;
     --build-postgis ) buildPostGIS=true; Source=$2; shift; shift ;;
     --build-bouncer ) buildBouncer=true; Source=$2; shift; shift; ;;
     --build-hivefdw ) buildHiveFDW=true; Source=$2; shift; shift ;;
-    --build-cassandrafdw ) buildCassandraFDW=true; Source=$2; shift; shift ;;
+    --build-cassandrafdw ) buildCassandraFDW=true; Source=$2; shift; shift; ;;
     --build-pgtsql ) buildTSQL=true; tsqlSource=$2; shift; shift ;;
     --build-tdsfdw ) buildTDSFDW=true; Source=$2; shift; shift ;;
     --build-mongofdw ) buildMongoFDW=true mongoFDWSource=$2; shift; shift ;;
@@ -641,7 +643,6 @@ while true; do
     --build-pglogical ) buildPgLogical=true; Source=$2; shift; shift ;;
     --build-hintplan ) buildHintPlan=true; Source=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
-    --build-pgagent ) buildPGAgent=true; pgAgentSource=$2; shift; shift ;;
     --build-cron ) buildCron=true; cronSource=$2; shift; shift ;;
     --build-pgmp ) buildPgMp=true; pgmpSource=$2; shift; shift ;;
     --build-fixeddecimal ) buildFD=true; Source=$2; shift; shift ;;
@@ -740,8 +741,8 @@ if [[ $buildPlr == "true" ]]; then
 fi
 
 if [[ $buildPlJava == "true" ]]; then
-    buildComp pljava  "$pljavaShortV" "$pljavaFullV" "$pljavaBuildV" "$Source"
-##	buildPlJavaComponent
+##    buildComp pljava  "$pljavaShortV" "$pljavaFullV" "$pljavaBuildV" "$Source"
+	buildPlJavaComponent
 fi
 
 if [[ $buildPlV8 == "true" ]]; then
@@ -770,9 +771,6 @@ if [[ $buildHintPlan == "true" ]]; then
 fi
 if [[ $buildTimeScaleDB == "true" ]]; then
         buildTimeScaleDBComponent
-fi
-if [[ $buildPGAgent == "true" ]]; then
-        buildPGAgentComponent
 fi
 if [[ $buildCron == "true" ]]; then
         buildCronComponent

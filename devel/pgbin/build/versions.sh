@@ -18,6 +18,7 @@ pg95BuildV=2
 bouncerV="1.12.0"
 odbcV="12.01.0000"
 backrestV="2.23"
+agentV=4.0.0
 
 httpFullV=1.3.1
 httpShortV=
@@ -157,10 +158,6 @@ timescaledbBuildV=1
 cronFullVersion=1.1.3
 cronShortVersion=
 cronBuildV=1
-
-pgAgentFullVersion=4.0.0
-pgAgentShortVersion= 
-pgAgentBuildV=1
 
 OS=`uname -s`
 if [[ $OS == "Darwin" ]]; then
