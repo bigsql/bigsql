@@ -34,7 +34,7 @@ walgBuildV=1
 
 
 postgisFull25V=2.5.3
-postgisFull30V=3.0.0
+postgisFull30V=3.0.1
 postgisShortV=
 postgisBuildV=1
 
@@ -50,7 +50,7 @@ cassFullV=3.1.5
 cassShortV=
 cassBuildV=1
 
-orafceFullV=3.8.0
+orafceFullV=3.9.0
 orafceShortV=
 orafceBuildV=1
 
