@@ -10,7 +10,7 @@ P96=9.6.17-2
 P95=9.5.21-2
 P94=9.4.26-2
 
-orafceV=3.8.0-1
+orafceV=3.9.0-1
 httpV=1.3.1-1
 anonV=0.5.0-1
 ddlxV=0.16-1
@@ -27,7 +27,7 @@ audit11V=1.3.1-1
 audit12V=1.4.0-1
 
 postgis25V=2.5.3-1
-postgis30V=3.0.0-1
+postgis30V=3.0.1-1
 
 cstarV=3.1.5-1
 
