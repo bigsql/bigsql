@@ -307,6 +307,11 @@ INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'http://pgbouncer.org',
 INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'included', 1);
 INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
+INSERT INTO projects VALUES ('agent', 2, 0, 'hub', 3, 'http://github.com/postgres/pgagent/releases',
+  'agent',  0, 'agent.png', 'Job Scheduler', 'http://github.com/postgres/pgagent');
+INSERT INTO releases VALUES (agent', 5, 'agent',  'pgAgent', '', 'included', 1);
+INSERT INTO versions VALUES ('agent', '4.0.0', 'arm, amd', 1, '20180712', '');
+
 -- ##
 INSERT INTO categories VALUES (7, 'PG Developers Toolchain', 'Toolchain');
 
