@@ -5,5 +5,10 @@
 
 import util
 
-util.remove_pgconf_keyval("postgis", "shared_preload_libraries", "postgis")
+ver = "pgXX"
+ext = "postgis-2.5"
+if ver == "pg12":
+  ext = "postgis-3"
+
+util.remove_pgconf_keyval(ver, "shared_preload_libraries", ext)
 
