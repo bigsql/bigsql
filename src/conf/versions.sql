@@ -169,8 +169,8 @@ INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafc
   'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
 INSERT INTO releases VALUES ('orafce-pg12', 6, 'orafce', 'OraFCE', '', 'prod', 1);
-INSERT INTO versions VALUES ('orafce-pg11', '3.8.0-1',  'arm, amd', 1, '20190522', 'pg11');
-INSERT INTO versions VALUES ('orafce-pg12', '3.8.0-1',  'arm, amd', 1, '20190522', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.9.0-1',  'arm, amd', 1, '20200213', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.9.0-1',  'arm, amd', 1, '20200213', 'pg12');
 
 INSERT INTO projects VALUES ('plv8', 3, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases',
   'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
@@ -262,7 +262,6 @@ INSERT INTO releases VALUES ('postgis-pg11', 3, 'postgis', 'PostGIS', '', 'prod'
 INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'prod', 1);
 INSERT INTO versions VALUES ('postgis-pg11', '2.5.3-1', 'arm, amd', 1, '20191020', 'pg11');
 INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'arm, amd', 1, '20200220', 'pg12');
-INSERT INTO versions VALUES ('postgis-pg12', '3.0.0-1', 'arm, amd', 0, '20191020', 'pg12');
 
 INSERT INTO projects VALUES ('pgadmin4', 2, 1234, 'docker', 1, 'https://pgadmin.org',
   'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
