@@ -35,7 +35,7 @@ prestoV=0.229
 
 tsqlV=3.0-1
 pljavaV=1.5.5-1
-debuggerV=1.3.0-1
+debuggerV=2.0-1
 agentV=4.0-1
 
 mysqlfdwV=2.5.3-1

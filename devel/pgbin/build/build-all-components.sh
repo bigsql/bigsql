@@ -44,11 +44,15 @@ fi
 
 ## prod ready across platforms #######################
 
-if [ "$1" == "hivefdw" ]; then
+if [ "$1" == "pldebugger" ] || [ "$1" == "all" ]; then
+  build pldebugger $debugFullV $2 pldebugger
+fi
+
+if [ "$1" == "hivefdw" ] || [ "$1" == "all" ]; then
   build hivefdw $hivefdwFullV $2 hivefdw
 fi
 
-if [ "$1" == "cassandrafdw" ]; then
+if [ "$1" == "cassandrafdw" ] || [ "$1" == "all" ]; then
   build cassandrafdw $cassFullV $2 cassandrafdw
 fi
 

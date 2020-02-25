@@ -89,9 +89,9 @@ plv8FullV=2.3.14
 plv8ShortV=
 plv8BuildV=1
 
-debugFullV=1.1
+debugFullV=2.0
 debugShortV=
-debugBuildV=3
+debugBuildV=1
 
 fdFullV=1.1.0
 fdShortV=

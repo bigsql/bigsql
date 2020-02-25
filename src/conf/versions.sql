@@ -194,8 +194,8 @@ INSERT INTO releases VALUES ('pljava-pg12', 4, 'pljava', 'PL/Java', '', 'prod', 
 INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'arm, amd',  1, '20191104', 'pg11');
 INSERT INTO versions VALUES ('pljava-pg12', '1.5.5-1',  'arm, amd',  1, '20191104', 'pg12');
 
-INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/bigsql/pldebugger/releases',
-  'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/bigsql/pldebugger#pldebugger');
+INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/bigsql/pldebugger2/releases',
+  'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/bigsql/pldebugger2#pldebugger2');
 INSERT INTO releases VALUES ('pldebugger-pg11', 3, 'pldebugger', 'PL/Debugger', '', 'prod', 1);
 INSERT INTO releases VALUES ('pldebugger-pg12', 3, 'pldebugger', 'PL/Debugger', '', 'prod', 1);
 INSERT INTO versions VALUES ('pldebugger-pg11', '2.0-1',  'arm, amd',  1, '20200224', 'pg11');
