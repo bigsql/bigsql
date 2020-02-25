@@ -256,12 +256,13 @@ INSERT INTO releases VALUES ('pglogical-pg12', 2, 'pglogical', 'pgLogical 2', ''
 INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg11');
 INSERT INTO versions VALUES ('pglogical-pg12', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg12');
 
-INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net',
+INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net/source',
   'postgis', 1, 'postgis.png', 'PostGIS', 'http://postgis.net');
 INSERT INTO releases VALUES ('postgis-pg11', 3, 'postgis', 'PostGIS', '', 'prod', 1);
 INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'prod', 1);
 INSERT INTO versions VALUES ('postgis-pg11', '2.5.3-1', 'arm, amd', 1, '20191020', 'pg11');
-INSERT INTO versions VALUES ('postgis-pg12', '3.0.0-1', 'arm, amd', 1, '20191020', 'pg12');
+INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'arm, amd', 1, '20200220', 'pg12');
+INSERT INTO versions VALUES ('postgis-pg12', '3.0.0-1', 'arm, amd', 0, '20191020', 'pg12');
 
 INSERT INTO projects VALUES ('pgadmin4', 2, 1234, 'docker', 1, 'https://pgadmin.org',
   'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
@@ -270,8 +271,8 @@ INSERT INTO versions VALUES ('pgadmin4', '4.18', 'docker', 1, '20200206', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
-INSERT INTO releases VALUES ('bulkload-pg11', 4, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
-INSERT INTO releases VALUES ('bulkload-pg12', 4, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
+INSERT INTO releases VALUES ('bulkload-pg11', 5, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
+INSERT INTO releases VALUES ('bulkload-pg12', 5, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
 INSERT INTO versions VALUES ('bulkload-pg11', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg11');
 INSERT INTO versions VALUES ('bulkload-pg12', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg12');
 
@@ -309,7 +310,7 @@ INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '
 
 INSERT INTO projects VALUES ('agent', 2, 0, 'hub', 3, 'http://github.com/postgres/pgagent/releases',
   'agent',  0, 'agent.png', 'Job Scheduler', 'http://github.com/postgres/pgagent');
-INSERT INTO releases VALUES (agent', 5, 'agent',  'pgAgent', '', 'included', 1);
+INSERT INTO releases VALUES ('agent', 4, 'agent',  'pgAgent', '', 'included', 1);
 INSERT INTO versions VALUES ('agent', '4.0.0', 'arm, amd', 1, '20180712', '');
 
 -- ##

@@ -27,7 +27,7 @@ audit11V=1.3.1-1
 audit12V=1.4.0-1
 
 postgis25V=2.5.3-1
-postgis30V=3.0.0-1
+postgis30V=3.0.1-1
 
 cstarV=3.1.5-1
 
