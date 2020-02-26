@@ -5,12 +5,10 @@ def print_header(pWidth):
   print('<table height=100 width=' + str(pWidth) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
         '    <td width=250><img width=250 src=img/pgsql-io.png /></td> \n' + \
-        '    <td width=400><center><font color=whitesmoke>\n' + \
+        '    <td width=375><center><font color=whitesmoke>\n' + \
         '     Linux on ARM & AMD<br>&nbsp;<br>\n' + \
-        '      <a href=""><font color=whitesmoke>FAQ</font></a>&nbsp;&nbsp;&nbsp;\n' + \
-        '      <a href=""><font color=whitesmoke>About Us</font></a>\n' + \
         '    </font></center></td>\n' + \
-        '    <td width=425><font size=-1 color=whitesmoke>\n' + \
+        '    <td width=400><font size=-1 color=whitesmoke>\n' + \
         '<center><b>Installation Instructions:</b></center>\n' + \
         '<code>BUCKET=https://pgsql-io-download.s3.amazonaws.com<br>\n' + \
         'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \

@@ -317,33 +317,40 @@ INSERT INTO categories VALUES (7, 'PG Developers Toolchain', 'Toolchain');
 
 INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('docker', '19.03.6', 'arm', 1, '20200212', '');
+INSERT INTO versions VALUES ('docker', '19.03.6', '', 1, '20200212', '');
 
 INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.6.2', 'arm', 1, '20191220', '');
+INSERT INTO versions VALUES ('minikube', '1.6.2', '', 1, '20191220', '');
 
 INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.jpg', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('helm', '3.0.3', 'arm', 1, '20200129', '');
+INSERT INTO versions VALUES ('helm', '3.0.3', 'm', 1, '20200129', '');
 
 INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
 INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
 
-INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://github.com/llvm/llvm/releases', 'llvm', 0, 'llvm.png', 'High Level Assembly Language', 'https://llvm.sh');
+INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://releases.llvm.org', 
+  'llvm', 0, 'llvm.png', 'High Level Assembly Language', 'https://llvm.org');
 INSERT INTO releases VALUES ('llvm', 5, 'llvm', 'LLVM', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('llvm', '3.0.3', 'arm', 1, '20200129', '');
+INSERT INTO versions VALUES ('llvm', '9.0.1', 'm', 1, '20191220', '');
 
-INSERT INTO projects VALUES ('flex_bison', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'flex_bison', 0, 'gnu.png', 'High Availability Template', 'https://github.com/zalando/patroni');
-INSERT INTO releases VALUES ('flex_bison', 6, 'flex_bison', 'Flex & Bison', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('flex_bison', '1.6.4', '', 1, '20200127', '');
+INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
+  'bison', 0, 'gnu.png', 'Parser-Generator', 'https://gnu.org/software/bison/');
+INSERT INTO releases VALUES ('bison', 6, 'bison', 'Bison', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('bison', '3.5.2', '', 1, '20200213', '');
+
+INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
+  'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
+INSERT INTO releases VALUES ('gcc', 6, 'gcc', 'GCC', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('gcc', '9.2.0', '', 1, '20190812', '');
 
 -- ##
 INSERT INTO categories VALUES (8, 'Connectors',   'Applications');
 INSERT INTO projects VALUES ('omnidb', 8, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
 INSERT INTO releases VALUES ('omnidb', 11, 'omnidb', 'OmniDB', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('omnidb', '2.17-1', 'docker', 1, '20191205', '');
+INSERT INTO versions VALUES ('omnidb', '2.17-1', '', 1, '20191205', '');
 
 INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
 INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'bring-own', 1);
@@ -373,7 +380,7 @@ INSERT INTO versions VALUES ('http-pg12', '1.3.1-1', 'arm, amd', 1, '20191225', 
 
 INSERT INTO projects VALUES ('pgrest',     8, 0, 'hub', 3, 'https://github.com/pgrest/pgrest/releases', 'pgrest', 0, 'restapi.png', 'RESTFUL API', 'https://github.com/pgrest/pgrest');
 INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('pgrest', '0.0.7-1', 'arm', 1, '20130813', '');
+INSERT INTO versions VALUES ('pgrest', '0.0.7-1', '', 1, '20130813', '');
 
 INSERT INTO projects VALUES ('ddlx',       2, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 INSERT INTO releases VALUES ('ddlx-pg11', 14, 'ddlx', 'DDLeXtact', '', 'prod', 0);

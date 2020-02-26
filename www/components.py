@@ -4,9 +4,9 @@ isSHOW_COMP_PLAT = "Y"
 isSHOW_DESCRIPTION = "Y"
 BR = "<br>"
 WIDTH = 900
-COL_SIZE = 200
-NUM_COLS = 4
-FONT_SIZE = 2
+COL_SIZE = 300
+NUM_COLS = 3
+FONT_SIZE = 3
 IMG_SIZE = 27
 BORDER=0
 ALL_PLATFORMS = "arm, amd"
@@ -21,7 +21,7 @@ if NUM_COLS == 1:
 
 def print_top():
   pgsql.print_header(WIDTH)
-  print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=white cellpadding=2>')
+  print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=white cellpadding=1>')
 
  
 def print_bottom():
@@ -93,8 +93,8 @@ def get_columns(d):
 
 
 def print_row_header(pBR):
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + ">" + pBR + "<b>" + \
-    cat_desc + ":</b></td></tr>")
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + ">&nbsp;<br>&nbsp;<br>" + \
+    "<font size=+2><b>" + cat_desc + ":</b></font></td></tr>")
 
 
 def print_row_detail(pCol, pBR):
@@ -145,17 +145,35 @@ i = 0
 old_cat_desc = ""
 print_top()
 col = 0
+skip_next = False
 
 for d in data:
   if i == 0:
     old_d = d
     i = 1
-    next
+    continue
+
+  if skip_next == True:
+    old_d = d
+    skip_next = False
+    continue
 
   i = i + 1
   
-  this_comp = str(d[3])
   get_columns(old_d)
+
+  next_comp = str(d[3])                                                         
+  next_proj = str(d[4])
+  next_rel  = str(d[5])                                                         
+  next_ver  = str(d[6]).replace("-1", "")
+
+  if ((next_proj == project) and 
+      (next_rel == release_name) and 
+      (next_ver == version)):
+    ##print("DEBUG: combine these two components: " + component + ", " + next_comp)
+    skip_next = True
+    component = component + "," + next_comp[-2:]
+
 
   if (old_cat_desc != cat_desc):
     print_row_header(BR)
@@ -184,6 +202,9 @@ for d in data:
 
   old_cat_desc = cat_desc
   old_d = d
+
+get_columns(d)
+print_row_detail(col, BR)
 
 print_bottom()
 sys.exit(0)
