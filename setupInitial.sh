@@ -38,12 +38,12 @@ if [ `uname` == 'Linux' ]; then
     sudo yum -y install clang llvm5.0 centos-release-scl-rh
     sudo yum -y install llvm-toolset-7-llvm devtoolset-7 llvm-toolset-7-clang
   else
-    ## tested on Ubunut 16
+    ## tested on Ubuntu 16
     sudo add-apt-repository universe
     sudo apt install sqlite3 python3 curl wget \
-      openjdk-11-jdk build-essential flex bison zlib1g-dev \
+      openjdk-8-jdk build-essential flex bison zlib1g-dev \
       libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
-      libperl-dev libpython3-dev libtcl-dev pkg-config libevent-dev cmake \
+      libperl-dev libpython3-dev pkg-config libevent-dev cmake \
       libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
       odbc-postgresql llvm-6.0-dev
   fi
