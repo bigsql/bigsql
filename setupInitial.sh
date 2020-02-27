@@ -45,7 +45,7 @@ if [ `uname` == 'Linux' ]; then
       libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
       libperl-dev libpython3-dev pkg-config libevent-dev cmake \
       libpam-dev libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
-      libossp-uuid-dev odbc-postgresql llvm-6.0-dev \
+      libossp-uuid-dev odbc-postgresql llvm-8-dev \
       libkrb5-dev tcl-dev 
   fi
 fi

@@ -59,7 +59,6 @@ function prepComponentBuildDir {
 	cp $PGHOME/lib/libpgcommon.a $buildLocation/lib/
 	cp $PGHOME/lib/libcrypto.so* $buildLocation/lib/
         cp $PGHOME/lib/postgresql/plpgsql.so $buildLocation/lib/postgresql/
-
 }
 
 
@@ -261,7 +260,7 @@ function buildComp {
 
         USE_PGXS=1 make >> $make_log 2>&1
         if [[ $? -eq 0 ]]; then
-                USE_PGXS=1 sudo make install > $install_log 2>&1
+                USE_PGXS=1 make install > $install_log 2>&1
                 if [[ $? -ne 0 ]]; then
                         echo " "
                         echo "ERROR: Install failed, check install_log"
