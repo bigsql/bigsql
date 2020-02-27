@@ -233,12 +233,19 @@ INSERT INTO releases VALUES ('audit-pg12', 10, 'audit', 'pgAudit', '', 'prod', 1
 INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm, amd', 1, '20190617', 'pg11');
 INSERT INTO versions VALUES ('audit-pg12', '1.4.0-1', 'arm, amd', 1, '20190927', 'pg12');
 
-INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
+INSERT INTO projects VALUES ('anon', 2, 0, 'hub',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
   'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO releases VALUES ('anon-pg11', 11, 'anon', 'Anonymizer', '', 'prod', 1);
 INSERT INTO releases VALUES ('anon-pg12', 11, 'anon', 'Anonymizer', '', 'prod', 1);
 INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm, amd', 1, '20191109', 'pg11');
 INSERT INTO versions VALUES ('anon-pg12', '0.5.0-1', 'arm, amd', 1, '20191109', 'pg12');
+
+INSERT INTO projects VALUES ('cron', 2, 0, 'hub',0, 'https://github.com/citusdata/pg_cron/releases',
+  'cron', 1, 'cron.png', 'Jobscheduler as Backrground Worker', 'https://github.com/citusdata/pg_cron');
+INSERT INTO releases VALUES ('cron-pg11', 11, 'cron', 'pgCron', '', 'prod', 1);
+INSERT INTO releases VALUES ('cron-pg12', 11, 'cron', 'pgCron', '', 'prod', 1);
+INSERT INTO versions VALUES ('cron-pg11', '1.2.0-1', 'arm, amd', 1, '20191109', 'pg11');
+INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20191109', 'pg12');
 
 -- ##
 INSERT INTO categories VALUES (2, 'Applications', 'Applics');

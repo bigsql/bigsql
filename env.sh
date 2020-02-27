@@ -37,6 +37,7 @@ tsqlV=3.0-1
 pljavaV=1.5.5-1
 debuggerV=2.0-1
 agentV=4.0-1
+cronV=1.2.0-1
 
 mysqlfdwV=2.5.3-1
 oraclefdwV=2.2.0-1

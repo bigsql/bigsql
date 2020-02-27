@@ -28,11 +28,6 @@ hypopgFullV=1.1.3
 hypopgShortV=
 hypopgBuildV=1
 
-walgFullV=0.2.9
-walgShortV=
-walgBuildV=1
-
-
 postgisFull25V=2.5.3
 postgisFull30V=3.0.1
 postgisShortV=
@@ -155,8 +150,8 @@ timescaledbFullV=1.6.0
 timescaledbShortV=
 timescaledbBuildV=1
 
-cronFullVersion=1.1.3
-cronShortVersion=
+cronFullV=1.2.0
+cronShortV=
 cronBuildV=1
 
 OS=`uname -s`

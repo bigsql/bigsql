@@ -33,7 +33,7 @@ printUsageMessage () {
   echo "# -e cstarfdw-$cstarfdwV  hivefdw-$hivefdwV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
-  echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV"
+  echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  repack-$repackV  oraclefdw-$oraclefdwV"
   echo "#    postgis-$postgis25V,$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
@@ -221,6 +221,7 @@ initDir () {
   copy-pgXX "mysqlfdw"  
   copy-pgXX "oraclefdw"  
   copy-pgXX "tdsfdw"  
+  copy-pgXX "cron"
 
   if [ -f $myNewDir/LICENSE.TXT ]; then
     mv $myNewDir/LICENSE.TXT $myNewDir/$pComponent-LICENSE.TXT
@@ -429,6 +430,7 @@ initPG () {
   fi
 
   if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
+    initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "tdsfdw-pg$pgM" "tdsfdw" "$tdsfdwV" "$outPlat" "postgres/tdsfdw" "" "" "nil"
     initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"

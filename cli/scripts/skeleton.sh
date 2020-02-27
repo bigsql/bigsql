@@ -1,5 +1,6 @@
 
 function testAll {
+  ./io install cron-pg$1          -d demo
   ./io install tdsfdw-pg$1        -d demo
   ./io install oraclefdw-pg$1     -d demo
   ./io install mysqlfdw-pg$1      -d demo

@@ -284,38 +284,6 @@ function buildComp {
 }
 
 
-function buildCronComponent {
-
-        componentName="cron$cronShortVersion-pg$pgShortVersion-$cronFullVersion-$cronBuildV-$buildOS"
-        mkdir -p "$baseDir/$workDir/logs"
-        cd "$baseDir/$workDir"
-        mkdir cron  && tar -xf $cronSource --strip-components=1 -C cron
-        cd cron
-
-        buildLocation="$baseDir/$workDir/build/$componentName"
-
-        prepComponentBuildDir $buildLocation
-
-
-        PATH=$buildLocation/bin:$PATH
-        USE_PGXS=1 make > $baseDir/$workDir/logs/cron_make.log 2>&1
-        if [[ $? -eq 0 ]]; then
-                 USE_PGXS=1 make install > $baseDir/$workDir/logs/cron_install.log 2>&1
-                if [[ $? -ne 0 ]]; then
-                        echo "cron install failed, check logs for details."
-                fi
-        else
-                echo "cron Make failed, check logs for details."
-                return 1
-        fi
-
-        componentBundle=$componentName
-        cleanUpComponentDir $buildLocation
-        updateSharedLibs
-        packageComponent $componentBundle
-}
-
-
 function buildPgMpComponent {
 
         componentName="pgmp$pgmpShortVersion-pg$pgShortVersion-$pgmpFullVersion-$pgmpBuildV-$buildOS"
@@ -388,11 +356,13 @@ function buildPlRComponent {
 }
 
 function buildPlJavaComponent {
-
-	componentName="pljava$plJavaShortV-pg$pgShortV-$plJavaFullV-$plJavaBuildV-$buildOS"
+    echo "# buildPlJavaComponent()"
+	componentName="pljava$pljavaShortV-pg$pgShortVersion-$pljavaFullV-$pljavaBuildV-$buildOS"
+    echo "# $componentName"
 	mkdir -p "$baseDir/$workDir/logs"
 	cd "$baseDir/$workDir"
-	mkdir pljava && tar -xf $plJavaSource --strip-components=1 -C pljava
+    echo "# $Source"
+	mkdir pljava && tar -xf $Source --strip-components=1 -C pljava
 	cd pljava
 
 	buildLocation="$baseDir/$workDir/build/$componentName"
@@ -400,19 +370,22 @@ function buildPlJavaComponent {
 	prepComponentBuildDir $buildLocation
 
 	PATH=/opt/pgbin-build/pgbin/shared/maven/bin:$buildLocation/bin:$PATH
-	mvn clean install > $baseDir/$workDir/logs/pljava_make.log 2>&1
-#	if [[ $? -eq 0 ]]; then
-#		java -jar "pljava-packaging/target/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1"."$2}'`-amd64-Linux-gpp.jar" > $baseDir/$workDir/logs/pljava_install.log 2>&1 > $baseDir/$workDir/logs/pljava_install.log 2>&1
-#		if [[ $? -ne 0 ]]; then
-#			echo "Pl/Java install failed, check logs for details."
-#		fi
-#	else
-#                mkdir -p pljava-packaging/target
-#                cp "/tmp/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1}'`-amd64-Linux-gpp.jar" pljava-packaging/target/
-#                java -jar "pljava-packaging/target/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1}'`-amd64-Linux-gpp.jar" > $baseDir/$workDir/logs/pljava_install.log 2>&1
-#                #echo "Pl/Java Make failed, check logs for details."
-#                #return 1
-#	fi
+	log=$baseDir/$workDir/logs/pljava_make.log
+    echo "# log = $log"
+    mvn dependency:resolve > $log 2>&1
+	mvn clean install >> $log 2>&1
+ 	if [[ $? -eq 0 ]]; then
+ 		java -jar "pljava-packaging/target/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1"."$2}'`-amd64-Linux-gpp.jar" > $baseDir/$workDir/logs/pljava_install.log 2>&1 > $baseDir/$workDir/logs/pljava_install.log 2>&1
+ 		if [[ $? -ne 0 ]]; then
+ 			echo "Pl/Java install failed, check logs for details."
+ 		fi
+ 	else
+                 mkdir -p pljava-packaging/target
+                 cp "/tmp/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1}'`-amd64-Linux-gpp.jar" pljava-packaging/target/
+                 java -jar "pljava-packaging/target/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1}'`-amd64-Linux-gpp.jar" > $baseDir/$workDir/logs/pljava_install.log 2>&1
+                 #echo "Pl/Java Make failed, check logs for details."
+                 #return 1
+ 	fi
 
 	componentBundle=$componentName
 	cleanUpComponentDir $buildLocation
@@ -627,7 +600,6 @@ while true; do
     --build-orafce ) buildOrafce=true; Source=$2; shift; shift ;;
     --build-audit ) buildAudit=true; Source=$2; shift; shift ;;
     --build-set-user ) buildSetUser=true; setUserSource=$2; shift; shift ;;
-    --build-walg ) buildWalg=true; Source=$2; shift; shift ;;
     --build-hypopg ) buildHypopg=true; Source=$2; shift; shift ;;
     --build-pldebugger ) buildPLDebugger=true; Source=$2; shift; shift ;;
     --build-partman ) buildPartman=true; Source=$2; shift; shift ;;
@@ -643,7 +615,7 @@ while true; do
     --build-pglogical ) buildPgLogical=true; Source=$2; shift; shift ;;
     --build-hintplan ) buildHintPlan=true; Source=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
-    --build-cron ) buildCron=true; cronSource=$2; shift; shift ;;
+    --build-cron ) buildCron=true; Source=$2; shift; shift ;;
     --build-pgmp ) buildPgMp=true; pgmpSource=$2; shift; shift ;;
     --build-fixeddecimal ) buildFD=true; Source=$2; shift; shift ;;
     --build-anon ) buildAnon=true; Source=$2; shift; shift ;;
@@ -699,7 +671,6 @@ if [[ $buildPostGIS ==  "true" ]]; then
 		buildComp postgis "$postgisShortV" "$postgisFull30V" "$postgisBuildV" "$Source"
 	fi
 fi
-
 if [[ $buildAudit == "true" ]]; then
 	if [ "$pgShortVersion" == "11" ]; then
 		buildComp audit "$auditShortV" "$auditFull11V" "$auditBuildV" "$Source"
@@ -707,23 +678,18 @@ if [[ $buildAudit == "true" ]]; then
 		buildComp audit "$auditShortV" "$auditFull12V" "$auditBuildV" "$Source"
 	fi
 fi
-
 if [[ $buildSetUser == "true" ]]; then
 	buildSetUserComponent
 fi
-
 if [ "$buildHypopg" == "true" ]; then
 	buildComp hypopg "$hypopgShortV" "$hypopgFullV" "$hypopgBuildV" "$Source"
 fi
-
-if [ "$buildWalg" == "true" ]; then
-	buildComp wal_g "$walgShortV" "$walgFullV" "$walgBuildV" "$Source"
+if [ "$buildCron" == "true" ]; then
+	buildComp cron  "$cronShortV" "$cronFullV" "$cronBuildV" "$Source"
 fi
-
 if [[ $buildRepack == "true" ]]; then
 	buildComp repack  "$repackShortV" "$repackFullV" "$repackBuildV" "$Source"
 fi
-
 if [[ $buildPgLogical == "true" ]]; then
 	buildComp pglogical  "$pgLogicalShortV" "$pgLogicalFullV" "$pgLogicalBuildV" "$Source"
 fi
@@ -771,9 +737,6 @@ if [[ $buildHintPlan == "true" ]]; then
 fi
 if [[ $buildTimeScaleDB == "true" ]]; then
         buildTimeScaleDBComponent
-fi
-if [[ $buildCron == "true" ]]; then
-        buildCronComponent
 fi
 if [[ $buildPgMp == "true" ]]; then
         buildPgMpComponent

@@ -44,6 +44,10 @@ fi
 
 ## prod ready across platforms #######################
 
+if [ "$1" == "cron" ] || [ "$1" == "all" ]; then
+  build cron $cronFullV $2 cron
+fi
+
 if [ "$1" == "pldebugger" ] || [ "$1" == "all" ]; then
   build pldebugger $debugFullV $2 pldebugger
 fi
