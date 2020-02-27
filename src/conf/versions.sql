@@ -241,11 +241,11 @@ INSERT INTO versions VALUES ('anon-pg11', '0.5.0-1', 'arm, amd', 1, '20191109', 
 INSERT INTO versions VALUES ('anon-pg12', '0.5.0-1', 'arm, amd', 1, '20191109', 'pg12');
 
 INSERT INTO projects VALUES ('cron', 2, 0, 'hub',0, 'https://github.com/citusdata/pg_cron/releases',
-  'cron', 1, 'cron.png', 'Jobscheduler as Backrground Worker', 'https://github.com/citusdata/pg_cron');
-INSERT INTO releases VALUES ('cron-pg11', 11, 'cron', 'pgCron', '', 'prod', 1);
-INSERT INTO releases VALUES ('cron-pg12', 11, 'cron', 'pgCron', '', 'prod', 1);
-INSERT INTO versions VALUES ('cron-pg11', '1.2.0-1', 'arm, amd', 1, '20191109', 'pg11');
-INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20191109', 'pg12');
+  'cron', 1, 'cron.png', 'Scheduler as Background Worker', 'https://github.com/citusdata/pg_cron');
+INSERT INTO releases VALUES ('cron-pg11', 5, 'cron', 'pgCron', '', 'prod', 1);
+INSERT INTO releases VALUES ('cron-pg12', 5, 'cron', 'pgCron', '', 'prod', 1);
+INSERT INTO versions VALUES ('cron-pg11', '1.2.0-1', 'arm, amd', 1, '20190830', 'pg11');
+INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20190830', 'pg12');
 
 -- ##
 INSERT INTO categories VALUES (2, 'Applications', 'Applics');
@@ -277,15 +277,15 @@ INSERT INTO versions VALUES ('pgadmin4', '4.18', 'docker', 1, '20200206', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
-INSERT INTO releases VALUES ('bulkload-pg11', 5, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
-INSERT INTO releases VALUES ('bulkload-pg12', 5, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
+INSERT INTO releases VALUES ('bulkload-pg11', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
+INSERT INTO releases VALUES ('bulkload-pg12', 6, 'bulkload', 'pgBulkLoad',  '', 'prod', 1);
 INSERT INTO versions VALUES ('bulkload-pg11', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg11');
 INSERT INTO versions VALUES ('bulkload-pg12', '3.1.16-1', 'arm, amd', 1, '20200121', 'pg12');
 
 INSERT INTO projects VALUES ('repack', 2, 0, 'hub', 5, 'https://github.com/reorg/pg_repack/releases',
   'repack', 1, 'repack.png', 'Remove Table/Index Bloat' , 'https://github.com/reorg/pg_repack');
-INSERT INTO releases VALUES ('repack-pg11', 5, 'repack', 'pgRepack',  '', 'prod', 1);
-INSERT INTO releases VALUES ('repack-pg12', 5, 'repack', 'pgRepack',  '', 'prod', 1);
+INSERT INTO releases VALUES ('repack-pg11', 6, 'repack', 'pgRepack',  '', 'prod', 1);
+INSERT INTO releases VALUES ('repack-pg12', 6, 'repack', 'pgRepack',  '', 'prod', 1);
 INSERT INTO versions VALUES ('repack-pg11', '1.4.5-1', 'arm, amd', 1, '20191004', 'pg11');
 INSERT INTO versions VALUES ('repack-pg12', '1.4.5-1', 'arm, amd', 1, '20191004', 'pg12');
 
@@ -315,7 +315,7 @@ INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'include
 INSERT INTO versions VALUES ('bouncer', '1.12.0-1', 'arm, amd', 1, '20191017', '');
 
 INSERT INTO projects VALUES ('agent', 2, 0, 'hub', 3, 'http://github.com/postgres/pgagent/releases',
-  'agent',  0, 'agent.png', 'Job Scheduler', 'http://github.com/postgres/pgagent');
+  'agent',  0, 'agent.png', 'Job Scheduler for pgAdmin4', 'http://github.com/postgres/pgagent');
 INSERT INTO releases VALUES ('agent', 4, 'agent',  'pgAgent', '', 'included', 1);
 INSERT INTO versions VALUES ('agent', '4.0.0', 'arm, amd', 1, '20180712', '');
 
