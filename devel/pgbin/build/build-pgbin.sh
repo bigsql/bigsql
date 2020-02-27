@@ -240,14 +240,17 @@ function buildPostgres {
 
 
 function buildAgent {
-	echo "# buildAgent()"
-	cd $baseDir/$workDir/$agentSourceDir
+    echo "# buildAgent()"
+    cd $baseDir/$workDir/$agentSourceDir
 
     configCmd="cmake -DCMAKE_INSTALL_PREFIX=$buildLocation --config cfg ."
     echo "#  configCmd = $configCmd"
 	log=$baseDir/$workDir/logs/pgagent_build.log
+    echo "#        log = $log"
     $configCmd    > $log 2>&1
+    echo "# make"
     make         >> $log 2>&1
+    echo "# make install"
     make install >> $log 2>&1
 }
 

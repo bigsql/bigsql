@@ -24,7 +24,9 @@ function runPgBin {
 
   cmd="$cmd -b $bncrSrc"
   cmd="$cmd -k $bkrstSrc"
-  cmd="$cmd -g $agentSrc"
+  if [ ! `arch` == "aarch64" ]; then
+    cmd="$cmd -g $agentSrc"
+  fi
   #cmd="$cmd -o $odbcSrc"
   cmd="$cmd $optional"
   $cmd
