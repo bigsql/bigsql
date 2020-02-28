@@ -10,7 +10,9 @@ git config --global credential.helper store
 
 if [ `uname` == 'Darwin' ]; then
   owner_group="$USER:wheel"
-  brew install sqlite3 python3 curl wget \
+  brew install python3
+  brew postinstall python3
+  brew install sqlite3 curl wget \
    gcc flex bison zlib readline libxml2 libxslt \
    llvm libuv libevent pkg-config unixodbc
 fi
