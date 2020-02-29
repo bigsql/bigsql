@@ -15,6 +15,9 @@ pg96BuildV=2
 pg95V="9.5.21"
 pg95BuildV=2
 
+pg94V="9.4.26"
+pg94BuildV=2
+
 bouncerV="1.12.0"
 odbcV="12.01.0000"
 backrestV="2.23"

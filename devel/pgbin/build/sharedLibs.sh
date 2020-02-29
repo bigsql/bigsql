@@ -19,6 +19,11 @@ shared_lib=/opt/pgbin-build/pgbin/shared/lib/
 mkdir -p $shared_lib
 rm -f $shared_lib/*
 
+if [ `uname` == "Darwin" ]; then
+  cp -v $lib64/*.dylib  $shared_lib/.
+  exit 1
+fi
+
 cp -v $lib64/libz.so.1       $shared_lib/.
 cp -v $lib64/libm.so.6       $shared_lib/.
 cp -v $lib64/librt.so.1       $shared_lib/.

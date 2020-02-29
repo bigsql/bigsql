@@ -14,7 +14,7 @@ if [ `uname` == 'Darwin' ]; then
   brew postinstall python3
   brew install sqlite3 curl wget \
    gcc flex bison zlib readline libxslt \
-   libuv libevent pkg-config unixodbc
+   libuv libevent pkg-config unixodbc boost
 fi
 
 if [ `uname` == 'Linux' ]; then
