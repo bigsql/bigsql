@@ -39,6 +39,7 @@ if [ `uname` == 'Linux' ]; then
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
     sudo yum -y install clang llvm5.0 centos-release-scl-rh
     sudo yum -y install llvm-toolset-7-llvm devtoolset-7 llvm-toolset-7-clang
+    sudo yum -y install python3 python3-devel
   else
     ## tested on Ubuntu 16
     sudo add-apt-repository universe
@@ -53,7 +54,7 @@ if [ `uname` == 'Linux' ]; then
 fi
 
 
-sudo mkdir /opt/pgbin-build
+sudo mkdir -p /opt/pgbin-build
 sudo chown $owner_group /opt/pgbin-build
 mkdir -p /opt/pgbin-build/pgbin/bin
 sudo mkdir -p /opt/pgcomponent
@@ -68,14 +69,13 @@ cd ~
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 rm get-pip.py
+
 sudo pip install awscli
 mkdir -p ~/.aws
 cd ~/.aws
 touch config
 # vi config
 chmod 600 config
-
-sudo yum -y install python3 python3-devel
 
 ## ENV for ~/.bashrc or ~/.bash_profile 
 alias git-push="cd ~/dev/pgsql-io; git status; git add .; git commit -m wip; git push"
