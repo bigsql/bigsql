@@ -51,6 +51,7 @@ function prepComponentBuildDir {
         mkdir -p $buildLocation/share
 	mkdir -p $buildLocation/lib/postgresql/pgxs
 	cp $PGHOME/bin/pg_config $buildLocation/bin/
+	cp $PGHOME/bin/postgres  $buildLocation/bin/
 	cp -r $PGHOME/include $buildLocation/
 	cp -r $PGHOME/lib/postgresql/pgxs/* $buildLocation/lib/postgresql/pgxs/
 	cp $PGHOME/lib/libpq* $buildLocation/lib/
@@ -103,21 +104,27 @@ function  packageComponent {
 
 function updateSharedLibs {
 
+        if [ `uname` == "Darwin" ]; then
+          suffix="*dylib*"
+        else
+          suffix="*so*"
+        fi
+
 	if [[ -d bin ]]; then
 		cd $buildLocation/bin
-		for file in `dir -d *` ; do
+		for file in `ls -d *` ; do
 			chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
         	done
         fi
 
         cd $buildLocation/lib
-	for file in `dir -d *so*` ; do
+	for file in `dir -d $suffix` ; do
                 chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
         done
 
         if [[ -d "$buildLocation/lib/postgresql" ]]; then
                 cd $buildLocation/lib/postgresql
-		for file in `dir -d *so* 2>/dev/null` ; do
+		for file in `ls -d $suffix 2>/dev/null` ; do
 			ls -sh $file
              		chrpath -r "\${ORIGIN}/../../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
 		done
