@@ -6,7 +6,7 @@ def print_header(pWidth):
         '  <tr> \n' + \
         '    <td width=250><img width=250 src=img/pgsql-io.png /></td> \n' + \
         '    <td width=375><center><font color=whitesmoke>\n' + \
-        '     Linux on ARM & AMD<br>&nbsp;<br>\n' + \
+        '     Linux on ARM & AMD,<br>plus OSX<br>\n' + \
         '    </font></center></td>\n' + \
         '    <td width=400><font size=-1 color=whitesmoke>\n' + \
         '<center><b>Installation Instructions:</b></center>\n' + \

@@ -250,8 +250,7 @@ INSERT INTO categories VALUES (2, 'Applications', 'Applics');
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.5.1-1',  'arm, amd, osx', 0, '20191112', 'pg11');
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd, osx', 1, '20200115', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 1, '20200115', 'pg11');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
   'pglogical', 1, 'spock.png', 'pgLogical2 Replication', 'https://github.com/2ndQuadrant/pglogical');

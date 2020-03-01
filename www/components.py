@@ -1,5 +1,6 @@
 import sqlite3, sys, pgsql
 
+ALL_PLATFORMS = "arm, amd, osx"
 isSHOW_COMP_PLAT = "Y"
 isSHOW_DESCRIPTION = "Y"
 BR = "<br>"
@@ -9,7 +10,6 @@ NUM_COLS = 3
 FONT_SIZE = 3
 IMG_SIZE = 27
 BORDER=0
-ALL_PLATFORMS = "arm, amd"
 
 if NUM_COLS == 1:
   BR = "&nbsp;"
@@ -45,8 +45,8 @@ def get_columns(d):
   project_url = str(d[8])
 
   platform = str(d[9])
-  if ((platform == "") or (platform == ALL_PLATFORMS)):
-    platform = ""
+  if ((platform == "")):
+    platform = "[" + ALL_PLATFORMS + "]"
   else:
     platform = "[" + platform + "]"
 

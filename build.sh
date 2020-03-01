@@ -420,8 +420,10 @@ initPG () {
   if [ "$pgM" == "11" ]; then 
     initC "postgis-pg$pgM" "postgis" "$postgis25V" "$outPlat" "postgres/postgis" "" "" "nil"
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
-    initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
+    if [ ! "$outPlat" == "osx" ]; then
+      initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
+    fi
   fi
 
   if [ "$pgM" == "12" ]; then 
@@ -430,16 +432,18 @@ initPG () {
   fi
 
   if [ "$pgM" == "11" ] || [ "$pgM" == "12" ]; then 
+    if [ "$outPlat" == "amd" ]; then
+      initC "tdsfdw-pg$pgM" "tdsfdw" "$tdsfdwV" "$outPlat" "postgres/tdsfdw" "" "" "nil"
+      initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
+      initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
+      initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$plat" "postgres/cassandrafdw" "" "" "nil"
+      initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$plat" "postgres/hivefdw" "" "" "nil"
+      initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
+    fi
     initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
-    initC "tdsfdw-pg$pgM" "tdsfdw" "$tdsfdwV" "$outPlat" "postgres/tdsfdw" "" "" "nil"
-    initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
-    initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
-    initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$plat" "postgres/cassandrafdw" "" "" "nil"
-    initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$plat" "postgres/hivefdw" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
-    initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
     initC "pldebugger-pg$pgM" "pldebugger" "$debuggerV" "$outPlat" "postgres/pldebugger" "" "" "nil"
