@@ -54,7 +54,6 @@ if [ `uname` == 'Linux' ]; then
   fi
 fi
 
-
 sudo mkdir -p /opt/pgbin-build
 sudo chown $owner_group /opt/pgbin-build
 mkdir -p /opt/pgbin-build/pgbin/bin
@@ -71,17 +70,23 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 rm get-pip.py
 
-sudo pip install awscli
-mkdir -p ~/.aws
-cd ~/.aws
-touch config
-# vi config
-chmod 600 config
+if [ ! -d ~/.aws ]; then
+  aws --version
+  rc = $?
+  if [ ! "$rc" == "0" ]; then
+    pip install awscli
+  fi
+  mkdir -p ~/.aws
+  cd ~/.aws
+  touch config
+  # vi config
+  chmod 600 config
+fi
 
 ## ENV for ~/.bashrc or ~/.bash_profile 
 alias git-push="cd ~/dev/pgsql-io; git status; git add .; git commit -m wip; git push"
 alias bp="cd ~/dev/pgsql-io; . ./bp.sh"
-alias http="cd ~/dev/pgsql-io; ./startHTTP.sh"
+alias ver="vi ~/dev/pgsql-io/src/conf/versions.sql"
 
 export REGION=us-west-2
 export BUCKET=s3://pgsql-io-download
