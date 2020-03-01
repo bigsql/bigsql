@@ -8,9 +8,7 @@ if [ ! "$rc" == "0" ]; then
 fi;
 
 majorV="$1"
-if [ "$majorV" == "94" ]; then
-  minorV=$P94
-elif [ "$majorV" == "95" ]; then
+if [ "$majorV" == "95" ]; then
   minorV=$P95
 elif [ "$majorV" == "96" ]; then
   minorV=$P96
@@ -23,7 +21,7 @@ elif [ "$majorV" == "12" ]; then
 elif [ "$majorV" == "all" ]; then
   minorV=all
 else
-  echo "ERROR: pg must be 94, 95, 96, 10, 11, 12 or all"
+  echo "ERROR: pg must be 95, 96, 10, 11, 12 or all"
   exit 1
 fi
 

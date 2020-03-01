@@ -118,7 +118,7 @@ function updateSharedLibs {
         fi
 
         cd $buildLocation/lib
-	for file in `dir -d $suffix` ; do
+	for file in `ls -d $suffix` ; do
                 chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
         done
 
