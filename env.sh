@@ -1,7 +1,7 @@
 
 bundle=pgsql
 api=io
-hubV=6.1
+hubV=6.2
 
 P12=12.2-2
 P11=11.7-2
