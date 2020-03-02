@@ -329,13 +329,24 @@ INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/he
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('helm', '3.0.3', '', 1, '20200129', '');
 
-INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases', 'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
+INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
+  'brew', 0, 'homebrew.png', 'OSXs Missing Package Manager', 'https://brew.sh');
+INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('brew', '2.2.6', '', 1, '20200217', '');
+
+INSERT INTO projects VALUES ('msys2', 7, 0, 'hub', 4, 'http://repo.msys2.org/distrib/x86_64/',
+  'msys2', 0, 'msys2.png', 'GCC Toolchain based on MinGW_64', 'https://www.msys2.org/');
+INSERT INTO releases VALUES ('msys2', 5, 'msys2', 'MSys2', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('msys2', '19.05.24', '', 1, '20190524', '');
+
+INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
+  'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
 INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
 
 INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://releases.llvm.org', 
-  'llvm', 0, 'llvm.png', 'High Level Assembly Language', 'https://llvm.org');
-INSERT INTO releases VALUES ('llvm', 5, 'llvm', 'LLVM', '', 'bring-own', 1);
+  'llvm', 0, 'llvm2.png', 'High Level Assembly Language', 'https://llvm.org');
+INSERT INTO releases VALUES ('llvm', 5, 'llvm', 'LLVM & CLANG', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('llvm', '9.0.1', '', 1, '20191220', '');
 
 INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
@@ -347,6 +358,11 @@ INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
 INSERT INTO releases VALUES ('gcc', 6, 'gcc', 'GCC', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('gcc', '9.2.0', '', 1, '20190812', '');
+
+INSERT INTO projects VALUES ('gdb', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gdb/',
+  'gdb', 0, 'gdb.png', 'the GNU Debugger', 'https://gnu.org/software/gdb/');
+INSERT INTO releases VALUES ('gdb', 6, 'gdb', 'GDB', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('gdb', '9.2.0', '', 1, '20190812', '');
 
 -- ##
 INSERT INTO categories VALUES (8, 'Connectors',   'Applications');
