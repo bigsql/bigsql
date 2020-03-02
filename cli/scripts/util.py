@@ -397,11 +397,11 @@ def delete_service_win(svcName):
 
 ## is this component PostgreSQL ##################################
 def is_postgres(p_comp):
-  pgXX = ['pg93', 'pg94', 'pg95', 'pg96', 'pg10', 'pg11']
+  pgXX = ['pg95', 'pg96', 'pg10', 'pg11', 'pg12', 'pg13', 'pg14', 'pg15']
   if p_comp in pgXX:
     return True
                 
-  pgdgXX = ['pgdg93', 'pgdg94', 'pgdg95', 'pgdg96', 'pgdg10', 'pgdg11']
+  pgdgXX = ['pgdg95', 'pgdg96', 'pgdg10', 'pgdg11']
   if p_comp in pgdgXX:
     return True
 
@@ -571,26 +571,6 @@ def update_installed_date(p_app):
   return
 
 
-def update_hosts(p_host, p_unique_id, updated=False):
-  last_update_utc = datetime.utcnow()
-
-  current_time = last_update_utc
-
-  cmd = os.path.abspath(MY_HOME) + os.sep + MY_CMD + " update"
-
-  if p_unique_id:
-    unique_id = p_unique_id
-  else:
-    unique_id = str(uuid.uuid4())
-
-  if updated:
-    exec_sql("UPDATE hosts " + \
-             "   SET last_update_utc = '" + last_update_utc.strftime("%Y-%m-%d %H:%M:%S") + "', " + \
-             "       unique_id = '" + str(unique_id) + "' " + \
-             " WHERE host = '" + str(p_host) + "'")
-  return
-
-
 def get_versions_sql():
   return get_value ("GLOBAL", "VERSIONS", "versions.sql")
 
@@ -658,76 +638,8 @@ def get_hosts_file_name():
   return(pw_file)
 
 
-def get_host(p_host):
-  host_dict = {}
-  try:
-    c = cL.cursor()
-    sql = "SELECT host, name, dir_home FROM hosts where name=?"
-    c.execute(sql, [p_host])
-    data = c.fetchone()
-    if data:
-      host_dict = {}
-      host_dict['host'] = str(data[0])
-      host_dict['host_name'] = str(data[1])
-      host_dict['my_home'] = str(data[2])
-  except Exception as e:
-    print("ERROR: Retrieving host info")
-    exit_message(str(e), 1)
-  return (host_dict)
-
-
-def get_host_with_id(p_host_id):
-  try:
-    c = cL.cursor()
-    sql = "SELECT host FROM hosts where host_id=?"
-    c.execute(sql,[p_host_id])
-    data = c.fetchone()
-    if data:
-      return True
-  except Exception as e:
-    print ("ERROR: Retrieving host")
-    exit_message(str(e), 1)
-  return False
-
-
-def get_host_with_name(p_host_name):
-  try:
-    c = cL.cursor()
-    sql = "SELECT host FROM hosts where name=?"
-    c.execute(sql,[p_host_name])
-    data = c.fetchone()
-    if data:
-      return True
-  except Exception as e:
-    print ("ERROR: Retrieving host")
-    exit_message(str(e), 1)
-  return False
-
-
 def timedelta_total_seconds(timedelta):
   return (timedelta.microseconds + 0.0 + (timedelta.seconds + timedelta.days * 24 * 3600) * 10 ** 6) / 10 ** 6
-
-
-def read_hosts (p_host):
-  sql = "SELECT last_update_utc, unique_id \n" + \
-        "  FROM hosts WHERE host = '" + p_host + "'"
-
-  try:
-    c = cL.cursor()
-    c.execute(sql)
-    data = c.fetchone()
-    if data is None:
-      return ["", "", "", ""]
-  except Exception as e:
-    fatal_sql_error(e,sql,"get_host()")
-
-  last_update_utc = data[0]
-  last_update_local = ''
-  if last_update_utc:
-    last_update_local = str(utc_to_local(data[0]))
-  unique_id = data[1]
-
-  return [last_update_utc, last_update_local, unique_id]
 
 
 def is_password_less_ssh():
@@ -1614,43 +1526,34 @@ def get_os():
   if platform.system() == "Windows":
     return ("win")
 
+  if platform.system() != "Linux":
+    return ("xxx")
+
   try:
     rel_file = ""
     if os.path.exists("/etc/redhat-release"):
       ## el
       rel_file = "/etc/redhat-release"
-
     elif os.path.exists("/etc/system-release"):
       ## amazon linux
       rel_file = "/etc/system-release"
-
     elif os.path.exists("/etc/lsb-release"):
       ## ubuntu
       rel_file = "/etc/lsb-release"
-
     else:
       rel_file = "/etc/os-release"
 
-    if os.path.exists(rel_file):
+    if rel_file > "" and os.path.exists(rel_file):
       cpuinfo = read_file_string("/proc/cpuinfo")
       if "CPU architecture" in cpuinfo:
         return "arm"
       else:
         return "amd"
       
-
-    if os.path.exists("/etc/os-release"):
-      os_release_str = read_file_string("/etc/os-release")
-      if "Debian" in os_release_str:
-        return "amd"
-      elif "Alpine" in os_releae_str:
-        return "alpine4"
-
   except Exception as e:
     pass
 
-  ## This is the deafult
-  return ("amd")
+  return ("???")
 
 
 def get_pkg_mgr():
@@ -1661,9 +1564,6 @@ def get_pkg_mgr():
       return "yum"
 
   return "apt"
-
-  
-
 
 
 ####################################################################################
@@ -1687,7 +1587,6 @@ def get_default_pf():
   if get_platform() == "Windows":
     return "win"
 
-  ## for now we will always use AMD
   return "amd"
 
 
@@ -1706,12 +1605,7 @@ def like_pf(p_col):
   OR = " OR "
   c1 = p_col + " LIKE ''"
   c2 = p_col + " LIKE '%" + pf + "%'"
-  clause = "(" + c1 + OR + c2
-  if pf in ("el7-x64", "ubu14-x64"):
-    c3 = p_col + " LIKE '%amd%'"
-    clause = clause + OR + c3 + ")"
-  else:
-    clause = clause + ")"
+  clause = "(" + c1 + OR + c2 + ")"
 
   return clause
 
@@ -1721,8 +1615,6 @@ def like_pf(p_col):
 ####################################################################################
 def has_platform(p_platform):
   pf = get_pf()
-  if "amd" in p_platform and pf in ("el7-x64", "ubu14-x64"):
-    return 0
   return p_platform.find(pf)
 
 
