@@ -6,7 +6,7 @@ def print_header(pWidth):
         '  <tr> \n' + \
         '    <td width=250><img width=250 src=img/pgsql-banner.png /></td> \n' + \
         '    <td width=375><center><font color=whitesmoke>\n' + \
-        '     Linux on ARM & AMD,<br>plus OSX<br>\n' + \
+        '     Linux on ARM & AMD,<br>plus OSX is coming soon!<br>\n' + \
         '    </font></center></td>\n' + \
         '    <td width=400><font size=-1 color=whitesmoke>\n' + \
         '<center><b>Installation Instructions:</b></center>\n' + \
@@ -17,11 +17,13 @@ def print_header(pWidth):
         '<center><b>Usage Instructions:</b></center>\n' + \
         '<code>cd pgsql; ./io info; ./io list; ./io help;\n' + \
         './io install pg11; ./io start pg11;\n'
-        './io install all-extensions</code>' + \
+        './io install timescaledb-pg11</code>' + \
         '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
 
+  print("&nbsp;<br>Presently tested on AMD w/ Centos7 & ARM w/ Amazon Linux2")
+
  
 def print_footer():
-  print('&copy; PGSQL-IO 2020, All rights reserved.')
+  print('&copy; BigSQL 2020, All rights reserved.')
