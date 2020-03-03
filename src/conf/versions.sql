@@ -337,7 +337,7 @@ INSERT INTO versions VALUES ('brew', '2.2.6', '', 1, '20200217', '');
 INSERT INTO projects VALUES ('msys2', 7, 0, 'hub', 4, 'http://repo.msys2.org/distrib/x86_64/',
   'msys2', 0, 'msys2.png', 'Windows GNU toolchain', 'https://www.msys2.org/');
 INSERT INTO releases VALUES ('msys2', 5, 'msys2', 'MSys2', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('msys2', '19.05.24', '', 1, '20190524', '');
+INSERT INTO versions VALUES ('msys2', '19.05.24', '', 0, '20190524', '');
 
 INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');

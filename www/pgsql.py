@@ -4,7 +4,7 @@ def print_header(pWidth):
 
   print('<table height=100 width=' + str(pWidth) + ' border=0 bgcolor=black cellpadding=2> \n' +
         '  <tr> \n' + \
-        '    <td width=250><img width=250 src=img/pgsql-io.png /></td> \n' + \
+        '    <td width=250><img width=250 src=img/pgsql-banner.png /></td> \n' + \
         '    <td width=375><center><font color=whitesmoke>\n' + \
         '     Linux on ARM & AMD,<br>plus OSX<br>\n' + \
         '    </font></center></td>\n' + \
