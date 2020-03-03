@@ -62,7 +62,8 @@ CREATE VIEW v_versions AS
 INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.2', '', 1, '20200315', '');
+INSERT INTO versions VALUES ('hub', '6.2', '', 1, '20200304', '');
+INSERT INTO versions VALUES ('hub', '6.1', '', 0, '20200213', '');
 INSERT INTO versions VALUES ('hub', '6.0', '', 0, '20200213', '');
 
 -- ##
@@ -263,8 +264,8 @@ INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net/sour
   'postgis', 1, 'postgis.png', 'PostGIS', 'http://postgis.net');
 INSERT INTO releases VALUES ('postgis-pg11', 3, 'postgis', 'PostGIS', '', 'prod', 1);
 INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'prod', 1);
-INSERT INTO versions VALUES ('postgis-pg11', '2.5.3-1', 'arm, amd, osx', 1, '20191020', 'pg11');
-INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'arm, amd, osx', 1, '20200220', 'pg12');
+INSERT INTO versions VALUES ('postgis-pg11', '2.5.3-1', 'amd', 1, '20191020', 'pg11');
+INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'amd', 1, '20200220', 'pg12');
 
 INSERT INTO projects VALUES ('pgadmin4', 2, 1234, 'docker', 1, 'https://pgadmin.org',
   'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');

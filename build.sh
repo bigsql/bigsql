@@ -418,7 +418,9 @@ initPG () {
   initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
-    initC "postgis-pg$pgM" "postgis" "$postgis25V" "$outPlat" "postgres/postgis" "" "" "nil"
+    if [ "$outPlat" == "amd" ]; then
+      initC "postgis-pg$pgM" "postgis" "$postgis25V" "$outPlat" "postgres/postgis" "" "" "nil"
+    fi 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
     if [ ! "$outPlat" == "osx" ]; then
@@ -427,7 +429,9 @@ initPG () {
   fi
 
   if [ "$pgM" == "12" ]; then 
-    initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
+    if [ "$outPlat" == "amd" ]; then
+      initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
+    fi
     initC "audit-pg$pgM" "audit" "$audit12V" "$outPlat" "postgres/audit" "" "" "nil"
   fi
 

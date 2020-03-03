@@ -638,8 +638,76 @@ def get_hosts_file_name():
   return(pw_file)
 
 
+def get_host(p_host):
+  host_dict = {}
+  try:
+    c = cL.cursor()
+    sql = "SELECT host, name, dir_home FROM hosts where name=?"
+    c.execute(sql, [p_host])
+    data = c.fetchone()
+    if data:
+      host_dict = {}
+      host_dict['host'] = str(data[0])
+      host_dict['host_name'] = str(data[1])
+      host_dict['my_home'] = str(data[2])
+  except Exception as e:
+    print("ERROR: Retrieving host info")
+    exit_message(str(e), 1)
+  return (host_dict)
+
+
+def get_host_with_id(p_host_id):
+  try:
+    c = cL.cursor()
+    sql = "SELECT host FROM hosts where host_id=?"
+    c.execute(sql,[p_host_id])
+    data = c.fetchone()
+    if data:
+      return True
+  except Exception as e:
+    print ("ERROR: Retrieving host")
+    exit_message(str(e), 1)
+  return False
+
+
+def get_host_with_name(p_host_name):
+  try:
+    c = cL.cursor()
+    sql = "SELECT host FROM hosts where name=?"
+    c.execute(sql,[p_host_name])
+    data = c.fetchone()
+    if data:
+      return True
+  except Exception as e:
+    print ("ERROR: Retrieving host")
+    exit_message(str(e), 1)
+  return False
+
+
 def timedelta_total_seconds(timedelta):
   return (timedelta.microseconds + 0.0 + (timedelta.seconds + timedelta.days * 24 * 3600) * 10 ** 6) / 10 ** 6
+
+
+def read_hosts (p_host):
+  sql = "SELECT last_update_utc, unique_id \n" + \
+        "  FROM hosts WHERE host = '" + p_host + "'"
+
+  try:
+    c = cL.cursor()
+    c.execute(sql)
+    data = c.fetchone()
+    if data is None:
+      return ["", "", "", ""]
+  except Exception as e:
+    fatal_sql_error(e,sql,"get_host()")
+
+  last_update_utc = data[0]
+  last_update_local = ''
+  if last_update_utc:
+    last_update_local = str(utc_to_local(data[0]))
+  unique_id = data[1]
+
+  return [last_update_utc, last_update_local, unique_id]
 
 
 def is_password_less_ssh():
