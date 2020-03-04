@@ -6,7 +6,7 @@ def print_header(pWidth):
         '  <tr> \n' + \
         '    <td width=250><img width=250 src=img/pgsql-banner.png /></td> \n' + \
         '    <td width=375><center><font color=whitesmoke>\n' + \
-        '     Linux on ARM & AMD,<br>plus OSX is coming soon!<br>\n' + \
+        '     Linux on ARM & AMD,<br>plus a bit of OSX!<br>\n' + \
         '    </font></center></td>\n' + \
         '    <td width=400><font size=-1 color=whitesmoke>\n' + \
         '<center><b>Installation Instructions:</b></center>\n' + \
@@ -22,7 +22,10 @@ def print_header(pWidth):
         '  </tr>\n' + \
         '</table>\n\n')
 
-  print("&nbsp;<br>Presently tested on AMD w/ Centos7 & ARM w/ Amazon Linux2")
+  print("&nbsp;<br>Presently tested for" + \
+        " 1) AMD w/ Centos7;" + \
+        " 2) ARM w/ Amazon Linux2;" + \
+        " 3) OSX on 10.13+")
 
  
 def print_footer():
