@@ -22,12 +22,14 @@ function runPgBin {
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV "
 
-  cmd="$cmd -b $bncrSrc"
-  cmd="$cmd -k $bkrstSrc"
-  if [ ! `arch` == "aarch64" ]; then
-    cmd="$cmd -g $agentSrc"
+  if [ `uname` == "Linux" ]; then
+    cmd="$cmd -b $bncrSrc"
+    cmd="$cmd -k $bkrstSrc"
+    if [ ! `arch` == "aarch64" ]; then
+      cmd="$cmd -g $agentSrc"
+    fi
+    #cmd="$cmd -o $odbcSrc"
   fi
-  #cmd="$cmd -o $odbcSrc"
   cmd="$cmd $optional"
   $cmd
   if [[ $? -ne 0 ]]; then
@@ -46,9 +48,6 @@ function runPgBin {
 majorV="$1"
 optional="$2"
 
-##if [ "$majorV" == "94" ]; then
-##  pgV=$pg94V
-##  pgBuildV=$pg94BuildV
 if [ "$majorV" == "95" ]; then
   pgV=$pg95V
   pgBuildV=$pg95BuildV
@@ -67,7 +66,6 @@ elif [ "$majorV" == "12" ]; then
 fi
 
 if [ "$majorV" == "all" ]; then
-  ##runPgBin "$binBld" "$pgSrc-$pg94V.tar.gz" "$pg94BuildV"
   runPgBin "$binBld" "$pgSrc-$pg95V.tar.gz" "$pg95BuildV"
   runPgBin "$binBld" "$pgSrc-$pg96V.tar.gz" "$pg96BuildV"
   runPgBin "$binBld" "$pgSrc-$pg10V.tar.gz" "$pg10BuildV"

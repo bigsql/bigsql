@@ -166,11 +166,15 @@ function buildPostgres {
 	buildLocation="$baseDir/$workDir/build/pg$pgShortV-$pgSrcV-$pgBldV-$OS"
 
 	if [ `uname` == "Darwin" ]; then
-		export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl/lib"
-		export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include/libxml2"
-		conf="$conf --with-openssl --with-libxslt --with-libxml"
-		conf="$conf --disable-rpath $pgLLVM"
-		conf="$conf --with-python PYTHON=/usr/local/bin/python3 --with-perl"
+		#export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl/lib"
+		#export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include/libxml2"
+		#conf="$conf --with-openssl --with-libxslt --with-libxml"
+		#conf="$conf --with-python PYTHON=/usr/local/bin/python3 --with-perl"
+		conf="$conf --disable-rpath"
+                if [ "$pgShortV" == "12" ]; then
+                  conf="$conf --without-llvm"
+                fi
+		
 	else
 		conf="$conf --with-openssl --with-libxslt --with-libxml --with-libedit-preffered"
 		conf="$conf --disable-rpath $pgLLVM"
@@ -396,7 +400,7 @@ function updateSharedLibPaths {
 
 	cd $buildLocation/lib
 	echo "#   looping thru shared objects"
-	for file in `ls -d $libSuffix` ; do
+	for file in `ls -d $libSuffix 2>/dev/null` ; do
 		##echo "### $file"
 		chrpath -r "\${ORIGIN}/../lib" "$file" >> $libPathLog 2>&1 
 	done
@@ -405,7 +409,7 @@ function updateSharedLibPaths {
 	if [[ -d "$buildLocation/lib/postgresql" ]]; then	
 		cd $buildLocation/lib/postgresql
 		##echo "### $file"
-        	for file in `ls -d $libSuffix` ; do
+        	for file in `ls -d $libSuffix 2>/dev/null` ; do
                 	chrpath -r "\${ORIGIN}/../../lib" "$file" >> $libPathLog 2>&1
         	done
 	fi

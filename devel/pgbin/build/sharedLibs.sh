@@ -20,8 +20,9 @@ mkdir -p $shared_lib
 rm -f $shared_lib/*
 
 if [ `uname` == "Darwin" ]; then
-  cp -v $lib64/*.dylib  $shared_lib/.
-  exit 1
+  cp -v /usr/local/opt/openssl@1.1/lib/libssl.1.1.dylib    $shared_lib
+  cp -v /usr/local/opt/openssl@1.1/lib/libcrypto.1.1.dylib $shared_lib
+  exit 0
 fi
 
 cp -v $lib64/libz.so.1       $shared_lib/.
