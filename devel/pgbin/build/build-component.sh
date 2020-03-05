@@ -168,6 +168,7 @@ function buildPgBouncerComponent {
 function buildTSQLComponent {
 
 	componentName="pgtsql$pgTSQLShortV-pg$pgShortVersion-$pgTSQLFullV-$pgTSQLBuildV-$buildOS"
+    echo "#   compNm: $componentName"
 	mkdir -p "$baseDir/$workDir/logs"
 	cd "$baseDir/$workDir"
 	mkdir pgtsql && tar -xf $tsqlSource --strip-components=1 -C pgtsql
@@ -540,6 +541,7 @@ function buildParquetFDWComponent {
 function buildTimeScaleDBComponent {
 
         componentName="timescaledb-pg$pgShortVersion-$timescaledbFullV-$timescaledbBuildV-$buildOS"
+        echo "#   compNm: $componentName"
         mkdir -p "$baseDir/$workDir/logs"
         cd "$baseDir/$workDir"
         mkdir timescaledb && tar -xf $timescaleDBSource --strip-components=1 -C timescaledb
