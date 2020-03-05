@@ -10,9 +10,8 @@ def print_header(pWidth):
         '    </font></center></td>\n' + \
         '    <td width=400><font size=-1 color=whitesmoke>\n' + \
         '<center><b>Installation Instructions:</b></center>\n' + \
-        '<code>BUCKET=https://pgsql-io-download.s3.amazonaws.com<br>\n' + \
-        'INSTALLER=$BUCKET/REPO/install.py<br>\n' + \
-        'python -c "$(curl -fsSL $INSTALLER)</code>"\n' + \
+        '<code>REPO=https://pgsql-io-download.s3.amazonaws.com/REPO/<br>\n' + \
+        'python -c "$(curl -fsSL $REPO/install.py)</code>"\n' + \
         '<br>&nbsp;<br>\n' + \
         '<center><b>Usage Instructions:</b></center>\n' + \
         '<code>cd pgsql; ./io info; ./io list; ./io help;\n' + \
@@ -23,9 +22,8 @@ def print_header(pWidth):
         '</table>\n\n')
 
   print("&nbsp;<br>Presently tested for" + \
-        " 1) AMD w/ Centos7;" + \
-        " 2) ARM w/ Amazon Linux2;" + \
-        " 3) OSX on 10.13+")
+        " <b>1)</b> Linux on EL7/EL8,&nbsp; Amazon Linux 2,&nbsp; and Ubuntu 16.04/18.04 &nbsp;&nbsp;" + \
+        " <b>2)</b> OSX on High Sierra 10.13 and newer")
 
  
 def print_footer():

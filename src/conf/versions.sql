@@ -216,8 +216,8 @@ INSERT INTO categories VALUES (4, 'Security', 'Secure');
 
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
-INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'included', 1);
-INSERT INTO versions VALUES ('backrest', '2.23-1', 'arm, amd', 1, '20200127', '');
+INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'soon', 1);
+INSERT INTO versions VALUES ('backrest', '2.24-1', 'arm, amd', 1, '20200225', '');
 
 INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
   'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
