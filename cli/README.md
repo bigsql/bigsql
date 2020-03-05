@@ -36,31 +36,6 @@ io command [component] [options]
   clean     - Delete downloaded component files
 ```
 
-## Cloud Commands (coming soon) ##
-```
-  create-nodes \
-    --cloud aws --region us-east-1 --zone us-east-1d \
-    --image-os centos-7
-    --node-type [ vm || bare-metal || container ] \
-    --node-size [ xs, s, m, l, xl, 2xl - 24xl ] \
-    --disk1-type gp2  --disk1-size 8 \
-    --disk2-type ebs  --disk2-size 1000  --disk2-iops 15000 \
-  start-node
-  info-node
-     status:, 
-  stop-node
-  terminate-node
-```
-
-## Cluster Commands (coming soon) ##
-```
-  create-cluster
-  start-cluster
-  stop-cluster
-  terminate-cluster
-```
-  
-
 ## Advanced Commands ##
 ```
   top        - Cross platform version of the "top" command 
