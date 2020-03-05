@@ -14,8 +14,8 @@ def print_header(pWidth):
         'python -c "$(curl -fsSL $REPO/install.py)</code>"\n' + \
         '<br>&nbsp;<br>\n' + \
         '<center><b>Usage Instructions:</b></center>\n' + \
-        '<code>cd pgsql; ./io info; ./io list; ./io help;\n' + \
-        './io install pg11; ./io start pg11;\n'
+        '<code>cd pgsql;\n' + \
+        './io install pg11; ./io start pg11;<br>\n'
         './io install timescaledb-pg11</code>' + \
         '    </td>\n' + \
         '  </tr>\n' + \
