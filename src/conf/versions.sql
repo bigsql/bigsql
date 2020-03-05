@@ -62,9 +62,8 @@ CREATE VIEW v_versions AS
 INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.2', '', 1, '20200304', '');
-INSERT INTO versions VALUES ('hub', '6.1', '', 0, '20200213', '');
-INSERT INTO versions VALUES ('hub', '6.0', '', 0, '20200213', '');
+INSERT INTO versions VALUES ('hub', '6.21', '', 1, '20200305', '');
+INSERT INTO versions VALUES ('hub', '6.2', '',  0, '20200304', '');
 
 -- ##
 INSERT INTO categories VALUES (1, 'Worlds Best RDBMS', 'Postgres');
