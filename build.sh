@@ -36,7 +36,7 @@ printUsageMessage () {
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  repack-$repackV  oraclefdw-$oraclefdwV"
-  echo "#    postgis-$postgis25V,$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
+  echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
   echo "#--------------------------------------------------------------------------#"
@@ -422,9 +422,6 @@ initPG () {
   initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
-    if [ "$outPlat" == "amd" ]; then
-      initC "postgis-pg$pgM" "postgis" "$postgis25V" "$outPlat" "postgres/postgis" "" "" "nil"
-    fi 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
     if [ ! "$outPlat" == "osx" ]; then
@@ -433,9 +430,6 @@ initPG () {
   fi
 
   if [ "$pgM" == "12" ]; then 
-    if [ "$outPlat" == "amd" ]; then
-      initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
-    fi
     initC "audit-pg$pgM" "audit" "$audit12V" "$outPlat" "postgres/audit" "" "" "nil"
   fi
 
@@ -448,6 +442,7 @@ initPG () {
       initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$plat" "postgres/hivefdw" "" "" "nil"
       initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
     fi
+    initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
     initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"

@@ -261,13 +261,13 @@ INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net/sour
   'postgis', 1, 'postgis.png', 'PostGIS', 'http://postgis.net');
 INSERT INTO releases VALUES ('postgis-pg11', 3, 'postgis', 'PostGIS', '', 'prod', 1);
 INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'prod', 1);
-INSERT INTO versions VALUES ('postgis-pg11', '2.5.3-1', 'amd', 1, '20191020', 'pg11');
+INSERT INTO versions VALUES ('postgis-pg11', '3.0.1-1', 'amd', 1, '20200220', 'pg11');
 INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'amd', 1, '20200220', 'pg12');
 
 INSERT INTO projects VALUES ('pgadmin4', 2, 1234, 'docker', 1, 'https://pgadmin.org',
   'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
 INSERT INTO releases VALUES ('pgadmin4', 3, 'pgadmin4', 'pgAdmin 4', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('pgadmin4', '4.18', 'docker', 1, '20200206', '');
+INSERT INTO versions VALUES ('pgadmin4', '4.19', 'docker', 1, '20200305', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
@@ -374,7 +374,7 @@ INSERT INTO versions VALUES ('jdbc', '42.2.10', '', 1, '20200130', '');
 
 INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://www.nuget.org/packages/Npgsql/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
 INSERT INTO releases VALUES ('npgsql', 10, 'npgsql', '.net PG', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('npgsql', '4.1.3', '', 1, '20200131', '');
+INSERT INTO versions VALUES ('npgsql', '4.1.3.1', '', 1, '20200220', '');
 
 INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'https://pypi.org/project/psycopg2/', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://psycopg.org');
 INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg', '', 'bring-own', 1);
