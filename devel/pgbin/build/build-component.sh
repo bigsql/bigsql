@@ -674,7 +674,7 @@ fi
 
 if [[ $buildPostGIS ==  "true" ]]; then
 	if [ "$pgShortVersion" == "11" ]; then
-		buildComp postgis "$postgisShortV" "$postgisFull25V" "$postgisBuildV" "$Source"
+		buildComp postgis "$postgisShortV" "$postgisFull30V" "$postgisBuildV" "$Source"
 	else
 		buildComp postgis "$postgisShortV" "$postgisFull30V" "$postgisBuildV" "$Source"
 	fi

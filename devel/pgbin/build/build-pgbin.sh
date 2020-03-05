@@ -298,31 +298,31 @@ function buildBouncer {
 
 function buildBackrest {
 	echo "# buildBackrest()"
-        cd $baseDir/$workDir/$backrestSourceDir
+	cd $baseDir/$workDir/$backrestSourceDir
 	
 	export LD_LIBRARY_PATH=$buildLocation/lib
 
 	echo "#  @`date`  configure" 
 	log="$baseDir/$workDir/logs/backrest_configure.log"
 	./configure --prefix=$buildLocation > $log 2>&1
-        if [[ $? -ne 0 ]]; then
-                echo "FATAL ERROR: check $log"
+	if [[ $? -ne 0 ]]; then
+		echo "FATAL ERROR: check $log"
 		return 1
 	fi
 
 	echo "#  @`date`  make -j $CORES"
 	log="$baseDir/$workDir/logs/backrest_make.log"
 	make -j $CORES > $log 2>&1
-        if [[ $? -ne 0 ]]; then
-                echo "FATAL ERROR: check $log"
+	if [[ $? -ne 0 ]]; then
+		echo "FATAL ERROR: check $log"
 		return 1
 	fi
 
 	echo "#  @`date`  make install"
 	log="$baseDir/$workDir/logs/backrest_install.log"
 	make install > $log 2>&1
-        if [[ $? -ne 0 ]]; then
-                echo "FATAL ERROR: check $log"
+	if [[ $? -ne 0 ]]; then
+		echo "FATAL ERROR: check $log"
 		return 1
 	fi
 

@@ -1,26 +1,23 @@
 #!/bin/bash
 
 pg12V="12.2"
-pg12BuildV=2
+pg12BuildV=3
 
 pg11V="11.7"
-pg11BuildV=2
+pg11BuildV=3
 
 pg10V="10.12"
-pg10BuildV=2
+pg10BuildV=3
 
 pg96V="9.6.17"
-pg96BuildV=2
+pg96BuildV=3
 
 pg95V="9.5.21"
-pg95BuildV=2
-
-pg94V="9.4.26"
-pg94BuildV=2
+pg95BuildV=3
 
 bouncerV="1.12.0"
 odbcV="12.01.0000"
-backrestV="2.23"
+backrestV="2.24"
 agentV=4.0.0
 
 httpFullV=1.3.1
@@ -31,7 +28,7 @@ hypopgFullV=1.1.3
 hypopgShortV=
 hypopgBuildV=1
 
-postgisFull25V=2.5.3
+#postgisFull25V=2.5.4
 postgisFull30V=3.0.1
 postgisShortV=
 postgisBuildV=1

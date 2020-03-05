@@ -24,7 +24,7 @@ function runPgBin {
 
   if [ `uname` == "Linux" ]; then
     cmd="$cmd -b $bncrSrc"
-    cmd="$cmd -k $bkrstSrc"
+    #cmd="$cmd -k $bkrstSrc"
     if [ ! `arch` == "aarch64" ]; then
       cmd="$cmd -g $agentSrc"
     fi

@@ -74,7 +74,7 @@ fi
 
 if [ "$1" == "postgis" ] || [ "$1" == "all" ]; then
   if [ "$2" == "11" ]; then
-    build postgis $postgisFull25V $2 postgis  
+    build postgis $postgisFull30V $2 postgis  
   else
     build postgis $postgisFull30V $2 postgis  
   fi

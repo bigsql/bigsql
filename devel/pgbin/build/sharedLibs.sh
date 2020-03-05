@@ -58,6 +58,15 @@ cp -v $lib64/liblzma.so.5         $shared_lib/.
 cp -v $lib64/libcom_err.so.2      $shared_lib/.
 cp -v $lib64/libkeyutils.so.1     $shared_lib/.
 
+# postgis
+cp -v $lib64/libgeos_c.so.1       $shared_lib/.
+cp -v $lib64/libgeos_c.so.1       $shared_lib/.
+cp -v $lib64/libprotobuf-c.so.1   $shared_lib/.
+cp -v $lib64/libgeos-3.4.2.so     $shared_lib/.
+cp -v $lib64/libproj*             $shared_lib/.
+cp -v $lib64/libjson-c*           $shared_lib/.
+cp -v /usr/local/lib/*            $shared_lib/.
+
 # pg_agent
 cp -v $lib64/libicu*so.50         $shared_lib/.
 cp -v $lib64/libboost_filesystem-mt.so.1.53.0 $shared_lib/.
@@ -97,9 +106,6 @@ $cp/libcassandra.so.2 $sl
 $cp/libuv.so.1        $sl
 $cp/libnsl.so.1       $sl
 
-cp -v $lib64/libproj*             $shared_lib/.
-cp -v $lib64/libjson-c*           $shared_lib/.
-# cp -v /usr/local/lib/*so*         $shared_lib/.
 
 rm -f $shared_lib/*.a
 
