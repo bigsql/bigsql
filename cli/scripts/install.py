@@ -1,7 +1,7 @@
 import sys, os
 
-MY_VER="6.2"
-MY_REPO=os.getenv("MY_REPO", "https://pgsql-io-download.s3.amazonaws.com/REPO")
+VER="6.2"
+REPO=os.getenv("REPO", "https://pgsql-io-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
   print("ERROR: Requires Python 2.7 or greater")
@@ -25,11 +25,11 @@ if os.path.exists("pgsql"):
   print("ERROR: Cannot install over an existing 'pgsql' directory.")
   sys.exit(1)
 
-my_file="pgsql-io-" + MY_VER + ".tar.bz2"
-f = MY_REPO + "/" + my_file
+my_file="pgsql-io-" + VER + ".tar.bz2"
+f = REPO + "/" + my_file
 
 if not os.path.exists(my_file):
-  print("\nDownloading CLI " + MY_VER + " ...")
+  print("\nDownloading CLI " + VER + " ...")
   try:
     fu = urllib2.urlopen(f)
     local_file = open(my_file, "wb")
@@ -50,9 +50,9 @@ except Exception as e:
   print("ERROR: Unable to unpack \n" + str(e))
   sys.exit(1)
 
-print("\nSetting REPO to " + MY_REPO)
+print("\nSetting REPO to " + REPO)
 cmd = "pgsql" + os.sep + "io"
-os.system(cmd + " set GLOBAL REPO " + MY_REPO)
+os.system(cmd + " set GLOBAL REPO " + REPO)
 
 print("\nPGSQL installed.  Try '" + cmd + " help' to get started.\n")
 
