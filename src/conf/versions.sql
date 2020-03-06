@@ -65,7 +65,7 @@ INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
 INSERT INTO versions VALUES ('hub', '6.2', '',  1, '20200305', '');
 
 -- ##
-INSERT INTO categories VALUES (1, 'Worlds Best RDBMS', 'Postgres');
+INSERT INTO categories VALUES (1, 'Rock Solid Postgres', 'Postgres');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
@@ -241,7 +241,7 @@ INSERT INTO versions VALUES ('cron-pg11', '1.2.0-1', 'arm, amd', 1, '20190830', 
 INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20190830', 'pg12');
 
 -- ##
-INSERT INTO categories VALUES (2, 'Applications', 'Applics');
+INSERT INTO categories VALUES (2, 'Adavnced Applications', 'Applics');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
