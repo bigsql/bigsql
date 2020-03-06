@@ -2,29 +2,23 @@
 def print_header(pWidth):
   print('<center><table><tr><td> \n')
 
-  print('<table height=100 width=' + str(pWidth) + ' border=0 bgcolor=black cellpadding=2> \n' +
+  print('<table height=100  border=0 bgcolor=black width=' + str(pWidth) + '>\n' +
         '  <tr> \n' + \
         '    <td width=250><img width=250 src=img/pgsql-banner.png /></td> \n' + \
-        '    <td width=375><center><font color=whitesmoke>\n' + \
-        '     Linux on ARM & AMD,<br>plus a bit of OSX!<br>\n' + \
-        '    </font></center></td>\n' + \
-        '    <td width=400><font size=-1 color=whitesmoke>\n' + \
-        '<center><b>Installation Instructions:</b></center>\n' + \
-        '<code>REPO=https://pgsql-io-download.s3.amazonaws.com/REPO/<br>\n' + \
-        'python -c "$(curl -fsSL $REPO/install.py)</code>"\n' + \
-        '<br>&nbsp;<br>\n' + \
-        '<center><b>Usage Instructions:</b></center>\n' + \
-        '<code>cd pgsql;\n' + \
-        './io install pg11; ./io start pg11;<br>\n'
-        './io install timescaledb-pg11</code>' + \
-        '    </td>\n' + \
         '  </tr>\n' + \
         '</table>\n\n')
 
-  print("&nbsp;<br>Presently tested for" + \
-        " <b>1)</b> Linux on EL7/EL8,&nbsp; Amazon Linux 2,&nbsp; and Ubuntu 16.04/18.04 &nbsp;&nbsp;" + \
+  print("<h3>Tested with:</h3>\n" + \
+        "&nbsp;&nbsp; <b>1)</b> Linux on EL7/EL8,&nbsp; Amazon Linux 2,&nbsp; and Ubuntu 16.04/18.04 &nbsp;&nbsp;" + \
         " <b>2)</b> OSX on High Sierra 10.13 and newer")
 
+  print('<h3>Install from the command line with the below:</h3>\n' + \
+        '&nbsp;&nbsp;python -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"')
+
+  print('<h3>Usage Instructions:</h3>\n' + \
+        '&nbsp;&nbsp;cd pgsql; ./io install pg11; ./io start pg11; ./io install timescaledb-pg11</code>') 
+
+  print("<h3>Components:</h3>")
  
 def print_footer():
-  print('&copy; BigSQL 2020, All rights reserved.')
+  print('&copy; 2020, All rights reserved.')

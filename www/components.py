@@ -93,8 +93,8 @@ def get_columns(d):
 
 
 def print_row_header(pBR):
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + ">&nbsp;<br>&nbsp;<br>" + \
-    "<font size=+2><b>" + cat_desc + ":</b></font></td></tr>")
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><br><b>" + \
+    cat_desc + "</b></td></tr>")
 
 
 def print_row_detail(pCol, pBR):
