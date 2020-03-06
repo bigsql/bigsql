@@ -241,7 +241,7 @@ INSERT INTO versions VALUES ('cron-pg11', '1.2.0-1', 'arm, amd', 1, '20190830', 
 INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20190830', 'pg12');
 
 -- ##
-INSERT INTO categories VALUES (2, 'Adavnced Applications', 'Applics');
+INSERT INTO categories VALUES (2, 'Advanced Applications', 'Applics');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
