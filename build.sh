@@ -441,8 +441,8 @@ initPG () {
       initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$plat" "postgres/cassandrafdw" "" "" "nil"
       initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$plat" "postgres/hivefdw" "" "" "nil"
       initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
+      initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
     fi
-    initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
     initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
