@@ -20,13 +20,13 @@ def print_header(pWidth):
   print("<tr><td></td></tr>")
 
   print("<tr><td align=right><b>Install command line:</b></td><td>")
-  print('<textarea rows=1 cols=90>python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"</textarea>')
+  print('<textarea readonly rows=1 cols=90>python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"</textarea>')
   print("</td></tr>")
   
   print("<tr><td></td></tr>")
 
   print("<tr><td align=right><b>Usage sample:</b></td><td>")
-  print('<textarea rows=1 cols=90>cd pgsql; ./io install pg11; ./io start pg11; ./io install timescaledb-pg11</textarea>') 
+  print('<textarea readonly rows=1 cols=90>cd pgsql; ./io install pg11; ./io start pg11; ./io install timescaledb-pg11</textarea>') 
   print("</td></tr>")
 
   print("</table>")
