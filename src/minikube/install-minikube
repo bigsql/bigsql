@@ -1,0 +1,32 @@
+# run this script as as sudo
+if ! [ $(id -u) = 0 ]; then
+   echo "ERROR. Use sudo to run this acript as root."
+   exit 1
+fi
+
+k8_repo_file=/etc/yum.repos.d/kubernetes.repo
+minikubeV=1.8.1-0
+
+# first install kubectl
+if [ ! -f $k8_repo_file ]; then
+
+cat <<EOF > $k8_repo_file
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+
+fi
+
+yum install -y kubectl
+
+####### next install minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-$minikubeV.x86_64.rpm \
+ && rpm -ivh minikube-$minikubeV.x86_64.rpm
+rm minikube-$minikubeV.x86_64.rpm
+
+exit 0
