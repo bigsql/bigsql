@@ -1,12 +1,12 @@
 
-FROM centos:7
+FROM ubuntu:18.04
 
 ARG PGV
 ARG INSTALL_PY=https://pgsql-io-download.s3.amazonaws.com/REPO/install.py
 ENV pgv=$PGV
 
 RUN useradd -mc /bin/bash postgres
-RUN yum update -y && yum install -y epel-release && yum install -y python3
+RUN apt-get update && apt-get install -y python3 curl python3-distutils
 
 USER postgres
 RUN cd ~; python3 -c "$(curl -fsSL $INSTALL_PY)"
