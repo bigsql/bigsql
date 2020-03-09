@@ -318,7 +318,7 @@ INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'bring-own', 1
 INSERT INTO versions VALUES ('docker', '19.03.7', '', 1, '20200303', '');
 
 INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
-INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'prod', 1);
+INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('minikube', '1.8.1', '', 1, '20200306', '');
 
 INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.jpg', 'K8s Package Manager', 'https://helm.sh');
