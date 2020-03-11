@@ -262,10 +262,10 @@ INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'prod'
 INSERT INTO versions VALUES ('postgis-pg11', '3.0.1-1', 'amd', 1, '20200220', 'pg11');
 INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'amd', 1, '20200220', 'pg12');
 
-INSERT INTO projects VALUES ('pgadmin4', 2, 1234, 'docker', 1, 'https://pgadmin.org',
-  'pgadmin4', 0, 'pgadmin4.png', 'PG Web Admin', 'https://pgadmin.org');
-INSERT INTO releases VALUES ('pgadmin4', 3, 'pgadmin4', 'pgAdmin 4', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('pgadmin4', '4.19', 'docker', 1, '20200305', '');
+INSERT INTO projects VALUES ('pgadmin4', 2, 8080, 'docker', 1, 'https://pgadmin.org',
+  'pgadmin4', 0, 'pgadmin4.png', 'PG Admin for Docker', 'https://pgadmin.org');
+INSERT INTO releases VALUES ('pgadmin4', 3, 'pgadmin4', 'pgAdmin 4', '', 'prod', 1);
+INSERT INTO versions VALUES ('pgadmin4', '4', '', 1, '20200305', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
@@ -314,8 +314,8 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 INSERT INTO categories VALUES (7, 'PG Developers Toolchain', 'Toolchain');
 
 INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('docker', '19.03.7', '', 1, '20200303', '');
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'prod', 1);
+INSERT INTO versions VALUES ('docker', '19', '', 1, '20200303', '');
 
 INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);

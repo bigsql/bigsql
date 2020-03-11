@@ -9,6 +9,9 @@ P10=10.12-3
 P96=9.6.17-3
 P95=9.5.21-3
 
+dockerV=19
+pgadmin4V=4
+
 orafceV=3.9.0-1
 httpV=1.3.1-1
 anonV=0.5.0-1

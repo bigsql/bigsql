@@ -1,0 +1,20 @@
+
+
+sudo docker pull dpage/pgadmin4
+
+admin_email=user@domain.com
+admin_passwd=SuperSecret
+
+##echo ""
+##echo "Enter PGADMIN Credentials below"
+##echo ""
+##read -p  'PGADMIN_DEFAULT_EMAIL: '    admin_email
+##read -sp 'PGADMIN_DEFAULT_PASSWORD: ' admin_passwd
+
+sudo docker run --name pgadmin4 -p 80:80 \
+  -e 'PGADMIN_DEFAULT_EMAIL=$admin_email' \
+  -e 'PGADMIN_DEFAULT_PASSWORD=$admin_passwd' \
+  -d dpage/pgadmin4
+
+echo "Starting on Port 80 with first login email of '$admin_email' and password of '$admin_passwd'"
+
