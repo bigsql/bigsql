@@ -1,18 +1,49 @@
 
+docker --version >> /dev/null 2>&1
+rc=$?
+if [ "$rc" == "0" ]; then
+  echo "Docker is already installed"
+  exit 0
+fi
+
 if [ `uname` == "Darwin" ]; then
   brew install docker 
   rc=$?
   exit $rc
 fi
 
-sudo yum remove -y docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum install -y docker-ce docker-ce-cli containerd.io
+yum --version >> /dev/null 2>&1
+rc=$?
+if [ "$rc" == "0" ]; then
+  YUM="y"
+else
+  YUM="n"
+fi
 
-sudo systemctl enable docker
-sudo systemctl start docker
+if [ "$YUM" == "y" ]; then
+  ##sudo yum remove -y docker docker-client docker-client-latest docker-common\
+  ##   docker-latest docker-latest-logrotate docker-logrotate docker-engine
+  sudo yum update
+  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  sudo yum install -y docker-ce docker-ce-cli containerd.io
+  sudo systemctl enable docker
+  sudo systemctl start docker
+else
+  ##sudo apt-get remove -y docker docker-engine docker.io containerd runc
+  sudo apt-get update
+  sudo apt-get install -y apt-transport-https ca-certificates curl \
+    gnupg-agent software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  if [ `arch` == "x86_64" ]; then
+    repo_arch="amd64"
+  else
+    repo_arch="arm64"
+  fi
+  echo "repo_arch=$repo_arch"
+  sudo add-apt-repository \
+    "deb [arch=$repo_arch] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+fi
 
-# allow user to work with docker qithout sudo
-sudo groupadd docker
-sudo gpasswd -a $USER docker
+sudo docker run hello-world
