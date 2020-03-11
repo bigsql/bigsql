@@ -321,7 +321,7 @@ INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kub
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('minikube', '1.8.1', '', 1, '20200306', '');
 
-INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.jpg', 'K8s Package Manager', 'https://helm.sh');
+INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('helm', '3.0.3', '', 1, '20200129', '');
 

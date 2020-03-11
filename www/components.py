@@ -21,7 +21,11 @@ if NUM_COLS == 1:
 
 def print_top():
   pgsql.print_header(WIDTH)
-  print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=white cellpadding=1>')
+
+  print("\n<p>")
+
+  print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=whitesmoke cellpadding=1>')
+  print("<tr><td colspan=3><font size=+2><b>Components</b></font></td></tr>")
 
  
 def print_bottom():

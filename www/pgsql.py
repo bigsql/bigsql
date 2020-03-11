@@ -1,6 +1,9 @@
 
 def print_header(pWidth):
+  print("<title>PGSQL-IO: PostgreSQL Distro</title>")
+
   print("<center>")
+
 
   print('<table border=0 bgcolor=black width=' + str(pWidth) + '>\n' +
         '  <tr> \n' + \
@@ -8,12 +11,16 @@ def print_header(pWidth):
         '  </tr>\n' + \
         '</table>\n\n')
 
-  print("&nbsp;<p>")
+  print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
 
-  print("<table width=" + str(pWidth) + " cellpadding=2 >")
+  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b>Introduction</b></font><p>" + \
+"PGSQL-IO is the next generation of BigSQL adding support for both ARM and \n" + \
+"OSX to in addition to our AMD/Intel offering. We have also optimized for using in \n" + \
+"Docker and made our selection of components much more complete and accurate. \n" + \
+"<br>&nbsp;</td></tr>")
 
   print("<tr><td width=175 align=right><b>Tested with:</b></td><td width=725>")
-  print("Amazon Linux 2, CentOS/RHEL 7+,&nbsp; Ubuntu 16+, &nbsp; " + \
+  print("Python 2.7+, Amazon Linux 2, CentOS/RHEL 7+,&nbsp; Ubuntu 16+, &nbsp; " + \
         "and OSX 10.13+")
   print("</td></tr>")
 
@@ -30,6 +37,7 @@ def print_header(pWidth):
   print("</td></tr>")
 
   print("</table>")
+
 
 def print_footer():
   print('&copy; 2020, All rights reserved.')
