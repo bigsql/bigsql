@@ -262,10 +262,10 @@ INSERT INTO releases VALUES ('postgis-pg12', 3, 'postgis', 'PostGIS', '', 'prod'
 INSERT INTO versions VALUES ('postgis-pg11', '3.0.1-1', 'amd', 1, '20200220', 'pg11');
 INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'amd', 1, '20200220', 'pg12');
 
-INSERT INTO projects VALUES ('pgadmin4', 2, 8080, 'docker', 1, 'https://pgadmin.org',
-  'pgadmin4', 0, 'pgadmin4.png', 'PG Admin for Docker', 'https://pgadmin.org');
-INSERT INTO releases VALUES ('pgadmin4', 3, 'pgadmin4', 'pgAdmin 4', '', 'prod', 1);
-INSERT INTO versions VALUES ('pgadmin4', '4', '', 1, '20200305', '');
+INSERT INTO projects VALUES ('pgadmin', 2, 80, 'docker', 1, 'https://pgadmin.org',
+  'pgadmin', 0, 'pgadmin.png', 'PG Admin for Docker', 'https://pgadmin.org');
+INSERT INTO releases VALUES ('pgadmin', 3, 'pgadmin', 'pgAdmin', '', 'prod', 1);
+INSERT INTO versions VALUES ('pgadmin', '4', '', 1, '20200305', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');

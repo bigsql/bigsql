@@ -1105,11 +1105,11 @@ def tune_postgresql_conf(p_pgver):
   put_pgconf(p_pgver, ns)
 
 
-def get_superuser_passwd():
+def get_superuser_passwd(p_user="Superuser"):
   print (" ")
 
   passwd = "password"
-  prompt = "Superuser Password [" + passwd + "]: "  
+  prompt = p_user + " Password [" + passwd + "]: "  
 
   isYES = str(os.getenv("isYes", "False"))
   if isYES == "True":

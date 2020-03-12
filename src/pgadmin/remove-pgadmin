@@ -1,0 +1,4 @@
+
+sudo docker rm -f pgadmin
+
+sudo docker image rm -f dpage/pgadmin4

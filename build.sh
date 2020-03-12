@@ -35,7 +35,7 @@ printUsageMessage () {
   echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
-  echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV pgadmin4-$pgadmin4V"
+  echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV pgadmin-$pgadminV"
   echo "#    repack-$repackV  oraclefdw-$oraclefdwV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
   echo "#--------------------------------------------------------------------------#"
@@ -422,7 +422,7 @@ initPG () {
   initC "pgbadger" "pgbadger" "$badgerV" "" "postgres/badger" "" "" "nil"
   initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
   initC "docker" "docker" "$dockerV" "" "docker" "" "" "nil"
-  initC "pgadmin4" "pgadmin4" "$pgadmin4V" "" "postgres/pgadmin4" "" "" "nil"
+  initC "pgadmin" "pgadmin" "$pgadminV" "" "postgres/pgadmin" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
