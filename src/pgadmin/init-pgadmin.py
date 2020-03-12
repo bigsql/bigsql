@@ -40,8 +40,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--datadir", type=str, default="")
 parser.add_argument("--port", type=int, default=80)
 parser.add_argument("--pwfile", type=str, default="")
+parser.add_argument("--email", type=str, default="")
 args = parser.parse_args()
-
 
 isSilent = os.getenv("isSilent", None)
 
@@ -52,11 +52,18 @@ sys.stdout = ConsoleLogger()
 print(" ")
 print("## Initializing pgadmin #######################")
 
+if args.email > "":
+  i_email = args.email
+else:
+  i_email = util.get_email_address()
+
+
 ## PORT ###############################################
 if args.port > 0:
   i_port = args.port
 else:
-  i_port =  util.get_avail_port("pgAdmin Port", 8080, pgver)
+  i_port =  util.get_avail_port("pgAdmin Port", 80, pgver)
+
 
 ## DATA ###############################################
 data_root = os.path.join(MY_HOME, "data")
@@ -74,48 +81,41 @@ if not os.path.isdir(pgadmin_data):
 
 ## PASSWD #############################################
 is_password=False
+pass_file=""
 if args.pwfile:
   pass_file = args.pwfile
   if not os.path.isfile(pass_file):
     fatal_error("Error: Invalid --pwfile")
 
-#if os.path.isfile(pass_file):
-#  is_password=True
-#  file = open(pass_file, 'r')
-#  line = file.readline()
-#  password = line.rstrip()
-#  file.close()
-#else:
-#  if not isSilent:
-#    password = util.get_superuser_passwd("pgAdmin")
-#    file = open(pass_file, 'w')
-#    file.write(password + '\n')
-#    file.close()
-#    is_password=True
-#
-#if is_password:
-#  os.chmod(pass_file, 0o600)
+if os.path.isfile(pass_file):
+  file = open(pass_file, 'r')
+  line = file.readline()
+  password = line.rstrip()
+  file.close()
+else:
+  password = util.get_superuser_passwd("pgAdmin")
 
 
 ## INITIALIZE #########################################
 print('\nInitializing pgAdmin with:')
 
 cmd="sudo docker pull dpage/pgadmin4"
-print("#  " + cmd)
-os.system(cmd)
-
-passwd=util.get_superuser_passwd("pgAdmin")
+print("  " + cmd)
+err = os.system(cmd)
+if err:
+  print("rc(" + str(err) + ")")
+  fatal_error("Docker run error")
 
 run_options = ""
 
 cmd='sudo docker run --name pgadmin -p ' + str(i_port) + ':80' + \
-    ' -e PGADMIN_DEFAULT_EMAIL="xx"' + \
-    ' -e PGADMIN_DEFAULT_PASSWORD="' + passwd + '"' + run_options + \
+    ' -e PGADMIN_DEFAULT_EMAIL="' + i_email + '"' + \
+    ' -e PGADMIN_DEFAULT_PASSWORD="' + password + '"' + run_options + \
     ' -d dpage/pgadmin4'
-print("#  " + cmd)
+print("  " + cmd)
 err = os.system(cmd)
-
 if err:
+  print("rc("+ str(err) + ")")
   fatal_error("Docker run error")
 
 

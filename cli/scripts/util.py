@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 
-MY_VERSION = "6.2"
+MY_VERSION = "6.21"
 
 from subprocess import Popen, PIPE, STDOUT
 from datetime import datetime, timedelta
@@ -1103,6 +1103,39 @@ def tune_postgresql_conf(p_pgver):
         ns = ns + "\n" + line
 
   put_pgconf(p_pgver, ns)
+
+
+def get_email_address(p_email=""):
+  print (" ")
+  email = "user@domain.com"
+
+  prompt = p_email + " Email [" + email + "]: "
+
+  isYES = str(os.getenv("isYes", "False"))
+  if isYES == "True":
+    print(prompt)
+
+  try:
+    while True:
+      email1 = getpass.getpass(prompt)
+      if email1.strip() == "":
+        email1 = email
+        break
+      email2 = getpass.getpass(str("Confirm Email: "))
+      if email1 == email2:
+        break
+      else:
+        print (" ")
+        print ("Email mis-match, try again.")
+        print (" ")
+        continue
+  except KeyboardInterrupt as e:
+    sys.exit(1)
+
+  print("DEBUG: email1 = " + str(email1))
+
+  return email1;
+
 
 
 def get_superuser_passwd(p_user="Superuser"):
