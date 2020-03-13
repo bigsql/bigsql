@@ -104,6 +104,17 @@ def print_row_header(pBR):
 def print_row_detail(pCol, pBR):
   global proj_desc, component
 
+  platd = ""
+  if isSHOW_COMP_PLAT == "Y":
+    platd = BR + component + " " + platform + " " + stage
+
+  year_day = int(rel_date[:6])
+  months_old = 202001 - year_day
+  if months_old < 99:
+    rel_yy_display = ""
+  else:
+    rel_yy_display = "-" + rel_yy
+
   if rel_date == '19700101':
     rel_date_display = ""
   else:
@@ -186,16 +197,6 @@ for d in data:
   if col == 1:
     print("<tr>")
 
-  platd = ""
-  if isSHOW_COMP_PLAT == "Y":
-    platd = BR + component + " " + platform + " " + stage
-
-  year_day = int(rel_date[:6])
-  months_old = 202001 - year_day
-  if months_old < 99:
-    rel_yy_display = ""
-  else:
-    rel_yy_display = "-" + rel_yy
 
   print_row_detail(col, BR)
 
