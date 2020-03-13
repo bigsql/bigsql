@@ -1117,11 +1117,11 @@ def get_email_address(p_email=""):
 
   try:
     while True:
-      email1 = getpass.getpass(prompt)
+      email1 = input(prompt)
       if email1.strip() == "":
         email1 = email
         break
-      email2 = getpass.getpass(str("Confirm Email: "))
+      email2 = input("Confirm Email: ")
       if email1 == email2:
         break
       else:
