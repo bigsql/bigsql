@@ -581,7 +581,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -624,6 +624,7 @@ while true; do
     --build-hintplan ) buildHintPlan=true; Source=$2; shift; shift ;;
     --build-timescaledb ) buildTimeScaleDB=true; timescaleDBSource=$2; shift; shift ;;
     --build-cron ) buildCron=true; Source=$2; shift; shift ;;
+    --build-multicorn ) buildMulticorn=true; Source=$2; shift; shift ;;
     --build-pgmp ) buildPgMp=true; pgmpSource=$2; shift; shift ;;
     --build-fixeddecimal ) buildFD=true; Source=$2; shift; shift ;;
     --build-anon ) buildAnon=true; Source=$2; shift; shift ;;
@@ -694,6 +695,9 @@ if [ "$buildHypopg" == "true" ]; then
 fi
 if [ "$buildCron" == "true" ]; then
 	buildComp cron  "$cronShortV" "$cronFullV" "$cronBuildV" "$Source"
+fi
+if [ "$buildMulticorn" == "true" ]; then
+	buildComp multicorn  "$multicornShortV" "$multicornFullV" "$multicornBuildV" "$Source"
 fi
 if [[ $buildRepack == "true" ]]; then
 	buildComp repack  "$repackShortV" "$repackFullV" "$repackBuildV" "$Source"

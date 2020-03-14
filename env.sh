@@ -12,6 +12,7 @@ P95=9.5.21-3
 dockerV=19
 pgadminV=4
 
+multicornV=1.4.0-1
 orafceV=3.9.0-1
 httpV=1.3.1-1
 anonV=0.5.0-1

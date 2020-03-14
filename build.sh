@@ -36,7 +36,7 @@ printUsageMessage () {
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV pgadmin-$pgadminV"
-  echo "#    repack-$repackV  oraclefdw-$oraclefdwV"
+  echo "#    repack-$repackV  oraclefdw-$oraclefdwV  multicorn-$multicornV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
@@ -223,6 +223,7 @@ initDir () {
   copy-pgXX "oraclefdw"  
   copy-pgXX "tdsfdw"  
   copy-pgXX "cron"
+  copy-pgXX "multicorn"
 
   if [ -f $myNewDir/LICENSE.TXT ]; then
     mv $myNewDir/LICENSE.TXT $myNewDir/$pComponent-LICENSE.TXT
@@ -447,6 +448,7 @@ initPG () {
     fi
     initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
     initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
+    initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"

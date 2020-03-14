@@ -44,6 +44,10 @@ fi
 
 ## prod ready across platforms #######################
 
+if [ "$1" == "multicorn" ] || [ "$1" == "all" ]; then
+  build multicorn $multicornFullV $2 multicorn 
+fi
+
 if [ "$1" == "cron" ] || [ "$1" == "all" ]; then
   build cron $cronFullV $2 cron
 fi

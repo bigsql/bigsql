@@ -15,10 +15,14 @@ pg96BuildV=3
 pg95V="9.5.21"
 pg95BuildV=3
 
-bouncerV="1.12.0"
-odbcV="12.01.0000"
-backrestV="2.24"
+bouncerV=1.12.0
+odbcV=12.01.0000
+backrestV=2.24
 agentV=4.0.0
+
+multicornFullV=1.4.0
+multicornShortV=
+multicornBuildV=1
 
 httpFullV=1.3.1
 httpShortV=
