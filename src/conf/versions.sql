@@ -138,7 +138,13 @@ INSERT INTO projects VALUES ('tdsfdw', 5, 0, 'hub', 0, 'https://github.com/tds-f
 INSERT INTO releases VALUES ('tdsfdw-pg11', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO releases VALUES ('tdsfdw-pg12', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'pg11');
-INSERT INTO versions VALUES ('tdsfdw-pg12', '2.0.1-1', 'amd',  1, '20191202', 'pg12');
+
+INSERT INTO projects VALUES ('esfdw', 5, 0, 'hub', 0, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
+  'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
+INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'soon', 1);
+INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'Elastic Search FDW', '', 'soon', 1);
+INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0-1', 'arm, amd',  1, '20200110', 'pg11');
+INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0-1', 'arm, amd',  1, '20200110', 'pg12');
 
 INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
@@ -211,9 +217,6 @@ INSERT INTO releases VALUES ('plprofiler-pg11', 2, 'plprofiler',    'PL/Profiler
 INSERT INTO releases VALUES ('plprofiler-pg12', 2, 'plprofiler',    'PL/Profiler',  '', 'prod', 1);
 INSERT INTO versions VALUES ('plprofiler-pg11', '4.1-1', 'arm, amd', 1, '20190823', 'pg11');
 INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '20190823', 'pg12');
-
--- ##
-INSERT INTO categories VALUES (4, 'Security', 'Secure');
 
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
@@ -312,31 +315,29 @@ INSERT INTO releases VALUES ('agent', 4, 'agent',  'pgAgent', '', 'included', 1)
 INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 
 -- ##
-INSERT INTO categories VALUES (7, 'PG Developers Toolchain', 'Toolchain');
+INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
 
-INSERT INTO projects VALUES ('docker', 7, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
+INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'prod', 1);
 INSERT INTO versions VALUES ('docker', '19', '', 1, '20200303', '');
 
-INSERT INTO projects VALUES ('minikube', 7, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
+INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('minikube', '1.8.1', '', 1, '20200306', '');
 
-INSERT INTO projects VALUES ('helm', 7, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
+INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('helm', '3.0.3', '', 1, '20200129', '');
+
+-- ##
+INSERT INTO categories VALUES (7, 'PGSQL Developers Toolchain', 'Toolchain');
 
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('brew', '2.2.6', '', 1, '20200217', '');
 
-INSERT INTO projects VALUES ('msys2', 7, 0, 'hub', 4, 'http://repo.msys2.org/distrib/x86_64/',
-  'msys2', 0, 'msys2.png', 'Windows GNU toolchain', 'https://www.msys2.org/');
-INSERT INTO releases VALUES ('msys2', 5, 'msys2', 'MSys2', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('msys2', '19.05.24', '', 0, '20190524', '');
-
-INSERT INTO projects VALUES ('patroni', 7, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
+INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
 INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
@@ -408,3 +409,9 @@ INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0)
 INSERT INTO versions VALUES ('ddlx-pg11', '0.16-1', 'arm, amd', 1, '20191110', 'pg11');
 INSERT INTO versions VALUES ('ddlx-pg12', '0.16-1', 'arm, amd', 1, '20191110', 'pg12');
 
+INSERT INTO projects VALUES ('multicorn', 7, 0, 'hub', 4, 'https://github.com/Segfault-Inc/Multicorn/releases',
+  'multicorn', 1, 'multicorn.png', 'Python FDW Library', 'http://multicorn.org');
+INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'soon', 1);
+INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'soon', 1);
+INSERT INTO versions VALUES ('multicorn-pg11', '1.4.0', 'arm, amd', 1, '20200310', 'pg11');
+INSERT INTO versions VALUES ('multicorn-pg12', '1.4.0', 'arm, amd', 1, '20200310', 'pg12');
