@@ -1,11 +1,9 @@
 
 if [ `uname` == "Darwin" ]; then
-  brew services start docker
-  rc=$?
+  cmd="brew services start docker"
 else
-  sudo systemctl start docker
-  rc=$?
+  cmd="sudo systemctl start docker"
 fi
 
-echo "rc=$rc"
-exit $rc
+echo "$cmd"
+$cmd

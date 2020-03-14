@@ -1,3 +1,4 @@
+sudo rm -rf $MY_HOME/data/pgadmin
 
 sudo docker rm -f pgadmin
 

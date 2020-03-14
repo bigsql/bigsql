@@ -1109,7 +1109,7 @@ def get_email_address(p_email=""):
   print (" ")
   email = "user@domain.com"
 
-  prompt = p_email + " Email [" + email + "]: "
+  prompt = p_email + "Email [" + email + "]:\n"
 
   isYES = str(os.getenv("isYes", "False"))
   if isYES == "True":
@@ -1121,7 +1121,7 @@ def get_email_address(p_email=""):
       if email1.strip() == "":
         email1 = email
         break
-      email2 = input("Confirm Email: ")
+      email2 = input("Confirm Email:\n")
       if email1 == email2:
         break
       else:
@@ -1131,8 +1131,6 @@ def get_email_address(p_email=""):
         continue
   except KeyboardInterrupt as e:
     sys.exit(1)
-
-  print("DEBUG: email1 = " + str(email1))
 
   return email1;
 
