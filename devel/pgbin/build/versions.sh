@@ -97,7 +97,7 @@ fdFullV=1.1.0
 fdShortV=
 fdBuildV=1
 
-anonFullV=0.5.0
+anonFullV=0.6.0
 anonShortV=
 anonBuildV=1
 
