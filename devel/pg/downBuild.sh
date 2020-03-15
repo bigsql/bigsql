@@ -65,7 +65,7 @@ downBuild () {
 makeInstall () {
   #echoCmd "make clean"
   #sleep 3
-  echoCmd "./configure --prefix=$PWD --with-libedit-preferred $options"
+  echoCmd "./configure --prefix=$PWD --with-libedit-preferred --with-python PYTHON=/usr/bin/python3 $options"
   sleep 3
   echoCmd "make -j8"
   sleep 3

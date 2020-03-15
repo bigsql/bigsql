@@ -266,9 +266,14 @@ function buildComp {
            ln -s $JAVA_HOME/jre/lib/amd64/server/libjvm.so $buildLib/libjvm.so
         fi
 
+
         USE_PGXS=1 make >> $make_log 2>&1
         if [[ $? -eq 0 ]]; then
-                USE_PGXS=1 make install > $install_log 2>&1
+				make_install="make install"
+				if [ "$comp" == "multicorn" ]; then
+					make_install="sudo make install"
+				fi
+                USE_PGXS=1 $make_install > $install_log 2>&1
                 if [[ $? -ne 0 ]]; then
                         echo " "
                         echo "ERROR: Install failed, check install_log"
