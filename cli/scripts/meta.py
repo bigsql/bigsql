@@ -352,7 +352,7 @@ def get_list(p_isOLD, p_isExtensions, p_isJSON, p_isTEST, p_showLATEST, p_comp=N
         status = ""
 
       stage = str(row[7])
-      if stage in ("soon", "bring-own"):
+      if stage in ("soon", "bring-own", "included"):
         continue
 
       is_current = str(row[8])
