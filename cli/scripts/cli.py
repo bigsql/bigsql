@@ -972,7 +972,7 @@ def wildcard_component(p_component):
   pg_ver = ""
   data = []
   sql = "SELECT component FROM components" + \
-        " WHERE component in ('pg92', 'pg93', 'pg94', 'pg95', 'pg96', 'pg10')"
+        " WHERE component in ('pg94', 'pg95', 'pg96', 'pg10', 'pg11', 'pg12', 'pg13')"
   try:
     c = connL.cursor()
     c.execute(sql)
