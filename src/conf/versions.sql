@@ -415,5 +415,5 @@ INSERT INTO projects VALUES ('multicorn', 7, 0, 'hub', 4, 'https://github.com/Se
   'multicorn', 1, 'multicorn.png', 'Python FDW Library', 'http://multicorn.org');
 INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'soon', 1);
 INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'soon', 1);
-INSERT INTO versions VALUES ('multicorn-pg11', '1.4.0', 'arm, amd', 1, '20200310', 'pg11');
-INSERT INTO versions VALUES ('multicorn-pg12', '1.4.0', 'arm, amd', 1, '20200310', 'pg12');
+INSERT INTO versions VALUES ('multicorn-pg11', '1.4.0-1', 'arm, amd', 1, '20200310', 'pg11');
+INSERT INTO versions VALUES ('multicorn-pg12', '1.4.0-1', 'arm, amd', 1, '20200310', 'pg12');
