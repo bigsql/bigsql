@@ -1847,6 +1847,9 @@ try:
           if not isTEST:
             continue
 
+        if stage in ('bring-own', 'included', 'soon'):
+          continue
+
         if str(row[0]) == 'hub':
           hub_update = 1
         else:
