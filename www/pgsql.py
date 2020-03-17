@@ -14,9 +14,9 @@ def print_header(pWidth):
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
 
   print("<tr><td colspan=2>&nbsp;<br><font size=+2><b>Introduction</b></font><p>" + \
-"PGSQL-IO is the next generation of BigSQL adding support for both ARM and \n" + \
-"OSX to in addition to our AMD/Intel offering. We have also optimized for using in \n" + \
-"Docker and made our selection of components much more complete and accurate. \n" + \
+"PGSQL-IO is the next generation of BigSQL.  We have added support for ARM and \n" + \
+"OSX; optimized for Docker and K8's; and made \n" + \
+"our selection of components much more complete and accurate. \n" + \
 "<br>&nbsp;</td></tr>")
 
   print("<tr><td width=175 align=right><b>Tested with:</b></td><td width=725>")
