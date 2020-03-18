@@ -5,5 +5,5 @@
 
 import util
 
-util.create_extension("pgXX", "multicorn", True)
+util.create_extension("pgXX", "", False, "multicorn")
 

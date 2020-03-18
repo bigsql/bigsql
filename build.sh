@@ -250,8 +250,10 @@ copy-pgXX () {
     checkCmd "mv $myNewDir/install-$1-pgXX.py $myNewDir/install-$1-pg$pgM.py"
     myReplace "pgXX" "pg$pgM" "$myNewDir/install-$1-pg$pgM.py"
 
-    checkCmd "mv $myNewDir/remove-$1-pgXX.py $myNewDir/remove-$1-pg$pgM.py"
-    myReplace "pgXX" "pg$pgM" "$myNewDir/remove-$1-pg$pgM.py"
+    if [ -f $myNewDir/remove-$1-pgXX.py ]; then
+      checkCmd "mv $myNewDir/remove-$1-pgXX.py $myNewDir/remove-$1-pg$pgM.py"
+      myReplace "pgXX" "pg$pgM" "$myNewDir/remove-$1-pg$pgM.py"
+    fi
   fi
 }
 

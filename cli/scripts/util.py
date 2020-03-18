@@ -74,13 +74,13 @@ def run_sql_cmd(p_pg, p_sql, p_display=False):
 def create_extension(p_pg, p_ext, p_reboot=False, p_extension="", p_cascade=False):
   import time
 
-  print("\ninstall-" + p_ext + "-" + p_pg + ":")
+  if p_ext > " ":
+    print("\ninstall-" + p_ext + "-" + p_pg + ":")
 
-  rc = change_pgconf_keyval(p_pg, "shared_preload_libraries", p_ext)
-  if rc == False:
-    remove_comp(p_ext + "-" + p_pg)
-    sys.exit(1)
-
+    rc = change_pgconf_keyval(p_pg, "shared_preload_libraries", p_ext)
+    if rc == False:
+      remove_comp(p_ext + "-" + p_pg)
+      sys.exit(1)
 
   if p_reboot:
     print("")

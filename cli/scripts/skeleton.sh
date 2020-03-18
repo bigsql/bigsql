@@ -1,5 +1,6 @@
 
 function testAll {
+  ./io install multicorn-pg$1     -d demo
   ./io install cron-pg$1          -d demo
   ./io install repack-pg$1        -d demo
   ./io install http-pg$1          -d demo
