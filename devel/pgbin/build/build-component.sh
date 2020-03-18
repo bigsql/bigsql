@@ -267,12 +267,14 @@ function buildComp {
         fi
 
 
+        make_install="make install"
+        if [ "$comp" == "multicorn" ]; then
+            make_install="sudo make install"
+            export PYTHON_OVERRIDE=python3.6
+        fi
+
         USE_PGXS=1 make >> $make_log 2>&1
         if [[ $? -eq 0 ]]; then
-				make_install="make install"
-				if [ "$comp" == "multicorn" ]; then
-					make_install="sudo make install"
-				fi
                 USE_PGXS=1 $make_install > $install_log 2>&1
                 if [[ $? -ne 0 ]]; then
                         echo " "
