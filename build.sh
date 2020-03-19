@@ -36,7 +36,7 @@ printUsageMessage () {
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV pgadmin-$pgadminV"
-  echo "#    repack-$repackV  oraclefdw-$oraclefdwV  multicorn-$multicornV"
+  echo "#    repack-$repackV  oraclefdw-$oraclefdwV  multicorn-$multicornV  esfdw-$esfdwV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
@@ -224,6 +224,7 @@ initDir () {
   copy-pgXX "tdsfdw"  
   copy-pgXX "cron"
   copy-pgXX "multicorn"
+  copy-pgXX "esfdw"
 
   if [ -f $myNewDir/LICENSE.TXT ]; then
     mv $myNewDir/LICENSE.TXT $myNewDir/$pComponent-LICENSE.TXT
@@ -443,14 +444,15 @@ initPG () {
     if [ "$outPlat" == "amd" ]; then
       initC "tdsfdw-pg$pgM" "tdsfdw" "$tdsfdwV" "$outPlat" "postgres/tdsfdw" "" "" "nil"
       initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
-      initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$plat" "postgres/cassandrafdw" "" "" "nil"
-      initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$plat" "postgres/hivefdw" "" "" "nil"
+      initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$outPlat" "postgres/cassandrafdw" "" "" "nil"
+      initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$outPlat" "postgres/hivefdw" "" "" "nil"
       initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
       initC "postgis-pg$pgM" "postgis" "$postgis30V" "$outPlat" "postgres/postgis" "" "" "nil"
     fi
     initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
     initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
     initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
+    initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "" "postgres/esfdw" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
