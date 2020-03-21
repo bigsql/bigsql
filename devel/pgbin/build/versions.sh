@@ -24,6 +24,10 @@ multicornFullV=1.4.0
 multicornShortV=
 multicornBuildV=1
 
+pgtopFullV=3.7.0
+pgtopShortV=
+pgtopBuildV=1
+
 httpFullV=1.3.1
 httpShortV=
 httpBuildV=1

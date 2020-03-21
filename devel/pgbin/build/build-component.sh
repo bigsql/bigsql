@@ -229,9 +229,32 @@ function buildSetUserComponent {
 }
 
 
+function configureComp {
+    if [ "$comp" == "pgtop" ] || [ "$comp" == "bouncer" ] || [ "$comp" == "backrest" ]; then
+       echo "# configure..."
+    else
+      return
+    fi
+
+    if [ "$comp" == "pgtop" ]; then
+       ./autogen.sh >> $make_log 2>&1
+       ./configure --prefix=$buildLocation >> $make_log 2>&1 
+       rc=$?
+    fi
+
+    if [ ! "$rc" == "0" ]; then
+       echo " "
+       echo "ERROR: configureComp failed, check make_log"
+       echo " "
+       tail -20 $make_log
+       exit 1
+    fi
+}
+
+
 function buildComp {
         comp="$1"
-        echo "#        comp: $comp"
+        ##echo "#        comp: $comp"
         shortV="$2"
         ##echo "#      shortV: $shortV"
         fullV="$3"
@@ -255,17 +278,18 @@ function buildComp {
 
         PATH=$buildLocation/bin:$PATH
         log_dir="$baseDir/$workDir/logs"
-        echo "#     log_dir: $log_dir"
+        ##echo "#     log_dir: $log_dir"
         make_log="$log_dir/$comp-make.log"
         echo "#    make_log: $make_log"
         install_log="$log_dir/$comp-install.log"
         echo "# install_log: $install_log"
 
+        configureComp
+
         if [ "$comp" == "hivefdw" ]; then
            buildLib=$buildLocation/lib
            ln -s $JAVA_HOME/jre/lib/amd64/server/libjvm.so $buildLib/libjvm.so
         fi
-
 
         make_install="make install"
         if [ "$comp" == "multicorn" ]; then
@@ -273,8 +297,10 @@ function buildComp {
             export PYTHON_OVERRIDE=python3.6
         fi
 
+        echo "# make..."
         USE_PGXS=1 make >> $make_log 2>&1
         if [[ $? -eq 0 ]]; then
+                echo "# make install..."
                 USE_PGXS=1 $make_install > $install_log 2>&1
                 if [[ $? -ne 0 ]]; then
                         echo " "
@@ -509,6 +535,7 @@ function buildCstoreFDWComponent {
         packageComponent $componentBundle
 }
 
+
 function buildParquetFDWComponent {
 
         componentName="parquet_fdw$parquetFDWShortVersion-pg$pgShortVersion-$parquetFDWFullVersion-$parquetFDWBuildV-$buildOS"
@@ -588,7 +615,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -637,6 +664,7 @@ while true; do
     --build-anon ) buildAnon=true; Source=$2; shift; shift ;;
     --build-ddlx ) buildDdlx=true; Source=$2; shift; shift ;;
     --build-http ) buildHttp=true; Source=$2; shift; shift ;;
+    --build-pgtop ) buildPgTop=true; Source=$2; shift; shift ;;
     --build-number ) buildNumber=$2; shift; shift ;;
     --copy-bin ) copyBin=true; shift; shift; ;;
     --no-copy-bin ) copyBin=false; shift; shift; ;;
@@ -774,6 +802,9 @@ if [[ $buildDdlx == "true" ]]; then
 fi
 if [[ $buildHttp == "true" ]]; then
 	buildComp http "$httpShortV" "$httpFullV" "$httpBuildV" "$Source"
+fi
+if [[ $buildPgTop == "true" ]]; then
+	buildComp pgtop "$pgtopShortV" "$pgtopFullV" "$pgtopBuildV" "$Source"
 fi
 
 destDir=`date +%Y-%m-%d`
