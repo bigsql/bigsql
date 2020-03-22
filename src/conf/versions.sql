@@ -71,15 +71,15 @@ INSERT INTO categories VALUES (1, 'Rock Solid Postgres', 'Postgres');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
-INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'prod', 1);
+INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'test', 1);
 INSERT INTO versions VALUES ('pg95', '9.5.21-4', 'arm, amd', 1, '20200213','');
 INSERT INTO versions VALUES ('pg95', '9.5.21-3', 'arm, amd', 0, '20200213','');
 
-INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'prod', 1);
+INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'test', 1);
 INSERT INTO versions VALUES ('pg96', '9.6.17-4', 'arm, amd', 1, '20200213','');
 INSERT INTO versions VALUES ('pg96', '9.6.17-3', 'arm, amd', 0, '20200213','');
 
-INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'prod', 1);
+INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'test', 1);
 INSERT INTO versions VALUES ('pg10', '10.12-4', 'arm, amd', 1, '20200213','');
 INSERT INTO versions VALUES ('pg10', '10.12-3', 'arm, amd', 0, '20200213','');
 
@@ -328,7 +328,7 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'prod', 1);
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'test', 1);
 INSERT INTO versions VALUES ('docker', '19', '', 1, '20200303', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
@@ -414,14 +414,14 @@ INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own',
 INSERT INTO versions VALUES ('pgrest', '0.0.7-1', '', 1, '20130813', '');
 
 INSERT INTO projects VALUES ('ddlx',      7, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
-INSERT INTO releases VALUES ('ddlx-pg11', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0);
-INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0);
+INSERT INTO releases VALUES ('ddlx-pg11', 9, 'ddlx', 'DDLeXtact', '', 'test', 0);
+INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'test', 0);
 INSERT INTO versions VALUES ('ddlx-pg11', '0.16-1', 'arm, amd', 1, '20191110', 'pg11');
 INSERT INTO versions VALUES ('ddlx-pg12', '0.16-1', 'arm, amd', 1, '20191110', 'pg12');
 
 INSERT INTO projects VALUES ('multicorn', 7, 0, 'hub', 4, 'https://github.com/Segfault-Inc/Multicorn/releases',
   'multicorn', 1, 'multicorn.png', 'Python FDW Library', 'http://multicorn.org');
-INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'prod', 1);
-INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'prod', 1);
+INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'test', 1);
+INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'test', 1);
 INSERT INTO versions VALUES ('multicorn-pg11', '1.4.0-1', 'arm, amd', 1, '20200318', 'pg11');
 INSERT INTO versions VALUES ('multicorn-pg12', '1.4.0-1', 'arm, amd', 1, '20200318', 'pg12');
