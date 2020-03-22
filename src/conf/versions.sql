@@ -72,16 +72,13 @@ INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/do
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
 INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'test', 1);
-INSERT INTO versions VALUES ('pg95', '9.5.21-4', 'amd', 1, '20200213','');
-INSERT INTO versions VALUES ('pg95', '9.5.21-3', 'amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg95', '9.5.21-3', 'amd', 1, '20200213','');
 
 INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'test', 1);
-INSERT INTO versions VALUES ('pg96', '9.6.17-4', 'amd', 1, '20200213','');
-INSERT INTO versions VALUES ('pg96', '9.6.17-3', 'amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg96', '9.6.17-3', 'amd', 1, '20200213','');
 
 INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'test', 1);
-INSERT INTO versions VALUES ('pg10', '10.12-4', 'amd', 1, '20200213','');
-INSERT INTO versions VALUES ('pg10', '10.12-3', 'amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg10', '10.12-3', 'amd', 1, '20200213','');
 
 INSERT INTO releases VALUES ('pg11', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
 INSERT INTO versions VALUES ('pg11', '11.7-4', 'arm, amd, osx', 1, '20200213','');
