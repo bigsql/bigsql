@@ -142,6 +142,13 @@ INSERT INTO releases VALUES ('tdsfdw-pg11', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 
 INSERT INTO releases VALUES ('tdsfdw-pg12', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'pg11');
 
+INSERT INTO projects VALUES ('pgtop', 2, 0, 'hub', 0, 'https://gitlab.com/pg_top/pg_top/-/tags',
+  'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://gitlab.com/pg_top/pg_top/-/blob/master/README');
+INSERT INTO releases VALUES ('pgtop-pg11', 8, 'pgtop', 'pgTop', '', 'prod', 1);
+INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
+INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg11');
+INSERT INTO versions VALUES ('pgtop-pg12', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg12');
+
 INSERT INTO projects VALUES ('esfdw', 5, 0, 'hub', 0, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
   'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
 INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'soon', 1);
