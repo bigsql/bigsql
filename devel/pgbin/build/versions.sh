@@ -15,10 +15,13 @@ pg96BuildV=4
 pg95V="9.5.21"
 pg95BuildV=4
 
-bouncerV=1.12.0
-odbcV=12.01.0000
-backrestV=2.24
-agentV=4.0.0
+##odbcV=12.01.0000
+##backrestV=2.24
+##agentV=4.0.0
+
+bouncerFullV=1.12.0
+bouncerShortV=
+bouncerBuildV=1
 
 multicornFullV=1.4.0
 multicornShortV=

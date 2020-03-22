@@ -11,7 +11,10 @@ P95=9.5.21-4
 
 dockerV=19
 pgadminV=4
+
 esfdwV=0.6.0
+bouncerV=1.12.0-1
+pgtopV=3.7.0-1
 
 multicornV=1.4.0-1
 

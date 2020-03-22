@@ -132,6 +132,10 @@ if [ "$1" == "pgtop" ] || [ "$1" == "all" ]; then
   build pgtop $pgtopFullV $2 pgtop
 fi
 
+if [ "$1" == "bouncer" ] || [ "$1" == "all" ]; then
+  build bouncer $bouncerFullV $2 bouncer
+fi
+
 if [ "$1" == "mysqlfdw" ] || [ "$1" == "all" ]; then
   build mysqlfdw $mysqlfdwFullV $2 mysqlfdw
 fi

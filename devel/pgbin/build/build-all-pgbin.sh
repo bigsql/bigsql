@@ -22,14 +22,15 @@ function runPgBin {
  
   cmd="./build-pgbin.sh -a $pOutDir -t $pPgSrc -n $pBldV "
 
-  if [ `uname` == "Linux" ]; then
-    cmd="$cmd -b $bncrSrc"
-    #cmd="$cmd -k $bkrstSrc"
-    if [ ! `arch` == "aarch64" ]; then
-      cmd="$cmd -g $agentSrc"
-    fi
-    #cmd="$cmd -o $odbcSrc"
-  fi
+  ##if [ `uname` == "Linux" ]; then
+  ##  cmd="$cmd -b $bncrSrc"
+  ##  #cmd="$cmd -k $bkrstSrc"
+  ##  if [ ! `arch` == "aarch64" ]; then
+  ##    cmd="$cmd -g $agentSrc"
+  ##  fi
+  ##  #cmd="$cmd -o $odbcSrc"
+  ##fi
+
   cmd="$cmd $optional"
   $cmd
   if [[ $? -ne 0 ]]; then

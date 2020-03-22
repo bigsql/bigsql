@@ -66,19 +66,25 @@ function prepComponentBuildDir {
 function cleanUpComponentDir {
 	cd $1
 	rm -rf bin/pg_config
+	rm -rf bin/postgres
 	rm -rf lib/postgresql/plpgsql.so
 	rm -rf include
 	rm -rf lib/postgresql/pgxs
 	rm -rf lib/libpgport.a
 	rm -rf lib/libpgcommon.a
-        rm -rf lib/libssl*
-        rm -rf lib/libpq*
-        rm -rf lib/libcrypto*
+    rm -rf lib/libssl*
+    rm -rf lib/libpq*
+    rm -rf lib/libcrypto*
 
 	if [[ ! "$(ls -A bin)" ]]; then
 		rm -rf bin
 	fi
+
+    if [ "$copyBin" == "false" ]; then
+        ls -lR
+    fi
 }
+
 
 function  packageComponent {
 	bundle="$targetDir/$workDir/$componentBundle.tar.bz2"
@@ -129,39 +135,6 @@ function updateSharedLibs {
              		chrpath -r "\${ORIGIN}/../../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
 		done
         fi
-}
-
-
-function buildPgBouncerComponent {
-
-	componentName="bouncer$bouncerShortVersion-pg$pgShortVersion-$bouncerFullVersion-$bouncerBuildV-$buildOS"
-	mkdir -p "$baseDir/$workDir/logs"
-	cd "$baseDir/$workDir"
-	mkdir bouncer && tar -xf $bouncerSource --strip-components=1 -C bouncer
-	cd bouncer
-
-	buildLocation="$baseDir/$workDir/build/$componentName"
-
-	prepComponentBuildDir $buildLocation
-
-
-	PATH=$buildLocation/bin:$PATH
-
-	USE_PGXS=1 make > $baseDir/$workDir/logs/bouncer_make.log 2>&1
-	if [[ $? -eq 0 ]]; then
-		 USE_PGXS=1 make install > $baseDir/$workDir/logs/bouncer_install.log 2>&1
-		if [[ $? -ne 0 ]]; then
-			echo "pgBouncer install failed, check logs for details."
-		fi
-	else
-		echo "pgBouncer Make failed, check logs for details."
-		return 1
-	fi
-
-	componentBundle=$componentName
-	cleanUpComponentDir $buildLocation
-	updateSharedLibs
-	packageComponent $componentBundle
 }
 
 
@@ -230,21 +203,26 @@ function buildSetUserComponent {
 
 
 function configureComp {
-    if [ "$comp" == "pgtop" ] || [ "$comp" == "bouncer" ] || [ "$comp" == "backrest" ]; then
-       echo "# configure..."
-    else
-      return
-    fi
+    rc=0
 
     if [ "$comp" == "pgtop" ]; then
-       ./autogen.sh >> $make_log 2>&1
-       ./configure --prefix=$buildLocation >> $make_log 2>&1 
-       rc=$?
+        echo "# configure pgtop..."
+        ./autogen.sh >> $make_log 2>&1
+        ./configure --prefix=$buildLocation >> $make_log 2>&1 
+        rc=$?
+    fi
+
+    if [ "$comp" == "bouncer" ]; then
+        echo "# configure bouncer..."
+        opt="--prefix=$buildLocation --disable-rpath"
+        opt="$opt --with-libevent=$sharedLibs/../ --with-openssl=$sharedLibs/../"
+        ./configure $opt LDFLAGS="$LDFLAGS -Wl,-rpath,$sharedLibs" > $make_log 2>&1
+        rc=$?
     fi
 
     if [ ! "$rc" == "0" ]; then
        echo " "
-       echo "ERROR: configureComp failed, check make_log"
+       echo "ERROR: configureComp() failed, check make_log"
        echo " "
        tail -20 $make_log
        exit 1
@@ -615,7 +593,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-pgbouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -789,7 +767,7 @@ if [[ $buildPgMp == "true" ]]; then
         buildPgMpComponent
 fi
 if [[ $buildBouncer == "true" ]]; then
-        buildComp bouncer      "$ShortV"   "$fullV"   "$BuildV"   "$Source"
+    buildComp bouncer "$bouncerShortV" "$bouncerFullV" "$bouncerBuildV" "$Source"
 fi
 if [[ $buildFD == "true" ]]; then
 	buildComp fixeddecimal "$fdShortV" "$fdFullV" "$fdBuildV" "$Source"
