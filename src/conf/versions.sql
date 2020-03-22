@@ -258,7 +258,8 @@ INSERT INTO categories VALUES (2, 'Advanced Applications', 'Applics');
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 1, '20200115', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'arm, amd', 1, '20200318', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 0, '20200115', 'pg11');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
   'pglogical', 1, 'spock.png', 'pgLogical2 Replication', 'https://github.com/2ndQuadrant/pglogical');
@@ -333,11 +334,11 @@ INSERT INTO versions VALUES ('docker', '19', '', 1, '20200303', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.8.1', '', 1, '20200306', '');
+INSERT INTO versions VALUES ('minikube', '1.8.2', '', 1, '20200313', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('helm', '3.0.3', '', 1, '20200129', '');
+INSERT INTO versions VALUES ('helm', '3.1.2', '', 1, '20200311', '');
 
 -- ##
 INSERT INTO categories VALUES (7, 'PGSQL Developers Toolchain', 'Toolchain');
@@ -345,7 +346,7 @@ INSERT INTO categories VALUES (7, 'PGSQL Developers Toolchain', 'Toolchain');
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('brew', '2.2.6', '', 1, '20200217', '');
+INSERT INTO versions VALUES ('brew', '2.2.10', '', 1, '20200308', '');
 
 INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
@@ -360,12 +361,12 @@ INSERT INTO versions VALUES ('llvm', '9.0.1', '', 1, '20191220', '');
 INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
   'bison', 0, 'gnu.png', 'Parser-Generator', 'https://gnu.org/software/bison/');
 INSERT INTO releases VALUES ('bison', 6, 'bison', 'Bison', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('bison', '3.5.2', '', 1, '20200213', '');
+INSERT INTO versions VALUES ('bison', '3.5.3', '', 1, '20200308', '');
 
 INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
 INSERT INTO releases VALUES ('gcc', 6, 'gcc', 'GCC', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('gcc', '9.2.0', '', 1, '20190812', '');
+INSERT INTO versions VALUES ('gcc', '9.3.0', '', 1, '20200312', '');
 
 INSERT INTO projects VALUES ('valgrind', 7, 0, 'hub', 4, 'http://valgrind.org',
   'valgrind', 0, 'valgrind.png', 'Memory Checker & Profiler', 'http://valgrind.org');

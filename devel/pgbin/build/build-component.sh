@@ -566,7 +566,8 @@ function buildTimeScaleDBComponent {
         PATH=/opt/pgbin-build/pgbin/bin:$buildLocation/bin:$PATH
 
 	bootstrap_log=$baseDir/$workDir/logs/timescaledb_bootstrap.log
-	./bootstrap -DAPACHE_ONLY=1 -DREGRESS_CHECKS=OFF > $bootstrap_log 2>&1
+	##./bootstrap -DAPACHE_ONLY=1 -DREGRESS_CHECKS=OFF > $bootstrap_log 2>&1
+	./bootstrap -DREGRESS_CHECKS=OFF > $bootstrap_log 2>&1
         if [[ $? -ne 0 ]]; then
                 echo "timescaledb Bootstrap failed, check logs for details."
                 echo "  $bootstrap_log"

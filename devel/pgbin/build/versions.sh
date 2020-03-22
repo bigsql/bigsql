@@ -7,13 +7,13 @@ pg11V="11.7"
 pg11BuildV=4
 
 pg10V="10.12"
-pg10BuildV=4
+pg10BuildV=3
 
 pg96V="9.6.17"
-pg96BuildV=4
+pg96BuildV=3
 
 pg95V="9.5.21"
-pg95BuildV=4
+pg95BuildV=3
 
 ##odbcV=12.01.0000
 ##backrestV=2.24
@@ -157,7 +157,7 @@ hintplanFullV=1.3.4
 hintplanShortV=
 hintplanBuildV=1
 
-timescaledbFullV=1.6.0
+timescaledbFullV=1.6.1
 timescaledbShortV=
 timescaledbBuildV=1
 
