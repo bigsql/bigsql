@@ -62,7 +62,7 @@ CREATE VIEW v_versions AS
 INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.22', '',  1, '20200318', '');
+INSERT INTO versions VALUES ('hub', '6.22', '',  1, '20200323', '');
 INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
 
@@ -315,7 +315,8 @@ INSERT INTO versions VALUES ('hypopg-pg12', '1.1.3-1',  'arm, amd', 1, '20191123
 INSERT INTO projects VALUES ('pgbadger', 2, 0, 'hub', 6, 'https://github.com/darold/pgbadger/releases',
   'badger', 0, 'badger.png', 'Performance Reporting', 'https://pgbadger.darold.net');
 INSERT INTO releases VALUES ('pgbadger', 8, 'pgbadger','pgBadger','', 'prod', 1);
-INSERT INTO versions VALUES ('pgbadger', '11.1', '', 1, '20190916', '');
+INSERT INTO versions VALUES ('pgbadger', '11.2', '', 1, '20200311', '');
+INSERT INTO versions VALUES ('pgbadger', '11.1', '', 0, '20190916', '');
 
 INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'http://pgbouncer.org',
   'bouncer',  1, 'bouncer.png', 'Lightweight Connection Pooler', 'http://pgbouncer.org');
