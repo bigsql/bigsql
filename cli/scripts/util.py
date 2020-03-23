@@ -7,7 +7,8 @@ from datetime import datetime, timedelta
 
 import os, sys, socket, platform, sqlite3, getpass, signal, hashlib
 import json, uuid, logging, tempfile, shutil, filecmp, traceback
-import api
+
+import api, meta
 
 isPy3 = False
 PIP = "pip"
@@ -1322,6 +1323,11 @@ def get_depend():
       component = str(row[0])
       depends = str(row[1])
       p = component + " " + depends
+      if meta.is_extension(component):
+        last5_comp = component[-5:]
+        last5_dep = depends[-5:]
+        if last5_comp != last5_dep:
+          continue
       dep.append(p.split())
   except Exception as e:
     fatal_sql_error(e,sql,"get_depend()")

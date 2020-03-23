@@ -149,12 +149,12 @@ INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg11');
 INSERT INTO versions VALUES ('pgtop-pg12', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg12');
 
-INSERT INTO projects VALUES ('esfdw', 5, 0, 'hub', 0, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
+INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
   'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
-INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'soon', 1);
-INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'Elastic Search FDW', '', 'soon', 1);
-INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0-1', 'arm, amd',  1, '20200110', 'pg11');
-INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0-1', 'arm, amd',  1, '20200110', 'pg12');
+INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
+INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0', 'arm, amd',  1, '20200110', 'pg11');
+INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0', 'arm, amd',  1, '20200110', 'pg12');
 
 INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
@@ -240,7 +240,7 @@ INSERT INTO releases VALUES ('audit-pg12', 10, 'audit', 'pgAudit', '', 'prod', 1
 INSERT INTO versions VALUES ('audit-pg11', '1.3.1-1', 'arm, amd', 1, '20190617', 'pg11');
 INSERT INTO versions VALUES ('audit-pg12', '1.4.0-1', 'arm, amd', 1, '20190927', 'pg12');
 
-INSERT INTO projects VALUES ('anon', 2, 0, 'hub',0, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
+INSERT INTO projects VALUES ('anon', 2, 0, 'ddlx', 1, 'https://gitlab.com/dalibo/postgresql_anonymizer/releases',
   'anon', 1, 'anon.png', 'Anonymization & Masking', 'https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md');
 INSERT INTO releases VALUES ('anon-pg11', 11, 'anon', 'Anonymizer', '', 'prod', 1);
 INSERT INTO releases VALUES ('anon-pg12', 11, 'anon', 'Anonymizer', '', 'prod', 1);
@@ -419,15 +419,15 @@ INSERT INTO projects VALUES ('pgrest',     8, 0, 'hub', 3, 'https://github.com/p
 INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('pgrest', '0.0.7-1', '', 1, '20130813', '');
 
-INSERT INTO projects VALUES ('ddlx',      7, 0, 'hub', 4, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO projects VALUES ('ddlx',      8, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
 INSERT INTO releases VALUES ('ddlx-pg11', 9, 'ddlx', 'DDLeXtact', '', 'test', 0);
 INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'test', 0);
 INSERT INTO versions VALUES ('ddlx-pg11', '0.16-1', 'arm, amd', 1, '20191110', 'pg11');
 INSERT INTO versions VALUES ('ddlx-pg12', '0.16-1', 'arm, amd', 1, '20191110', 'pg12');
 
-INSERT INTO projects VALUES ('multicorn', 7, 0, 'hub', 4, 'https://github.com/Segfault-Inc/Multicorn/releases',
+INSERT INTO projects VALUES ('multicorn', 8, 0, 'hub', 0, 'https://github.com/Segfault-Inc/Multicorn/releases',
   'multicorn', 1, 'multicorn.png', 'Python FDW Library', 'http://multicorn.org');
-INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'test', 1);
-INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'test', 1);
+INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'prod', 1);
+INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'prod', 1);
 INSERT INTO versions VALUES ('multicorn-pg11', '1.4.0-1', 'arm, amd', 1, '20200318', 'pg11');
 INSERT INTO versions VALUES ('multicorn-pg12', '1.4.0-1', 'arm, amd', 1, '20200318', 'pg12');

@@ -82,10 +82,10 @@ def get_extension_parent(ext_comp):
 def is_extension(ext_comp):
   try:
     c = con.cursor()
-    sql = "SELECT c.component,c.project,p.category " + \
-          "  FROM projects p,components c " + \
-          " WHERE c.component='" + ext_comp + "' " + \
-          "   AND c.project=p.project " + \
+    sql = "SELECT r.component, r.project, p.category \n" + \
+          "  FROM projects p, releases r \n" + \
+          " WHERE r.component = '" + ext_comp + "' \n" + \
+          "   AND r.project = p.project \n" + \
           "   AND p.is_extension = 1"
     c.execute(sql)
     data = c.fetchone()
