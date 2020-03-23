@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-
 source env.sh
 
 if [ "x$REPO" == "x" ]; then
@@ -455,7 +454,7 @@ initPG () {
     initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
     initC "bouncer-pg$pgM" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
     initC "pgtop-pg$pgM" "pgtop" "$pgtopV" "$outPlat" "postgres/pgtop" "" "" "nil"
-    initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "" "postgres/esfdw" "" "" "nil"
+    initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "$outPlat" "postgres/esfdw" "" "" "nil"
     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
