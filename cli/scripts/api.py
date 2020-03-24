@@ -259,8 +259,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     system_memory_in_gb = str(mem_bytes / (1024.0**3))
   else:
     os_arch = util.getoutput("uname -m")
-    HOST = util.get_host_short()
-    host_display = "{0} {1}".format(HOST, host_ip)
+    host_display = util.get_host_short()
 
   ## Check the OS & Resources ########################################
   plat = util.get_os()
@@ -278,9 +277,11 @@ def info(p_json, p_home, p_repo, print_flag=True):
     system_memory_in_kbytes = mem_mb * 1024
     system_memory_in_gb = mem_mb / 1024.0
     system_cpu_cores = util.get_cpu_cores()
-    cpu_model=util.getoutput("grep 'model name' /proc/cpuinfo | head -1 | cut -d':' -f2")
+    cpu_model=util.getoutput("curl http://169.254.169.254/latest/meta-data/instance-type")
     if cpu_model == "":
-      cpu_model="ARM"
+      cpu_model=util.getoutput("grep 'model name' /proc/cpuinfo | head -1 | cut -d':' -f2")
+      if cpu_model == "":
+        cpu_model="ARM"
     if os.path.exists("/etc/redhat-release"):
       this_os = util.getoutput("cat /etc/redhat-release")
     elif os.path.exists("/etc/system-release"):
@@ -300,7 +301,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
   round_mem = util.pretty_rounder(float(system_memory_in_gb), 1)
   mem = str(round_mem) + " GB"
 
-  cores = str(system_cpu_cores) + " x"
+  cores = str(system_cpu_cores)
 
   cpu = cpu_model.strip()
   cpu = cpu.replace("(R)", "")
@@ -362,11 +363,11 @@ def info(p_json, p_home, p_repo, print_flag=True):
     admin_display = ""
 
   print(style_start + ("#" * 65) + style_end)
-  print(style_start + "#    PGSQL Hub: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#     PGSQL-IO: " + style_end + "v" + ver + "  " + p_home)
   print(style_start + "#  User & Host: " + style_end + p_user + admin_display + "  " + host_display)
   print(style_start + "#           OS: " + style_end + os.rstrip() + " - " + str(plat))
   print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
-  print(style_start + "#     Hardware: " + style_end + mem + ", " + cores + " " + cpu)
+  print(style_start + "#      Machine: " + style_end + mem + ", " + cores + " vCPU, " + cpu)
 
   default_repo = "https://pgsql-io-download.s3.amazonaws.com/REPO"
   if p_repo != default_repo:
