@@ -272,7 +272,12 @@ function buildComp {
         make_install="make install"
         if [ "$comp" == "multicorn" ]; then
             make_install="sudo make install"
-            export PYTHON_OVERRIDE=python3.6
+	    if [ `arch` == "aarch64" ]; then
+                export PYTHON_OVERRIDE=python3.7
+            else
+                export PYTHON_OVERRIDE=python3.6
+	    fi
+	    echo "PYTHON_OVERRIDE = $PYTHON_OVERRIDE"
         fi
 
         echo "# make..."
