@@ -79,6 +79,20 @@ def get_extension_parent(ext_comp):
   return(ext_comp[(ndx + 1):])
 
 
+def is_component(p_comp):
+  try:
+    c = con.cursor()
+    sql = "SELECT count(*) from releases WHERE component = ?"
+    c.execute(sql, [p_comp])
+    data = c.fetchone()
+    if data[0] == 1:
+      return True 
+  except Exception as e:
+    fatal_error(e, sql, "meta.is_component()")
+
+  return False
+
+
 def is_extension(ext_comp):
   try:
     c = con.cursor()

@@ -915,15 +915,6 @@ def validate_checksum(p_file_name, p_checksum_file_name):
   return check_sum_match
 
 
-def is_component(p_comp):
-  if p_comp in ['all', '*']:
-    return True
-  for comp in dep9:
-    if comp[0] == p_comp:
-      return True
-  return False;
-
-
 #############################################################################
 # expand the prefix for a component's version number into the full version
 #  number for the most recent version that matches
@@ -1275,7 +1266,7 @@ try:
       util.print_error("No additional parameters allowed.")
       exit_cleanly(1)
     comp1 = wildcard_component(args[i])
-    if is_component(comp1):
+    if meta.is_component(comp1):
       p_comp_list.append(comp1)
       if( p_mode == "info" and args[i]== "all"):
         info_arg=1
