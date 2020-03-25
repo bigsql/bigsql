@@ -1,6 +1,0 @@
-valgrind
-
-parquet_fdw
-
-pgadmin4
-

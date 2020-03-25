@@ -149,6 +149,13 @@ INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg11');
 INSERT INTO versions VALUES ('pgtop-pg12', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg12');
 
+INSERT INTO projects VALUES ('zombo', 5, 0, 'hub', 1, 'https://github.com/zombodb/zombodb/releases',
+  'zombo', 1, 'zombo.png', 'PG Index for Elastic Search', 'https://github.com/zombodb/zombodb/blob/master/README.md');
+INSERT INTO releases VALUES ('zombo-pg11', 4, 'zombo', 'ZomboDB', '', 'soon', 1);
+INSERT INTO releases VALUES ('zombo-pg12', 4, 'zombo', 'ZomboDB', '', 'soon', 1);
+INSERT INTO versions VALUES ('zombo-pg11', '4.0', 'arm, amd',  1, '20191118', 'pg11');
+INSERT INTO versions VALUES ('zombo-pg12', '4.0', 'arm, amd',  1, '20201118', 'pg12');
+
 INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
   'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
 INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
@@ -265,8 +272,15 @@ INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'arm, amd', 1, '20200318', 'pg11');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 0, '20200115', 'pg11');
 
+INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
+  'spock', 1, 'spock.png', 'Bi-directional Replication', 'https://github.com/bigsql/spock');
+INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'pgSpock', '', 'soon', 1);
+INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'pgSpock', '', 'soon', 1);
+INSERT INTO versions VALUES ('spock-pg11', '3.0-1',  'arm, amd', 1, '20200224', 'pg11');
+INSERT INTO versions VALUES ('spock-pg12', '3.0-1',  'arm, amd', 1, '20200224', 'pg12');
+
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
-  'pglogical', 1, 'spock.png', 'pgLogical2 Replication', 'https://github.com/2ndQuadrant/pglogical');
+  'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
 INSERT INTO releases VALUES ('pglogical-pg11', 2, 'pglogical', 'pgLogical 2', '', 'prod', 1);
 INSERT INTO releases VALUES ('pglogical-pg12', 2, 'pglogical', 'pgLogical 2', '', 'prod', 1);
 INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg11');
@@ -334,8 +348,8 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'prod', 1);
-INSERT INTO versions VALUES ('docker', '19', '', 1, '20200303', '');
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.8', '', 'prod', 1);
+INSERT INTO versions VALUES ('docker', '19', '', 1, '20200310', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
@@ -394,7 +408,7 @@ INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('jdbc', '42.2.10', '', 1, '20200130', '');
 
 INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://www.nuget.org/packages/Npgsql/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
-INSERT INTO releases VALUES ('npgsql', 10, 'npgsql', '.net PG', '', 'bring-own', 1);
+INSERT INTO releases VALUES ('npgsql', 20, 'npgsql', '.net PG', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('npgsql', '4.1.3.1', '', 1, '20200220', '');
 
 INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'https://pypi.org/project/psycopg2/', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://psycopg.org');
