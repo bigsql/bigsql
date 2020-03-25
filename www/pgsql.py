@@ -15,7 +15,7 @@ def print_header(pWidth):
 
   print("<tr><td colspan=2>&nbsp;<br><font size=+2><b>Introduction</b></font><p>" + \
 "PGSQL-IO is the next generation of BigSQL.  We have added support for ARM and \n" + \
-"OSX; optimized for Docker and K8's; and made \n" + \
+"OSX, added to our AMD Linux support to include Ubuntu & Debian, optimized for Docker and Kubernetes; and made \n" + \
 "our selection of components much more complete and accurate. \n" + \
 "<br>&nbsp;</td></tr>")
 
@@ -40,4 +40,7 @@ def print_header(pWidth):
 
 
 def print_footer():
-  print('&copy; 2020, All rights reserved.')
+  print('<center><table><tr> \n' + \
+        '   <td width=450>&copy; 2020, All rights reserved.</td> \n' + \
+        '   <td width=450 align=right>denis@lussier.io</td> \n' + \
+        '</tr></table></center>')
