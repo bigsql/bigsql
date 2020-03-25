@@ -25,7 +25,7 @@ def print_top():
   print("\n<p>")
 
   print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=whitesmoke cellpadding=1>')
-  print("<tr><td colspan=3><font size=+2><b>Components</b></font></td></tr>")
+  print("<tr><td colspan=3><font size=+2>&nbsp;<br><b>Components</b></font></td></tr>")
 
  
 def print_bottom():

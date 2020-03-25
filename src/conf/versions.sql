@@ -273,7 +273,7 @@ INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'arm, amd', 1, '202
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 0, '20200115', 'pg11');
 
 INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
-  'spock', 1, 'spock.png', 'Bi-directional Replication', 'https://github.com/bigsql/spock');
+  'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');
 INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'pgSpock', '', 'soon', 1);
 INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'pgSpock', '', 'soon', 1);
 INSERT INTO versions VALUES ('spock-pg11', '3.0-1',  'arm, amd', 1, '20200224', 'pg11');
