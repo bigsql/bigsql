@@ -277,11 +277,9 @@ def info(p_json, p_home, p_repo, print_flag=True):
     system_memory_in_kbytes = mem_mb * 1024
     system_memory_in_gb = mem_mb / 1024.0
     system_cpu_cores = util.get_cpu_cores()
-    cpu_model=util.getoutput("curl http://169.254.169.254/latest/meta-data/instance-type")
+    cpu_model=util.getoutput("grep 'model name' /proc/cpuinfo | head -1 | cut -d':' -f2")
     if cpu_model == "":
-      cpu_model=util.getoutput("grep 'model name' /proc/cpuinfo | head -1 | cut -d':' -f2")
-      if cpu_model == "":
-        cpu_model="ARM"
+      cpu_model="ARM"
     if os.path.exists("/etc/redhat-release"):
       this_os = util.getoutput("cat /etc/redhat-release")
     elif os.path.exists("/etc/system-release"):
