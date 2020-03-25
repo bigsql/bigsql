@@ -71,13 +71,13 @@ INSERT INTO categories VALUES (1, 'Rock Solid Postgres', 'Postgres');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
-INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'test', 1);
+INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'prod', 1);
 INSERT INTO versions VALUES ('pg95', '9.5.21-3', 'amd', 1, '20200213','');
 
-INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'test', 1);
+INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'prod', 1);
 INSERT INTO versions VALUES ('pg96', '9.6.17-3', 'amd', 1, '20200213','');
 
-INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'test', 1);
+INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'prod', 1);
 INSERT INTO versions VALUES ('pg10', '10.12-3', 'amd', 1, '20200213','');
 
 INSERT INTO releases VALUES ('pg11', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
@@ -97,8 +97,8 @@ INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 0, '20191029', '');
 
 INSERT INTO projects VALUES ('cassandrafdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
   'cstarfdw', 1, 'cstar.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
-INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','test', 1);
-INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','test', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
 INSERT INTO versions VALUES ('cassandrafdw-pg11', '3.1.5-1', 'amd', 1, '20191230', 'pg11');
 INSERT INTO versions VALUES ('cassandrafdw-pg12', '3.1.5-1', 'amd', 1, '20191230', 'pg12');
 
@@ -109,8 +109,8 @@ INSERT INTO versions VALUES ('hive', '0.229', '', 0, '20191115', '');
 
 INSERT INTO projects VALUES ('hivefdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 
   'hive_fdw', 1, 'hive.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
-INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'test', 1);
-INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'test', 1);
+INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'soon', 1);
+INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'soon', 1);
 INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'amd', 1, '20200222', 'pg11');
 INSERT INTO versions VALUES ('hivefdw-pg12', '3.3.1-1', 'amd', 1, '20200222', 'pg12');
 
@@ -334,7 +334,7 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'test', 1);
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE', '', 'prod', 1);
 INSERT INTO versions VALUES ('docker', '19', '', 1, '20200303', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
@@ -420,8 +420,8 @@ INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own',
 INSERT INTO versions VALUES ('pgrest', '0.0.7-1', '', 1, '20130813', '');
 
 INSERT INTO projects VALUES ('ddlx',      8, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
-INSERT INTO releases VALUES ('ddlx-pg11', 9, 'ddlx', 'DDLeXtact', '', 'test', 0);
-INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'test', 0);
+INSERT INTO releases VALUES ('ddlx-pg11', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0);
+INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0);
 INSERT INTO versions VALUES ('ddlx-pg11', '0.16-1', 'arm, amd', 1, '20191110', 'pg11');
 INSERT INTO versions VALUES ('ddlx-pg12', '0.16-1', 'arm, amd', 1, '20191110', 'pg12');
 
