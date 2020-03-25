@@ -14,9 +14,10 @@ def print_header(pWidth):
   print("<table bgcolor=whitesmoke width=" + str(pWidth) + " cellpadding=0 >")
   string = \
 """\
-PGSQL is the developer friendly 64-bit cross-platform Postgres CE that fully
-embraces core PostgreSQL and it's rich eco-system of over
-50 enterprise-class Extensions.  Recently we have added support for ARM,
+PGSQL.IO is the developer friendly cross-platform PostgreSQL Community Edition
+that fully embraces core PostgreSQL and it's rich eco-system of over
+50 enterprise-class extensions, applications & connectors.
+Recently we have added support for ARM,
 OSX, and Windows; added to our AMD Linux support to include Ubuntu & Debian;
 optimized for Docker and Kubernetes; and made
 our selection of components much more complete, up to date and accurate.
@@ -30,7 +31,7 @@ our selection of components much more complete, up to date and accurate.
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
   print("<tr><td colspan=2>&nbsp;<br><font size=+2><b>Download & Usage</b></font><p>")
   print("We are verfied & tested with: Python 2.7/3.5+, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, \n" + \
-        "Debian 9+, Windows 10 w/ Linux Subsytem, and OSX 10.13+")
+        "Debian 9+, Windows 10 Subsytem for Linux, and OSX 10.13+")
   print("<br>&nbsp;</td></tr>")
 
   print("<tr><td align=right><b>Install command line:</b></td><td>")
