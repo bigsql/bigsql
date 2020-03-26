@@ -88,10 +88,15 @@ def get_columns(d):
 
   stage = ""
   stage = str(d[11])
-  if stage == "prod":
+  if stage in ("prod", "included", "bring-own"):
     stage = ""
   else:
-    stage = "--" + stage
+    if stage == "soon":
+      stage = "Soon!"
+      rel_date = "19700101"
+    else:
+      stage = "--" + stage
+    stage = "<font color=red><b>" + stage + "</b></font>"
 
   proj_desc = str(d[12])
 
@@ -115,7 +120,7 @@ def print_row_detail(pCol, pBR):
   else:
     rel_yy_display = "-" + rel_yy
 
-  if rel_date == '19700101':
+  if rel_date in ('', '19700101'):
     rel_date_display = ""
   else:
     rel_date_display = rel_day + "-" + rel_month + rel_yy_display

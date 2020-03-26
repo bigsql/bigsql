@@ -57,5 +57,5 @@ our selection of components much more complete, up to date and accurate.
 def print_footer():
   print('<center><table><tr> \n' + \
         '   <td width=450>&copy; 2020, All rights reserved.</td> \n' + \
-        '   <td width=450 align=right>denis@lussier.io</td> \n' + \
+        '   <td width=450 align=right><a href="https://lussier.io">denis@lussier.io</a></td> \n' + \
         '</tr></table></center>')
