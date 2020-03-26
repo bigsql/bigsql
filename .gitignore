@@ -1,3 +1,4 @@
+*.pyc
 out/
 devel/pg/src
 devel/pg/1*

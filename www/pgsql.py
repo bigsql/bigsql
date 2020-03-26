@@ -23,13 +23,13 @@ optimized for Docker and Kubernetes; and made
 our selection of components much more complete, up to date and accurate.
 \
 """
-  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b>Introduction</b></font><p>" + \
+  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b><u>Introduction</u></b></font><p>" + \
     string + "<br>&nbsp;</td></tr>")
   print("</table>")
 
 
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
-  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b>Download & Usage</b></font><p>")
+  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b><u>Download & Usage</u></b></font><p>")
   print("We are verfied & tested with: Python 2.7, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, \n" + \
         "Debian 9+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
         "We run in a sandboxed environment that is perfect for running as non-root \n" + \
