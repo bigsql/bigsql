@@ -7,13 +7,13 @@ pg11V="11.7"
 pg11BuildV=4
 
 pg10V="10.12"
-pg10BuildV=3
+pg10BuildV=4
 
 pg96V="9.6.17"
-pg96BuildV=3
+pg96BuildV=4
 
 pg95V="9.5.21"
-pg95BuildV=3
+pg95BuildV=4
 
 ##odbcV=12.01.0000
 ##backrestV=2.24
