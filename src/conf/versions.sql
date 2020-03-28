@@ -91,7 +91,7 @@ INSERT INTO releases VALUES ('pg12', 1, 'pg', 'PostgreSQL', '', 'prod', 1);
 INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm, osx', 1, '20200327','');
 INSERT INTO versions VALUES ('pg12', '12.2-3', 'arm, amd, osx', 0, '20200213','');
 
-INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'test only', 1);
+INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'soon', 1);
 INSERT INTO versions VALUES ('pg13', '13dev1-20200327', 'arm, amd, osx', 1, '20200327','');
 
 -- ##
@@ -280,10 +280,10 @@ INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 0, '202
 
 INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
   'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');
-INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'pgSpock', '', 'prod', 1);
-INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'pgSpock', '', 'prod', 1);
-INSERT INTO versions VALUES ('spock-pg11', '3.0-1',  'arm, amd, osx', 1, '20200326', 'pg11');
-INSERT INTO versions VALUES ('spock-pg12', '3.0-1',  'arm, amd, osx', 1, '20200326', 'pg12');
+INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'pgSpock', '', 'soon', 1);
+INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'pgSpock', '', 'soon', 1);
+INSERT INTO versions VALUES ('spock-pg11', '3.0-1',  'arm, amd, osx', 1, '20200328', 'pg11');
+INSERT INTO versions VALUES ('spock-pg12', '3.0-1',  'arm, amd, osx', 1, '20200328', 'pg12');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
   'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
