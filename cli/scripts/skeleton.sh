@@ -1,6 +1,5 @@
 
 function testAll {
-  ./io install multicorn-pg$1     -d demo
   ./io install cron-pg$1          -d demo
   ./io install repack-pg$1        -d demo
   ./io install http-pg$1          -d demo
@@ -12,12 +11,19 @@ function testAll {
   ./io install audit-pg$1         -d demo
   ./io install ddlx-pg$1          -d demo
   ./io install anon-pg$1          -d demo
-  ./io install mysqlfdw-pg$1      -d demo
   ./io install debugger-pg$1      -d demo
+
+  if [ ! `uname` == "Darwin" ]; then
+    ./io install multicorn-pg$1     -d demo
+    ./io install mysqlfdw-pg$1      -d demo
+  fi
+
   if [ ! `arch` == "aarch64" ]; then
-    ./io install bulkload-pg$1    -d demo
-    ./io install tdsfdw-pg$1      -d demo
-    ./io install oraclefdw-pg$1   -d demo
+    if [ ! `uname` == "Darwin" ]; then
+      ./io install bulkload-pg$1    -d demo
+      ./io install tdsfdw-pg$1      -d demo
+      ./io install oraclefdw-pg$1   -d demo
+    fi
     ./io install postgis-pg$1     -d demo
     ##./io install hive_fdw-pg$1  -d demo
     ##./io install cassandra_fdw-pg$1 -d demo
