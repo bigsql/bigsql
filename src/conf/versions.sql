@@ -152,8 +152,8 @@ INSERT INTO projects VALUES ('pgtop', 2, 0, 'hub', 0, 'https://gitlab.com/pg_top
   'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://gitlab.com/pg_top/pg_top/-/blob/master/README');
 INSERT INTO releases VALUES ('pgtop-pg11', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
-INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg11');
-INSERT INTO versions VALUES ('pgtop-pg12', '3.7.0-1', 'arm, amd',  1, '20130731', 'pg12');
+INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'amd',  1, '20130731', 'pg11');
+INSERT INTO versions VALUES ('pgtop-pg12', '3.7.0-1', 'amd',  1, '20130731', 'pg12');
 
 INSERT INTO projects VALUES ('zombo', 5, 0, 'hub', 1, 'https://github.com/zombodb/zombodb/releases',
   'zombo', 1, 'zombo.png', 'PG Index for Elastic Search', 'https://github.com/zombodb/zombodb/blob/master/README.md');
@@ -166,8 +166,8 @@ INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/
   'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
 INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
 INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
-INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0', 'arm, amd',  1, '20200110', 'pg11');
-INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0', 'arm, amd',  1, '20200110', 'pg12');
+INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0', 'amd',  1, '20200110', 'pg11');
+INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0', 'amd',  1, '20200110', 'pg12');
 
 INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
@@ -275,8 +275,8 @@ INSERT INTO categories VALUES (2, 'Advanced Applications', 'Applics');
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'arm, amd', 1, '20200318', 'pg11');
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'arm, amd', 0, '20200115', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'amd', 1, '20200318', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'amd', 0, '20200115', 'pg11');
 
 INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
   'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');

@@ -427,7 +427,7 @@ initPG () {
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
-    if [ ! "$outPlat" == "osx" ]; then
+    if [ "$outPlat" == "amd" ]; then
       initC "timescaledb-pg$pgM" "timescaledb" "$timescaleV"  "$outPlat" "postgres/timescale" "" "" "nil"
     fi
   fi
@@ -444,6 +444,8 @@ initPG () {
       initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$outPlat" "postgres/cassandrafdw" "" "" "nil"
       initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$outPlat" "postgres/hivefdw" "" "" "nil"
       initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
+      initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
+      initC "pgtop-pg$pgM" "pgtop" "$pgtopV" "$outPlat" "postgres/pgtop" "" "" "nil"
     fi
 
     if [ "$outPlat" == "amd" ] || [ "$outPlat" == "osx" ]; then
@@ -452,9 +454,7 @@ initPG () {
 
     if [ ! "$outPlat" == "osx" ]; then
       initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
-      initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
       initC "bouncer-pg$pgM" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
-      initC "pgtop-pg$pgM" "pgtop" "$pgtopV" "$outPlat" "postgres/pgtop" "" "" "nil"
       initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "$outPlat" "postgres/esfdw" "" "" "nil"
     fi
 
