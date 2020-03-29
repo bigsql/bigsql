@@ -272,12 +272,7 @@ function buildComp {
         make_install="make install"
         if [ "$comp" == "multicorn" ]; then
             make_install="sudo make install"
-	    if [ `arch` == "aarch64" ]; then
-                export PYTHON_OVERRIDE=python3.7
-            else
-                export PYTHON_OVERRIDE=python3.6
-	    fi
-	    echo "PYTHON_OVERRIDE = $PYTHON_OVERRIDE"
+            export PYTHON_OVERRIDE=python3.6
         fi
 
         echo "# make..."
@@ -395,9 +390,10 @@ function buildPlJavaComponent {
 	PATH=/opt/pgbin-build/pgbin/shared/maven/bin:$buildLocation/bin:$PATH
 	log=$baseDir/$workDir/logs/pljava_make.log
     echo "# log = $log"
-    mvn dependency:resolve > $log 2>&1
 	mvn clean install >> $log 2>&1
- 	if [[ $? -eq 0 ]]; then
+    echo "rc=($rc)"
+    rc=$?
+ 	if [ $rc == "0" ]; then
  		java -jar "pljava-packaging/target/pljava-pg`echo $pgFullVersion | awk -F '.' '{print $1"."$2}'`-amd64-Linux-gpp.jar" > $baseDir/$workDir/logs/pljava_install.log 2>&1 > $baseDir/$workDir/logs/pljava_install.log 2>&1
  		if [[ $? -ne 0 ]]; then
  			echo "Pl/Java install failed, check logs for details."
@@ -738,7 +734,6 @@ if [[ $buildPlr == "true" ]]; then
 fi
 
 if [[ $buildPlJava == "true" ]]; then
-##    buildComp pljava  "$pljavaShortV" "$pljavaFullV" "$pljavaBuildV" "$Source"
 	buildPlJavaComponent
 fi
 
