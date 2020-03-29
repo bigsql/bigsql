@@ -26,7 +26,7 @@ tar -xvzf apache-maven-$VER-bin.tar.gz
 
 # recent ANT for BenchmarkSQL Builds
 cd ~
-VER=1.9.14
+VER=1.10.7
 wget http://us.mirrors.quenda.co/apache//ant/binaries/apache-ant-$VER-bin.tar.gz
 tar -xvzf apache-ant-$VER-bin.tar.gz
 

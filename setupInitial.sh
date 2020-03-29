@@ -33,8 +33,8 @@ if [ `uname` == 'Linux' ]; then
     sudo yum -y groupinstall 'development tools'
     sudo yum -y install bison-devel libedit-devel zlib-devel \
       openssl-devel libmxl2-devel libxslt-devel libevent-devel \
-      perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-1.8.0-openjdk \
-      java-1.8.0-openjdk-devel ant openjade pam-devel openldap-devel boost-devel \
+      perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-11-openjdk-devel \
+      openjade pam-devel openldap-devel boost-devel \
       gdal-devel geos-devel json-c-devel proj-devel mysql-devel freetds-devel \
       libuv-devel uuid-devel curl-devel protobuf-c-devel chrpath docbook-dtds \
       docbook-style-dsssl docbook-style-xsl mkdocs highlight
@@ -117,8 +117,8 @@ export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/b
 export PATH=/usr/local/bin:$PATH
 
 ## for Java Components like PL/Java, HiveFDW, & BenchmarkSQL
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
-export PATH=$JAVA_HOME/bin:$HOME/apache-ant-1.9.14/bin:$HOME/apache-maven-3.6.3/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export PATH=$JAVA_HOME/bin:$HOME/apache-ant-1.10.7/bin:$HOME/apache-maven-3.6.3/bin:$PATH
 
 echo ""
 echo "Goodbye!"
