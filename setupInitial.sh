@@ -113,10 +113,12 @@ export REPO=http://localhost:8000
 ##export PATH=$PATH:$JAVA_HOME/bin
 
 ## for Centos 7
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
-export PATH=$PATH:$JAVA_HOME/bin
 export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
 export PATH=/usr/local/bin:$PATH
+
+## for Java Components like PL/Java, HiveFDW, & BenchmarkSQL
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+export PATH=$JAVA_HOME/bin:$HOME/apache-ant-1.9.14/bin:$HOME/apache-maven-3.6.3/bin:$PATH
 
 echo ""
 echo "Goodbye!"
