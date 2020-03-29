@@ -32,12 +32,12 @@ our selection of components much more complete, up to date and accurate.
   print("<tr><td colspan=2>&nbsp;<br><font size=+2><b><u>Download & Usage</u></b></font><p>")
   print("We are verfied & tested with: Python 2.7+, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, \n" + \
         "Debian 9+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
-        "We run in a sandboxed environment that is perfect for running as non-root \n" + \
-        "in your development environment and in a containerized environment \n" + \
-        "in the cloud of your choice.")
+        "We run in a sandboxed environment that is perfect for running \n" + \
+        "in the development, container, bare metal, or cloud environment \n" + \
+        "of your choice.")
   print("<br>&nbsp;</td></tr>")
 
-  print("<tr><td align=right><b>Install command line:</b></td><td>")
+  print("<tr><td width=240 align=right><b>Install command line:</b></td><td>")
   print("<input type='text' size=80 value ='" + \
         'python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"' + \
         "' readonly='readonly'>")
