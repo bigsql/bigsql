@@ -212,10 +212,10 @@ INSERT INTO versions VALUES ('plperl', '5', 'arm, amd', 1, '20200213', 'pg11');
 
 INSERT INTO projects VALUES ('pljava', 3, 0, 'hub', 0, 'https://github.com/tada/pljava/releases', 
   'pljava', 1, 'pljava.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
-INSERT INTO releases VALUES ('pljava-pg11', 4, 'pljava', 'PL/Java', '', 'soon', 1);
-INSERT INTO releases VALUES ('pljava-pg12', 4, 'pljava', 'PL/Java', '', 'soon', 1);
-INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'amd',  1, '20191104', 'pg11');
-INSERT INTO versions VALUES ('pljava-pg12', '1.5.5-1',  'amd',  1, '20191104', 'pg12');
+INSERT INTO releases VALUES ('pljava-pg11', 4, 'pljava', 'PL/Java', '', 'prod', 1);
+INSERT INTO releases VALUES ('pljava-pg12', 4, 'pljava', 'PL/Java', '', 'prod', 1);
+INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'amd',  1, '20200329', 'pg11');
+INSERT INTO versions VALUES ('pljava-pg12', '1.5.5-1',  'amd',  1, '20200329', 'pg12');
 
 INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/bigsql/pldebugger2/releases',
   'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/bigsql/pldebugger2#pldebugger2');
