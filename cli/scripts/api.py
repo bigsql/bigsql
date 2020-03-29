@@ -321,6 +321,14 @@ def info(p_json, p_home, p_repo, print_flag=True):
 
   versions_sql = util.get_versions_sql()
 
+  perl_ver = util.getoutput('perl -E "say $^V"')
+  if perl_ver[0] == "v":
+    perl_ver = perl_ver[1:]
+
+  java_ver = util.getoutput('javac -version')
+  if java_ver[:6] == "javac ":
+    java_ver = java_ver[6:]
+
   if p_json:
     infoJsonArray = []
     infoJson = {}
@@ -348,6 +356,8 @@ def info(p_json, p_home, p_repo, print_flag=True):
     infoJson['python_exe'] = python_exe
     if pip_ver != 'None':
       infoJson['pip_ver'] = pip_ver
+    infoJson['perl_ver'] = perl_ver
+    infoJson['java_ver'] = java_ver
     infoJsonArray.append(infoJson)
     if print_flag:
       print(json.dumps(infoJsonArray, sort_keys=True, indent=2))
@@ -360,27 +370,29 @@ def info(p_json, p_home, p_repo, print_flag=True):
   else:
     admin_display = ""
 
-  print(style_start + ("#" * 65) + style_end)
-  print(style_start + "#     PGSQL-IO: " + style_end + "v" + ver + "  " + p_home)
-  print(style_start + "#  User & Host: " + style_end + p_user + admin_display + "  " + host_display)
-  print(style_start + "#           OS: " + style_end + os.rstrip() + " - " + str(plat))
-  print(style_start + "# Python & PIP: " + style_end + python_ver + " | " + pip_ver)
-  print(style_start + "#      Machine: " + style_end + mem + ", " + cores + " vCPU, " + cpu)
+  langs = "Python v" + python_ver + " | Perl v" + perl_ver + " | Java v" + java_ver
+
+  print(style_start + ("#" * 70) + style_end)
+  print(style_start + "#          PGSQL-IO: " + style_end + "v" + ver + "  " + p_home)
+  print(style_start + "#       User & Host: " + style_end + p_user + admin_display + "  " + host_display)
+  print(style_start + "#  Operating System: " + style_end + os.rstrip() + " - " + str(plat))
+  print(style_start + "#           Machine: " + style_end + mem + ", " + cores + " vCPU, " + cpu)
+  print(style_start + "# Programming Langs: " + style_end + langs)
 
   default_repo = "https://pgsql-io-download.s3.amazonaws.com/REPO"
   if p_repo != default_repo:
-    print(style_start + "#     Repo URL: " + style_end + p_repo)
+    print(style_start + "#          Repo URL: " + style_end + p_repo)
 
   if versions_sql == "versions.sql":
     pass
   else:
-    print(style_start + "# Versions SQL: " + style_end + versions_sql)
+    print(style_start + "#      Versions SQL: " + style_end + versions_sql)
 
   if not last_update_local:
     last_update_local="None"
 
-  print(style_start + "#  Last Update: " + style_end + str(last_update_local))
-  print(style_start + ("#" * 65) + style_end)
+  print(style_start + "#       Last Update: " + style_end + str(last_update_local))
+  print(style_start + ("#" * 70) + style_end)
 
 
 def info_component(p_comp_dict, p_kount):
