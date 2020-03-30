@@ -320,14 +320,8 @@ def info(p_json, p_home, p_repo, print_flag=True):
     last_update_readable = util.get_readable_time_diff(str(time_diff), precision=2)
 
   versions_sql = util.get_versions_sql()
-
-  perl_ver = util.getoutput('perl -E "say $^V"')
-  if perl_ver[0] == "v":
-    perl_ver = perl_ver[1:]
-
-  java_ver = util.getoutput('javac -version')
-  if java_ver[:6] == "javac ":
-    java_ver = java_ver[6:]
+  perl_ver = util.get_perl_ver()
+  java_ver = util.get_java_ver()
 
   if p_json:
     infoJsonArray = []

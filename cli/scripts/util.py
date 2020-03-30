@@ -44,6 +44,48 @@ MY_HOME = os.getenv('MY_HOME', '..' + os.sep + '..')
 pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
 
 
+def get_perl_ver():
+  perl_ver = getoutput('perl -E "say $^V"')
+  if perl_ver[0] == "v": 
+    perl_ver = perl_ver[1:]
+  return(perl_ver.strip())
+
+
+def get_java_ver():
+  java_ver = getoutput('javac -version')
+  if java_ver[:6] == "javac ":
+    java_ver = java_ver[6:]  
+  return(java_ver.strip())
+
+
+def get_java_major_version():
+  java_ver = get_java_ver()
+  if java_ver == "":
+    return("")
+
+  parts = split.java_ver(".")
+  if str(parts[0]) == "1":
+    return str(parts[1])
+
+  return str(parts[0])
+
+
+def get_jvm_location(p_display=True):
+  return("/usr/lib/jvm")
+
+
+def set_jvm_link(pg_ver, p_display=True):
+  jvm_location = get_jvm_location()
+  pg_location = os.path.join(MY_HOME, p_pg_ver, 'lib', 'postgresql')
+  cmd = 'ln -s ' + jvm_location + ' ' + pg_location
+
+  if p_display:
+    print("  " + cmd)
+
+  rc = os.system(cmd)
+  return(rc)
+
+
 def run_cmd (p_cmd, p_display=False):
   cmd = MY_HOME + os.sep + p_cmd
 
