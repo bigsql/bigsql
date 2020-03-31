@@ -62,7 +62,7 @@ CREATE VIEW v_versions AS
 INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200415', '');
+INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200401', '');
 INSERT INTO versions VALUES ('hub', '6.22', '',  0, '20200327', '');
 INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
@@ -283,8 +283,8 @@ INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql
   'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');
 INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'Spock', '', 'prod', 1);
 INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'Spock', '', 'prod', 1);
-INSERT INTO versions VALUES ('spock-pg11', '3.0.0-1',  'amd', 1, '20200331', 'pg11');
-INSERT INTO versions VALUES ('spock-pg12', '3.0.0-1',  'amd', 1, '20200331', 'pg12');
+INSERT INTO versions VALUES ('spock-pg11', '3.1-1',  'amd', 1, '20200401', 'pg11');
+INSERT INTO versions VALUES ('spock-pg12', '3.1-1',  'amd', 1, '20200401', 'pg12');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
   'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
