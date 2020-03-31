@@ -112,6 +112,10 @@ if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
   build timescaledb $timescaledbFullV $2 timescale
 fi
 
+if [ "$1" == "spock" ] || [ "$1" == "all" ]; then
+  build spock $spockFullV $2 spock
+fi
+
 if [ "$1" == "pglogical" ] || [ "$1" == "all" ]; then
   build pglogical $pgLogicalFullV $2 logical
 fi

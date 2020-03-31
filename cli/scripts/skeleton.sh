@@ -1,12 +1,13 @@
 
 function testAll {
-  ./io install cron-pg$1          -d demo
+  ./io install spock-pg$1         -d demo
+  ./io install cron-pg$1
   ./io install repack-pg$1        -d demo
   ./io install http-pg$1          -d demo
   ./io install plprofiler-pg$1    -d demo
   ./io install hypopg-pg$1        -d demo
   ./io install orafce-pg$1        -d demo
-  ./io install pglogical-pg$1     -d demo
+#  ./io install pglogical-pg$1     -d demo
   ./io install partman-pg$1       -d demo
   ./io install audit-pg$1         -d demo
   ./io install ddlx-pg$1          -d demo

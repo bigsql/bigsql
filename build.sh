@@ -31,7 +31,7 @@ printUsageMessage () {
   ##echo "# -f cassandra-$cstarV  presto-$presV"
   echo "# -e cstarfdw-$cstarfdwV  hivefdw-$hivefdwV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
-  echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
+  echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV pgadmin-$pgadminV"
@@ -204,6 +204,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
+  copy-pgXX "spock"
   copy-pgXX "pglogical"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
@@ -459,6 +460,7 @@ initPG () {
       initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "$outPlat" "postgres/esfdw" "" "" "nil"
 
      initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
+     initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/spock" "" "" "nil"
      initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
      initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
      initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"

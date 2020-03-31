@@ -141,6 +141,10 @@ bulkloadFullV=3.1.16
 bulkloadShortV=
 bulkloadBuildV=1
 
+spockFullV=3.0.0
+spockShortV=
+spockBuildV=1
+
 pgLogicalFullV=2.3.0
 pgLogicalShortV=
 pgLogicalBuildV=1

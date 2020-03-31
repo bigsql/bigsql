@@ -26,6 +26,7 @@ omniV=2.17-1
 hypoV=1.1.3-1
 timescaleV=1.6.1-1
 logicalV=2.3.0-1
+spockV=3.0.0-1
 profV=4.1-1
 bulkloadV=3.1.16-1
 partmanV=4.3.0-1

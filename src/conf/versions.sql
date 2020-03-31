@@ -215,8 +215,8 @@ INSERT INTO projects VALUES ('pljava', 3, 0, 'hub', 0, 'https://github.com/tada/
   'pljava', 1, 'pljava.png', 'Java Stored Procedures', 'https://github.com/tada/pljava');
 INSERT INTO releases VALUES ('pljava-pg11', 4, 'pljava', 'PL/Java', '', 'prod', 1);
 INSERT INTO releases VALUES ('pljava-pg12', 4, 'pljava', 'PL/Java', '', 'prod', 1);
-INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'amd',  1, '20200329', 'pg11');
-INSERT INTO versions VALUES ('pljava-pg12', '1.5.5-1',  'amd',  1, '20200329', 'pg12');
+INSERT INTO versions VALUES ('pljava-pg11', '1.5.5-1',  'amd',  1, '20200331', 'pg11');
+INSERT INTO versions VALUES ('pljava-pg12', '1.5.5-1',  'amd',  1, '20200331', 'pg12');
 
 INSERT INTO projects VALUES ('pldebugger', 3, 0, 'hub', 0, 'https://github.com/bigsql/pldebugger2/releases',
   'pldebugger', 1, 'debugger.png', 'Procedural Language Debugger', 'https://github.com/bigsql/pldebugger2#pldebugger2');
@@ -281,10 +281,10 @@ INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'amd', 0, '20200115
 
 INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
   'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');
-INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'pgSpock', '', 'soon', 1);
-INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'pgSpock', '', 'soon', 1);
-INSERT INTO versions VALUES ('spock-pg11', '3.0-1',  'arm, amd', 1, '20200328', 'pg11');
-INSERT INTO versions VALUES ('spock-pg12', '3.0-1',  'arm, amd', 1, '20200328', 'pg12');
+INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'Spock', '', 'prod', 1);
+INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'Spock', '', 'prod', 1);
+INSERT INTO versions VALUES ('spock-pg11', '3.0.0-1',  'amd', 1, '20200331', 'pg11');
+INSERT INTO versions VALUES ('spock-pg12', '3.0.0-1',  'amd', 1, '20200331', 'pg12');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
   'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
