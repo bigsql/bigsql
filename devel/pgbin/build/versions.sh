@@ -56,7 +56,7 @@ cassFullV=3.1.5
 cassShortV=
 cassBuildV=1
 
-orafceFullV=3.9.0
+orafceFullV=3.11.0
 orafceShortV=
 orafceBuildV=1
 
