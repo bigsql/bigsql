@@ -156,12 +156,12 @@ INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'amd',  1, '20130731', 'pg11');
 INSERT INTO versions VALUES ('pgtop-pg12', '3.7.0-1', 'amd',  1, '20130731', 'pg12');
 
-INSERT INTO projects VALUES ('zombo', 5, 0, 'hub', 1, 'https://github.com/zombodb/zombodb/releases',
-  'zombo', 1, 'zombo.png', 'PG Index for Elastic Search', 'https://github.com/zombodb/zombodb/blob/master/README.md');
-INSERT INTO releases VALUES ('zombo-pg11', 4, 'zombo', 'ZomboDB', '', 'soon', 1);
-INSERT INTO releases VALUES ('zombo-pg12', 4, 'zombo', 'ZomboDB', '', 'soon', 1);
-INSERT INTO versions VALUES ('zombo-pg11', '4.0', 'arm, amd',  1, '20191118', 'pg11');
-INSERT INTO versions VALUES ('zombo-pg12', '4.0', 'arm, amd',  1, '20201118', 'pg12');
+INSERT INTO projects VALUES ('dynamofdw', 5, 0, 'multicorn', 1, 'https://github.com/bigsql/dynamofdw/releases',
+  'dynamofdw', 1, 'dynamodb.png', 'AWS DynamoDB from PG', 'https://github.com/bigsql/dynamofdw/blob/master/README.md');
+INSERT INTO releases VALUES ('dynamofdw-pg11', 4, 'dynamofdw', 'Dynamo FDW', '', 'soon', 1);
+INSERT INTO releases VALUES ('dynamofdw-pg12', 4, 'dynamofdw', 'Dynamo FDW', '', 'soon', 1);
+INSERT INTO versions VALUES ('dynamofdw-pg11', '2.0', 'arm, amd',  1, '20200401', 'pg11');
+INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  1, '20200401', 'pg12');
 
 INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
   'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
@@ -245,7 +245,7 @@ INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '2019082
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
 INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'soon', 1);
-INSERT INTO versions VALUES ('backrest', '2.24-1', 'arm, amd', 1, '20200225', '');
+INSERT INTO versions VALUES ('backrest', '2.25-1', 'arm, amd', 1, '20200326', '');
 
 INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
   'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
@@ -360,7 +360,7 @@ INSERT INTO versions VALUES ('docker', '19', '', 1, '20200310', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.8.2', '', 1, '20200313', '');
+INSERT INTO versions VALUES ('minikube', '1.9.1', '', 1, '20200326', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
@@ -412,7 +412,7 @@ INSERT INTO versions VALUES ('omnidb', '2.17-1', '', 1, '20191205', '');
 
 INSERT INTO projects VALUES ('jdbc', 8, 0, 'hub', 1, 'https://jdbc.postgresql.org', 'jdbc', 0, 'java.png', 'JDBC Driver', 'https://jdbc.postgresql.org');
 INSERT INTO releases VALUES ('jdbc', 7, 'jdbc', 'JDBC', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('jdbc', '42.2.11', '', 1, '20200309', '');
+INSERT INTO versions VALUES ('jdbc', '42.2.12', '', 1, '20200331', '');
 
 INSERT INTO projects VALUES ('npgsql', 8, 0, 'hub', 2, 'https://www.nuget.org/packages/Npgsql/', 'npgsql', 0, 'npgsql.png', '.NET Provider', 'https://www.npgsql.org');
 INSERT INTO releases VALUES ('npgsql', 20, 'npgsql', '.net PG', '', 'bring-own', 1);
