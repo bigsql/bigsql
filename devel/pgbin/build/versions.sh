@@ -31,6 +31,10 @@ pgtopFullV=3.7.0
 pgtopShortV=
 pgtopBuildV=1
 
+proctabFullV=0.0.8
+proctabShortV=
+proctabBuildV=1
+
 httpFullV=1.3.1
 httpShortV=
 httpBuildV=1

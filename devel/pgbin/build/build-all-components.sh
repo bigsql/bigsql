@@ -132,6 +132,10 @@ if [ "$1" == "http" ] || [ "$1" == "all" ]; then
   build http $httpFullV $2 http
 fi
 
+if [ "$1" == "proctab" ] || [ "$1" == "all" ]; then
+  build proctab $proctabFullV $2 proctab
+fi
+
 if [ "$1" == "pgtop" ] || [ "$1" == "all" ]; then
   build pgtop $pgtopFullV $2 pgtop
 fi

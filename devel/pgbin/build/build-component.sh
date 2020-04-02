@@ -595,7 +595,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -646,6 +646,7 @@ while true; do
     --build-ddlx ) buildDdlx=true; Source=$2; shift; shift ;;
     --build-http ) buildHttp=true; Source=$2; shift; shift ;;
     --build-pgtop ) buildPgTop=true; Source=$2; shift; shift ;;
+    --build-proctab ) buildProctab=true; Source=$2; shift; shift ;;
     --build-number ) buildNumber=$2; shift; shift ;;
     --copy-bin ) copyBin=true; shift; shift; ;;
     --no-copy-bin ) copyBin=false; shift; shift; ;;
@@ -788,6 +789,9 @@ if [[ $buildHttp == "true" ]]; then
 fi
 if [[ $buildPgTop == "true" ]]; then
 	buildComp pgtop "$pgtopShortV" "$pgtopFullV" "$pgtopBuildV" "$Source"
+fi
+if [[ $buildProctab == "true" ]]; then
+	buildComp proctab "$proctabShortV" "$proctabFullV" "$proctabBuildV" "$Source"
 fi
 
 destDir=`date +%Y-%m-%d`
