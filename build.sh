@@ -34,10 +34,10 @@ printUsageMessage () {
   echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
-  echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV pgadmin-$pgadminV"
+  echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV  pgadmin-$pgadminV"
   echo "#    repack-$repackV  oraclefdw-$oraclefdwV  multicorn-$multicornV  esfdw-$esfdwV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  tdsfdw-$tdsfdwV"
-  echo "#    bouncer-$bouncerV  pgtop-$pgtopV"
+  echo "#    bouncer-$bouncerV  pgtop-$pgtopV  proctab-$proctabV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
   echo "#--------------------------------------------------------------------------#"
@@ -448,6 +448,7 @@ initPG () {
       initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
       initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
       initC "pgtop-pg$pgM" "pgtop" "$pgtopV" "$outPlat" "postgres/pgtop" "" "" "nil"
+      initC "proctab-pg$pgM" "proctab" "$proctabV" "$outPlat" "postgres/proctab" "" "" "nil"
     fi
 
     if [ "$outPlat" == "amd" ] || [ "$outPlat" == "osx" ]; then

@@ -15,6 +15,7 @@ pgadminV=4
 esfdwV=0.6.0
 bouncerV=1.12.0-1
 pgtopV=3.7.0-1
+proctabV=0.0.8-1
 
 multicornV=1.4.0-1
 
