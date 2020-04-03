@@ -31,7 +31,7 @@ pgtopFullV=3.7.0
 pgtopShortV=
 pgtopBuildV=1
 
-proctabFullV=0.0.8
+proctabFullV=0.0.8.1
 proctabShortV=
 proctabBuildV=1
 

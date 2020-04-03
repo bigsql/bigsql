@@ -62,7 +62,7 @@ CREATE VIEW v_versions AS
 INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200401', '');
+INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200403', '');
 INSERT INTO versions VALUES ('hub', '6.22', '',  0, '20200327', '');
 INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
@@ -153,8 +153,8 @@ INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/mark
   'proctab', 1, 'proctab.png', '"top" for Postgres', 'https://github.com/markwm/proctab/-/blob/master/README');
 INSERT INTO releases VALUES ('proctab-pg11', 8, 'proctab', 'ProcTab', '', 'prod', 1);
 INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'ProcTab', '', 'prod', 1);
-INSERT INTO versions VALUES ('proctab-pg11', '0.0.8-1', 'amd',  1, '20200402', 'pg11');
-INSERT INTO versions VALUES ('proctab-pg12', '0.0.8-1', 'amd',  1, '20200402', 'pg12');
+INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
+INSERT INTO versions VALUES ('proctab-pg12', '0.0.8.1-1', 'amd',  1, '20200403', 'pg12');
 
 INSERT INTO projects VALUES ('pgtop', 2, 0, 'proctab', 0, 'https://github.com/markwm/pgtop/releases',
   'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://github.com/markwm/pg_top/-/blob/master/README');

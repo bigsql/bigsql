@@ -216,6 +216,7 @@ initDir () {
   copy-pgXX "pgtsql"
   copy-pgXX "hypopg"
   copy-pgXX "partman"
+  copy-pgXX "proctab"
   copy-pgXX "repack"
   copy-pgXX "bulkload"
   copy-pgXX "audit"   
