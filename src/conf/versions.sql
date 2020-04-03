@@ -104,8 +104,8 @@ INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 0, '20191029', '');
 
 INSERT INTO projects VALUES ('cassandrafdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
   'cstarfdw', 1, 'cstar.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
-INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
-INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
 INSERT INTO versions VALUES ('cassandrafdw-pg11', '3.1.5-1', 'amd', 1, '20191230', 'pg11');
 INSERT INTO versions VALUES ('cassandrafdw-pg12', '3.1.5-1', 'amd', 1, '20191230', 'pg12');
 
@@ -116,8 +116,8 @@ INSERT INTO versions VALUES ('hive', '0.229', '', 0, '20191115', '');
 
 INSERT INTO projects VALUES ('hivefdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 
   'hive_fdw', 1, 'hive.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
-INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'soon', 1);
-INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'soon', 1);
+INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'amd', 1, '20200222', 'pg11');
 INSERT INTO versions VALUES ('hivefdw-pg12', '3.3.1-1', 'amd', 1, '20200222', 'pg12');
 
@@ -151,8 +151,8 @@ INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'p
 
 INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/bigsql/pg_proctab/releases',
   'proctab', 1, 'proctab.png', 'Postgres Process Table', 'https://github.com/bigsql/pg_proctab');
-INSERT INTO releases VALUES ('proctab-pg11', 8, 'proctab', 'ProcTab', '', 'prod', 1);
-INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'ProcTab', '', 'prod', 1);
+INSERT INTO releases VALUES ('proctab-pg11', 8, 'proctab', 'pgProcTab', '', 'prod', 1);
+INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'pgProcTab', '', 'prod', 1);
 INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
 INSERT INTO versions VALUES ('proctab-pg12', '0.0.8.1-1', 'amd',  1, '20200403', 'pg12');
 
