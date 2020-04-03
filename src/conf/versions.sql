@@ -149,8 +149,8 @@ INSERT INTO releases VALUES ('tdsfdw-pg11', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 
 INSERT INTO releases VALUES ('tdsfdw-pg12', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'pg11');
 
-INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/markwm/proctab/releases',
-  'proctab', 1, 'proctab.png', '"top" for Postgres', 'https://github.com/markwm/proctab/-/blob/master/README');
+INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/bigsql/pg_proctab/releases',
+  'proctab', 1, 'proctab.png', 'Postgres Process Table', 'https://github.com/bigsql/pg_proctab');
 INSERT INTO releases VALUES ('proctab-pg11', 8, 'proctab', 'ProcTab', '', 'prod', 1);
 INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'ProcTab', '', 'prod', 1);
 INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
