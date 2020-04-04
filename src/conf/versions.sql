@@ -190,10 +190,10 @@ INSERT INTO releases VALUES ('oraclefdw-pg12', 7, 'oraclefdw', 'Oracle FDW', '',
 INSERT INTO versions VALUES ('oraclefdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
 INSERT INTO versions VALUES ('oraclefdw-pg12','2.2.0-1', 'amd', 1, '20191010', 'pg12');
 
-INSERT INTO projects VALUES ('oracle', 5, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
-  'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
-INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'prod',  0);
-INSERT INTO versions VALUES ('oracle', '18c', 'amd', 1, '20191010', '');
+INSERT INTO projects VALUES ('oracle_xe_18c', 5, 1539, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
+  'oracle_xe_18c', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
+INSERT INTO releases VALUES ('oracle_xe_18c', 5, 'oracle_xe_18c', 'Oracle Express Edition', '', 'prod',  0);
+INSERT INTO versions VALUES ('oracle_xe_18c', '1.0-1', 'amd', 1, '20191010', '');
 
 -- ##
 INSERT INTO categories VALUES (3, 'Procedures & Functions', 'Stored Procs');
