@@ -96,14 +96,15 @@ INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'soon', 1);
 INSERT INTO versions VALUES ('pg13', '13dev', 'arm, amd, osx', 0, '20200327','');
 
 -- ##
-INSERT INTO categories VALUES (5, 'Foreign Data Wrappers', 'FDWs');
+INSERT INTO categories VALUES (5, 'Foreign Data', 'Foreign');
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 
   'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
-INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'soon', 1);
+INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'prod', 1);
+INSERT INTO versions VALUES ('cassandra', '3.11.6', '', 1, '20200214', '');
 INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 0, '20191029', '');
 
 INSERT INTO projects VALUES ('cassandrafdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
-  'cstarfdw', 1, 'cstar.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
+  'cstarfdw', 1, 'cstar_fdw.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
 INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
 INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
 INSERT INTO versions VALUES ('cassandrafdw-pg11', '3.1.5-1', 'amd', 1, '20191230', 'pg11');
@@ -150,7 +151,7 @@ INSERT INTO releases VALUES ('tdsfdw-pg12', 4, 'tdsfdw', 'TDS FDW', '', 'prod', 
 INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'pg11');
 
 INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/bigsql/pg_proctab/releases',
-  'proctab', 1, 'proctab.png', 'Postgres Process Table', 'https://github.com/bigsql/pg_proctab');
+  'proctab', 1, 'proctab.png', 'Monitoring Functions for pgTop', 'https://github.com/bigsql/pg_proctab');
 INSERT INTO releases VALUES ('proctab-pg11', 8, 'proctab', 'pgProcTab', '', 'prod', 1);
 INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'pgProcTab', '', 'prod', 1);
 INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
