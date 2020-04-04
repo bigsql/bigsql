@@ -28,8 +28,7 @@ printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
   echo "# -p $P12  $P11  $P10  $P96  $P95  $P94"
   echo "# -b hub-$hubV"
-  ##echo "# -f cassandra-$cstarV  presto-$presV"
-  echo "# -e cstarfdw-$cstarfdwV  hivefdw-$hivefdwV  timescale-$timescaleV"
+  echo "# -e cstarfdw-$cstarfdwV  cstar-$cstarV  hivefdw-$hivefdwV  timescale-$timescaleV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
@@ -443,9 +442,14 @@ initPG () {
 
     if [ "$outPlat" == "amd" ]; then
       initC "tdsfdw-pg$pgM" "tdsfdw" "$tdsfdwV" "$outPlat" "postgres/tdsfdw" "" "" "nil"
+
       initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
+
+      initC "cassandra" "cassandra" "$cstarV" "" "foreign" "" "" "nil"
       initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$outPlat" "postgres/cassandrafdw" "" "" "nil"
+
       initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$outPlat" "postgres/hivefdw" "" "" "nil"
+
       initC "bulkload-pg$pgM" "bulkload" "$bulkloadV" "$outPlat" "postgres/bulkload" "" "" "nil"
       initC "multicorn-pg$pgM" "multicorn" "$multicornV" "$outPlat" "postgres/multicorn" "" "" "nil"
       initC "pgtop-pg$pgM" "pgtop" "$pgtopV" "$outPlat" "postgres/pgtop" "" "" "nil"

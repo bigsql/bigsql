@@ -36,12 +36,7 @@ repackV=1.4.5-1
 audit11V=1.3.1-1
 audit12V=1.4.0-1
 
-#postgis25V=2.5.3-1
 postgis30V=3.0.1-1
-
-cstarV=3.1.5-1
-
-prestoV=0.229
 
 tsqlV=3.0-1
 pljavaV=1.5.5-1
@@ -52,7 +47,11 @@ cronV=1.2.0-1
 mysqlfdwV=2.5.3-1
 oraclefdwV=2.2.0-1
 tdsfdwV=2.0.1-1
+
+cstarV=3.11.6
 cstarfdwV=3.1.5-1
+
+prestoV=0.229
 hivefdwV=3.3.1-1
 
 badgerV=11.2
