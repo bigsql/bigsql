@@ -1703,6 +1703,21 @@ def get_os():
   return ("???")
 
 
+def get_repo()
+  pkg_mgr = get_pkg_mgr();
+  if pk_mgr == "apt":
+    repo_major = "ubuntu"
+  else:
+    repo_major = "rhel"
+
+  if rep_major == "rhel":
+     rep_minor = "7"
+  else:
+     rep_minor = "16.04"
+
+  return (rep_major, rep_minor)
+
+
 def get_pkg_mgr():
   p = Popen("yum --version") 
   (stdout, stderr) = p.communicate()
