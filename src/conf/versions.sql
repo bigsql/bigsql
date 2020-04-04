@@ -192,8 +192,8 @@ INSERT INTO versions VALUES ('oraclefdw-pg12','2.2.0-1', 'amd', 1, '20191010', '
 
 INSERT INTO projects VALUES ('oracle', 5, 0, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
   'oracle', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
-INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'soon',  0);
-INSERT INTO versions VALUES ('oracle', '10+', 'amd', 0, '20191010', '');
+INSERT INTO releases VALUES ('oracle', 5, 'oracle', 'Oracle Database', '', 'prod',  0);
+INSERT INTO versions VALUES ('oracle', '18c', 'amd', 1, '20191010', '');
 
 -- ##
 INSERT INTO categories VALUES (3, 'Procedures & Functions', 'Stored Procs');
