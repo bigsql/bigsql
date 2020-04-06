@@ -1863,6 +1863,7 @@ try:
         hub_update = 0
 
       [last_update_utc, last_update_local, unique_id] = util.read_hosts('localhost')
+      util.update_hosts('localhost', unique_id, True)
 
       if isJSON:
         print('[{"status":"completed","has_updates":'+ str(hasUpdates) + '}]')

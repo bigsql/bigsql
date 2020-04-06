@@ -614,6 +614,24 @@ def update_installed_date(p_app):
   return
 
 
+def update_hosts(p_host, p_unique_id, updated=False):
+  last_update_utc = datetime.utcnow()
+
+  current_time = last_update_utc
+
+  if p_unique_id:
+    unique_id = p_unique_id
+  else:
+    unique_id = str(uuid.uuid4())
+
+  if updated:
+    exec_sql("UPDATE hosts " + \
+             "   SET last_update_utc = '" + last_update_utc.strftime("%Y-%m-%d %H:%M:%S") + "', " + \
+             "       unique_id = '" + str(unique_id) + "' " + \
+             " WHERE host = '" + str(p_host) + "'")
+  return
+
+
 def get_versions_sql():
   return get_value ("GLOBAL", "VERSIONS", "versions.sql")
 
@@ -1703,7 +1721,7 @@ def get_os():
   return ("???")
 
 
-def get_repo()
+def get_repo():
   pkg_mgr = get_pkg_mgr();
   if pk_mgr == "apt":
     repo_major = "ubuntu"
