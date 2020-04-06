@@ -45,8 +45,12 @@ agentV=4.0-1
 cronV=1.2.0-1
 
 mysqlfdwV=2.5.3-1
+
 oraclefdwV=2.2.0-1
+oracle_xeV=18.1.0-1
+
 tdsfdwV=2.0.1-1
+sqlsvrV=2019-1
 
 cstarV=3.11.6
 cstarfdwV=3.1.5-1
