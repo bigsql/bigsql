@@ -71,7 +71,24 @@ def get_java_major_version():
 
 
 def get_jvm_location(p_display=True):
-  return("/usr/lib/jvm")
+  j_major = get_java_major_version()
+  j_base = "/usr/lib/jvm/"
+  j_ext = "/lib/server/libjvm.so"
+  if jvm_major == "8":
+    j_so_path = j_base + 'java-1.8.0-openjdk' + j_ext
+  else:
+    j_so_path = j_base + 'java-' + j_major +'-openjdk' + j_ext
+
+  if p_display:
+    print("# jvm_location = " + j_so_path)
+
+  if os.path.isfile(j_so_path):
+    return(j_so_path)
+
+  if p_display:
+    print("#  ERROR: not found")
+
+  return ""
 
 
 def set_jvm_link(pg_ver, p_display=True):
