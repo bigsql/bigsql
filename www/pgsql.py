@@ -18,7 +18,7 @@ PGSQL.IO is the developer friendly cross-platform PostgreSQL Community Edition
 that fully embraces core PostgreSQL and it's rich eco-system of over
 50 enterprise-class extensions, applications & connectors.
 Recently we have added support for ARM,
-OSX, and Windows; added to our AMD Linux support to include Ubuntu & Debian;
+OSX, and Windows; added to our AMD Linux support to include Ubuntu, Debian, and openSUSE;
 optimized for Docker and Kubernetes; and made
 our selection of components much more complete, up to date and accurate.
 \
@@ -31,7 +31,7 @@ our selection of components much more complete, up to date and accurate.
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
   print("<tr><td colspan=2>&nbsp;<br><font size=+2><b><u>Download & Usage</u></b></font><p>")
   print("We are verfied & tested with: Python 2.7+, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, \n" + \
-        "Debian 9+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
+        "Debian 9+, opensSUSE 12+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
         "We run in a sandboxed environment that is perfect for running \n" + \
         "in the development, container, bare metal, or cloud environment \n" + \
         "of your choice.")
