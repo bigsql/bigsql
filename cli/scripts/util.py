@@ -344,12 +344,18 @@ def escape_ansi_chars(p_str):
 def getoutput(p_cmd):
   if sys.version_info < (2, 7):
     import commands
-    out=commands.getoutput(p_cmd)
-    return out.strip()
-  else:
-    from subprocess import check_output
+    try:
+      out=commands.getoutput(p_cmd)
+      return out.strip()
+    except Exception as e:
+      return ""
+
+  from subprocess import check_output
+  try:
     out=check_output(p_cmd, shell=True)
     return out.strip().decode('ascii')
+  except Exception as e:
+    return ""
 
 
 ## is this a Linux SystemD platform ############################

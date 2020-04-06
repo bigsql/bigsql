@@ -364,7 +364,11 @@ def info(p_json, p_home, p_repo, print_flag=True):
   else:
     admin_display = ""
 
-  langs = "Python v" + python_ver + " | Perl v" + perl_ver + " | Java v" + java_ver
+  langs = "Python v" + python_ver
+  if perl_ver > "":
+    langs = langs + " | Perl v" + perl_ver
+  if java_ver > "":
+    langs = langs + " | Java v" + java_ver
 
   print(style_start + ("#" * 70) + style_end)
   print(style_start + "#          PGSQL-IO: " + style_end + "v" + ver + "  " + p_home)
