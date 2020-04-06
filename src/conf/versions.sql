@@ -136,8 +136,8 @@ INSERT INTO versions VALUES ('mysqlfdw-pg12', '2.5.3-1', 'arm, amd', 1, '2019092
 
 INSERT INTO projects VALUES ('sqlsvr', 5, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019',
   'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
-INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server', '', 'soon',  0);
-INSERT INTO versions VALUES ('sqlsvr', '2008+', 'amd', 0, '20191010', '');
+INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server for Linux', '', 'prod',  0);
+INSERT INTO versions VALUES ('sqlsvr', '2019', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('sybase', 5, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 
   'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
@@ -157,8 +157,8 @@ INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'pgProcTab', '', 'pro
 INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
 INSERT INTO versions VALUES ('proctab-pg12', '0.0.8.1-1', 'amd',  1, '20200403', 'pg12');
 
-INSERT INTO projects VALUES ('pgtop', 2, 0, 'proctab', 0, 'https://github.com/markwm/pgtop/releases',
-  'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://github.com/markwm/pg_top/-/blob/master/README');
+INSERT INTO projects VALUES ('pgtop', 2, 0, 'proctab', 0, 'https://github.com/markwkm/pgtop/releases',
+  'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://github.com/markwkm/pg_top/-/blob/master/README');
 INSERT INTO releases VALUES ('pgtop-pg11', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'amd',  1, '20130731', 'pg11');
@@ -313,7 +313,7 @@ INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'amd', 1, '20200220', 'p
 INSERT INTO projects VALUES ('pgadmin', 2, 80, 'docker', 1, 'https://pgadmin.org',
   'pgadmin', 0, 'pgadmin.png', 'PG Admin for Docker', 'https://pgadmin.org');
 INSERT INTO releases VALUES ('pgadmin', 3, 'pgadmin', 'pgAdmin', '', 'prod', 1);
-INSERT INTO versions VALUES ('pgadmin', '4', '', 1, '20200305', '');
+INSERT INTO versions VALUES ('pgadmin', '4', '', 1, '20200402', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
@@ -370,7 +370,7 @@ INSERT INTO versions VALUES ('docker', '19', '', 1, '20200310', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.9.1', '', 1, '20200326', '');
+INSERT INTO versions VALUES ('minikube', '1.9.2', '', 1, '20200404', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
@@ -397,7 +397,7 @@ INSERT INTO versions VALUES ('llvm', '10.0.0', '', 1, '20200324', '');
 INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
   'bison', 0, 'gnu.png', 'Parser-Generator', 'https://gnu.org/software/bison/');
 INSERT INTO releases VALUES ('bison', 6, 'bison', 'Bison', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('bison', '3.5.3', '', 1, '20200308', '');
+INSERT INTO versions VALUES ('bison', '3.5.4', '', 1, '20200405', '');
 
 INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
@@ -430,7 +430,7 @@ INSERT INTO versions VALUES ('npgsql', '4.1.3.1', '', 1, '20200220', '');
 
 INSERT INTO projects VALUES ('psycopg', 8, 0, 'hub', 3, 'https://pypi.org/project/psycopg2/', 'psycopg', 0, 'psycopg.png', 'Python Adapter', 'http://psycopg.org');
 INSERT INTO releases VALUES ('psycopg', 6, 'psycopg', 'Psycopg2', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('psycopg', '2.8.4', '', 1, '20191020', '');
+INSERT INTO versions VALUES ('psycopg', '2.8.5', '', 1, '20200406', '');
 
 INSERT INTO projects VALUES ('ruby', 8, 0, 'hub', 4, 'https://rubygems.org/gems/pg', 'ruby', 0, 'ruby.png', 'Ruby Interface', 'https://github.com');
 INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'bring-own', 1);
