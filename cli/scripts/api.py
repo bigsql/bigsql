@@ -263,6 +263,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
 
   ## Check the OS & Resources ########################################
   plat = util.get_os()
+  os_major_ver = ""
   if this_uname == "Darwin":
     system_memory_in_bytes = int(util.getoutput("/usr/sbin/sysctl hw.memsize | awk '{print $2}'"))
     system_memory_in_kbytes = system_memory_in_bytes / 1024
@@ -278,6 +279,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     system_memory_in_gb = mem_mb / 1024.0
     system_cpu_cores = util.get_cpu_cores()
     cpu_model=util.getoutput("grep 'model name' /proc/cpuinfo | head -1 | cut -d':' -f2")
+    os_major_ver = util.getoutput("cat /etc/os-release | grep VERSION_ID | cut -d= -f2 | tr -d '\"'")
     if cpu_model == "":
       cpu_model="ARM"
     if os.path.exists("/etc/redhat-release"):
@@ -321,7 +323,9 @@ def info(p_json, p_home, p_repo, print_flag=True):
 
   versions_sql = util.get_versions_sql()
   perl_ver = util.get_perl_ver()
-  java_ver = util.get_java_ver()
+  [java_major_ver, java_ver] = util.get_java_ver()
+
+  os_pkg_mgr = util.get_pkg_mgr()
 
   if p_json:
     infoJsonArray = []
@@ -334,6 +338,8 @@ def info(p_json, p_home, p_repo, print_flag=True):
     infoJson['host_long'] = util.get_host()
     infoJson['host_ip'] = util.get_host_ip()
     infoJson['os'] = unicode(str(os),sys.getdefaultencoding(),errors='ignore').strip()
+    infoJson['os_pkg_mgr'] = os_pkg_mgr
+    infoJson['os_major_ver'] = os_major_ver
     infoJson['platform'] = unicode(str(plat),sys.getdefaultencoding(),errors='ignore').strip()
     infoJson['arch'] = arch
     infoJson['mem'] = round_mem
@@ -352,6 +358,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
       infoJson['pip_ver'] = pip_ver
     infoJson['perl_ver'] = perl_ver
     infoJson['java_ver'] = java_ver
+    infoJson['java_major_ver'] = java_major_ver
     infoJsonArray.append(infoJson)
     if print_flag:
       print(json.dumps(infoJsonArray, sort_keys=True, indent=2))

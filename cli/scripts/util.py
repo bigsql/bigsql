@@ -55,19 +55,19 @@ def get_java_ver():
   java_ver = getoutput('javac -version')
   if java_ver[:6] == "javac ":
     java_ver = java_ver[6:]  
-  return(java_ver.strip())
 
-
-def get_java_major_version():
-  java_ver = get_java_ver()
   if java_ver == "":
-    return("")
+    return(["", ""])
 
-  parts = split.java_ver(".")
+  java_ver = java_ver.strip()
+
+  parts = java_ver.split(".")
   if str(parts[0]) == "1":
-    return str(parts[1])
+    java_major_ver = str(parts[1])
+  else:
+    java_major_ver = str(parts[0])
 
-  return str(parts[0])
+  return([java_major_ver, java_ver])
 
 
 def get_jvm_location(p_display=True):
@@ -1744,29 +1744,11 @@ def get_os():
   return ("???")
 
 
-def get_repo():
-  pkg_mgr = get_pkg_mgr();
-  if pk_mgr == "apt":
-    repo_major = "ubuntu"
-  else:
-    repo_major = "rhel"
-
-  if rep_major == "rhel":
-     rep_minor = "7"
-  else:
-     rep_minor = "16.04"
-
-  return (rep_major, rep_minor)
-
-
 def get_pkg_mgr():
-  p = Popen("yum --version") 
-  (stdout, stderr) = p.communicate()
-
-  if p.returncode==0:
-      return "yum"
-
-  return "apt"
+  yum_ver = getoutput("yum --version")
+  if yum_ver == "":
+    return("apt")
+  return("yum")
 
 
 ####################################################################################
