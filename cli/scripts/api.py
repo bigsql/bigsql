@@ -326,6 +326,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
   [java_major_ver, java_ver] = util.get_java_ver()
 
   os_pkg_mgr = util.get_pkg_mgr()
+  jvm_location = util.get_jvm_location()
 
   if p_json:
     infoJsonArray = []
@@ -359,6 +360,7 @@ def info(p_json, p_home, p_repo, print_flag=True):
     infoJson['perl_ver'] = perl_ver
     infoJson['java_ver'] = java_ver
     infoJson['java_major_ver'] = java_major_ver
+    infoJson['jvm_location'] = jvm_location
     infoJsonArray.append(infoJson)
     if print_flag:
       print(json.dumps(infoJsonArray, sort_keys=True, indent=2))

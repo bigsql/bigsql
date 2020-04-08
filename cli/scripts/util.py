@@ -70,12 +70,12 @@ def get_java_ver():
   return([java_major_ver, java_ver])
 
 
-def get_jvm_location(p_display=True):
-  j_major = get_java_major_version()
+def get_jvm_location(p_display=False):
+  [j_major, j_ver] = get_java_ver()
   j_base = "/usr/lib/jvm/"
   j_ext = "/lib/server/libjvm.so"
-  if jvm_major == "8":
-    j_so_path = j_base + 'java-1.8.0-openjdk' + j_ext
+  if j_major in ("6", "7", "8", "9"):
+    j_so_path = j_base + 'java-1." + j_major + ".0-openjdk' + j_ext
   else:
     j_so_path = j_base + 'java-' + j_major +'-openjdk' + j_ext
 
