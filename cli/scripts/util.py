@@ -91,7 +91,7 @@ def get_jvm_location(p_display=False):
   return ""
 
 
-def set_jvm_link(pg_ver, p_display=True):
+def set_jvm_link(p_pg_ver, p_display=True):
   jvm_location = get_jvm_location()
   pg_location = os.path.join(MY_HOME, p_pg_ver, 'lib', 'postgresql')
   cmd = 'ln -s ' + jvm_location + ' ' + pg_location
