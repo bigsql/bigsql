@@ -91,6 +91,16 @@ alias ver="vi ~/dev/pgsql-io/src/conf/versions.sql"
 export REGION=us-west-2
 export BUCKET=s3://pgsql-io-download
 
+export WORKON_HOME=$HOME/Envs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+mkdir -p $WORKON_HOME
+sudo pip3 install virtualenvwrapper
+
+source /usr/local/bin/virtualenvwrapper.sh
+
+
 export DEV=$HOME/dev
 export HIST=$DEV/history
 export IN=$DEV/in
