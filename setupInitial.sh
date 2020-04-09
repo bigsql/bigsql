@@ -83,10 +83,17 @@ if [ ! -d ~/.aws ]; then
   chmod 600 config
 fi
 
-## ENV for ~/.bashrc or ~/.bash_profile 
+export WORKON_HOME=~/Envs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+mkdir -p $WORKON_HOME
+pip install virtualenvwrapper
+
+
+## ENV for ~/.bashrc or ~/.bash_profile ##############################################
 alias git-push="cd ~/dev/pgsql-io; git status; git add .; git commit -m wip; git push"
 alias bp="cd ~/dev/pgsql-io; . ./bp.sh"
 alias ver="vi ~/dev/pgsql-io/src/conf/versions.sql"
+alias chalice="workon chalice; cd ~/dev/pgsql-io/www/chalice"
 
 export REGION=us-west-2
 export BUCKET=s3://pgsql-io-download
@@ -94,10 +101,6 @@ export BUCKET=s3://pgsql-io-download
 export WORKON_HOME=$HOME/Envs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-
-mkdir -p $WORKON_HOME
-sudo pip3 install virtualenvwrapper
-
 source /usr/local/bin/virtualenvwrapper.sh
 
 
