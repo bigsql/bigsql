@@ -153,10 +153,10 @@ c = con.cursor()
 
 sql = "SELECT cat, cat_desc, image_file, component, project, release_name, \n" + \
       "       version, sources_url, project_url, platform, release_date, \n" + \
-      "       stage, proj_desc, sort_order \n" + \
+      "       stage, proj_desc, cat_sort, rel_sort \n" + \
       "  FROM v_versions \n" + \
       " WHERE is_current = 1 AND cat > 0 \n" + \
-      "ORDER BY 1, 14"
+      "ORDER BY 14, 15"
 
 c.execute(sql)
 data = c.fetchall()
