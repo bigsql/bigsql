@@ -58,8 +58,16 @@ CREATE VIEW v_versions AS
      AND p.project = r.project
      AND r.component = v.component;
 
--- ##
 INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
+INSERT INTO categories VALUES (1, 'Rock Solid Postgres', 'Postgres');
+INSERT INTO categories VALUES (2, 'Advanced Applications', 'Applics');
+INSERT INTO categories VALUES (3, 'Procedures & Functions', 'Stored Procs');
+INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
+INSERT INTO categories VALUES (5, 'Foreign Data', 'Foreign');
+INSERT INTO categories VALUES (7, 'PGSQL Developers Toolchain', 'Toolchain');
+INSERT INTO categories VALUES (8, 'Connectors',   'Applications');
+
+-- ## HUB ################################
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
 INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200403', '');
@@ -68,7 +76,6 @@ INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
 
 -- ##
-INSERT INTO categories VALUES (1, 'Rock Solid Postgres', 'Postgres');
 INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/download',
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
@@ -96,7 +103,6 @@ INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'soon', 1);
 INSERT INTO versions VALUES ('pg13', '13dev', 'arm, amd, osx', 0, '20200327','');
 
 -- ##
-INSERT INTO categories VALUES (5, 'Foreign Data', 'Foreign');
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 
   'cassandra', 0, 'cstar.png', 'Multi-Master Big Data', 'https://cassandra.apache.org');
 INSERT INTO releases VALUES ('cassandra', 11, 'cassandra','Cassandra', '', 'prod', 1);
@@ -201,7 +207,6 @@ INSERT INTO releases VALUES ('oracle_xe_18c', 5, 'oracle_xe_18c', 'Oracle Expres
 INSERT INTO versions VALUES ('oracle_xe_18c', '1.0-1', 'amd', 1, '20191010', '');
 
 -- ##
-INSERT INTO categories VALUES (3, 'Procedures & Functions', 'Stored Procs');
 INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
   'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
@@ -286,7 +291,6 @@ INSERT INTO versions VALUES ('cron-pg11', '1.2.0-1', 'arm, amd', 1, '20190830', 
 INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20190830', 'pg12');
 
 -- ##
-INSERT INTO categories VALUES (2, 'Advanced Applications', 'Applics');
 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
@@ -367,7 +371,6 @@ INSERT INTO releases VALUES ('agent', 4, 'agent',  'pgAgent', '', 'soon', 1);
 INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 
 -- ##
-INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
 INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.8', '', 'prod', 1);
@@ -382,7 +385,6 @@ INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('helm', '3.1.2', '', 1, '20200311', '');
 
 -- ##
-INSERT INTO categories VALUES (7, 'PGSQL Developers Toolchain', 'Toolchain');
 
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
@@ -420,7 +422,6 @@ INSERT INTO releases VALUES ('gdb', 7, 'gdb', 'GDB', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('gdb', '9.1', '', 1, '20200208', '');
 
 -- ##
-INSERT INTO categories VALUES (8, 'Connectors',   'Applications');
 INSERT INTO projects VALUES ('omnidb', 2, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
 INSERT INTO releases VALUES ('omnidb', 11, 'omnidb', 'OmniDB', '', 'soon', 1);
 INSERT INTO versions VALUES ('omnidb', '2.17-1', '', 1, '20191205', '');
