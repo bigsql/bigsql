@@ -105,8 +105,8 @@ INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 0, '20191029', '');
 
 INSERT INTO projects VALUES ('cassandrafdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
   'cstarfdw', 1, 'cstar_fdw.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
-INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
-INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','soon', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
 INSERT INTO versions VALUES ('cassandrafdw-pg11', '3.1.5-1', 'amd', 1, '20191230', 'pg11');
 INSERT INTO versions VALUES ('cassandrafdw-pg12', '3.1.5-1', 'amd', 1, '20191230', 'pg12');
 
@@ -116,7 +116,7 @@ INSERT INTO releases VALUES ('hive', 13, 'hive', 'Hive', '', 'prod', 1);
 INSERT INTO versions VALUES ('hive', '0.229', '', 1, '20191115', '');
 
 INSERT INTO projects VALUES ('hivefdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 
-  'hive_fdw', 1, 'hive.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
+  'hivefdw', 1, 'hive_fdw.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
 INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
 INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'amd', 1, '20200408', 'pg11');
@@ -171,10 +171,15 @@ INSERT INTO releases VALUES ('dynamofdw-pg12', 4, 'dynamofdw', 'Dynamo FDW', '',
 INSERT INTO versions VALUES ('dynamofdw-pg11', '2.0', 'arm, amd',  0, '20200401', 'pg11');
 INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  0, '20200401', 'pg12');
 
+INSERT INTO projects VALUES ('es', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
+  'es', 1, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
+INSERT INTO releases VALUES ('es', 4, 'es', 'ElasticSearch', '', 'prod', 1);
+INSERT INTO versions VALUES ('es', '7.6.2', 'amd',  1, '20200331', '');
+
 INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
-  'esfdw', 1, 'elastic-search.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
-INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'Elastic Search FDW', '', 'prod', 1);
+  'esfdw', 1, 'esfdw.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
+INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'ElasticSearchFDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'ElasticSearchFDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0', 'amd',  1, '20200110', 'pg11');
 INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0', 'amd',  1, '20200110', 'pg12');
 
