@@ -25,7 +25,7 @@ def print_top():
   print("\n<p>")
 
   print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=whitesmoke cellpadding=1>')
-  print("<tr><td colspan=3><font size=+2>&nbsp;<br><b><u>Components</u></b></font></td></tr>")
+  print("<tr><td colspan=3><h2>Components</h2></td></tr>")
 
  
 def print_bottom():
@@ -102,8 +102,8 @@ def get_columns(d):
 
 
 def print_row_header(pBR):
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><br><font size=+1><b>" + \
-    cat_desc + "</b></font></td></tr>")
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><h3>" + \
+    cat_desc + "</h3</td></tr>")
 
 
 def print_row_detail(pCol, pBR):
@@ -130,7 +130,7 @@ def print_row_detail(pCol, pBR):
 
   print("  <td width=" + str(IMG_SIZE) + ">&nbsp;<img src=img/" + image_file + \
     " height=" + str(IMG_SIZE) + " width=" + str(IMG_SIZE) + " /></td>")
-  print("  <td width=" +str( COL_SIZE) + ">&nbsp;<br><font size=" + str(FONT_SIZE) + \
+  print("  <td width=" +str( COL_SIZE) + "><font size=" + str(FONT_SIZE) + \
     "><a href=" + project_url + ">" + release_name + \
     "</a>&nbsp;&nbsp;<a href=" + source_url + ">v" + version + \
     "</a>&nbsp;<font color=red size=-1><sup>" + \
