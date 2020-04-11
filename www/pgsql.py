@@ -1,6 +1,6 @@
 
 def print_header(pWidth):
-  print("<title>PostgreSQL Community Edition</title>")
+  print("<title>PGSQL: PostgreSQL CE</title>")
 
   print("<center>")
 
@@ -15,13 +15,11 @@ def print_header(pWidth):
   print("<tr><td>&nbsp;</td></tr>")
   string = \
 """\
-PGSQL is the developer friendly cross-platform PostgreSQL Community Edition
-that fully embraces core PostgreSQL and it's rich eco-system of over
+PGSQL is the PostgreSQL Community Edition that is developer friendly and cross-platform.
+We fully embrace both core PostgreSQL and it's rich eco-system of over
 50 enterprise-class extensions, applications & connectors.
-Recently we have added support for ARM,
-OSX, and Windows; added to our AMD Linux support to include Ubuntu, Debian, and openSUSE;
-optimized for Docker and Kubernetes; and made
-our selection of components much more complete, up to date and accurate.
+We support Linux (both AMD64 & ARM64), OSX, and Windows.
+Our Linux support includes Centos/RHEL, Debian/Ubuntu, and openSUSE.
 \
 """
   print("  <tr><td colspan=2><h2>Introduction</h2></td></tr>")
