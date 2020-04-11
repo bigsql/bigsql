@@ -21,11 +21,8 @@ if NUM_COLS == 1:
 
 def print_top():
   pgsql.print_header(WIDTH)
-
   print("\n<p>")
-
   print('<table width=' + str(WIDTH) + ' border=' + str(BORDER) + ' bgcolor=whitesmoke cellpadding=1>')
-  print("<tr><td colspan=3><h2>Components</h2></td></tr>")
 
  
 def print_bottom():
@@ -102,8 +99,8 @@ def get_columns(d):
 
 
 def print_row_header(pBR):
-  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><h3>" + \
-    cat_desc + "</h3</td></tr>")
+  print("<tr><td colspan=" + str(NUM_COLS * 2) + "><p>&nbsp;<h2>" + \
+    cat_desc + "</h2</td></tr>")
 
 
 def print_row_detail(pCol, pBR):
