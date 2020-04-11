@@ -12,6 +12,7 @@ def print_header(pWidth):
         '</table>\n\n')
 
   print("<table bgcolor=whitesmoke width=" + str(pWidth) + " cellpadding=0 >")
+  print("<tr><td>&nbsp;</td></tr>")
   string = \
 """\
 PGSQL is the developer friendly cross-platform PostgreSQL Community Edition
@@ -23,13 +24,16 @@ optimized for Docker and Kubernetes; and made
 our selection of components much more complete, up to date and accurate.
 \
 """
-  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b><u>Introduction</u></b></font><p>" + \
-    string + "<br>&nbsp;</td></tr>")
+  print("  <tr><td colspan=2><h2>Introduction</h2></td></tr>")
+  print("  <tr><td colspan=2>\n" + string + "<br>&nbsp;\n" + \
+        "  </td></tr>")
   print("</table>")
 
 
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
-  print("<tr><td colspan=2>&nbsp;<br><font size=+2><b><u>Download & Usage</u></b></font><p>")
+  print("  <tr><td>&nbsp;</td></tr>")
+  print("  <tr><td colspan=2><h2>Download & Usage</h2></td></tr>")
+  print("  <tr><td colspan=2>")
   print("We are verfied & tested with: Python 2.7+, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, \n" + \
         "Debian 9+, opensSUSE 12+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
         "We run in a sandboxed environment that is perfect for running \n" + \
@@ -37,8 +41,8 @@ our selection of components much more complete, up to date and accurate.
         "of your choice.")
   print("<br>&nbsp;</td></tr>")
 
-  print("<tr><td width=240 align=right><b>Install command line:</b></td><td>")
-  print("<input type='text' size=80 value ='" + \
+  print("  <tr><td width=240 align=right><b>Install command line:</b></td><td>")
+  print("  <input type='text' size=80 value ='" + \
         'python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"' + \
         "' readonly='readonly'>")
   print("</td></tr>")
