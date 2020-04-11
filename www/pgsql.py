@@ -14,7 +14,7 @@ def print_header(pWidth):
   print("<table bgcolor=whitesmoke width=" + str(pWidth) + " cellpadding=0 >")
   string = \
 """\
-PGSQL.IO is the developer friendly cross-platform PostgreSQL Community Edition
+PGSQL is the developer friendly cross-platform PostgreSQL Community Edition
 that fully embraces core PostgreSQL and it's rich eco-system of over
 50 enterprise-class extensions, applications & connectors.
 Recently we have added support for ARM,

@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS categories;
 
 CREATE TABLE categories (
   category    INTEGER NOT NULL PRIMARY KEY,
+  sort_order SMALLINT NOT NULL,
   description TEXT    NOT NULL,
   short_desc  TEXT    NOT NULL
 );
@@ -49,7 +50,8 @@ CREATE TABLE versions (
 );
 
 CREATE VIEW v_versions AS
-  SELECT p.category as cat, r.sort_order, c.description as cat_desc, c.short_desc as cat_short_desc,
+  SELECT c.category as cat, c.sort_order as cat_sort, r.sort_order as rel_sort,
+         c.description as cat_desc, c.short_desc as cat_short_desc,
          p.image_file, r.component, r.project, r.stage, r.disp_name as release_name,
          v.version, p.sources_url, p.project_url, v.platform, 
          v.is_current, v.release_date, p.description as proj_desc
@@ -58,14 +60,16 @@ CREATE VIEW v_versions AS
      AND p.project = r.project
      AND r.component = v.component;
 
-INSERT INTO categories VALUES (0, 'Hidden', 'NotShown');
-INSERT INTO categories VALUES (1, 'Rock Solid Postgres', 'Postgres');
-INSERT INTO categories VALUES (2, 'Advanced Applications', 'Applics');
-INSERT INTO categories VALUES (3, 'Procedures & Functions', 'Stored Procs');
-INSERT INTO categories VALUES (4, 'Container Technologies', 'Containers');
-INSERT INTO categories VALUES (5, 'Foreign Data', 'Foreign');
-INSERT INTO categories VALUES (7, 'PGSQL Developers Toolchain', 'Toolchain');
-INSERT INTO categories VALUES (8, 'Connectors',   'Applications');
+INSERT INTO categories VALUES (0, 0, 'Hidden', 'NotShown');
+INSERT INTO categories VALUES (1, 1, 'Rock Solid Postgres', 'Postgres');
+INSERT INTO categories VALUES (2, 5, 'Advanced Applications', 'Applics');
+INSERT INTO categories VALUES (3, 4, 'Programming Platforms', 'Programming');
+INSERT INTO categories VALUES (4, 7, 'Container Technologies', 'Run Tools');
+INSERT INTO categories VALUES (5, 3, 'Data Integration', 'Integration');
+INSERT INTO categories VALUES (6, 2, 'Scalability & Availability', 'Scale');
+INSERT INTO categories VALUES (7, 8, 'Developers Toolchain', 'Dev Tools');
+INSERT INTO categories VALUES (8, 6, 'Connectors',   'Connectors');
+INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Mgmt');
 
 -- ## HUB ################################
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
@@ -131,10 +135,10 @@ INSERT INTO versions VALUES ('hivefdw-pg12', '3.3.1-1', 'amd', 1, '20200222', 'p
 INSERT INTO projects VALUES ('mysql', 5, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 
   'mysql', 0, 'mysql.png', 'MySQL Server CE', 'https://dev.mysql.com');
 INSERT INTO releases VALUES ('mysql', 9, 'mysql', 'MySQL', '', 'soon',  1);
-INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 0, '20191014', '');
+INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 1, '20191014', '');
 
 INSERT INTO projects VALUES ('mysqlfdw', 5, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 
-  'mysqlfdw', 1, 'mysql_fdw.png', 'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
+  'mysqlfdw', 1, 'mysqlfdw.png', 'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
 INSERT INTO releases VALUES ('mysqlfdw-pg11', 10, 'mysqlfdw', 'MySQL FDW',  '', 'prod', 1);
 INSERT INTO releases VALUES ('mysqlfdw-pg12', 10, 'mysqlfdw', 'MySQL FDW',  '', 'prod', 1);
 INSERT INTO versions VALUES ('mysqlfdw-pg11', '2.5.3-1', 'arm, amd', 1, '20190927', 'pg11');
@@ -148,7 +152,7 @@ INSERT INTO versions VALUES ('sqlsvr', '2019', 'amd', 1, '20191010', '');
 INSERT INTO projects VALUES ('sybase', 5, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 
   'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
 INSERT INTO releases VALUES ('sybase', 2, 'sybase',        'SAP Sybase ASE', '', 'soon',  0);
-INSERT INTO versions VALUES ('sybase', '2019', 'amd', 0, '20191010', '');
+INSERT INTO versions VALUES ('sybase', '2019', 'amd', 1, '20191010', '');
 
 INSERT INTO projects VALUES ('tdsfdw', 5, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases',
   'tdsfdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
