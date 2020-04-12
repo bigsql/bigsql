@@ -24,7 +24,7 @@ fi
 
 printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
-  echo "#                 Copyright (c) 2020 PGSQL.IO                       #"
+  echo "#               Copyright (c) 2020 PGSQL.IO                         #"
   echo "#-------------------------------------------------------------------#"
   echo "# -p $P12  $P11  $P10  $P96  $P95  $P94"
   echo "# -b hub-$hubV"
@@ -33,8 +33,9 @@ printUsageMessage () {
   echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
-  echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV  pgadmin-$pgadminV  esfdw-$esfdwV"
-  echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV  multicorn-$multicornV"
+  echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV  pgadmin-$pgadminV"
+  echo "#    elasticsearch-$esV  esfdw-$esfdwV  multicorn-$multicornV"
+  echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  sqlsvr-$sqlsvrV  tdsfdw-$tdsfdwV"
   echo "#    bouncer-$bouncerV  pgtop-$pgtopV  proctab-$proctabV"
   echo "#--------------------------------------------------------------------------#"
@@ -425,6 +426,7 @@ initPG () {
   initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
   initC "docker" "docker" "$dockerV" "" "docker" "" "" "nil"
   initC "pgadmin" "pgadmin" "$pgadminV" "" "postgres/pgadmin" "" "" "nil"
+  initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"

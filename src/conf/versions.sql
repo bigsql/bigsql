@@ -61,13 +61,13 @@ CREATE VIEW v_versions AS
      AND r.component = v.component;
 
 INSERT INTO categories VALUES (0, 0, 'Hidden', 'NotShown');
-INSERT INTO categories VALUES (1, 1, 'Rock Solid Postgres', 'Postgres');
-INSERT INTO categories VALUES (2, 5, 'Advanced Applications', 'Applics');
-INSERT INTO categories VALUES (3, 4, 'Programming Platforms', 'Programming');
-INSERT INTO categories VALUES (4, 7, 'Container Technologies', 'Run Tools');
+INSERT INTO categories VALUES (1, 1, 'Rock Solid Postgres', 'PostgreSQL');
+INSERT INTO categories VALUES (2, 5, 'Advanced Applications', 'Applications');
+INSERT INTO categories VALUES (3, 4, 'Programming Platforms', 'Procedural');
+INSERT INTO categories VALUES (4, 7, 'Container Technologies', 'Containers');
 INSERT INTO categories VALUES (5, 3, 'Data Integration', 'Integration');
 INSERT INTO categories VALUES (6, 2, 'Scalability & Availability', 'Scale');
-INSERT INTO categories VALUES (7, 8, 'Developers Toolchain', 'Dev Tools');
+INSERT INTO categories VALUES (7, 8, 'Developers Toolchain', 'Toolchain');
 INSERT INTO categories VALUES (8, 6, 'Connectors',   'Connectors');
 INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Mgmt');
 
@@ -181,10 +181,10 @@ INSERT INTO releases VALUES ('dynamofdw-pg12', 4, 'dynamofdw', 'Dynamo FDW', '',
 INSERT INTO versions VALUES ('dynamofdw-pg11', '2.0', 'arm, amd',  0, '20200401', 'pg11');
 INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  0, '20200401', 'pg12');
 
-INSERT INTO projects VALUES ('es', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
-  'es', 1, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
-INSERT INTO releases VALUES ('es', 4, 'es', 'ElasticSearch', '', 'prod', 1);
-INSERT INTO versions VALUES ('es', '7.6.2', 'amd',  1, '20200331', '');
+INSERT INTO projects VALUES ('elasticsearch', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
+  'elasticsearch', 0, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
+INSERT INTO releases VALUES ('elasticsearch', 4, 'elasticsearch', 'ElasticSearch', '', 'prod', 1);
+INSERT INTO versions VALUES ('elasticsearch', '7.6.2', 'amd',  1, '20200415', '');
 
 INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
   'esfdw', 1, 'esfdw.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
