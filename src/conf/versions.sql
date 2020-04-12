@@ -167,8 +167,8 @@ INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'pgProcTab', '', 'pro
 INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
 INSERT INTO versions VALUES ('proctab-pg12', '0.0.8.1-1', 'amd',  1, '20200403', 'pg12');
 
-INSERT INTO projects VALUES ('pgtop', 2, 0, 'proctab', 0, 'https://github.com/markwkm/pgtop/releases',
-  'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://github.com/markwkm/pg_top/-/blob/master/README');
+INSERT INTO projects VALUES ('pgtop', 2, 0, 'proctab', 0, 'https://github.com/markwkm/pg_top/releases',
+  'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://github.com/markwkm/pg_top/');
 INSERT INTO releases VALUES ('pgtop-pg11', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO releases VALUES ('pgtop-pg12', 8, 'pgtop', 'pgTop', '', 'prod', 1);
 INSERT INTO versions VALUES ('pgtop-pg11', '3.7.0-1', 'amd',  1, '20130731', 'pg11');
