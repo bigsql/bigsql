@@ -74,7 +74,7 @@ INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Mgmt');
 -- ## HUB ################################
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200403', '');
+INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200415', '');
 INSERT INTO versions VALUES ('hub', '6.22', '',  0, '20200327', '');
 INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
@@ -129,7 +129,7 @@ INSERT INTO projects VALUES ('hivefdw', 5, 0, 'hub', 0, 'https://github.com/bigs
   'hivefdw', 1, 'hive_fdw.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
 INSERT INTO releases VALUES ('hivefdw-pg11', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
 INSERT INTO releases VALUES ('hivefdw-pg12', 14, 'hivefdw', 'HiveFDW', '', 'prod', 1);
-INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'amd', 1, '20200408', 'pg11');
+INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'amd', 1, '20200415', 'pg11');
 INSERT INTO versions VALUES ('hivefdw-pg12', '3.3.1-1', 'amd', 1, '20200222', 'pg12');
 
 INSERT INTO projects VALUES ('mysql', 5, 0, 'hub', 0, 'https://dev.mysql.com/downloads/mysql', 
@@ -164,8 +164,8 @@ INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/bigs
   'proctab', 1, 'proctab.png', 'Monitoring Functions for pgTop', 'https://github.com/bigsql/pg_proctab');
 INSERT INTO releases VALUES ('proctab-pg11', 8, 'proctab', 'pgProcTab', '', 'prod', 1);
 INSERT INTO releases VALUES ('proctab-pg12', 8, 'proctab', 'pgProcTab', '', 'prod', 1);
-INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200403', 'pg11');
-INSERT INTO versions VALUES ('proctab-pg12', '0.0.8.1-1', 'amd',  1, '20200403', 'pg12');
+INSERT INTO versions VALUES ('proctab-pg11', '0.0.8.1-1', 'amd',  1, '20200415', 'pg11');
+INSERT INTO versions VALUES ('proctab-pg12', '0.0.8.1-1', 'amd',  1, '20200415', 'pg12');
 
 INSERT INTO projects VALUES ('pgtop', 2, 0, 'proctab', 0, 'https://github.com/markwkm/pg_top/releases',
   'pgtop', 1, 'pgtop.png', '"top" for Postgres', 'https://github.com/markwkm/pg_top/');
@@ -178,8 +178,8 @@ INSERT INTO projects VALUES ('dynamofdw', 5, 0, 'multicorn', 1, 'https://github.
   'dynamofdw', 1, 'dynamodb.png', 'AWS DynamoDB from PG', 'https://github.com/bigsql/dynamofdw/blob/master/README.md');
 INSERT INTO releases VALUES ('dynamofdw-pg11', 4, 'dynamofdw', 'Dynamo FDW', '', 'soon', 1);
 INSERT INTO releases VALUES ('dynamofdw-pg12', 4, 'dynamofdw', 'Dynamo FDW', '', 'soon', 1);
-INSERT INTO versions VALUES ('dynamofdw-pg11', '2.0', 'arm, amd',  0, '20200401', 'pg11');
-INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  0, '20200401', 'pg12');
+INSERT INTO versions VALUES ('dynamofdw-pg11', '2.0', 'arm, amd',  0, '20200415', 'pg11');
+INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  0, '20200415', 'pg12');
 
 INSERT INTO projects VALUES ('elasticsearch', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
   'elasticsearch', 0, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
