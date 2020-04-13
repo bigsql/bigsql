@@ -45,14 +45,14 @@ pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
 
 
 def get_perl_ver():
-  perl_ver = getoutput('perl -E "say $^V"')
+  perl_ver = getoutput('perl -E "say $^V" 2>/dev/null')
   if perl_ver[0] == "v": 
     perl_ver = perl_ver[1:]
   return(perl_ver.strip())
 
 
 def get_java_ver():
-  java_ver = getoutput('javac -version')
+  java_ver = getoutput('javac -version 2>/dev/null')
   if java_ver[:6] == "javac ":
     java_ver = java_ver[6:]  
 
@@ -1745,7 +1745,7 @@ def get_os():
 
 
 def get_pkg_mgr():
-  yum_ver = getoutput("yum --version")
+  yum_ver = getoutput("yum --version 2>/dev/null")
   if yum_ver == "":
     return("apt")
   return("yum")

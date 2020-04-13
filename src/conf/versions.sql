@@ -3,6 +3,7 @@ DROP VIEW  IF EXISTS v_versions;
 DROP TABLE IF EXISTS versions;
 DROP TABLE IF EXISTS releases;
 DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS sub_catgories;
 DROP TABLE IF EXISTS categories;
 
 CREATE TABLE categories (
@@ -11,6 +12,16 @@ CREATE TABLE categories (
   description TEXT    NOT NULL,
   short_desc  TEXT    NOT NULL
 );
+
+CREATE TABLE sub_categories (
+  sub_category  INTEGER  NOT NULL PRIMARY KEY,
+  category      INTEGER  NOT NULL,
+  sort_order    SMALLINT NOT NULL,
+  short_name    TEXT     NOT NULL,
+  description   TEXT     NOT NULL,
+  FOREIGN KEY (category) REFERENCES categories(category)
+);
+
 
 CREATE TABLE projects (
   project   	 TEXT     NOT NULL PRIMARY KEY,
@@ -61,7 +72,11 @@ CREATE VIEW v_versions AS
      AND r.component = v.component;
 
 INSERT INTO categories VALUES (0, 0, 'Hidden', 'NotShown');
+INSERT INTO sub_categories VALUES (0, 0, 0, '', '');
+
 INSERT INTO categories VALUES (1, 1, 'Rock Solid Postgres', 'PostgreSQL');
+INSERT INTO sub_categories VALUES (1, 1, 0, '', '');
+
 INSERT INTO categories VALUES (2, 5, 'Advanced Applications', 'Applications');
 INSERT INTO categories VALUES (3, 4, 'Programming Platforms', 'Procedural');
 INSERT INTO categories VALUES (4, 7, 'Container Technologies', 'Containers');
