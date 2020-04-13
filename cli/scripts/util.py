@@ -2392,13 +2392,16 @@ def create_manifest(ext_comp, parent_comp,upgrade=None):
   return True
 
 
-def validate_distutils_click():
+def validate_distutils_click(isFatal=True):
   try:
     from distutils.dir_util import copy_tree
   except:
-    fatal_error("Missing distutils, try something like" + \
-                "\n $ sudo apt-get install python3-distutils")
-
+    msg = "Missing distutils, try something like" + \
+      "\n $ sudo apt-get install python3-distutils"
+    if isFatal:
+      fatal_error(msg)
+    else:
+      print("WARNING: " + msg)
   
   return
 

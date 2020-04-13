@@ -379,6 +379,8 @@ def info(p_json, p_home, p_repo, print_flag=True):
   if java_ver > "":
     langs = langs + " | Java v" + java_ver
 
+  util.validate_distutils_click(False)
+
   print(style_start + ("#" * 70) + style_end)
   print(style_start + "#          PGSQL-IO: " + style_end + "v" + ver + "  " + p_home)
   print(style_start + "#       User & Host: " + style_end + p_user + admin_display + "  " + host_display)
