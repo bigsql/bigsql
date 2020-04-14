@@ -196,6 +196,16 @@ INSERT INTO releases VALUES ('dynamofdw-pg12', 4, 'dynamofdw', 'Dynamo FDW', '',
 INSERT INTO versions VALUES ('dynamofdw-pg11', '2.0', 'arm, amd',  0, '20200415', 'pg11');
 INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  0, '20200415', 'pg12');
 
+INSERT INTO projects VALUES ('hadoop', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/hadoop',
+  'hadoop', 0, 'hadoop.png', 'Hadoop', 'https://github.com/elastic/hadoop#hadoop');
+INSERT INTO releases VALUES ('hadoop', 4, 'hadoop', 'Hadoop', '', 'prod', 1);
+INSERT INTO versions VALUES ('hadoop', '2.10.0', '',  1, '20200415', '');
+
+INSERT INTO projects VALUES ('presto', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/presto',
+  'presto', 0, 'presto.png', 'Presto', 'https://github.com/elastic/presto#presto');
+INSERT INTO releases VALUES ('presto', 4, 'presto', 'Presto', '', 'prod', 1);
+INSERT INTO versions VALUES ('presto', '0.233.1', '',  1, '20200415', '');
+
 INSERT INTO projects VALUES ('elasticsearch', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
   'elasticsearch', 0, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
 INSERT INTO releases VALUES ('elasticsearch', 4, 'elasticsearch', 'ElasticSearch', '', 'prod', 1);

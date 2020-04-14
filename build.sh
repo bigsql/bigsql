@@ -28,7 +28,8 @@ printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
   echo "# -p $P12  $P11  $P10  $P96  $P95  $P94"
   echo "# -b hub-$hubV"
-  echo "# -e cstarfdw-$cstarfdwV  cstar-$cstarV  hivefdw-$hivefdwV  timescale-$timescaleV"
+  echo "# -e cstarfdw-$cstarfdwV  cstar-$cstarV  timescale-$timescaleV"
+  echo "#    hivefdw-$hivefdwV  presto-$prestoV  hadoop-$hadoopV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
   echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV  cron-$cronV"
@@ -427,6 +428,8 @@ initPG () {
   initC "docker" "docker" "$dockerV" "" "docker" "" "" "nil"
   initC "pgadmin" "pgadmin" "$pgadminV" "" "postgres/pgadmin" "" "" "nil"
   initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"
+  initC "presto" "presto" "$prestoV" "" "apache" "" "" "nil"
+  initC "hadoop" "hadoop" "$hadoopV" "" "apache" "" "" "nil"
 
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"

@@ -57,8 +57,11 @@ sqlsvrV=2019-1
 cstarV=3.11.6
 cstarfdwV=3.1.5-1
 
-prestoV=0.229
 hivefdwV=3.3.1-1
+prestoV=0.233.1
+hadoopV=2.10.0
+#hiveV=3.1.2
+#kafkaV=2.4.1
 
 badgerV=11.2
 ora2pgV=20.0
