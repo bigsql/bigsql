@@ -485,15 +485,15 @@ INSERT INTO projects VALUES ('pgrest',     8, 0, 'hub', 3, 'https://github.com/p
 INSERT INTO releases VALUES ('pgrest', 9, 'pgrest', 'Data API', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('pgrest', '0.0.7-1', '', 0, '20130813', '');
 
-INSERT INTO projects VALUES ('ddlx',      8, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
-INSERT INTO releases VALUES ('ddlx-pg11', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0);
-INSERT INTO releases VALUES ('ddlx-pg12', 9, 'ddlx', 'DDLeXtact', '', 'prod', 0);
+INSERT INTO projects VALUES ('ddlx',      7, 0, 'hub', 0, 'https://github.com/lacanoid/pgddl/releases', 'ddlx',  1, 'ddlx.png', 'DDL Extractor', 'https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql');
+INSERT INTO releases VALUES ('ddlx-pg11', 2, 'ddlx', 'DDLeXtact', '', 'prod', 0);
+INSERT INTO releases VALUES ('ddlx-pg12', 2, 'ddlx', 'DDLeXtact', '', 'prod', 0);
 INSERT INTO versions VALUES ('ddlx-pg11', '0.16-1', 'arm, amd', 1, '20191110', 'pg11');
 INSERT INTO versions VALUES ('ddlx-pg12', '0.16-1', 'arm, amd', 1, '20191110', 'pg12');
 
-INSERT INTO projects VALUES ('multicorn', 8, 0, 'hub', 0, 'https://github.com/Segfault-Inc/Multicorn/releases',
+INSERT INTO projects VALUES ('multicorn', 7, 0, 'hub', 0, 'https://github.com/Segfault-Inc/Multicorn/releases',
   'multicorn', 1, 'multicorn.png', 'Python FDW Library', 'http://multicorn.org');
-INSERT INTO releases VALUES ('multicorn-pg11', 10, 'multicorn', 'Multicorn', '', 'prod', 1);
-INSERT INTO releases VALUES ('multicorn-pg12', 10, 'multicorn', 'Multicorn', '', 'prod', 1);
+INSERT INTO releases VALUES ('multicorn-pg11', 1, 'multicorn', 'Multicorn', '', 'prod', 1);
+INSERT INTO releases VALUES ('multicorn-pg12', 1, 'multicorn', 'Multicorn', '', 'prod', 1);
 INSERT INTO versions VALUES ('multicorn-pg11', '1.4.0-1', 'arm, amd', 1, '20200318', 'pg11');
 INSERT INTO versions VALUES ('multicorn-pg12', '1.4.0-1', 'arm, amd', 1, '20200318', 'pg12');
