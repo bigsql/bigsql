@@ -1,0 +1,8 @@
+cmd="sudo /etc/init.d/oracle-xe-18c stop"
+echo "# $cmd"
+$cmd
+rc=$?
+echo "rc=$rc"
+exit $rc
+
+

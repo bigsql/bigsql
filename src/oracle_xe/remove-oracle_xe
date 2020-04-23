@@ -1,0 +1,16 @@
+cd "$(dirname "$(readlink -f "$0")")"
+
+run_cmd () {
+  cmd=$1
+  echo "# $cmd"
+  $cmd
+  rc=$?
+  echo "rc=$rc"
+  echo " "
+}
+
+run_cmd "sudo /etc/init.d/oracle-xe-18c delete"
+
+run_cmd "sudo yum remove oracle-database-xe-18c"
+
+exit 0
