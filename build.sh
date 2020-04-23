@@ -423,13 +423,15 @@ initPG () {
   writeSettRow "GLOBAL" "STAGE" "prod"
   writeSettRow "GLOBAL" "AUTOSTART" "off"
 
-  initC "pgbadger" "pgbadger" "$badgerV" "" "postgres/badger" "" "" "nil"
-  initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
-  initC "docker" "docker" "$dockerV" "" "docker" "" "" "nil"
-  initC "pgadmin" "pgadmin" "$pgadminV" "" "postgres/pgadmin" "" "" "nil"
-  initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"
-  initC "presto" "presto" "$prestoV" "" "apache" "" "" "nil"
-  initC "hadoop" "hadoop" "$hadoopV" "" "apache" "" "" "nil"
+  if [ "$outPlat" == "amd" ]; then
+    initC "pgbadger" "pgbadger" "$badgerV" "" "postgres/badger" "" "" "nil"
+    initC "ora2pg" "ora2pg" "$ora2pgV" "" "postgres/ora2pg" "" "" "nil"
+    initC "docker" "docker" "$dockerV" "" "docker" "" "" "nil"
+    initC "pgadmin" "pgadmin" "$pgadminV" "" "postgres/pgadmin" "" "" "nil"
+    initC "presto" "presto" "$prestoV" "" "apache" "" "" "nil"
+    initC "hadoop" "hadoop" "$hadoopV" "" "apache" "" "" "nil"
+    initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"
+  fi
 
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
@@ -470,19 +472,19 @@ initPG () {
       initC "bouncer-pg$pgM" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
       initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "$outPlat" "postgres/esfdw" "" "" "nil"
 
-     initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
-     initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/spock" "" "" "nil"
-     initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
-     initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
-     initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
-     initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
-     initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
-     initC "pldebugger-pg$pgM" "pldebugger" "$debuggerV" "$outPlat" "postgres/pldebugger" "" "" "nil"
-     initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
-     initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
-     initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
-     initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
-     initC "pljava-pg$pgM" "pljava" "$pljavaV" "$outPlat" "postgres/pljava" "" "" "nil"
+      initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
+      initC "spock-pg$pgM" "spock" "$spockV" "$outPlat" "postgres/spock" "" "" "nil"
+      initC "pglogical-pg$pgM" "pglogical" "$logicalV" "$outPlat" "postgres/logical" "" "" "nil"
+      initC "repack-pg$pgM" "repack" "$repackV" "$outPlat" "postgres/repack" "" "" "nil"
+      initC "partman-pg$pgM" "partman" "$partmanV" "$outPlat" "postgres/partman" "" "" "nil"
+      initC "orafce-pg$pgM" "orafce" "$orafceV" "$outPlat" "postgres/orafce" "" "" "nil"
+      initC "hypopg-pg$pgM" "hypopg" "$hypoV" "$outPlat" "postgres/hypopg" "" "" "nil"
+      initC "pldebugger-pg$pgM" "pldebugger" "$debuggerV" "$outPlat" "postgres/pldebugger" "" "" "nil"
+      initC "plprofiler-pg$pgM" "plprofiler" "$profV" "$outPlat" "postgres/profiler" "" "" "nil"
+      initC "ddlx-pg$pgM" "ddlx" "$ddlxV" "$outPlat" "postgres/ddlx" "" "" "nil"
+      initC "http-pg$pgM" "http" "$httpV" "$outPlat" "postgres/http" "" "" "nil"
+      initC "anon-pg$pgM" "anon" "$anonV" "$outPlat" "postgres/anon" "" "" "nil"
+      initC "pljava-pg$pgM" "pljava" "$pljavaV" "$outPlat" "postgres/pljava" "" "" "nil"
     fi
   fi
 }
