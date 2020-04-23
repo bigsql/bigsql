@@ -431,6 +431,7 @@ initPG () {
     initC "presto" "presto" "$prestoV" "" "apache" "" "" "nil"
     initC "hadoop" "hadoop" "$hadoopV" "" "apache" "" "" "nil"
     initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"
+    initC "oracle_xe" "oracle_xe" "$oracle_xeV" "$outPlat" "oracle" "" "" "nil"
   fi
 
   if [ "$pgM" == "11" ]; then 
