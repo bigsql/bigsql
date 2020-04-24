@@ -130,8 +130,8 @@ INSERT INTO versions VALUES ('cassandra', '3.11.5', '', 0, '20191029', '');
 
 INSERT INTO projects VALUES ('cassandrafdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/cassandra_fdw/releases', 
   'cstarfdw', 1, 'cstar.png', 'Cassandra from PG', 'https://github.com/bigsql/cassandra_fdw#cassandra_fdw');
-INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
-INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','prod', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg11', 12, 'cassandrafdw', 'CassandraFDW','','test', 1);
+INSERT INTO releases VALUES ('cassandrafdw-pg12', 12, 'cassandrafdw', 'CassandraFDW','','test', 1);
 INSERT INTO versions VALUES ('cassandrafdw-pg11', '3.1.5-1', 'amd', 1, '20191230', 'pg11');
 INSERT INTO versions VALUES ('cassandrafdw-pg12', '3.1.5-1', 'amd', 1, '20191230', 'pg12');
 
@@ -142,8 +142,8 @@ INSERT INTO versions VALUES ('hive', '0.229', '', 0, '20191115', '');
 
 INSERT INTO projects VALUES ('hivefdw', 5, 0, 'hub', 0, 'https://github.com/bigsql/hive_fdw/releases', 
   'hivefdw', 1, 'hive.png', 'Big Data Queries from PG', 'https://github.com/bigsql/hive_fdw#hive_fdw');
-INSERT INTO releases VALUES ('hivefdw-pg11', 1, 'hivefdw', 'HiveFDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('hivefdw-pg12', 1, 'hivefdw', 'HiveFDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('hivefdw-pg11', 4, 'hivefdw', 'HiveFDW', '', 'test', 1);
+INSERT INTO releases VALUES ('hivefdw-pg12', 4, 'hivefdw', 'HiveFDW', '', 'test', 1);
 INSERT INTO versions VALUES ('hivefdw-pg11', '3.3.1-1', 'amd', 1, '20200222', 'pg11');
 INSERT INTO versions VALUES ('hivefdw-pg12', '3.3.1-1', 'amd', 1, '20200222', 'pg12');
 
@@ -154,8 +154,8 @@ INSERT INTO versions VALUES ('mysql', '8.0.18', 'arm', 0, '20191014', '');
 
 INSERT INTO projects VALUES ('mysqlfdw', 5, 0, 'hub', 0, 'https://github.com/EnterpriseDB/mysql_fdw/releases', 
   'mysqlfdw', 1, 'mysql.png', 'MySQL from PG', 'https://github.com/EnterpriseDb/mysql_fdw');
-INSERT INTO releases VALUES ('mysqlfdw-pg11', 10, 'mysqlfdw', 'MySQL FDW',  '', 'prod', 1);
-INSERT INTO releases VALUES ('mysqlfdw-pg12', 10, 'mysqlfdw', 'MySQL FDW',  '', 'prod', 1);
+INSERT INTO releases VALUES ('mysqlfdw-pg11',  4, 'mysqlfdw', 'MySQL FDW',  '', 'prod', 1);
+INSERT INTO releases VALUES ('mysqlfdw-pg12',  4, 'mysqlfdw', 'MySQL FDW',  '', 'prod', 1);
 INSERT INTO versions VALUES ('mysqlfdw-pg11', '2.5.3-1', 'arm, amd', 1, '20190927', 'pg11');
 INSERT INTO versions VALUES ('mysqlfdw-pg12', '2.5.3-1', 'arm, amd', 1, '20190927', 'pg12');
 
@@ -171,8 +171,8 @@ INSERT INTO versions VALUES ('sybase', '2019', 'amd', 0, '20191010', '');
 
 INSERT INTO projects VALUES ('tdsfdw', 5, 0, 'hub', 0, 'https://github.com/tds-fdw/tds_fdw/releases',
   'tdsfdw', 1, 'tds.png', 'SQL Server & Sybase from PG', 'https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper');
-INSERT INTO releases VALUES ('tdsfdw-pg11', 6, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('tdsfdw-pg12', 6, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('tdsfdw-pg11', 3, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('tdsfdw-pg12', 3, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'pg11');
 
 INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/bigsql/pg_proctab/releases',
@@ -198,23 +198,23 @@ INSERT INTO versions VALUES ('dynamofdw-pg12', '2.0', 'arm, amd',  0, '20200415'
 
 INSERT INTO projects VALUES ('hadoop', 5, 0, 'hub', 1, 'https://hadoop.apache.org/releases.html',
   'hadoop', 0, 'hadoop.png', 'Hadoop', 'https://hadoop.apache.org');
-INSERT INTO releases VALUES ('hadoop', 3, 'hadoop', 'Hadoop', '', 'prod', 1);
-INSERT INTO versions VALUES ('hadoop', '2.10.0', '',  1, '20191029', '');
+INSERT INTO releases VALUES ('hadoop', 4, 'hadoop', 'Hadoop', '', 'soon', 1);
+INSERT INTO versions VALUES ('hadoop', '2.10.0', '',  0, '20191029', '');
 
 INSERT INTO projects VALUES ('presto', 5, 0, 'hub', 1, 'https://prestodb.io/download.html',
   'presto', 0, 'presto.png', 'Presto', 'https://prestodb.io');
-INSERT INTO releases VALUES ('presto', 2, 'presto', 'Presto', '', 'prod', 1);
-INSERT INTO versions VALUES ('presto', '0.233.1', '',  1, '20200324', '');
+INSERT INTO releases VALUES ('presto', 4, 'presto', 'Presto', '', 'soon', 1);
+INSERT INTO versions VALUES ('presto', '0.233.1', '',  0, '20200324', '');
 
 INSERT INTO projects VALUES ('elasticsearch', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
   'elasticsearch', 0, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
-INSERT INTO releases VALUES ('elasticsearch', 5, 'elasticsearch', 'ElasticSearch', '', 'prod', 1);
-INSERT INTO versions VALUES ('elasticsearch', '7.6.2', 'amd',  1, '20200415', '');
+INSERT INTO releases VALUES ('elasticsearch', 5, 'elasticsearch', 'ElasticSearch', '', 'soon', 1);
+INSERT INTO versions VALUES ('elasticsearch', '7.6.2', 'amd',  0, '20200415', '');
 
 INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
   'esfdw', 1, 'esfdw.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
-INSERT INTO releases VALUES ('esfdw-pg11', 4, 'esfdw', 'ElasticSearchFDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('esfdw-pg12', 4, 'esfdw', 'ElasticSearchFDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('esfdw-pg11', 5, 'esfdw', 'ElasticSearchFDW', '', 'test', 1);
+INSERT INTO releases VALUES ('esfdw-pg12', 5, 'esfdw', 'ElasticSearchFDW', '', 'test', 1);
 INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0', 'amd',  1, '20200110', 'pg11');
 INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0', 'amd',  1, '20200110', 'pg12');
 
@@ -225,21 +225,21 @@ INSERT INTO versions VALUES ('ora2pg', '20.0', '', 1, '20190118', '');
 
 INSERT INTO projects VALUES ('oraclefdw', 5, 0, 'hub', 0, 'https://github.com/laurenz/oracle_fdw/releases',
   'oraclefdw', 1, 'oracle_fdw.png', 'Oracle from PG', 'https://github.com/laurenz/oracle_fdw');
-INSERT INTO releases VALUES ('oraclefdw-pg11', 7, 'oraclefdw', 'Oracle FDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('oraclefdw-pg12', 7, 'oraclefdw', 'Oracle FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('oraclefdw-pg11', 0, 'oraclefdw', 'Oracle FDW', '', 'prod', 1);
+INSERT INTO releases VALUES ('oraclefdw-pg12', 0, 'oraclefdw', 'Oracle FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('oraclefdw-pg11','2.2.0-1', 'amd', 1, '20191010', 'pg11');
 INSERT INTO versions VALUES ('oraclefdw-pg12','2.2.0-1', 'amd', 1, '20191010', 'pg12');
 
 INSERT INTO projects VALUES ('oracle_xe', 5, 1539, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
   'oracle_xe', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
-INSERT INTO releases VALUES ('oracle_xe', 5, 'oracle_xe', 'Oracle Express Edition', '', 'prod',  0);
+INSERT INTO releases VALUES ('oracle_xe', 2, 'oracle_xe', 'Oracle Express Edition', '', 'prod',  0);
 INSERT INTO versions VALUES ('oracle_xe', '18c-1', 'amd', 1, '20200424', '');
 
 -- ##
-INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
+INSERT INTO projects VALUES ('orafce', 5, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
   'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
-INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
-INSERT INTO releases VALUES ('orafce-pg12', 6, 'orafce', 'OraFCE', '', 'prod', 1);
+INSERT INTO releases VALUES ('orafce-pg11', 1, 'orafce', 'OraFCE', '', 'prod', 1);
+INSERT INTO releases VALUES ('orafce-pg12', 1, 'orafce', 'OraFCE', '', 'prod', 1);
 INSERT INTO versions VALUES ('orafce-pg11', '3.11.1-1',  'arm, amd', 1, '20200408', 'pg11');
 INSERT INTO versions VALUES ('orafce-pg12', '3.11.1-1',  'arm, amd', 1, '20200408', 'pg12');
 INSERT INTO versions VALUES ('orafce-pg11', '3.11.0-1',  'arm, amd', 0, '20200401', 'pg11');
