@@ -215,8 +215,8 @@ INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/
   'esfdw', 1, 'esfdw.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
 INSERT INTO releases VALUES ('esfdw-pg11', 5, 'esfdw', 'ElasticSearchFDW', '', 'test', 1);
 INSERT INTO releases VALUES ('esfdw-pg12', 5, 'esfdw', 'ElasticSearchFDW', '', 'test', 1);
-INSERT INTO versions VALUES ('esfdw-pg11', '0.6.0', 'amd',  1, '20200110', 'pg11');
-INSERT INTO versions VALUES ('esfdw-pg12', '0.6.0', 'amd',  1, '20200110', 'pg12');
+INSERT INTO versions VALUES ('esfdw-pg11', '0.7.4', 'amd',  1, '20200423', 'pg11');
+INSERT INTO versions VALUES ('esfdw-pg12', '0.7.4', 'amd',  1, '20200423', 'pg12');
 
 INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');

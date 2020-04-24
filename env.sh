@@ -12,7 +12,7 @@ P95=9.5.21-4
 dockerV=19
 pgadminV=4
 
-esfdwV=0.6.0
+esfdwV=0.7.4
 esV=7.6.2
 
 bouncerV=1.12.0-1
