@@ -1,13 +1,13 @@
 
 function testAll {
-  ./io install spock-pg$1         -d demo
+#  ./io install spock-pg$1         -d demo
   ./io install cron-pg$1
   ./io install repack-pg$1        -d demo
   ./io install http-pg$1          -d demo
   ./io install plprofiler-pg$1    -d demo
   ./io install hypopg-pg$1        -d demo
   ./io install orafce-pg$1        -d demo
-#  ./io install pglogical-pg$1     -d demo
+  ./io install pglogical-pg$1     -d demo
   ./io install partman-pg$1       -d demo
   ./io install audit-pg$1         -d demo
   ./io install ddlx-pg$1          -d demo
@@ -17,6 +17,7 @@ function testAll {
   if [ ! `uname` == "Darwin" ]; then
     ./io install multicorn-pg$1     -d demo
     ./io install mysqlfdw-pg$1      -d demo
+    ./io install timescaledb-pg$1   -d demo
   fi
 
   if [ ! `arch` == "aarch64" ]; then
@@ -35,9 +36,6 @@ function test11 {
   ./io install pg11; 
   ./io start pg11 -y -d demo; 
   ./io install pgtsql-pg11        -d demo
-  if [ ! `uname` == "Darwin" ]; then
-    ./io install timescaledb-pg11   -d demo
-  fi
 }
 
 function test12 {

@@ -89,7 +89,7 @@ INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Mgmt');
 -- ## HUB ################################
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200415', '');
+INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200424', '');
 INSERT INTO versions VALUES ('hub', '6.22', '',  0, '20200327', '');
 INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
@@ -233,15 +233,17 @@ INSERT INTO versions VALUES ('oraclefdw-pg12','2.2.0-1', 'amd', 1, '20191010', '
 INSERT INTO projects VALUES ('oracle_xe', 5, 1539, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
   'oracle_xe', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
 INSERT INTO releases VALUES ('oracle_xe', 5, 'oracle_xe', 'Oracle Express Edition', '', 'prod',  0);
-INSERT INTO versions VALUES ('oracle_xe', '18c-1', 'amd', 1, '20200423', '');
+INSERT INTO versions VALUES ('oracle_xe', '18c-1', 'amd', 1, '20200424', '');
 
 -- ##
 INSERT INTO projects VALUES ('orafce', 3, 0, 'hub', 0, 'https://github.com/orafce/orafce/releases',
   'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 6, 'orafce', 'OraFCE', '', 'prod', 1);
 INSERT INTO releases VALUES ('orafce-pg12', 6, 'orafce', 'OraFCE', '', 'prod', 1);
-INSERT INTO versions VALUES ('orafce-pg11', '3.11.0-1',  'arm, amd', 1, '20200401', 'pg11');
-INSERT INTO versions VALUES ('orafce-pg12', '3.11.0-1',  'arm, amd', 1, '20200401', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.11.1-1',  'arm, amd', 1, '20200408', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.11.1-1',  'arm, amd', 1, '20200408', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.11.0-1',  'arm, amd', 0, '20200401', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.11.0-1',  'arm, amd', 0, '20200401', 'pg12');
 INSERT INTO versions VALUES ('orafce-pg11', '3.9.0-1',  'arm, amd', 0, '20200213', 'pg11');
 INSERT INTO versions VALUES ('orafce-pg12', '3.9.0-1',  'arm, amd', 0, '20200213', 'pg12');
 
@@ -324,7 +326,10 @@ INSERT INTO versions VALUES ('cron-pg12', '1.2.0-1', 'arm, amd', 1, '20190830', 
 INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/timescale/timescaledb/releases',
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'amd', 1, '20200318', 'pg11');
+INSERT INTO releases VALUES ('timescaledb-pg12',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.7.0-1',  'amd', 1, '20200416', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg12', '1.7.0-1',  'amd', 1, '20200416', 'pg12');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'amd', 0, '20200318', 'pg11');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'amd', 0, '20200115', 'pg11');
 
 INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
@@ -338,8 +343,10 @@ INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2n
   'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
 INSERT INTO releases VALUES ('pglogical-pg11', 2, 'pglogical', 'pgLogical2', '', 'prod', 1);
 INSERT INTO releases VALUES ('pglogical-pg12', 2, 'pglogical', 'pgLogical2', '', 'prod', 1);
-INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg11');
-INSERT INTO versions VALUES ('pglogical-pg12', '2.3.0-1',  'arm, amd', 1, '20200218', 'pg12');
+INSERT INTO versions VALUES ('pglogical-pg11', '2.3.1-1',  'arm, amd', 1, '20200417', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg12', '2.3.1-1',  'arm, amd', 1, '20200417', 'pg12');
+INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 0, '20200218', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg12', '2.3.0-1',  'arm, amd', 0, '20200218', 'pg12');
 
 INSERT INTO projects VALUES ('postgis', 2, 1, 'hub', 3, 'http://postgis.net/source',
   'postgis', 1, 'postgis.png', 'PostGIS', 'http://postgis.net');
@@ -371,8 +378,10 @@ INSERT INTO projects VALUES ('partman', 2, 0, 'hub', 4, 'https://github.com/pgpa
   'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
 INSERT INTO releases VALUES ('partman-pg11', 6, 'partman', 'pgPartman',   '', 'prod', 1);
 INSERT INTO releases VALUES ('partman-pg12', 6, 'partman', 'pgPartman',   '', 'prod', 1);
-INSERT INTO versions VALUES ('partman-pg11', '4.3.0-1',  'arm, amd', 1, '20200206', 'pg11');
-INSERT INTO versions VALUES ('partman-pg12', '4.3.0-1',  'arm, amd', 1, '20200206', 'pg12');
+INSERT INTO versions VALUES ('partman-pg11', '4.3.1-1',  'arm, amd', 1, '20200417', 'pg11');
+INSERT INTO versions VALUES ('partman-pg12', '4.3.1-1',  'arm, amd', 1, '20200417', 'pg12');
+INSERT INTO versions VALUES ('partman-pg11', '4.3.0-1',  'arm, amd', 0, '20200206', 'pg11');
+INSERT INTO versions VALUES ('partman-pg12', '4.3.0-1',  'arm, amd', 0, '20200206', 'pg12');
 
 INSERT INTO projects VALUES ('hypopg', 2, 0, 'hub', 8, 'https://github.com/HypoPG/hypopg/releases',
   'hypopg', 1, 'whatif.png', 'Hypothetical Indexes', 'https://hypopg.readthedocs.io/en/latest/');

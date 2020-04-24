@@ -21,18 +21,18 @@ proctabV=0.0.8.1-1
 
 multicornV=1.4.0-1
 
-orafceV=3.11.0-1
+orafceV=3.11.1-1
 httpV=1.3.1-1
 anonV=0.6.0-1
 ddlxV=0.16-1
 omniV=2.17-1
 hypoV=1.1.3-1
-timescaleV=1.6.1-1
-logicalV=2.3.0-1
+timescaleV=1.7.0-1
+logicalV=2.3.1-1
 spockV=3.1.1-1
 profV=4.1-1
 bulkloadV=3.1.16-1
-partmanV=4.3.0-1
+partmanV=4.3.1-1
 repackV=1.4.5-1
 
 audit11V=1.3.1-1

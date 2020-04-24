@@ -60,7 +60,7 @@ cassFullV=3.1.5
 cassShortV=
 cassBuildV=1
 
-orafceFullV=3.11.0
+orafceFullV=3.11.1
 orafceShortV=
 orafceBuildV=1
 
@@ -149,7 +149,7 @@ spockFullV=3.1.1
 spockShortV=
 spockBuildV=1
 
-pgLogicalFullV=2.3.0
+pgLogicalFullV=2.3.1
 pgLogicalShortV=
 pgLogicalBuildV=1
 
@@ -157,7 +157,7 @@ repackFullV=1.4.5
 repackShortV=
 repackBuildV=1
 
-partmanFullV=4.3.0
+partmanFullV=4.3.1
 partmanShortV=
 partmanBuildV=1
 
@@ -165,7 +165,7 @@ hintplanFullV=1.3.4
 hintplanShortV=
 hintplanBuildV=1
 
-timescaledbFullV=1.6.1
+timescaledbFullV=1.7.0
 timescaledbShortV=
 timescaledbBuildV=1
 
