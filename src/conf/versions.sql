@@ -294,7 +294,7 @@ INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '2019082
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
 INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'soon', 1);
-INSERT INTO versions VALUES ('backrest', '2.25-1', 'arm, amd', 1, '20200326', '');
+INSERT INTO versions VALUES ('backrest', '2.26-1', 'arm, amd', 1, '20200420', '');
 
 INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
   'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
@@ -411,19 +411,19 @@ INSERT INTO versions VALUES ('minikube', '1.9.2', '', 1, '20200404', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('helm', '3.1.2', '', 1, '20200311', '');
+INSERT INTO versions VALUES ('helm', '3.2.0', '', 1, '20200422', '');
 
 -- ##
 
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('brew', '2.2.11', '', 1, '20200325', '');
+INSERT INTO versions VALUES ('brew', '2.2.13', '', 1, '20200412', '');
 
 INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
 INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('patroni', '1.6.4', '', 1, '20200127', '');
+INSERT INTO versions VALUES ('patroni', '1.6.5', '', 1, '20200423', '');
 
 INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://releases.llvm.org', 
   'llvm', 0, 'llvm.png', 'Just in Time Compilation', 'https://llvm.org');
