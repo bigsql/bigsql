@@ -121,6 +121,8 @@ export CLI=$IO/cli/scripts
 export PSX=$IO/out/posix
 export REPO=http://localhost:8000
 
+export ORACLE_HOME=/opt/oracleinstantclient/instantclient_12_1
+
 ## for Ubuntu
 ##export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin
 ##export PATH=$PATH:$JAVA_HOME/bin

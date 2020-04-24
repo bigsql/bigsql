@@ -1,7 +1,7 @@
 sudo mkdir -p /opt/oracleinstantclient
 sudo chown $USER:$USER /opt/oracleinstantclient
 
-cp $IN/foreign/oracleinstant*.zip /opt/oraleinstantclient/.
+cp $IN/oracle/*.zip /opt/oracleinstantclient/.
 
 cd /opt/oracleinstantclient
 unzip instantclient-basic*.zip
