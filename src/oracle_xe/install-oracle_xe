@@ -4,14 +4,11 @@ run_cmd () {
   cmd=$1
   echo "# $cmd"
   $cmd
-  rc=$?
-  echo "rc=$rc"
-  echo " "
 }
 
-run_cmd "sudo yum install oracle-database-preinstall-*.rpm"
+run_cmd "sudo yum install -y oracle-database-preinstall-*.rpm"
 
-run_cmd "sudo yum install oracle-database-xe-*.rpm"
+run_cmd "sudo yum install -y oracle-database-xe-*.rpm"
 
 echo ""
 echo "# now run:  ./io config oracle_xe"
