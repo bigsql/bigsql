@@ -206,6 +206,7 @@ initDir () {
   fi
 
   copy-pgXX "spock"
+  copy-pgXX "orafce"
   copy-pgXX "pglogical"
   copy-pgXX "timescaledb"
   copy-pgXX "anon"
