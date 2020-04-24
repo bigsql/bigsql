@@ -336,8 +336,8 @@ INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql
   'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');
 INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'Spock', '', 'prod', 1);
 INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'Spock', '', 'prod', 1);
-INSERT INTO versions VALUES ('spock-pg11', '3.1.1-1',  'amd', 1, '20200401', 'pg11');
-INSERT INTO versions VALUES ('spock-pg12', '3.1.1-1',  'amd', 1, '20200401', 'pg12');
+INSERT INTO versions VALUES ('spock-pg11', '3.1.1-1',  'amd', 0, '20200401', 'pg11');
+INSERT INTO versions VALUES ('spock-pg12', '3.1.1-1',  'amd', 0, '20200401', 'pg12');
 
 INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
   'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
