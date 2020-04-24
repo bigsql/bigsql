@@ -98,10 +98,10 @@ alias chalice="workon chalice; cd ~/dev/pgsql-io/www/chalice"
 export REGION=us-west-2
 export BUCKET=s3://pgsql-io-download
 
-export WORKON_HOME=$HOME/Envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=$HOME/Envs
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+#source /usr/local/bin/virtualenvwrapper.sh
 
 
 export DEV=$HOME/dev
