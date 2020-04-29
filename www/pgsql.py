@@ -1,13 +1,12 @@
 
 def print_header(pWidth):
-  print("<title>PGSQL: PostgreSQL CE</title>")
+  print("<title>PGSQL: PostgreSQL Community Edition</title>")
 
   print("<center>")
 
-
   print('<table border=0 bgcolor=black cellpadding=0 width=' + str(pWidth) + '>\n' +
         '  <tr> \n' + \
-        '    <td><img src=img/pgsql-banner5.png /></td> \n' + \
+        '    <td><img src=img/pgsql-banner6.png /></td> \n' + \
         '  </tr>\n' + \
         '</table>\n\n')
 
@@ -27,13 +26,24 @@ Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
         "  </td></tr>")
   print("</table>")
 
-
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
   print("  <tr><td>&nbsp;</td></tr>")
-  print("  <tr><td colspan=2><h2>Download & Usage</h2></td></tr>")
+  string = \
+"""\
+<tr><td colspan=2>
+<table>
+  <tr>
+    <td width=275><h2>Download & Usage</h2></td>
+    <td><img width=55% height=55% src=img/platforms.png /></td>
+  </tr>
+</table>
+</td></tr>
+\
+"""
+  print(string)
   print("  <tr><td colspan=2>")
-  print("We are verfied & tested with: Python 2.7+, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, \n" + \
-        "Debian 9+, Raspbian 64-bit, opensSUSE 12+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
+  print("We are verfied & tested with: Python 2.7 & 3.5+, Amazon Linux 2, CentOS/RHEL 7 & 8, Ubuntu LTS 16, 18 & 20 \n" + \
+        "Debian 9 & 10, opensSUSE 12+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
         "We run in a sandboxed environment that is perfect for running \n" + \
         "in the development, container, bare metal, or cloud environment \n" + \
         "of your choice.")
