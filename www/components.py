@@ -93,7 +93,7 @@ def get_columns(d):
       rel_date = "19700101"
     else:
       stage = "--" + stage
-    stage = "<font color=red><b>" + stage + "</b></font>"
+    stage = "<font color=red>" + stage + "</font>"
 
   proj_desc = str(d[12])
 
@@ -184,13 +184,12 @@ for d in data:
   next_rel  = str(d[5])                                                         
   next_ver  = str(d[6]).replace("-1", "")
 
+  ## break processing
   if ((next_proj == project) and 
       (next_rel == release_name) and 
       (next_ver == version)):
-    ##print("DEBUG: combine these two components: " + component + ", " + next_comp)
     skip_next = True
     component = component + "," + next_comp[-2:]
-
 
   if (old_cat_desc != cat_desc):
     print_row_header(BR)
@@ -198,7 +197,6 @@ for d in data:
 
   if col == 1:
     print("<tr>")
-
 
   print_row_detail(col, BR)
 
@@ -210,6 +208,7 @@ for d in data:
   old_cat_desc = cat_desc
   old_d = d
 
+#last row
 get_columns(d)
 print_row_detail(col, BR)
 

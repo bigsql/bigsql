@@ -12,6 +12,7 @@ def print_header(pWidth):
 
   print("<table bgcolor=whitesmoke width=" + str(pWidth) + " cellpadding=0 >")
   print("<tr><td>&nbsp;</td></tr>")
+
   string = \
 """\
 PGSQL is the PostgreSQL Community Edition that is developer friendly and cross-platform.
@@ -28,6 +29,7 @@ Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
 
   print("<table bgcolor=white width=" + str(pWidth) + " cellpadding=1 >")
   print("  <tr><td>&nbsp;</td></tr>")
+
   string = \
 """\
 <tr><td colspan=2>
@@ -38,36 +40,36 @@ Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
   </tr>
 </table>
 </td></tr>
+
+<tr><td colspan=2>
+We are verfied & tested with Python 2.7 & 3.5+; Amazon Linux 2; 
+CentOS/RHEL 7 & 8; Ubuntu LTS 16, 18 & 20; Debian 9 & 10; 
+opensSUSE 12 & 13; Windows 10 Subsytem for Linux, and OSX 10.13.
+We run in a sandboxed environment that is perfect for running
+in the development, container, bare metal, or cloud environment
+of your choice.
+
+<br>&nbsp;</td></tr>
+<tr><td width=240 align=right><b>Install command line:</b></td>
+  <td><input type='text' size=80 value =
+'python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py "' readonly='readonly' />
+  </td>
+</tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td align=right><p><b>Usage sample:</b></td>
+    <td>
+      <input type='text' size=80 value =
+'cd pgsql; ./io install pg11; ./io start pg11; ./io install timescale' readonly='readonly' />
+    </td>
+</tr>
+</table>
 \
 """
   print(string)
-  print("  <tr><td colspan=2>")
-  print("We are verfied & tested with: Python 2.7 & 3.5+, Amazon Linux 2, CentOS/RHEL 7 & 8, Ubuntu LTS 16, 18 & 20 \n" + \
-        "Debian 9 & 10, opensSUSE 12+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; \n" + \
-        "We run in a sandboxed environment that is perfect for running \n" + \
-        "in the development, container, bare metal, or cloud environment \n" + \
-        "of your choice.")
-  print("<br>&nbsp;</td></tr>")
-
-  print("  <tr><td width=240 align=right><b>Install command line:</b></td><td>")
-  print("  <input type='text' size=80 value ='" + \
-        'python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"' + \
-        "' readonly='readonly'>")
-  print("</td></tr>")
-
-  print("<tr><td>&nbsp;</td></tr>")
-  
-  print("<tr><td align=right><p><b>Usage sample:</b></td><td>")
-  print("<input type='text' size=80 value ='" + \
-        'cd pgsql; ./io install pg11; ./io start pg11; ./io install timescale' + \
-        "' readonly='readonly'>")
-  print("</td></tr>")
-
-  print("</table>")
 
 
 def print_footer():
   print('<center><table><tr> \n' + \
-        '   <td width=450>&copy; 2020, All rights reserved.</td> \n' + \
+        '   <td width=450>&copy; 2020 PGSQL.IO, LLC, All rights reserved.</td> \n' + \
         '   <td width=450 align=right><a href="https://lussier.io">denis@lussier.io</a></td> \n' + \
         '</tr></table></center>')

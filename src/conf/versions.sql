@@ -232,7 +232,7 @@ INSERT INTO versions VALUES ('oraclefdw-pg12','2.2.0-1', 'amd', 1, '20191010', '
 
 INSERT INTO projects VALUES ('oracle_xe', 5, 1539, 'hub', 0, 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html', 
   'oracle_xe', 0, 'oracle.png', 'Oracle 18c Express Edition', 'https://www.oracle.com/downloads/licenses/database-11g-express-license.html');
-INSERT INTO releases VALUES ('oracle_xe', 2, 'oracle_xe', 'Oracle Express Edition', '', 'prod',  0);
+INSERT INTO releases VALUES ('oracle_xe', 2, 'oracle_xe', 'Oracle Express Edition', '', 'proprietary',  0);
 INSERT INTO versions VALUES ('oracle_xe', '18c-1', 'amd', 1, '20200424', '');
 
 -- ##
