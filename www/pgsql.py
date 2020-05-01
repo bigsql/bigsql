@@ -36,7 +36,7 @@ Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
 <table>
   <tr>
     <td width=275><h2>Download & Usage</h2></td>
-    <td><img width=55% height=55% src=img/platforms.png /></td>
+    <td><img width=55% src=img/platforms.png /></td>
   </tr>
 </table>
 </td></tr>
