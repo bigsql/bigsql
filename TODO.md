@@ -9,6 +9,4 @@
 
 - Test javafdw, esfdw
 
-- Fix update data on host table in sqlite metadata
-
 
