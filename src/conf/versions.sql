@@ -396,7 +396,7 @@ INSERT INTO releases VALUES ('pgbadger', 8, 'pgbadger','pgBadger','', 'prod', 1)
 INSERT INTO versions VALUES ('pgbadger', '11.2', '', 1, '20200311', '');
 INSERT INTO versions VALUES ('pgbadger', '11.1', '', 0, '20190916', '');
 
-INSERT INTO projects VALUES ('bouncer', 6432, 0, 'hub', 3, 'http://pgbouncer.org',
+INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'http://pgbouncer.org',
   'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'http://pgbouncer.org');
 INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'prod', 1);
 INSERT INTO versions VALUES ('bouncer', '1.13.0-1', 'arm, amd', 1, '20200427', '');

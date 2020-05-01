@@ -60,16 +60,23 @@ def stop_comp(p_comp):
 
 def check_pid_status(p_comp, p_pidfile, p_kount=0, p_json=False):
   if os.path.isfile(p_pidfile):
-    try:
-      with open(p_pidfile, 'r') as f:
-        pid = f.readline().rstrip(os.linesep)
-      ver = meta.get_ver_plat(p_comp)
-      if util.is_pid_running(pid):
-        api.status(p_json, p_comp, ver, "running as pid " + str(pid), 0, p_kount)
-      else:
-        api.status(p_json, p_comp, ver, "not running as pid " + str(pid), 0, p_kount)
-    except Exception as e:
-      print(str(e))
+    ver = meta.get_ver_plat(p_comp)
+    rc = os.system("pgrep --pidfile " + p_pidfile + " > /dev/null 2>&1")
+    if rc == 0:
+      api.status(p_json, p_comp, ver, "running", 0, p_kount)
+    else:
+      api.status(p_json, p_comp, ver, "not running", 0, p_kount)
+
+    #try:
+    #  with open(p_pidfile, 'r') as f:
+    #     pid = f.readline().rstrip(os.linesep)
+    #  ver = meta.get_ver_plat(p_comp)
+    #  if util.is_pid_running(pid):
+    #    api.status(p_json, p_comp, ver, "running as pid " + str(pid), 0, p_kount)
+    #  else:
+    #    api.status(p_json, p_comp, ver, "not running as pid " + str(pid), 0, p_kount)
+    #except Exception as e:
+    #  print(str(e))
   else:
     api.status(p_json, p_comp, "", "not running", 0, p_kount)
 
