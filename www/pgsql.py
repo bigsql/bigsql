@@ -52,7 +52,7 @@ of your choice.
 <br>&nbsp;</td></tr>
 <tr><td width=240 align=right><b>Install command line:</b></td>
   <td><input type='text' size=80 value =
-'python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py "' readonly='readonly' />
+'python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"' readonly='readonly' />
   </td>
 </tr>
 <tr><td>&nbsp;</td></tr>
