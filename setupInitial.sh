@@ -32,7 +32,7 @@ if [ `uname` == 'Linux' ]; then
     sudo yum -y install -y epel-release python-pip
     sudo yum -y groupinstall 'development tools'
     sudo yum -y install bison-devel libedit-devel zlib-devel \
-      openssl-devel libmxl2-devel libxslt-devel libevent-devel \
+      openssl-devel libmxl2-devel libxslt-devel libevent-devel c-ares-devel \
       perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-11-openjdk-devel \
       openjade pam-devel openldap-devel boost-devel \
       gdal-devel geos-devel json-c-devel proj-devel mysql-devel freetds-devel \
