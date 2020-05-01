@@ -457,7 +457,7 @@ initPG () {
 
       initC "oraclefdw-pg$pgM" "oraclefdw" "$oraclefdwV" "$outPlat" "postgres/oraclefdw" "" "" "nil"
 
-      initC "cassandra" "cassandra" "$cstarV" "" "foreign" "" "" "nil"
+      initC "cassandra" "cassandra" "$cstarV" "" "apache" "" "" "nil"
       initC "cassandrafdw-pg$pgM" "cassandrafdw" "$cstarfdwV" "$outPlat" "postgres/cassandrafdw" "" "" "nil"
 
       initC "hivefdw-pg$pgM" "hivefdw" "$hivefdwV" "$outPlat" "postgres/hivefdw" "" "" "nil"
