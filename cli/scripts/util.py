@@ -52,20 +52,22 @@ def get_perl_ver():
 
 
 def get_java_ver():
-  java_ver = getoutput('javac -version 2>/dev/null')
-  if java_ver[:6] == "javac ":
-    java_ver = java_ver[6:]  
-
-  if java_ver == "":
-    return(["", ""])
-
-  java_ver = java_ver.strip()
-
-  parts = java_ver.split(".")
-  if str(parts[0]) == "1":
-    java_major_ver = str(parts[1])
+  java_ver = getoutput('java -version 2>&1')
+  java_ver = java_ver.replace('"', '')
+  java_lines = java_ver.split('\n')
+  java_ver = java_lines[0]
+  parts = java_ver.split(" ")
+  
+  if len(parts) == 3:
+    java_ver = parts[2]
+    java_ver_pieces = java_ver.split('.')
+    if str(java_ver_pieces[0]) == "1":
+      java_major_ver = str(java_ver_pieces[1])
+    else:
+      java_major_ver = str(java_ver_pieces[1])
   else:
-    java_major_ver = str(parts[0])
+    java_major_ver = ''
+    java_ver = ''
 
   return([java_major_ver, java_ver])
 
