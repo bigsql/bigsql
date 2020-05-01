@@ -214,8 +214,9 @@ function configureComp {
 
     if [ "$comp" == "bouncer" ]; then
         echo "# configure bouncer..."
-        opt="--prefix=$buildLocation --disable-rpath"
+        opt="--prefix=$buildLocation --disable-rpath --with-cares --with-pam"
         opt="$opt --with-libevent=$sharedLibs/../ --with-openssl=$sharedLibs/../"
+        echo "#    $opt"
         ./configure $opt LDFLAGS="$LDFLAGS -Wl,-rpath,$sharedLibs" > $make_log 2>&1
         rc=$?
     fi
@@ -242,7 +243,11 @@ function buildComp {
         src="$5"
         ##echo "#         src: $src"
 
-        componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
+        if [ "$comp" == "bouncer" ]; then
+            componentName="$comp$shortV-$fullV-$buildV-$buildOS"
+        else
+            componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
+        fi
         echo "#      compNm: $componentName"
         mkdir -p "$baseDir/$workDir/logs"
         cd "$baseDir/$workDir"

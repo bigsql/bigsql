@@ -19,7 +19,7 @@ pg95BuildV=4
 ##backrestV=2.24
 ##agentV=4.0.0
 
-bouncerFullV=1.12.0
+bouncerFullV=1.13.0
 bouncerShortV=
 bouncerBuildV=1
 

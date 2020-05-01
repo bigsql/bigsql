@@ -15,7 +15,7 @@ pgadminV=4
 esfdwV=0.7.4
 esV=7.6.2
 
-bouncerV=1.12.0-1
+bouncerV=1.13.0-1
 pgtopV=3.7.0-1
 proctabV=0.0.8.1-1
 

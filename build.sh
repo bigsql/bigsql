@@ -435,6 +435,10 @@ initPG () {
     initC "oracle_xe" "oracle_xe" "$oracle_xeV" "$outPlat" "oracle" "" "" "nil"
   fi
 
+  if [ "$outPlat" == "amd" ] || [ "$outPlat" == "arm" ]; then
+      initC "bouncer" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
+  fi
+
   if [ "$pgM" == "11" ]; then 
     initC "audit-pg$pgM" "audit" "$audit11V" "$outPlat" "postgres/audit" "" "" "nil"
     initC "pgtsql-pg$pgM" "pgtsql" "$tsqlV" "$outPlat" "postgres/tsql" "" "" "nil"
@@ -470,7 +474,6 @@ initPG () {
 
     if [ ! "$outPlat" == "osx" ]; then
       initC "mysqlfdw-pg$pgM" "mysqlfdw" "$mysqlfdwV" "$outPlat" "postgres/mysqlfdw" "" "" "nil"
-      initC "bouncer-pg$pgM" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
       initC "esfdw-pg$pgM" "esfdw" "$esfdwV" "$outPlat" "postgres/esfdw" "" "" "nil"
 
       initC "cron-pg$pgM" "cron" "$cronV" "$outPlat" "postgres/cron" "" "" "nil"
