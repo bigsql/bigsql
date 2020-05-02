@@ -51,20 +51,22 @@ def get_perl_ver():
   return(perl_ver.strip())
 
 
-def get_java_ver():
+def get_java_ver(pDisplay=False):
   java_ver = getoutput('java -version 2>&1')
   java_ver = java_ver.replace('"', '')
   java_lines = java_ver.split('\n')
   java_ver = java_lines[0]
   parts = java_ver.split(" ")
+  if pDisplay:
+    print(str(parts))
   
-  if len(parts) == 3:
+  if len(parts) >= 3:
     java_ver = parts[2]
     java_ver_pieces = java_ver.split('.')
     if str(java_ver_pieces[0]) == "1":
       java_major_ver = str(java_ver_pieces[1])
     else:
-      java_major_ver = str(java_ver_pieces[1])
+      java_major_ver = str(java_ver_pieces[0])
   else:
     java_major_ver = ''
     java_ver = ''
@@ -74,9 +76,13 @@ def get_java_ver():
 
 def get_jvm_location(p_display=False):
   [j_major, j_ver] = get_java_ver()
-  arch = getoutput("arch")
   j_base = "/etc/alternatives/"
-  j_ext = "/lib/" + arch + "/server/libjvm.so"
+  arch = getoutput("arch")
+  if arch == "aarch64":
+    j_ext = "/lib/aarch64/server/libjvm.so"
+  else:
+    j_ext = "/lib/server/libjvm.so"
+
   if j_major in ("6", "7", "8", "9"):
     j_so_path = j_base + 'jre_1.' + j_major + '.0' + j_ext
   else:
