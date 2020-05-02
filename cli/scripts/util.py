@@ -74,12 +74,13 @@ def get_java_ver():
 
 def get_jvm_location(p_display=False):
   [j_major, j_ver] = get_java_ver()
-  j_base = "/usr/lib/jvm/"
-  j_ext = "/lib/server/libjvm.so"
+  arch = getoutput("arch")
+  j_base = "/etc/alternatives/"
+  j_ext = "/lib/" + arch + "/server/libjvm.so"
   if j_major in ("6", "7", "8", "9"):
-    j_so_path = j_base + 'java-1." + j_major + ".0-openjdk' + j_ext
+    j_so_path = j_base + 'jre_1.' + j_major + '.0' + j_ext
   else:
-    j_so_path = j_base + 'java-' + j_major +'-openjdk' + j_ext
+    j_so_path = j_base + 'jre_' + j_major + j_ext
 
   if p_display:
     print("# jvm_location = " + j_so_path)
@@ -95,14 +96,19 @@ def get_jvm_location(p_display=False):
 
 def set_jvm_link(p_pg_ver, p_display=True):
   jvm_location = get_jvm_location()
-  pg_location = os.path.join(MY_HOME, p_pg_ver, 'lib', 'postgresql')
-  cmd = 'ln -s ' + jvm_location + ' ' + pg_location
+  if jvm_location == "":
+    return(False)
 
+  pg_location = os.path.join(MY_HOME, p_pg_ver, 'lib', 'libjvm.so')
+  cmd = 'ln -s ' + jvm_location + ' ' + pg_location
   if p_display:
     print("  " + cmd)
 
   rc = os.system(cmd)
-  return(rc)
+  if rc == 0:
+    return(True)
+
+  return(False)
 
 
 def run_cmd (p_cmd, p_display=False):
