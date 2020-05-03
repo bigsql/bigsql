@@ -1,8 +1,19 @@
+from flask import render_template
 from app import app
 
 @app.route('/')
 @app.route('/index')
-
 def index():
-    return "Hello, World!"
+    user = {'username': 'DenisL'}
+    posts = [
+        {
+            'author': {'username': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'username': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
+    ]
+    return render_template('index.html', title='PGSQL-IO', user=user, posts=posts)
 
