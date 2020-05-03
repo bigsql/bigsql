@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This script generates a relocatable build for PostgreSQL that includes
-#   pgBouncer, pgagent, psqlODBC, and pgBackrest
+#   psqlODBC, and pgBackrest
 #
 
 #set -x

@@ -221,6 +221,14 @@ function configureComp {
         rc=$?
     fi
 
+    if [ "$comp" == "agent" ]; then
+        echo "# configure agent..."
+        config="ccmake -DCMAKE_INSTALL_PREFIX=$buildLocation --config cfg ."
+        echo "#   $config"
+        $config > $make_log 2>&1
+        rc=$?
+    fi
+
     if [ ! "$rc" == "0" ]; then
        echo " "
        echo "ERROR: configureComp() failed, check make_log"
@@ -243,7 +251,7 @@ function buildComp {
         src="$5"
         ##echo "#         src: $src"
 
-        if [ "$comp" == "bouncer" ]; then
+        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ]; then
             componentName="$comp$shortV-$fullV-$buildV-$buildOS"
         else
             componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
@@ -252,7 +260,10 @@ function buildComp {
         mkdir -p "$baseDir/$workDir/logs"
         cd "$baseDir/$workDir"
         rm -rf $comp
-        mkdir $comp  && tar -xf $src --strip-components=1 -C $comp
+        mkdir $comp 
+        cmd="tar -xf $src --strip-components=1 -C $comp"
+        ##echo "# $cmd"
+        $cmd
         cd $comp
 
         buildLocation="$baseDir/$workDir/build/$componentName"
@@ -600,7 +611,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-agent:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -652,7 +663,8 @@ while true; do
     --build-http ) buildHttp=true; Source=$2; shift; shift ;;
     --build-pgtop ) buildPgTop=true; Source=$2; shift; shift ;;
     --build-proctab ) buildProctab=true; Source=$2; shift; shift ;;
-    --build-number ) buildNumber=$2; shift; shift ;;
+    --build-number ) buildNumber=true; Source=$2; shift; shift ;;
+    --build-agent ) buildAgent=true; Source=$2; shift; shift ;;
     --copy-bin ) copyBin=true; shift; shift; ;;
     --no-copy-bin ) copyBin=false; shift; shift; ;;
     --no-tar ) copyBin=false; noTar=true; shift; shift; ;;
@@ -797,6 +809,9 @@ if [[ $buildPgTop == "true" ]]; then
 fi
 if [[ $buildProctab == "true" ]]; then
 	buildComp proctab "$proctabShortV" "$proctabFullV" "$proctabBuildV" "$Source"
+fi
+if [ "$buildAgent" == "true" ]; then
+	buildComp agent "$agentShortV" "$agentFullV" "$agentBuildV" "$Source"
 fi
 
 destDir=`date +%Y-%m-%d`

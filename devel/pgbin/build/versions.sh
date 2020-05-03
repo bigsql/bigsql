@@ -16,8 +16,7 @@ pg95V="9.5.21"
 pg95BuildV=4
 
 ##odbcV=12.01.0000
-##backrestV=2.24
-##agentV=4.0.0
+##backrestV=2.26
 
 bouncerFullV=1.13.0
 bouncerShortV=
@@ -26,6 +25,10 @@ bouncerBuildV=1
 multicornFullV=1.4.0
 multicornShortV=
 multicornBuildV=1
+
+agentFullV=4.0.0
+agentShortV=
+agentBuildV=1
 
 pgtopFullV=3.7.0
 pgtopShortV=

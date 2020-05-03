@@ -30,6 +30,10 @@ fi
 
 ## WIP across platforms ###########################
 
+if [ "$1" == "agent" ]; then
+  build agent $agentFullV $2 agent
+fi
+
 if [ "$1" == "pljava" ]; then
   build pljava $pljavaFullV $2 pljava
 fi
