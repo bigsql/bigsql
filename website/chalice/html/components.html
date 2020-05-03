@@ -1,0 +1,238 @@
+<title>PGSQL: PostgreSQL CE</title>
+<center>
+<table border=0 bgcolor=black cellpadding=0 width=900>
+  <tr> 
+    <td><img src=img/pgsql-banner5.png /></td> 
+  </tr>
+</table>
+
+
+<table bgcolor=whitesmoke width=900 cellpadding=0 >
+<tr><td>&nbsp;</td></tr>
+  <tr><td colspan=2><h2>Introduction</h2></td></tr>
+  <tr><td colspan=2>
+PGSQL is the PostgreSQL Community Edition that is developer friendly and cross-platform.
+We fully embrace both core PostgreSQL and it's rich eco-system of over
+50 enterprise-class extensions, applications & connectors.
+We support Linux (both AMD64 & ARM64), OSX, and Windows.
+Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
+<br>&nbsp;
+  </td></tr>
+</table>
+<table bgcolor=white width=900 cellpadding=1 >
+  <tr><td>&nbsp;</td></tr>
+  <tr><td colspan=2><h2>Download & Usage</h2></td></tr>
+  <tr><td colspan=2>
+We are verfied & tested with: Python 2.7+, Amazon Linux 2, CentOS/RHEL 7+, Ubuntu 16+, 
+Debian 9+, Raspbian 64-bit, opensSUSE 12+, Windows 10 Subsytem for Linux, and OSX 10.13+ &nbsp; 
+We run in a sandboxed environment that is perfect for running 
+in the development, container, bare metal, or cloud environment 
+of your choice.
+<br>&nbsp;</td></tr>
+  <tr><td width=240 align=right><b>Install command line:</b></td><td>
+  <input type='text' size=80 value ='python3 -c "$(curl -fsSL https://pgsql-io-download.s3.amazonaws.com/REPO/install.py)"' readonly='readonly'>
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td align=right><p><b>Usage sample:</b></td><td>
+<input type='text' size=80 value ='cd pgsql; ./io install pg11; ./io start pg11; ./io install timescale' readonly='readonly'>
+</td></tr>
+</table>
+
+<p>
+<table width=900 border=0 bgcolor=whitesmoke cellpadding=1>
+<tr><td colspan=6><p>&nbsp;<h2>Rock Solid Postgres</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/postgresql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://postgresql.org>PostgreSQL</a>&nbsp;&nbsp;<a href=https://postgresql.org/download>v12.2-4</a>&nbsp;<font color=red size=-1><sup>27-Mar</sup></font><br>pg12 [amd, arm, osx] <br><i></font></i></td>
+  <td width=35>&nbsp;<img src=img/postgresql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://postgresql.org>PostgreSQL</a>&nbsp;&nbsp;<a href=https://postgresql.org/download>v11.7-4</a>&nbsp;<font color=red size=-1><sup>27-Mar</sup></font><br>pg11 [arm, amd, osx] <br><i></font></i></td>
+  <td width=35>&nbsp;<img src=img/postgresql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://postgresql.org>PostgreSQL</a>&nbsp;&nbsp;<a href=https://postgresql.org/download>v10.12-4</a>&nbsp;<font color=red size=-1><sup>27-Mar</sup></font><br>pg10 [arm, amd, osx] <br><i></font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/postgresql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://postgresql.org>PostgreSQL</a>&nbsp;&nbsp;<a href=https://postgresql.org/download>v9.6.17-4</a>&nbsp;<font color=red size=-1><sup>27-Mar</sup></font><br>pg96 [arm, amd, osx] <br><i></font></i></td>
+  <td width=35>&nbsp;<img src=img/postgresql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://postgresql.org>PostgreSQL</a>&nbsp;&nbsp;<a href=https://postgresql.org/download>v9.5.21-4</a>&nbsp;<font color=red size=-1><sup>27-Mar</sup></font><br>pg95 [arm, amd, osx] <br><i></font></i></td>
+<tr><td colspan=6><p>&nbsp;<h2>Data Integration</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/hive.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/bigsql/hive_fdw#hive_fdw>HiveFDW</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/hive_fdw/releases>v3.3.1</a>&nbsp;<font color=red size=-1><sup>22-Feb</sup></font><br>hivefdw-pg11,12 [amd] <br><i>Big Data Queries from PG</font></i></td>
+  <td width=35>&nbsp;<img src=img/presto.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://prestodb.io>Presto</a>&nbsp;&nbsp;<a href=https://prestodb.io/download.html>v0.233.1</a>&nbsp;<font color=red size=-1><sup>24-Mar</sup></font><br>presto [arm, amd, osx] <br><i>Presto</font></i></td>
+  <td width=35>&nbsp;<img src=img/hadoop.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://hadoop.apache.org>Hadoop</a>&nbsp;&nbsp;<a href=https://hadoop.apache.org/releases.html>v2.10.0</a>&nbsp;<font color=red size=-1><sup>29-Oct</sup></font><br>hadoop [arm, amd, osx] <br><i>Hadoop</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/esfdw.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper>ElasticSearchFDW</a>&nbsp;&nbsp;<a href=https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases>v0.7.4</a>&nbsp;<font color=red size=-1><sup>23-Apr</sup></font><br>esfdw-pg11,12 [arm, amd] <br><i>Elastic Search from PG</font></i></td>
+  <td width=35>&nbsp;<img src=img/elastic-search.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/elastic/elasticsearch#elasticsearch>ElasticSearch</a>&nbsp;&nbsp;<a href=https://www.elastic.co/downloads/elasticsearch>v7.6.2</a>&nbsp;<font color=red size=-1><sup>15-Apr</sup></font><br>elasticsearch [amd] <br><i>ElasticSearch</font></i></td>
+  <td width=35>&nbsp;<img src=img/oracle.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://www.oracle.com/downloads/licenses/database-11g-express-license.html>Oracle Express Edition</a>&nbsp;&nbsp;<a href=https://www.oracle.com/downloads/licenses/database-11g-express-license.html>v18c</a>&nbsp;<font color=red size=-1><sup>24-Apr</sup></font><br>oracle_xe [amd] <br><i>Oracle 18c Express Edition</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/tds.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/tds-fdw/tds_fdw/#tds-foreign-data-wrapper>TDS FDW</a>&nbsp;&nbsp;<a href=https://github.com/tds-fdw/tds_fdw/releases>v2.0.1</a>&nbsp;<font color=red size=-1><sup>2-Dec</sup></font><br>tdsfdw-pg11 [amd] <br><i>SQL Server & Sybase from PG</font></i></td>
+  <td width=35>&nbsp;<img src=img/oracle_fdw.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/laurenz/oracle_fdw>Oracle FDW</a>&nbsp;&nbsp;<a href=https://github.com/laurenz/oracle_fdw/releases>v2.2.0</a>&nbsp;<font color=red size=-1><sup>10-Oct</sup></font><br>oraclefdw-pg11,12 [amd] <br><i>Oracle from PG</font></i></td>
+  <td width=35>&nbsp;<img src=img/mysql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/EnterpriseDb/mysql_fdw>MySQL FDW</a>&nbsp;&nbsp;<a href=https://github.com/EnterpriseDB/mysql_fdw/releases>v2.5.3</a>&nbsp;<font color=red size=-1><sup>27-Sep</sup></font><br>mysqlfdw-pg11,12 [arm, amd] <br><i>MySQL from PG</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/cstar.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/bigsql/cassandra_fdw#cassandra_fdw>CassandraFDW</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/cassandra_fdw/releases>v3.1.5</a>&nbsp;<font color=red size=-1><sup>30-Dec</sup></font><br>cassandrafdw-pg11,12 [amd] <br><i>Cassandra from PG</font></i></td>
+<tr><td colspan=6><p>&nbsp;<h2>Programming Platforms</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/jan.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/tada/pljava>PL/pgSQL</a>&nbsp;&nbsp;<a href=https://github.com/pgsql/postgresql/releases>v12</a>&nbsp;<font color=red size=-1><sup>13-Feb</sup></font><br>plpgsql [arm, amd, osx] <br><i>Postgres Procedural Language</font></i></td>
+  <td width=35>&nbsp;<img src=img/plprofiler.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/bigsql/plprofiler#plprofiler>PL/Profiler</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/plprofiler/releases>v4.1</a>&nbsp;<font color=red size=-1><sup>23-Aug</sup></font><br>plprofiler-pg11,12 [arm, amd] <br><i>Stored Procedure Profiler</font></i></td>
+  <td width=35>&nbsp;<img src=img/debugger.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/bigsql/pldebugger2#pldebugger2>PL/Debugger</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/pldebugger2/releases>v2.0</a>&nbsp;<font color=red size=-1><sup>24-Feb</sup></font><br>pldebugger-pg11,12 [arm, amd] <br><i>Procedural Language Debugger</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/tds.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/bigsql/pgtsql#pgtsql>PL/pgTSQL</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/pgtsql/releases>v3.0</a>&nbsp;<font color=red size=-1><sup>19-Nov</sup></font><br>pgtsql-pg11 [arm, amd] <br><i>Transact-SQL Procedures</font></i></td>
+  <td width=35>&nbsp;<img src=img/v8.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/plv8/plv8>PL/V8</a>&nbsp;&nbsp;<a href=https://github.com/plv8/plv8/releases>v2.3.14</a>&nbsp;<font color=red size=-1><sup></sup></font><br>plv8-pg11 [amd] <font color=red><b>Soon!</b></font><br><i>Javascript Stored Procedures</font></i></td>
+  <td width=35>&nbsp;<img src=img/python.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://www.postgresql.org/docs/11/plpython.html>PL/Python</a>&nbsp;&nbsp;<a href=https://www.postgresql.org/docs/11/plpython.html>v3</a>&nbsp;<font color=red size=-1><sup>13-Feb</sup></font><br>plpython3 [arm, amd] <br><i>Python3 Stored Procedures</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/perl.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://www.postgresql.org/docs/11/plperl.html>PL/Perl</a>&nbsp;&nbsp;<a href=https://www.postgresql.org/docs/11/plperl.html>v5</a>&nbsp;<font color=red size=-1><sup>13-Feb</sup></font><br>plperl [arm, amd] <br><i>Perl Stored Procedures</font></i></td>
+  <td width=35>&nbsp;<img src=img/pljava.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/tada/pljava>PL/Java</a>&nbsp;&nbsp;<a href=https://github.com/tada/pljava/releases>v1.5.5</a>&nbsp;<font color=red size=-1><sup>31-Mar</sup></font><br>pljava-pg11,12 [amd] <br><i>Java Stored Procedures</font></i></td>
+  <td width=35>&nbsp;<img src=img/larry.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages>OraFCE</a>&nbsp;&nbsp;<a href=https://github.com/orafce/orafce/releases>v3.11.1</a>&nbsp;<font color=red size=-1><sup>8-Apr</sup></font><br>orafce-pg11,12 [arm, amd] <br><i>Ora Built-in Packages</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/http.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/pramsey/pgsql-http>HTTP Client</a>&nbsp;&nbsp;<a href=https://github.com/pramsey/pgsql-http/releases>v1.3.1</a>&nbsp;<font color=red size=-1><sup>25-Dec</sup></font><br>http-pg11,12 [arm, amd] <br><i>Invoke Web Services</font></i></td>
+<tr><td colspan=6><p>&nbsp;<h2>Advanced Applications</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/timescaledb.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/timescale/timescaledb/#timescaledb>TimescaleDB</a>&nbsp;&nbsp;<a href=https://github.com/timescale/timescaledb/releases>v1.7.0</a>&nbsp;<font color=red size=-1><sup>16-Apr</sup></font><br>timescaledb-pg11,12 [amd] <br><i>Time Series Data</font></i></td>
+  <td width=35>&nbsp;<img src=img/pglogical.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/2ndQuadrant/pglogical>pgLogical2</a>&nbsp;&nbsp;<a href=https://github.com/2ndQuadrant/pglogical/releases>v2.3.1</a>&nbsp;<font color=red size=-1><sup>17-Apr</sup></font><br>pglogical-pg11,12 [arm, amd] <br><i>Logical Replication</font></i></td>
+  <td width=35>&nbsp;<img src=img/postgis.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=http://postgis.net>PostGIS</a>&nbsp;&nbsp;<a href=http://postgis.net/source>v3.0.1</a>&nbsp;<font color=red size=-1><sup>20-Feb</sup></font><br>postgis-pg11,12 [amd] <br><i>PostGIS</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/pgadmin.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://pgadmin.org>pgAdmin</a>&nbsp;&nbsp;<a href=https://pgadmin.org>v4</a>&nbsp;<font color=red size=-1><sup>2-Apr</sup></font><br>pgadmin [arm, amd, osx] <br><i>PG Admin for Docker</font></i></td>
+  <td width=35>&nbsp;<img src=img/agent.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=http://github.com/postgres/pgagent>pgAgent</a>&nbsp;&nbsp;<a href=http://github.com/postgres/pgagent/releases>v4.0.0</a>&nbsp;<font color=red size=-1><sup></sup></font><br>agent [amd] <font color=red><b>Soon!</b></font><br><i>Job Scheduler for pgAdmin4</font></i></td>
+  <td width=35>&nbsp;<img src=img/cron.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/citusdata/pg_cron>pgCron</a>&nbsp;&nbsp;<a href=https://github.com/citusdata/pg_cron/releases>v1.2.0</a>&nbsp;<font color=red size=-1><sup>30-Aug</sup></font><br>cron-pg11,12 [arm, amd] <br><i>Scheduler as Background Worker</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/bouncer.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=http://pgbouncer.org>pgBouncer</a>&nbsp;&nbsp;<a href=http://pgbouncer.org>v1.12.0</a>&nbsp;<font color=red size=-1><sup>17-Oct</sup></font><br>bouncer-pg11,12 [arm, amd] <br><i>Lightweight Connection Pooler</font></i></td>
+  <td width=35>&nbsp;<img src=img/bulkload.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/ossc-db/pg_bulkload>pgBulkLoad</a>&nbsp;&nbsp;<a href=https://github.com/ossc-db/pg_bulkload/releases>v3.1.16</a>&nbsp;<font color=red size=-1><sup>21-Jan</sup></font><br>bulkload-pg11,12 [amd] <br><i>High Speed Data Loading</font></i></td>
+  <td width=35>&nbsp;<img src=img/repack.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/reorg/pg_repack>pgRepack</a>&nbsp;&nbsp;<a href=https://github.com/reorg/pg_repack/releases>v1.4.5</a>&nbsp;<font color=red size=-1><sup>4-Oct</sup></font><br>repack-pg11,12 [arm, amd] <br><i>Remove Table/Index Bloat</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/partman.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/pgpartman/pg_partman#pg-partition-manager>pgPartman</a>&nbsp;&nbsp;<a href=https://github.com/pgpartman/pg_partman/releases>v4.3.1</a>&nbsp;<font color=red size=-1><sup>17-Apr</sup></font><br>partman-pg11,12 [arm, amd] <br><i>Partition Managemnt</font></i></td>
+  <td width=35>&nbsp;<img src=img/ora2pg.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://ora2pg.darold.net>Oracle to PG</a>&nbsp;&nbsp;<a href=https://github.com/darold/ora2pg/releases>v20.0</a>&nbsp;<font color=red size=-1><sup>18-Jan-19</sup></font><br>ora2pg [arm, amd, osx] <br><i>Migrate from Oracle to PG</font></i></td>
+  <td width=35>&nbsp;<img src=img/whatif.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://hypopg.readthedocs.io/en/latest/>HypoPG</a>&nbsp;&nbsp;<a href=https://github.com/HypoPG/hypopg/releases>v1.1.3</a>&nbsp;<font color=red size=-1><sup>23-Nov</sup></font><br>hypopg-pg11,12 [arm, amd] <br><i>Hypothetical Indexes</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/proctab.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/bigsql/pg_proctab>pgProcTab</a>&nbsp;&nbsp;<a href=https://github.com/bigsql/pg_proctab/releases>v0.0.8.1</a>&nbsp;<font color=red size=-1><sup>15-Apr</sup></font><br>proctab-pg11,12 [amd] <br><i>Monitoring Functions for pgTop</font></i></td>
+  <td width=35>&nbsp;<img src=img/pgtop.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/markwkm/pg_top/>pgTop</a>&nbsp;&nbsp;<a href=https://github.com/markwkm/pg_top/releases>v3.7.0</a>&nbsp;<font color=red size=-1><sup>31-Jul-13</sup></font><br>pgtop-pg11,12 [amd] <br><i>"top" for Postgres</font></i></td>
+  <td width=35>&nbsp;<img src=img/badger.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://pgbadger.darold.net>pgBadger</a>&nbsp;&nbsp;<a href=https://github.com/darold/pgbadger/releases>v11.2</a>&nbsp;<font color=red size=-1><sup>11-Mar</sup></font><br>pgbadger [arm, amd, osx] <br><i>Performance Reporting</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/backrest.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://pgbackrest.org>pgBackRest</a>&nbsp;&nbsp;<a href=https://pgbackrest.org/release.html>v2.26</a>&nbsp;<font color=red size=-1><sup></sup></font><br>backrest [arm, amd] <font color=red><b>Soon!</b></font><br><i>Backup & Restore</font></i></td>
+  <td width=35>&nbsp;<img src=img/audit.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/pgaudit/pgaudit>pgAudit</a>&nbsp;&nbsp;<a href=https://github.com/pgaudit/pgaudit/releases>v1.3.1</a>&nbsp;<font color=red size=-1><sup>17-Jun</sup></font><br>audit-pg11 [arm, amd] <br><i>Audit Logging</font></i></td>
+  <td width=35>&nbsp;<img src=img/audit.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/pgaudit/pgaudit>pgAudit</a>&nbsp;&nbsp;<a href=https://github.com/pgaudit/pgaudit/releases>v1.4.0</a>&nbsp;<font color=red size=-1><sup>27-Sep</sup></font><br>audit-pg12 [arm, amd] <br><i>Audit Logging</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/anon.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://gitlab.com/dalibo/postgresql_anonymizer/blob/master/README.md>Anonymizer</a>&nbsp;&nbsp;<a href=https://gitlab.com/dalibo/postgresql_anonymizer/releases>v0.6.0</a>&nbsp;<font color=red size=-1><sup>9-Mar</sup></font><br>anon-pg11,12 [arm, amd] <br><i>Anonymization & Masking</font></i></td>
+  <td width=35>&nbsp;<img src=img/omnidb.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/omnidb/omnidb/#omnidb>OmniDB</a>&nbsp;&nbsp;<a href=https://github.com/omnidb/omnidb/releases>v2.17</a>&nbsp;<font color=red size=-1><sup></sup></font><br>omnidb [arm, amd, osx] <font color=red><b>Soon!</b></font><br><i>RDBMS Web Admin</font></i></td>
+<tr><td colspan=6><p>&nbsp;<h2>Connectors</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/psycopg.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=http://psycopg.org>Psycopg2</a>&nbsp;&nbsp;<a href=https://pypi.org/project/psycopg2/>v2.8.5</a>&nbsp;<font color=red size=-1><sup>6-Apr</sup></font><br>psycopg [arm, amd, osx] <br><i>Python Adapter</font></i></td>
+  <td width=35>&nbsp;<img src=img/java.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://jdbc.postgresql.org>JDBC</a>&nbsp;&nbsp;<a href=https://jdbc.postgresql.org>v42.2.12</a>&nbsp;<font color=red size=-1><sup>31-Mar</sup></font><br>jdbc [arm, amd, osx] <br><i>JDBC Driver</font></i></td>
+  <td width=35>&nbsp;<img src=img/ruby.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com>Ruby</a>&nbsp;&nbsp;<a href=https://rubygems.org/gems/pg>v1.2.3</a>&nbsp;<font color=red size=-1><sup>18-Mar</sup></font><br>ruby [arm, amd, osx] <br><i>Ruby Interface</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/odbc.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://odbc.postgresql.org>ODBC</a>&nbsp;&nbsp;<a href=https://www.postgresql.org/ftp/odbc/versions/msi/>v12.01</a>&nbsp;<font color=red size=-1><sup></sup></font><br>odbc [arm, amd] <font color=red><b>Soon!</b></font><br><i>ODBC Driver</font></i></td>
+  <td width=35>&nbsp;<img src=img/npgsql.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://www.npgsql.org>.net PG</a>&nbsp;&nbsp;<a href=https://www.nuget.org/packages/Npgsql/>v4.1.3.1</a>&nbsp;<font color=red size=-1><sup>20-Feb</sup></font><br>npgsql [arm, amd, osx] <br><i>.NET Provider</font></i></td>
+<tr><td colspan=6><p>&nbsp;<h2>Container Technologies</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/docker.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/docker/docker-ce/#docker-ce>Docker CE 19.03.8</a>&nbsp;&nbsp;<a href=https://github.com/docker/docker-ce/releases>v19</a>&nbsp;<font color=red size=-1><sup>10-Mar</sup></font><br>docker [arm, amd, osx] <br><i>Container Runtime</font></i></td>
+  <td width=35>&nbsp;<img src=img/minikube.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://minikube.sigs.k8s.io/>Local Kubernetes</a>&nbsp;&nbsp;<a href=https://github.com/kubernetes/minikube/releases>v1.9.2</a>&nbsp;<font color=red size=-1><sup>4-Apr</sup></font><br>minikube [arm, amd, osx] <br><i>Kubernetes (MiniKube)</font></i></td>
+  <td width=35>&nbsp;<img src=img/helm.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://helm.sh>Helm</a>&nbsp;&nbsp;<a href=https://github.com/helm/helm/releases>v3.2.0</a>&nbsp;<font color=red size=-1><sup>22-Apr</sup></font><br>helm [arm, amd, osx] <br><i>K8s Package Manager</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/patroni.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/zalando/patroni>Patroni</a>&nbsp;&nbsp;<a href=https://github.com/zalando/patroni/releases>v1.6.5</a>&nbsp;<font color=red size=-1><sup>23-Apr</sup></font><br>patroni [arm, amd, osx] <br><i>HA Template</font></i></td>
+<tr><td colspan=6><p>&nbsp;<h2>Developers Toolchain</h2</td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/multicorn.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=http://multicorn.org>Multicorn</a>&nbsp;&nbsp;<a href=https://github.com/Segfault-Inc/Multicorn/releases>v1.4.0</a>&nbsp;<font color=red size=-1><sup>18-Mar</sup></font><br>multicorn-pg11,12 [arm, amd] <br><i>Python FDW Library</font></i></td>
+  <td width=35>&nbsp;<img src=img/ddlx.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://github.com/lacanoid/pgddl#ddl-extractor-functions--for-postgresql>DDLeXtact</a>&nbsp;&nbsp;<a href=https://github.com/lacanoid/pgddl/releases>v0.16</a>&nbsp;<font color=red size=-1><sup>10-Nov</sup></font><br>ddlx-pg11,12 [arm, amd] <br><i>DDL Extractor</font></i></td>
+  <td width=35>&nbsp;<img src=img/homebrew.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://brew.sh>Homebrew</a>&nbsp;&nbsp;<a href=https://github.com/homebrew/brew/releases>v2.2.13</a>&nbsp;<font color=red size=-1><sup>12-Apr</sup></font><br>brew [arm, amd, osx] <br><i>OSX GNU toolchain</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/llvm.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://llvm.org>LLVM</a>&nbsp;&nbsp;<a href=https://releases.llvm.org>v10.0.0</a>&nbsp;<font color=red size=-1><sup>24-Mar</sup></font><br>llvm [arm, amd, osx] <br><i>Just in Time Compilation</font></i></td>
+  <td width=35>&nbsp;<img src=img/gnu.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://gnu.org/software/bison/>Bison</a>&nbsp;&nbsp;<a href=http://ftp.gnu.org/gnu/bison/>v3.5.4</a>&nbsp;<font color=red size=-1><sup>5-Apr</sup></font><br>bison [arm, amd, osx] <br><i>Parser-Generator</font></i></td>
+  <td width=35>&nbsp;<img src=img/gcc.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://gnu.org/software/gcc/>GCC</a>&nbsp;&nbsp;<a href=http://ftp.gnu.org/gnu/gcc/>v9.3.0</a>&nbsp;<font color=red size=-1><sup>12-Mar</sup></font><br>gcc [arm, amd, osx] <br><i>the GNU Compiler Collection</font></i></td>
+</tr>
+<tr><td></td></tr>
+<tr>
+  <td width=35>&nbsp;<img src=img/gdb.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=https://gnu.org/software/gdb/>GDB</a>&nbsp;&nbsp;<a href=http://ftp.gnu.org/gnu/gdb/>v9.1</a>&nbsp;<font color=red size=-1><sup>8-Feb</sup></font><br>gdb [arm, amd, osx] <br><i>the GNU Debugger</font></i></td>
+  <td width=35>&nbsp;<img src=img/valgrind.png height=35 width=35 /></td>
+  <td width=300><font size=3><a href=http://valgrind.org>Valgrind</a>&nbsp;&nbsp;<a href=http://valgrind.org>v3.15.0</a>&nbsp;<font color=red size=-1><sup>14-Apr</sup></font><br>valgrind [arm, amd, osx] <br><i>Memory Checker & Profiler</font></i></td>
+
+</td></tr></table></center><br>
+
+<center><table><tr> 
+   <td width=450>&copy; 2020, All rights reserved.</td> 
+   <td width=450 align=right><a href="https://lussier.io">denis@lussier.io</a></td> 
+</tr></table></center>
