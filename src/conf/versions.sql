@@ -120,7 +120,7 @@ INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm, osx', 1, '20200327',''
 INSERT INTO versions VALUES ('pg12', '12.2-3', 'arm, amd, osx', 0, '20200213','');
 
 INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'soon', 1);
-INSERT INTO versions VALUES ('pg13', '13dev', 'arm, amd, osx', 0, '20200327','');
+INSERT INTO versions VALUES ('pg13', '13dev', 'arm, amd, osx', 1, '20200327','');
 
 -- ##
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 
@@ -162,8 +162,8 @@ INSERT INTO versions VALUES ('mysqlfdw-pg12', '2.5.3-1', 'arm, amd', 1, '2019092
 
 INSERT INTO projects VALUES ('sqlsvr', 5, 0, 'hub', 0, 'https://www.microsoft.com/en-us/sql-server/sql-server-2019',
   'sqlsvr', 0, 'sqlsvr.png', 'SQL Server 2019 for Linux', 'https://www.microsoft.com/en-us/sql-server/sql-server-2019');
-INSERT INTO releases VALUES ('sqlsvr', 1, 'sqlsvr', 'SQL Server for Linux', '', 'soon',  0);
-INSERT INTO versions VALUES ('sqlsvr', '2019', 'amd', 0, '20191010', '');
+INSERT INTO releases VALUES ('sqlsvr', 3, 'sqlsvr', 'SQL Server for Linux', '', 'proprietary',  0);
+INSERT INTO versions VALUES ('sqlsvr', '2019', 'amd', 1, '20200601', '');
 
 INSERT INTO projects VALUES ('sybase', 5, 0, 'hub', 0, 'https://sap.com/products/sybase-ase.html', 
   'sybase', 0, 'sybase.png', 'Sybase ASE', 'https://sap.com/products/sybase-ase.html');
