@@ -84,7 +84,7 @@ INSERT INTO categories VALUES (5, 3, 'Data Integration', 'Integration');
 INSERT INTO categories VALUES (6, 2, 'Scalability & Availability', 'Scale');
 INSERT INTO categories VALUES (7, 8, 'Developers Toolchain', 'Toolchain');
 INSERT INTO categories VALUES (8, 6, 'Connectors',   'Connectors');
-INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Mgmt');
+INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Manage');
 
 -- ## HUB ################################
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
