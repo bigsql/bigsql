@@ -42,7 +42,7 @@ Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
 </td></tr>
 
 <tr><td colspan=2>
-We are verfied & tested with Python 2.7 & 3.5+; Amazon Linux 2; 
+We are verified & tested with Python 2.7 & 3.5+; Amazon Linux 2; 
 CentOS/RHEL 7 & 8; Ubuntu LTS 16, 18 & 20; Debian 9 & 10; 
 opensSUSE 12 & 15; Windows 10 Subsytem for Linux, and OSX 10.13.
 We run in a sandboxed environment that is perfect for running
