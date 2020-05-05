@@ -2,7 +2,6 @@
 alias git-push="cd ~/dev/pgsql-io; git status; git add .; git commit -m wip; git push"
 alias bp="cd ~/dev/pgsql-io; . ./bp.sh"
 alias ver="vi ~/dev/pgsql-io/src/conf/versions.sql"
-alias chalice="workon chalice; cd ~/dev/pgsql-io/www/chalice"
 
 export REGION=us-west-2
 export BUCKET=s3://pgsql-io-download

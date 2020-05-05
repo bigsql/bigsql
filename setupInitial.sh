@@ -88,53 +88,13 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 mkdir -p $WORKON_HOME
 pip install virtualenvwrapper
 
+source bash_profile
 
-## ENV for ~/.bashrc or ~/.bash_profile ##############################################
-alias git-push="cd ~/dev/pgsql-io; git status; git add .; git commit -m wip; git push"
-alias bp="cd ~/dev/pgsql-io; . ./bp.sh"
-alias ver="vi ~/dev/pgsql-io/src/conf/versions.sql"
-alias chalice="workon chalice; cd ~/dev/pgsql-io/www/chalice"
-
-export REGION=us-west-2
-export BUCKET=s3://pgsql-io-download
-
-#export WORKON_HOME=$HOME/Envs
-#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-#source /usr/local/bin/virtualenvwrapper.sh
-
-
-export DEV=$HOME/dev
-export HIST=$DEV/history
-export IN=$DEV/in
-export SRC=$IN/sources
-export OUT=$DEV/out
-export IO=$DEV/pgsql-io
-export VER=$IO/src/conf/versions.sql
-export BLD=/opt/pgbin-build/pgbin/bin
-
-export DEVEL=$IO/devel
-export PG=$DEVEL/pg
-export PGBIN=$DEVEL/pgbin
-export UTIL=$DEVEL/util
-export CLI=$IO/cli/scripts
-export PSX=$IO/out/posix
-export REPO=http://localhost:8000
-
-export ORACLE_HOME=/opt/oracleinstantclient/instantclient_12_1
-
-## for Ubuntu
-##export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin
-##export PATH=$PATH:$JAVA_HOME/bin
-
-## for Centos 7
-export PATH=/opt/rh/devtoolset-7/root/usr/bin/:/opt/rh/llvm-toolset-7/root/usr/bin/:$PATH
-export PATH=/usr/local/bin:$PATH
-
-## for Java Components like PL/Java, HiveFDW, & BenchmarkSQL
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
-export PATH=$JAVA_HOME/bin:$HOME/apache-ant-1.10.7/bin:$HOME/apache-maven-3.6.3/bin:$PATH
+if [ -f ~/.bashrc ]; then
+  cat bash_profile >> ~/.bashrc
+else
+  cat bash_profile >> ~/.bash_profile
+fi
 
 echo ""
 echo "Goodbye!"
-
