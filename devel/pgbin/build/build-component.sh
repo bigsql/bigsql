@@ -205,6 +205,12 @@ function buildSetUserComponent {
 function configureComp {
     rc=0
 
+    if [ "$comp" == "citus" ]; then
+        echo "# configure citus..."
+        ./configure --prefix=$buildLocation >> $make_log 2>&1 
+        rc=$?
+    fi
+
     if [ "$comp" == "pgtop" ]; then
         echo "# configure pgtop..."
         ./autogen.sh >> $make_log 2>&1
@@ -611,7 +617,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-agent:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-agent:,build-citus:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -665,6 +671,7 @@ while true; do
     --build-proctab ) buildProctab=true; Source=$2; shift; shift ;;
     --build-number ) buildNumber=true; Source=$2; shift; shift ;;
     --build-agent ) buildAgent=true; Source=$2; shift; shift ;;
+    --build-citus ) buildCitus=true; Source=$2; shift; shift ;;
     --copy-bin ) copyBin=true; shift; shift; ;;
     --no-copy-bin ) copyBin=false; shift; shift; ;;
     --no-tar ) copyBin=false; noTar=true; shift; shift; ;;
@@ -812,6 +819,9 @@ if [[ $buildProctab == "true" ]]; then
 fi
 if [ "$buildAgent" == "true" ]; then
 	buildComp agent "$agentShortV" "$agentFullV" "$agentBuildV" "$Source"
+fi
+if [ "$buildCitus" == "true" ]; then
+	buildComp citus "$citusShortV" "$citusFullV" "$citusBuildV" "$Source"
 fi
 
 destDir=`date +%Y-%m-%d`

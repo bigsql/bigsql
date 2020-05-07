@@ -30,6 +30,10 @@ agentFullV=4.0.0
 agentShortV=
 agentBuildV=1
 
+citusFullV=9.3.0
+citusShortV=
+citusBuildV=1
+
 pgtopFullV=3.7.0
 pgtopShortV=
 pgtopBuildV=1

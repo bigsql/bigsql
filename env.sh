@@ -18,6 +18,7 @@ esV=7.6.2
 bouncerV=1.13.0-1
 pgtopV=3.7.0-1
 proctabV=0.0.8.1-1
+citusV=9.3.0-1
 
 multicornV=1.4.0-1
 

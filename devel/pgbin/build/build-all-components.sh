@@ -30,6 +30,10 @@ fi
 
 ## WIP across platforms ###########################
 
+if [ "$1" == "citus" ]; then
+  build citus $citusFullV $2 citus
+fi
+
 if [ "$1" == "agent" ]; then
   build agent $agentFullV $2 agent
 fi
