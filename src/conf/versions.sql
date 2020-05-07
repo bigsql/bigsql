@@ -426,14 +426,14 @@ INSERT INTO versions VALUES ('minikube', '1.9.2', '', 1, '20200404', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('helm', '3.2.0', '', 1, '20200422', '');
+INSERT INTO versions VALUES ('helm', '3.2.1', '', 1, '20200507', '');
 
 -- ##
 
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('brew', '2.2.13', '', 1, '20200412', '');
+INSERT INTO versions VALUES ('brew', '2.2.15', '', 1, '20200504', '');
 
 INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
@@ -453,7 +453,7 @@ INSERT INTO versions VALUES ('bison', '3.5.4', '', 1, '20200405', '');
 INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
 INSERT INTO releases VALUES ('gcc', 6, 'gcc', 'GCC', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('gcc', '9.3.0', '', 1, '20200312', '');
+INSERT INTO versions VALUES ('gcc', '10.1.0', '', 1, '20200507', '');
 
 INSERT INTO projects VALUES ('valgrind', 7, 0, 'hub', 4, 'http://valgrind.org',
   'valgrind', 0, 'valgrind.png', 'Memory Checker & Profiler', 'http://valgrind.org');
