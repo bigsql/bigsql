@@ -145,12 +145,14 @@ def run_sql_cmd(p_pg, p_sql, p_display=False):
   return(rc)
 
 
+def pre_install_extension(p_pg, p_ext):
+    print("\ninstall-" + p_ext + "-" + p_pg + ":")
+
+
 def create_extension(p_pg, p_ext, p_reboot=False, p_extension="", p_cascade=False):
   import time
 
   if p_ext > " ":
-    print("\ninstall-" + p_ext + "-" + p_pg + ":")
-
     rc = change_pgconf_keyval(p_pg, "shared_preload_libraries", p_ext)
     if rc == False:
       remove_comp(p_ext + "-" + p_pg)
