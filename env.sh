@@ -33,7 +33,7 @@ logicalV=2.3.1-1
 spockV=3.1.1-1
 profV=4.1-1
 bulkloadV=3.1.16-1
-partmanV=4.3.1-1
+partmanV=4.4.0-1
 repackV=1.4.5-1
 
 audit11V=1.3.1-1

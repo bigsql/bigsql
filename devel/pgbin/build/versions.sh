@@ -164,7 +164,7 @@ repackFullV=1.4.5
 repackShortV=
 repackBuildV=1
 
-partmanFullV=4.3.1
+partmanFullV=4.4.0
 partmanShortV=
 partmanBuildV=1
 

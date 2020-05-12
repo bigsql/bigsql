@@ -391,8 +391,10 @@ INSERT INTO projects VALUES ('partman', 2, 0, 'hub', 4, 'https://github.com/pgpa
   'partman', 1, 'partman.png', 'Partition Managemnt', 'https://github.com/pgpartman/pg_partman#pg-partition-manager');
 INSERT INTO releases VALUES ('partman-pg11', 6, 'partman', 'pgPartman',   '', 'prod', 1);
 INSERT INTO releases VALUES ('partman-pg12', 6, 'partman', 'pgPartman',   '', 'prod', 1);
-INSERT INTO versions VALUES ('partman-pg11', '4.3.1-1',  'arm, amd', 1, '20200417', 'pg11');
-INSERT INTO versions VALUES ('partman-pg12', '4.3.1-1',  'arm, amd', 1, '20200417', 'pg12');
+INSERT INTO versions VALUES ('partman-pg11', '4.4.0-1',  'arm, amd', 1, '20200511', 'pg11');
+INSERT INTO versions VALUES ('partman-pg12', '4.4.0-1',  'arm, amd', 1, '20200511', 'pg12');
+INSERT INTO versions VALUES ('partman-pg11', '4.3.1-1',  'arm, amd', 0, '20200417', 'pg11');
+INSERT INTO versions VALUES ('partman-pg12', '4.3.1-1',  'arm, amd', 0, '20200417', 'pg12');
 INSERT INTO versions VALUES ('partman-pg11', '4.3.0-1',  'arm, amd', 0, '20200206', 'pg11');
 INSERT INTO versions VALUES ('partman-pg12', '4.3.0-1',  'arm, amd', 0, '20200206', 'pg12');
 
