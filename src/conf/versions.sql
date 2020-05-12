@@ -89,8 +89,8 @@ INSERT INTO categories VALUES (9, 7, 'Management & Monitoring',   'Manage');
 -- ## HUB ################################
 INSERT INTO projects VALUES ('hub',0, 0, 'hub', 0, 'https://github.com/bigsql/pgsql-io','',0,'','','');
 INSERT INTO releases VALUES ('hub', 1, 'hub', '', '', 'hidden', 1);
-INSERT INTO versions VALUES ('hub', '6.24', '',  1, '20200515', '');
-INSERT INTO versions VALUES ('hub', '6.23', '',  1, '20200501', '');
+INSERT INTO versions VALUES ('hub', '6.24', '',  1, '20200514', '');
+INSERT INTO versions VALUES ('hub', '6.23', '',  0, '20200501', '');
 INSERT INTO versions VALUES ('hub', '6.22', '',  0, '20200327', '');
 INSERT INTO versions VALUES ('hub', '6.21', '',  0, '20200315', '');
 INSERT INTO versions VALUES ('hub', '6.2',  '',  0, '20200305', '');
@@ -100,27 +100,32 @@ INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/do
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
 INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg95', '9.5.21-4', 'arm, amd, osx', 1, '20200327','');
+INSERT INTO versions VALUES ('pg95', '9.5.22-1', 'arm, amd, osx', 1, '20200514','');
+INSERT INTO versions VALUES ('pg95', '9.5.21-4', 'arm, amd, osx', 0, '20200327','');
 INSERT INTO versions VALUES ('pg95', '9.5.21-3', 'arm, amd', 0, '20200213','');
 
 INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg96', '9.6.17-4', 'arm, amd, osx', 1, '20200327','');
+INSERT INTO versions VALUES ('pg96', '9.6.18-1', 'arm, amd, osx', 1, '20200514','');
+INSERT INTO versions VALUES ('pg96', '9.6.17-4', 'arm, amd, osx', 0, '20200327','');
 INSERT INTO versions VALUES ('pg96', '9.6.17-3', 'arm, amd', 0, '20200213','');
 
 INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg10', '10.12-4', 'arm, amd, osx', 1, '20200327','');
+INSERT INTO versions VALUES ('pg10', '10.13-1', 'arm, amd, osx', 1, '20200514','');
+INSERT INTO versions VALUES ('pg10', '10.12-4', 'arm, amd, osx', 0, '20200327','');
 INSERT INTO versions VALUES ('pg10', '10.12-3', 'arm, amd', 0, '20200213','');
 
 INSERT INTO releases VALUES ('pg11', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg11', '11.7-4', 'arm, amd, osx', 1, '20200327','');
+INSERT INTO versions VALUES ('pg11', '11.8-1', 'arm, amd, osx', 1, '20200514','');
+INSERT INTO versions VALUES ('pg11', '11.7-4', 'arm, amd, osx', 0, '20200327','');
 INSERT INTO versions VALUES ('pg11', '11.7-3', 'arm, amd, osx', 0, '20200213','');
 
 INSERT INTO releases VALUES ('pg12', 1, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm, osx', 1, '20200327','');
+INSERT INTO versions VALUES ('pg12', '12.3-1', 'amd, arm, osx', 1, '20200514','');
+INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm, osx', 0, '20200327','');
 INSERT INTO versions VALUES ('pg12', '12.2-3', 'arm, amd, osx', 0, '20200213','');
 
 INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'soon', 1);
-INSERT INTO versions VALUES ('pg13', '13dev', 'arm, amd, osx', 1, '20200327','');
+INSERT INTO versions VALUES ('pg13', '13beta1', 'arm, amd, osx', 1, '20200521','');
 
 -- ##
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 
@@ -422,7 +427,7 @@ INSERT INTO versions VALUES ('docker', '19', '', 1, '20200310', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.9.2', '', 1, '20200404', '');
+INSERT INTO versions VALUES ('minikube', '1.10.0', '', 1, '20200511', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
@@ -433,7 +438,7 @@ INSERT INTO versions VALUES ('helm', '3.2.1', '', 1, '20200507', '');
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('brew', '2.2.15', '', 1, '20200504', '');
+INSERT INTO versions VALUES ('brew', '2.2.16', '', 1, '20200511', '');
 
 INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
@@ -448,7 +453,7 @@ INSERT INTO versions VALUES ('llvm', '10.0.0', '', 1, '20200324', '');
 INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
   'bison', 0, 'gnu.png', 'Parser-Generator', 'https://gnu.org/software/bison/');
 INSERT INTO releases VALUES ('bison', 6, 'bison', 'Bison', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('bison', '3.5.4', '', 1, '20200405', '');
+INSERT INTO versions VALUES ('bison', '3.6', '', 1, '20200508', '');
 
 INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');

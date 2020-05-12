@@ -1,19 +1,19 @@
 #!/bin/bash
 
-pg12V="12.2"
-pg12BuildV=4
+pg12V="12.3"
+pg12BuildV=1
 
-pg11V="11.7"
-pg11BuildV=4
+pg11V="11.8"
+pg11BuildV=1
 
-pg10V="10.12"
-pg10BuildV=4
+pg10V="10.13"
+pg10BuildV=1
 
-pg96V="9.6.17"
-pg96BuildV=4
+pg96V="9.6.18"
+pg96BuildV=1
 
-pg95V="9.5.21"
-pg95BuildV=4
+pg95V="9.5.22"
+pg95BuildV=1
 
 ##odbcV=12.01.0000
 ##backrestV=2.26
