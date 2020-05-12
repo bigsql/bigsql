@@ -1153,13 +1153,26 @@ def update_postgresql_conf(p_pgver, p_port, is_new=True,update_listen_addr=True)
 
 
 def get_cpu_cores():
-  cpu_cores = int(getoutput("egrep -c 'processor([[:space:]]+):.*' /proc/cpuinfo"))
+  cpu_cores = 0
+
+  if get_platform() == "Linux":
+    cpu_cores = int(getoutput("egrep -c 'processor([[:space:]]+):.*' /proc/cpuinfo"))
+  elif get_platform() == "Darwin":
+    cpu_cores = int(getoutput("/usr/sbin/sysctl hw.physicalcpu | awk '{print $2}'"))
+
   return(cpu_cores)
 
 
 def get_mem_mb():
-  mem_kb = int(getoutput("cat /proc/meminfo | awk '/MemTotal/ {print $2}'"))
-  mem_mb = int(mem_kb / 1024)
+  mem_mb = 0
+
+  if get_platform() == "Linux":
+    mem_kb = int(getoutput("cat /proc/meminfo | awk '/MemTotal/ {print $2}'"))
+    mem_mb = int(mem_kb / 1024)
+  elif get_platform() == "Darwin":
+    mem_bytes = int(getoutput("/usr/sbin/sysctl hw.memsize | awk '{print $2}'"))
+    mem_mb = int(mem_bytes / 1024 / 1024)
+ 
   return(mem_mb)
 
 

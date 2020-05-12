@@ -265,10 +265,10 @@ def info(p_json, p_home, p_repo, print_flag=True):
   plat = util.get_os()
   os_major_ver = ""
   if this_uname == "Darwin":
-    system_memory_in_bytes = int(util.getoutput("/usr/sbin/sysctl hw.memsize | awk '{print $2}'"))
-    system_memory_in_kbytes = system_memory_in_bytes / 1024
-    system_memory_in_gb = system_memory_in_bytes / 1024 / 1024 / 1024
-    system_cpu_cores = int(util.getoutput("/usr/sbin/sysctl hw.physicalcpu | awk '{print $2}'"))
+    mem_mb = util.get_mem_mb()
+    system_memory_in_kbytes = mem_mb * 1024
+    system_memory_in_gb = mem_mb / 1024.0
+    system_cpu_cores = util.get_cpu_cores()
     cpu_model=util.getoutput("/usr/sbin/sysctl -n machdep.cpu.brand_string")
     prod_name = util.getoutput("sw_vers -productName")
     prod_version = util.getoutput("sw_vers -productVersion")
