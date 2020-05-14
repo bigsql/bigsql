@@ -15,7 +15,6 @@ function testAll {
   ./io install debugger-pg$1      -d demo
 
   if [ ! `uname` == "Darwin" ]; then
-    ./io install multicorn-pg$1     -d demo
     ./io install mysqlfdw-pg$1      -d demo
     ./io install timescaledb-pg$1   -d demo
   fi
@@ -27,6 +26,7 @@ function testAll {
       ./io install oraclefdw-pg$1   -d demo
     fi
     ./io install postgis-pg$1       -d demo
+    ./io install multicorn-pg$1     -d demo
     ##./io install hive_fdw-pg$1  -d demo
     ##./io install cassandra_fdw-pg$1 -d demo
   fi
