@@ -30,10 +30,6 @@ fi
 
 ## WIP across platforms ###########################
 
-if [ "$1" == "citus" ]; then
-  build citus $citusFullV $2 citus
-fi
-
 if [ "$1" == "agent" ]; then
   build agent $agentFullV $2 agent
 fi
@@ -51,6 +47,10 @@ if [ "$1" == "plv8" ]; then
 fi
 
 ## prod ready across platforms #######################
+
+if [ "$1" == "citus" ]  || [ "$1" == "all" ]; then
+  build citus $citusFullV $2 citus
+fi
 
 if [ "$1" == "multicorn" ] || [ "$1" == "all" ]; then
   build multicorn $multicornFullV $2 multicorn 
@@ -118,10 +118,6 @@ fi
 
 if [ "$1" == "timescaledb" ] || [ "$1" == "all" ]; then
   build timescaledb $timescaledbFullV $2 timescale
-fi
-
-if [ "$1" == "spock" ] || [ "$1" == "all" ]; then
-  build spock $spockFullV $2 spock
 fi
 
 if [ "$1" == "pglogical" ] || [ "$1" == "all" ]; then
