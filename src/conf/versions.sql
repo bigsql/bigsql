@@ -322,8 +322,8 @@ INSERT INTO versions VALUES ('anon-pg12', '0.5.0-1', 'arm, amd', 0, '20191109', 
 
 INSERT INTO projects VALUES ('citus', 2, 0, 'hub',0, 'https://github.com/citusdata/citus/releases',
   'citus', 1, 'citus.png', 'Multi Node Data & Queries', 'https://github.com/citusdata/citus');
-INSERT INTO releases VALUES ('citus-pg11', 5, 'citus', 'Citus', '', 'prod', 1);
-INSERT INTO releases VALUES ('citus-pg12', 5, 'citus', 'Citus', '', 'prod', 1);
+INSERT INTO releases VALUES ('citus-pg11', 5, 'citus', 'Citus', '', 'test', 1);
+INSERT INTO releases VALUES ('citus-pg12', 5, 'citus', 'Citus', '', 'test', 1);
 INSERT INTO versions VALUES ('citus-pg11', '9.3.0-1', 'arm, amd', 1, '20200507', 'pg11');
 INSERT INTO versions VALUES ('citus-pg12', '9.3.0-1', 'arm, amd', 1, '20200507', 'pg12');
 
