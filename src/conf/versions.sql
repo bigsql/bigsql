@@ -432,7 +432,7 @@ INSERT INTO versions VALUES ('docker', '19', '', 1, '20200310', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.10.0', '', 1, '20200511', '');
+INSERT INTO versions VALUES ('minikube', '1.10.1', '', 1, '20200512', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
@@ -458,7 +458,7 @@ INSERT INTO versions VALUES ('llvm', '10.0.0', '', 1, '20200324', '');
 INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
   'bison', 0, 'gnu.png', 'Parser-Generator', 'https://gnu.org/software/bison/');
 INSERT INTO releases VALUES ('bison', 6, 'bison', 'Bison', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('bison', '3.6', '', 1, '20200508', '');
+INSERT INTO versions VALUES ('bison', '3.6.1', '', 1, '20200510', '');
 
 INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
