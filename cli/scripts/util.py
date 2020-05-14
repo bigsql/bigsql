@@ -46,6 +46,8 @@ pid_file = os.path.join(MY_HOME, 'conf', 'cli.pid')
 
 def get_perl_ver():
   perl_ver = getoutput('perl -E "say $^V" 2>/dev/null')
+  if len(perl_ver) == 0:
+    return("")
   if perl_ver[0] == "v": 
     perl_ver = perl_ver[1:]
   return(perl_ver.strip())
