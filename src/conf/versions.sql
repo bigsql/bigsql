@@ -181,6 +181,7 @@ INSERT INTO projects VALUES ('tdsfdw', 5, 0, 'hub', 0, 'https://github.com/tds-f
 INSERT INTO releases VALUES ('tdsfdw-pg11', 3, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO releases VALUES ('tdsfdw-pg12', 3, 'tdsfdw', 'TDS FDW', '', 'prod', 1);
 INSERT INTO versions VALUES ('tdsfdw-pg11', '2.0.1-1', 'amd',  1, '20191202', 'pg11');
+INSERT INTO versions VALUES ('tdsfdw-pg12', '2.0.1-1', 'amd',  1, '20191202', 'pg12');
 
 INSERT INTO projects VALUES ('proctab', 2, 0, 'hub', 0, 'https://github.com/bigsql/pg_proctab/releases',
   'proctab', 1, 'proctab.png', 'Monitoring Functions for pgTop', 'https://github.com/bigsql/pg_proctab');
