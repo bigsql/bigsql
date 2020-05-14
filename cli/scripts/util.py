@@ -1304,7 +1304,6 @@ def write_pgenv_file(p_pghome, p_pgver, p_pgdata, p_pguser, p_pgdatabase, p_pgpo
     file.write(export + 'PGPORT=' + p_pgport + '\n')
     if p_pgpassfile:
       file.write(export + 'PGPASSFILE=' + p_pgpassfile + '\n')
-    file.write(export + 'PYTHONPATH=' + os.path.join(MY_HOME, p_pgver, "python", "site-packages") + '\n')
     file.write(export + 'GDAL_DATA=' + os.path.join(p_pghome, "share", "gdal") + '\n')
     file.write('if [ -f /usr/lib64/perl5/CORE/libperl.so ]; then \n')
     file.write('    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64/perl5/CORE \n')
