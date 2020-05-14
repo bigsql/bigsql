@@ -1,6 +1,6 @@
 import sys, os
 
-VER="6.25"
+VER="6.26"
 REPO=os.getenv("REPO", "https://pgsql-io-download.s3.amazonaws.com/REPO")
   
 if sys.version_info < (2, 7):
