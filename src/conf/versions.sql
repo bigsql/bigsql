@@ -249,12 +249,12 @@ INSERT INTO projects VALUES ('orafce', 5, 0, 'hub', 0, 'https://github.com/orafc
   'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 1, 'orafce', 'OraFCE', '', 'prod', 1);
 INSERT INTO releases VALUES ('orafce-pg12', 1, 'orafce', 'OraFCE', '', 'prod', 1);
-INSERT INTO versions VALUES ('orafce-pg11', '3.11.1-1',  'arm, amd', 1, '20200408', 'pg11');
-INSERT INTO versions VALUES ('orafce-pg12', '3.11.1-1',  'arm, amd', 1, '20200408', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.12.0-1',  'arm, amd', 1, '20200519', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.12.0-1',  'arm, amd', 1, '20200519', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.11.1-1',  'arm, amd', 0, '20200408', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.11.1-1',  'arm, amd', 0, '20200408', 'pg12');
 INSERT INTO versions VALUES ('orafce-pg11', '3.11.0-1',  'arm, amd', 0, '20200401', 'pg11');
 INSERT INTO versions VALUES ('orafce-pg12', '3.11.0-1',  'arm, amd', 0, '20200401', 'pg12');
-INSERT INTO versions VALUES ('orafce-pg11', '3.9.0-1',  'arm, amd', 0, '20200213', 'pg11');
-INSERT INTO versions VALUES ('orafce-pg12', '3.9.0-1',  'arm, amd', 0, '20200213', 'pg12');
 
 INSERT INTO projects VALUES ('plv8', 3, 0, 'hub', 0, 'https://github.com/plv8/plv8/releases',
   'plv8',   1, 'v8.png', 'Javascript Stored Procedures', 'https://github.com/plv8/plv8');
@@ -343,8 +343,10 @@ INSERT INTO projects VALUES ('timescaledb', 2, 0, 'hub', 1, 'https://github.com/
    'timescaledb', 1, 'timescaledb.png', 'Time Series Data', 'https://github.com/timescale/timescaledb/#timescaledb');
 INSERT INTO releases VALUES ('timescaledb-pg11',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
 INSERT INTO releases VALUES ('timescaledb-pg12',  1, 'timescaledb', 'TimescaleDB', '', 'prod', 1);
-INSERT INTO versions VALUES ('timescaledb-pg11', '1.7.0-1',  'arm, amd', 1, '20200416', 'pg11');
-INSERT INTO versions VALUES ('timescaledb-pg12', '1.7.0-1',  'arm, amd', 1, '20200416', 'pg12');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.7.1-1',  'arm, amd', 1, '20200518', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg12', '1.7.1-1',  'arm, amd', 1, '20200518', 'pg12');
+INSERT INTO versions VALUES ('timescaledb-pg11', '1.7.0-1',  'arm, amd', 0, '20200416', 'pg11');
+INSERT INTO versions VALUES ('timescaledb-pg12', '1.7.0-1',  'arm, amd', 0, '20200416', 'pg12');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'amd', 0, '20200318', 'pg11');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'amd', 0, '20200115', 'pg11');
 

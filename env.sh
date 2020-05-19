@@ -23,13 +23,13 @@ citusV=9.3.0-1
 
 multicornV=1.4.0-1
 
-orafceV=3.11.1-1
+orafceV=3.12.0-1
 httpV=1.3.1-1
 anonV=0.6.0-1
 ddlxV=0.16-1
 omniV=2.17-1
 hypoV=1.1.3-1
-timescaleV=1.7.0-1
+timescaleV=1.7.1-1
 logicalV=2.3.1-1
 spockV=3.1.1-1
 profV=4.1-1

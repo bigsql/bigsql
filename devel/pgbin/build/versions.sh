@@ -70,7 +70,7 @@ cassFullV=3.1.5
 cassShortV=
 cassBuildV=1
 
-orafceFullV=3.11.1
+orafceFullV=3.12.0
 orafceShortV=
 orafceBuildV=1
 
@@ -175,7 +175,7 @@ hintplanFullV=1.3.4
 hintplanShortV=
 hintplanBuildV=1
 
-timescaledbFullV=1.7.0
+timescaledbFullV=1.7.1
 timescaledbShortV=
 timescaledbBuildV=1
 
