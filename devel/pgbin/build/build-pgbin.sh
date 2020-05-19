@@ -82,7 +82,10 @@ function checkPostgres {
 		exit 1
 	else
 		pgSrcV=`$pgSrcDir/configure --version | head -1 | awk '{print $3}'`
-		if [[ "${pgSrcV/rc}" =~ ^12.* ]]; then
+		if [[ "${pgSrcV/rc}" =~ ^13b* ]]; then
+			pgShortV="13"
+			pgLLVM="--with--llvm"
+		elif [[ "${pgSrcV/rc}" =~ ^12.* ]]; then
 			pgShortV="12"
 			pgLLVM="--with--llvm"
 		elif [[ "${pgSrcV/rc}" =~ ^11.* ]]; then

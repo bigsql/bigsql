@@ -18,10 +18,12 @@ elif [ "$majorV" == "11" ]; then
   minorV=$P11
 elif [ "$majorV" == "12" ]; then
   minorV=$P12
+elif [ "$majorV" == "13" ]; then
+  minorV=$P13
 elif [ "$majorV" == "all" ]; then
   minorV=all
 else
-  echo "ERROR: pg must be 95, 96, 10, 11, 12 or all"
+  echo "ERROR: pg must be 95, 96, 10, 11, 12, 13 or all"
   exit 1
 fi
 

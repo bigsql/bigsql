@@ -126,8 +126,8 @@ INSERT INTO versions VALUES ('pg12', '12.3-1', 'amd, arm, osx', 1, '20200514',''
 INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm, osx', 0, '20200327','');
 INSERT INTO versions VALUES ('pg12', '12.2-3', 'arm, amd, osx', 0, '20200213','');
 
-INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'soon', 1);
-INSERT INTO versions VALUES ('pg13', '13beta1', 'arm, amd, osx', 1, '20200521','');
+INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'test', 1);
+INSERT INTO versions VALUES ('pg13', '13beta1-1', 'arm, amd, osx', 1, '20200521','');
 
 -- ##
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 

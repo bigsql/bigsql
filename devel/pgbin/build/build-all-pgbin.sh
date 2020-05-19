@@ -64,6 +64,9 @@ elif [ "$majorV" == "11" ]; then
 elif [ "$majorV" == "12" ]; then
   pgV=$pg12V
   pgBuildV=$pg12BuildV
+elif [ "$majorV" == "13" ]; then
+  pgV=$pg13V
+  pgBuildV=$pg13BuildV
 fi
 
 if [ "$majorV" == "all" ]; then

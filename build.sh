@@ -26,7 +26,7 @@ printUsageMessage () {
   echo "#-------------------------------------------------------------------#"
   echo "#               Copyright (c) 2020 PGSQL.IO                         #"
   echo "#-------------------------------------------------------------------#"
-  echo "# -p $P12  $P11  $P10  $P96  $P95  $P94"
+  echo "# -p $P13  $P12  $P11  $P10  $P96  $P95  $P94"
   echo "# -b hub-$hubV"
   echo "# -e cstarfdw-$cstarfdwV  cstar-$cstarV  timescale-$timescaleV"
   echo "#    hivefdw-$hivefdwV  presto-$prestoV  hadoop-$hadoopV"
@@ -406,6 +406,8 @@ initPG () {
     pgV=$P11
   elif [ "$pgM" == "12" ]; then
     pgV=$P12
+  elif [ "$pgM" == "13" ]; then
+    pgV=$P13
   else
     echo "ERROR: Invalid PG version '$pgM'"
     exit 1
