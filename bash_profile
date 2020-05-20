@@ -32,5 +32,5 @@ export PKG_CONFIG_PATH="$opt/openssl/lib/pkgconfig"
 export PATH="$opt/llvm/bin:$opt/python/libexec/bin:$PATH"
 
 # Bottom of ~/.bash... ########################################
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source ~/.local/bin/virtualenvwrapper.sh

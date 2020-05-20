@@ -88,8 +88,8 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 mkdir -p $WORKON_HOME
 pip install virtualenvwrapper
 
+cd ~/dev/pgsql-io
 source bash_profile
-
 if [ -f ~/.bashrc ]; then
   cat bash_profile >> ~/.bashrc
 else
