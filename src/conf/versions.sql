@@ -429,8 +429,8 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 -- ##
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.8', '', 'prod', 1);
-INSERT INTO versions VALUES ('docker', '19', '', 1, '20200310', '');
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.9', '', 'prod', 1);
+INSERT INTO versions VALUES ('docker', '19', '', 1, '20200514', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
@@ -445,7 +445,7 @@ INSERT INTO versions VALUES ('helm', '3.2.1', '', 1, '20200507', '');
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('brew', '2.2.16', '', 1, '20200511', '');
+INSERT INTO versions VALUES ('brew', '2.2.17', '', 1, '20200518', '');
 
 INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
@@ -460,7 +460,7 @@ INSERT INTO versions VALUES ('llvm', '10.0.0', '', 1, '20200324', '');
 INSERT INTO projects VALUES ('bison', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/bison/',
   'bison', 0, 'gnu.png', 'Parser-Generator', 'https://gnu.org/software/bison/');
 INSERT INTO releases VALUES ('bison', 6, 'bison', 'Bison', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('bison', '3.6.1', '', 1, '20200510', '');
+INSERT INTO versions VALUES ('bison', '3.6.2', '', 1, '20200517', '');
 
 INSERT INTO projects VALUES ('gcc', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gcc/',
   'gcc', 0, 'gcc.png', 'the GNU Compiler Collection', 'https://gnu.org/software/gcc/');
