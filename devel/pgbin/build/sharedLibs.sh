@@ -40,8 +40,14 @@ cp -v $lib64/libevent*       $shared_lib/.
 cp -v $lib64/libcrypto.so.10      $shared_lib/.
 cp -v $lib64/libk5crypto.so.3     $shared_lib/.
 cp -v $lib64/libpam.so.0          $shared_lib/.
-cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
-cp -v $lib64/libtinfo.so.5        $shared_lib/.
+
+if [ `arch` == "aarch64" ]; then
+  cp -v $lib64/libpython3.7m.so.1.0 $shared_lib/.
+  cp -v $lib64/libtinfo.so.6        $shared_lib/.
+else
+  cp -v $lib64/libpython3.6m.so.1.0 $shared_lib/.
+  cp -v $lib64/libtinfo.so.5        $shared_lib/.
+fi
 
 
 cp -v $lib64/libnss3*             $shared_lib/.
