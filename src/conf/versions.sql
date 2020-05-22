@@ -102,32 +102,27 @@ INSERT INTO projects VALUES ('pg', 1, 5432, 'hub', 1, 'https://postgresql.org/do
  'postgres', 0, 'postgresql.png', 'Best RDBMS', 'https://postgresql.org');
 
 INSERT INTO releases VALUES ('pg95', 5, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg95', '9.5.22-1', 'arm, amd, osx', 1, '20200514','');
-INSERT INTO versions VALUES ('pg95', '9.5.21-4', 'arm, amd, osx', 0, '20200327','');
-INSERT INTO versions VALUES ('pg95', '9.5.21-3', 'arm, amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg95', '9.5.22-1', 'arm, amd', 1, '20200514','');
+INSERT INTO versions VALUES ('pg95', '9.5.21-4', 'arm, amd', 0, '20200327','');
 
 INSERT INTO releases VALUES ('pg96', 4, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg96', '9.6.18-1', 'arm, amd, osx', 1, '20200514','');
-INSERT INTO versions VALUES ('pg96', '9.6.17-4', 'arm, amd, osx', 0, '20200327','');
-INSERT INTO versions VALUES ('pg96', '9.6.17-3', 'arm, amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg96', '9.6.18-1', 'arm, amd', 1, '20200514','');
+INSERT INTO versions VALUES ('pg96', '9.6.17-4', 'arm, amd', 0, '20200327','');
 
 INSERT INTO releases VALUES ('pg10', 3, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg10', '10.13-1', 'arm, amd, osx', 1, '20200514','');
-INSERT INTO versions VALUES ('pg10', '10.12-4', 'arm, amd, osx', 0, '20200327','');
-INSERT INTO versions VALUES ('pg10', '10.12-3', 'arm, amd', 0, '20200213','');
+INSERT INTO versions VALUES ('pg10', '10.13-1', 'arm, amd', 1, '20200514','');
+INSERT INTO versions VALUES ('pg10', '10.12-4', 'arm, amd', 0, '20200327','');
 
 INSERT INTO releases VALUES ('pg11', 2, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg11', '11.8-1', 'arm, amd, osx', 1, '20200514','');
-INSERT INTO versions VALUES ('pg11', '11.7-4', 'arm, amd, osx', 0, '20200327','');
-INSERT INTO versions VALUES ('pg11', '11.7-3', 'arm, amd, osx', 0, '20200213','');
+INSERT INTO versions VALUES ('pg11', '11.8-1', 'arm, amd', 1, '20200514','');
+INSERT INTO versions VALUES ('pg11', '11.7-4', 'arm, amd', 0, '20200327','');
 
 INSERT INTO releases VALUES ('pg12', 1, 'pg', 'PostgreSQL', '', 'prod', 1);
-INSERT INTO versions VALUES ('pg12', '12.3-1', 'amd, arm, osx', 1, '20200514','');
-INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm, osx', 0, '20200327','');
-INSERT INTO versions VALUES ('pg12', '12.2-3', 'arm, amd, osx', 0, '20200213','');
+INSERT INTO versions VALUES ('pg12', '12.3-1', 'amd, arm', 1, '20200514','');
+INSERT INTO versions VALUES ('pg12', '12.2-4', 'amd, arm', 0, '20200327','');
 
 INSERT INTO releases VALUES ('pg13', 6, 'pg', 'PostgreSQL', '', 'test', 1);
-INSERT INTO versions VALUES ('pg13', '13beta1-1', 'arm, amd, osx', 1, '20200521','');
+INSERT INTO versions VALUES ('pg13', '13beta1-1', 'arm, amd', 1, '20200521','');
 
 -- ##
 INSERT INTO projects VALUES ('cassandra', 5, 0, 'hub', 0, 'https://cassandra.apache.org', 
@@ -288,7 +283,7 @@ INSERT INTO versions VALUES ('pldebugger-pg12', '2.0-1',  'arm, amd',  1, '20200
 INSERT INTO projects VALUES ('plpgsql', 3, 0, 'hub', 0, 'https://github.com/pgsql/postgresql/releases',
   'plpgsql', 0, 'jan.png', 'Postgres Procedural Language', 'https://github.com/tada/pljava');
 INSERT INTO releases VALUES ('plpgsql', 1, 'plpgsql', 'PL/pgSQL', '', 'included', 1);
-INSERT INTO versions VALUES ('plpgsql', '12',  'arm, amd, osx',  1, '20200213', '');
+INSERT INTO versions VALUES ('plpgsql', '12',  'arm, amd',  1, '20200213', '');
 
 INSERT INTO projects VALUES ('pgtsql', 3, 0, 'hub', 0, 'https://github.com/bigsql/pgtsql/releases',
   'pgtsql', 1, 'tds.png', 'Transact-SQL Procedures', 'https://github.com/bigsql/pgtsql#pgtsql');

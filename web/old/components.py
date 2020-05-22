@@ -1,6 +1,6 @@
 import sqlite3, sys, pgsql
 
-ALL_PLATFORMS = "arm, amd, osx"
+ALL_PLATFORMS = "arm, amd"
 isSHOW_COMP_PLAT = "Y"
 isSHOW_DESCRIPTION = "Y"
 BR = "<br>"
