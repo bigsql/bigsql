@@ -300,7 +300,7 @@ INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '2019082
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
 INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'soon', 1);
-INSERT INTO versions VALUES ('backrest', '2.26-1', 'arm, amd', 1, '20200420', '');
+INSERT INTO versions VALUES ('backrest', '2.27-1', 'arm, amd', 1, '20200526', '');
 
 INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
   'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
@@ -440,7 +440,7 @@ INSERT INTO versions VALUES ('helm', '3.2.1', '', 1, '20200507', '');
 INSERT INTO projects VALUES ('brew', 7, 0, 'hub', 4, 'https://github.com/homebrew/brew/releases',
   'brew', 0, 'homebrew.png', 'OSX GNU toolchain', 'https://brew.sh');
 INSERT INTO releases VALUES ('brew', 5, 'brew', 'Homebrew', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('brew', '2.2.17', '', 1, '20200518', '');
+INSERT INTO versions VALUES ('brew', '2.2.17', '', 0, '20200518', '');
 
 INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zalando/patroni/releases',
   'patroni', 0, 'patroni.png', 'HA Template', 'https://github.com/zalando/patroni');
@@ -495,7 +495,7 @@ INSERT INTO versions VALUES ('ruby', '1.2.3', '', 1, '20200318', '');
 
 INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
 INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'soon', 1);
-INSERT INTO versions VALUES ('odbc', '12.01-1', 'arm, amd', 1, '20200107', '');
+INSERT INTO versions VALUES ('odbc', '12.02-1', 'arm, amd', 1, '20200526', '');
 
 INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
 INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'prod', 1);
