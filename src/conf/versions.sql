@@ -371,7 +371,7 @@ INSERT INTO versions VALUES ('postgis-pg12', '3.0.1-1', 'amd', 1, '20200220', 'p
 INSERT INTO projects VALUES ('pgadmin', 2, 80, 'docker', 1, 'https://pgadmin.org',
   'pgadmin', 0, 'pgadmin.png', 'PG Admin for Docker', 'https://pgadmin.org');
 INSERT INTO releases VALUES ('pgadmin', 3, 'pgadmin', 'pgAdmin', '', 'prod', 1);
-INSERT INTO versions VALUES ('pgadmin', '4', '', 1, '20200430', '');
+INSERT INTO versions VALUES ('pgadmin', '4', '', 1, '20200528', '');
 
 INSERT INTO projects VALUES ('bulkload', 2, 0, 'hub', 5, 'https://github.com/ossc-db/pg_bulkload/releases',
   'bulkload', 1, 'bulkload.png', 'High Speed Data Loading', 'https://github.com/ossc-db/pg_bulkload');
@@ -470,7 +470,7 @@ INSERT INTO versions VALUES ('valgrind', '3.15.0', '', 1, '20190414', '');
 INSERT INTO projects VALUES ('gdb', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gdb/',
   'gdb', 0, 'gdb.png', 'the GNU Debugger', 'https://gnu.org/software/gdb/');
 INSERT INTO releases VALUES ('gdb', 7, 'gdb', 'GDB', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('gdb', '9.1', '', 1, '20200208', '');
+INSERT INTO versions VALUES ('gdb', '9.2', '', 1, '20200523', '');
 
 -- ##
 INSERT INTO projects VALUES ('omnidb', 2, 8000, 'docker', 2, 'https://github.com/omnidb/omnidb/releases', 'omnidb', 0, 'omnidb.png', 'RDBMS Web Admin', 'https://github.com/omnidb/omnidb/#omnidb');
