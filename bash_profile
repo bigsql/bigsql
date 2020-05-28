@@ -24,13 +24,6 @@ export REPO=http://localhost:8000
 export WORKON_HOME=$HOME/Envs
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
-# OSX specific for ~/.bash_profile #############################
-opt=/usr/local/opt
-export LDFLAGS="-L$opt/llvm/lib -L$opt/openssl/lib"
-export CPPFLAGS="-I$opt/llvm/include -I$opt/openssl/include"
-export PKG_CONFIG_PATH="$opt/openssl/lib/pkgconfig"
-export PATH="$opt/llvm/bin:$opt/python/libexec/bin:$PATH"
-
 # Bottom of ~/.bash... ########################################
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source ~/.local/bin/virtualenvwrapper.sh

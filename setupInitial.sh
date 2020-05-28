@@ -8,16 +8,6 @@ git config --global push.default simple
 git config --global credential.helper store
 
 
-if [ `uname` == 'Darwin' ]; then
-  owner_group="$USER:wheel"
-  brew install python3
-  brew postinstall python3
-  brew install sqlite3 curl wget \
-   gcc flex bison zlib readline libxslt \
-   libuv libevent pkg-config unixodbc \
-   boost geos gdal protobuf-c sfcgal
-fi
-
 if [ `uname` == 'Linux' ]; then
   owner_group="$USER:$USER"
   yum --version
@@ -28,7 +18,7 @@ if [ `uname` == 'Linux' ]; then
     YUM="n"
   fi
   if [ "$YUM" == "y" ]; then
-    ## tested on CentOS 7
+    ## tested on CentOS 7 & Amazon Linux 2
     sudo yum -y install -y epel-release python-pip
     sudo yum -y groupinstall 'development tools'
     sudo yum -y install bison-devel libedit-devel zlib-devel \
@@ -42,7 +32,7 @@ if [ `uname` == 'Linux' ]; then
     sudo yum -y install llvm-toolset-7-llvm devtoolset-7 llvm-toolset-7-clang
     sudo yum -y install python3 python3-devel
   else
-    ## tested on Ubuntu 16
+    ## experimental on Ubuntu 16+
     sudo add-apt-repository universe
     sudo apt install sqlite3 python3 curl wget \
       openjdk-8-jdk build-essential flex bison zlib1g-dev libldap-dev \
