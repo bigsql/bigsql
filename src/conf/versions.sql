@@ -447,6 +447,11 @@ INSERT INTO projects VALUES ('patroni', 4, 0, 'hub', 4, 'https://github.com/zala
 INSERT INTO releases VALUES ('patroni', 4, 'patroni', 'Patroni', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('patroni', '1.6.5', '', 1, '20200423', '');
 
+INSERT INTO projects VALUES ('libcloud', 4, 0, 'hub', 4, 'https://github.com/apache/libcloud/releases',
+  'libcloud', 0, 'libcloud.png', 'Hybrid Cloud API', 'https://libcloud.apache.org');
+INSERT INTO releases VALUES ('libcloud', 4, 'libcloud', 'libCloud', '', 'bring-own', 1);
+INSERT INTO versions VALUES ('libcloud', '3.0.0', '', 1, '20200515', '');
+
 INSERT INTO projects VALUES ('llvm', 7, 0, 'hub', 3, 'https://releases.llvm.org', 
   'llvm', 0, 'llvm.png', 'Just in Time Compilation', 'https://llvm.org');
 INSERT INTO releases VALUES ('llvm', 5, 'llvm', 'LLVM', '', 'bring-own', 1);
