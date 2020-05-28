@@ -345,17 +345,10 @@ INSERT INTO versions VALUES ('timescaledb-pg12', '1.7.0-1',  'arm, amd', 0, '202
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.1-1',  'amd', 0, '20200318', 'pg11');
 INSERT INTO versions VALUES ('timescaledb-pg11', '1.6.0-1',  'amd', 0, '20200115', 'pg11');
 
-INSERT INTO projects VALUES ('spock', 2, 0, 'hub', 2, 'https://github.com/bigsql/spock/releases',
-  'spock', 1, 'spock.png', 'Logical Bi-directional Replication', 'https://github.com/bigsql/spock');
-INSERT INTO releases VALUES ('spock-pg11', 2, 'spock', 'Spock', '', 'prod', 1);
-INSERT INTO releases VALUES ('spock-pg12', 2, 'spock', 'Spock', '', 'prod', 1);
-INSERT INTO versions VALUES ('spock-pg11', '3.1.1-1',  'amd', 0, '20200401', 'pg11');
-INSERT INTO versions VALUES ('spock-pg12', '3.1.1-1',  'amd', 0, '20200401', 'pg12');
-
-INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/2ndQuadrant/pglogical/releases',
-  'pglogical', 1, 'pglogical.png', 'Logical Replication', 'https://github.com/2ndQuadrant/pglogical');
-INSERT INTO releases VALUES ('pglogical-pg11', 2, 'pglogical', 'pgLogical2', '', 'prod', 1);
-INSERT INTO releases VALUES ('pglogical-pg12', 2, 'pglogical', 'pgLogical2', '', 'prod', 1);
+INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/pgsql-io/spock/releases',
+  'pglogical', 1, 'spock.png', 'Logical Bi-Directional Replication', 'https://github.com/pgsql-io/spock');
+INSERT INTO releases VALUES ('pglogical-pg11', 2, 'pglogical', 'Spock', '', 'prod', 1);
+INSERT INTO releases VALUES ('pglogical-pg12', 2, 'pglogical', 'Spock', '', 'prod', 1);
 INSERT INTO versions VALUES ('pglogical-pg11', '2.3.1-1',  'arm, amd', 1, '20200417', 'pg11');
 INSERT INTO versions VALUES ('pglogical-pg12', '2.3.1-1',  'arm, amd', 1, '20200417', 'pg12');
 INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 0, '20200218', 'pg11');
