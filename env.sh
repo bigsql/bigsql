@@ -27,11 +27,11 @@ orafceV=3.12.0-1
 httpV=1.3.1-1
 anonV=0.6.0-1
 ddlxV=0.16-1
-omniV=2.17-1
+##omniV=2.17-1
 hypoV=1.1.3-1
 timescaleV=1.7.1-1
-logicalV=2.3.1-1
-spockV=3.1.1-1
+logicalV=2.3.2-1
+##spockV=3.1.1-1
 profV=4.1-1
 bulkloadV=3.1.16-1
 partmanV=4.4.0-1
@@ -76,13 +76,13 @@ isENABLED=false
 pg="postgres"
 
 OS=`uname -s`
-if [[ $OS == "Darwin" ]]; then
-  OS=osx;
-  outDir=m64
-elif [[ $OS == "MINGW64_NT-6.1" ]]; then
-  OS=win;
-  outDir=w64
-elif [[ $OS == "Linux" ]]; then
+##if [[ $OS == "Darwin" ]]; then
+##  OS=osx;
+##  outDir=m64
+##elif [[ $OS == "MINGW64_NT-6.1" ]]; then
+##  OS=win;
+##  outDir=w64
+if [[ $OS == "Linux" ]]; then
   grep "CPU architecture:" /proc/cpuinfo 1>/dev/null
   rc=$?
   if [ "$rc" == "0" ]; then
@@ -92,6 +92,9 @@ elif [[ $OS == "Linux" ]]; then
     OS=amd;
     outDir=l64
   fi
+else
+  echo "ERROR: '$OS' is not supported"
+  exit 1
 fi
 
 plat=$OS

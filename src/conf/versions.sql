@@ -463,7 +463,7 @@ INSERT INTO versions VALUES ('gcc', '10.1.0', '', 1, '20200507', '');
 INSERT INTO projects VALUES ('valgrind', 7, 0, 'hub', 4, 'http://valgrind.org',
   'valgrind', 0, 'valgrind.png', 'Memory Checker & Profiler', 'http://valgrind.org');
 INSERT INTO releases VALUES ('valgrind', 8, 'valgrind', 'Valgrind', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('valgrind', '3.15.0', '', 1, '20190414', '');
+INSERT INTO versions VALUES ('valgrind', '3.16.0', '', 1, '20200527', '');
 
 INSERT INTO projects VALUES ('gdb', 7, 0, 'hub', 4, 'http://ftp.gnu.org/gnu/gdb/',
   'gdb', 0, 'gdb.png', 'the GNU Debugger', 'https://gnu.org/software/gdb/');

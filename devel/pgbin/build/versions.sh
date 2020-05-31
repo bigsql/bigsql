@@ -18,8 +18,8 @@ pg96BuildV=1
 pg95V="9.5.22"
 pg95BuildV=1
 
-##odbcV=12.01.0000
-##backrestV=2.26
+odbcV=12.02.0000
+backrestV=2.27
 
 bouncerFullV=1.13.0
 bouncerShortV=
@@ -159,7 +159,7 @@ spockFullV=3.1.1
 spockShortV=
 spockBuildV=1
 
-pgLogicalFullV=2.3.1
+pgLogicalFullV=2.3.2
 pgLogicalShortV=
 pgLogicalBuildV=1
 
