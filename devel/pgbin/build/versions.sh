@@ -18,8 +18,13 @@ pg96BuildV=1
 pg95V="9.5.22"
 pg95BuildV=1
 
-odbcV=12.02.0000
-backrestV=2.27
+odbcFullV=12.02
+odbcShortV=
+odbcBuildV=1
+
+backrestFullV=2.27
+backrestShortV=
+backrestBuildV=1
 
 bouncerFullV=1.13.0
 bouncerShortV=
