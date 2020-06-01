@@ -244,8 +244,10 @@ INSERT INTO projects VALUES ('orafce', 5, 0, 'hub', 0, 'https://github.com/orafc
   'orafce', 1, 'larry.png', 'Ora Built-in Packages', 'https://github.com/orafce/orafce#orafce---oracles-compatibility-functions-and-packages');
 INSERT INTO releases VALUES ('orafce-pg11', 1, 'orafce', 'OraFCE', '', 'prod', 1);
 INSERT INTO releases VALUES ('orafce-pg12', 1, 'orafce', 'OraFCE', '', 'prod', 1);
-INSERT INTO versions VALUES ('orafce-pg11', '3.12.0-1',  'arm, amd', 1, '20200519', 'pg11');
-INSERT INTO versions VALUES ('orafce-pg12', '3.12.0-1',  'arm, amd', 1, '20200519', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.13.4-1',  'arm, amd', 1, '20200531', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.13.4-1',  'arm, amd', 1, '20200531', 'pg12');
+INSERT INTO versions VALUES ('orafce-pg11', '3.12.0-1',  'arm, amd', 0, '20200519', 'pg11');
+INSERT INTO versions VALUES ('orafce-pg12', '3.12.0-1',  'arm, amd', 0, '20200519', 'pg12');
 INSERT INTO versions VALUES ('orafce-pg11', '3.11.1-1',  'arm, amd', 0, '20200408', 'pg11');
 INSERT INTO versions VALUES ('orafce-pg12', '3.11.1-1',  'arm, amd', 0, '20200408', 'pg12');
 INSERT INTO versions VALUES ('orafce-pg11', '3.11.0-1',  'arm, amd', 0, '20200401', 'pg11');
@@ -349,8 +351,10 @@ INSERT INTO projects VALUES ('pglogical', 2, 0, 'hub', 2, 'https://github.com/pg
   'pglogical', 1, 'spock.png', 'Logical Bi-Directional Replication', 'https://github.com/pgsql-io/spock');
 INSERT INTO releases VALUES ('pglogical-pg11', 2, 'pglogical', 'Spock', '', 'prod', 1);
 INSERT INTO releases VALUES ('pglogical-pg12', 2, 'pglogical', 'Spock', '', 'prod', 1);
-INSERT INTO versions VALUES ('pglogical-pg11', '2.3.1-1',  'arm, amd', 1, '20200417', 'pg11');
-INSERT INTO versions VALUES ('pglogical-pg12', '2.3.1-1',  'arm, amd', 1, '20200417', 'pg12');
+INSERT INTO versions VALUES ('pglogical-pg11', '2.3.2-1',  'arm, amd', 1, '20200525', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg12', '2.3.2-1',  'arm, amd', 1, '20200525', 'pg12');
+INSERT INTO versions VALUES ('pglogical-pg11', '2.3.1-1',  'arm, amd', 0, '20200417', 'pg11');
+INSERT INTO versions VALUES ('pglogical-pg12', '2.3.1-1',  'arm, amd', 0, '20200417', 'pg12');
 INSERT INTO versions VALUES ('pglogical-pg11', '2.3.0-1',  'arm, amd', 0, '20200218', 'pg11');
 INSERT INTO versions VALUES ('pglogical-pg12', '2.3.0-1',  'arm, amd', 0, '20200218', 'pg12');
 
@@ -417,12 +421,12 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 -- ##
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.10', '', 'prod', 1);
-INSERT INTO versions VALUES ('docker', '19', '', 1, '20200529', '');
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.11', '', 'prod', 1);
+INSERT INTO versions VALUES ('docker', '19', '', 1, '20200601', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
-INSERT INTO versions VALUES ('minikube', '1.10.1', '', 1, '20200512', '');
+INSERT INTO versions VALUES ('minikube', '1.11.0', '', 1, '20200529', '');
 
 INSERT INTO projects VALUES ('helm', 4, 0, 'hub', 3, 'https://github.com/helm/helm/releases', 'helm', 0, 'helm.png', 'K8s Package Manager', 'https://helm.sh');
 INSERT INTO releases VALUES ('helm', 3, 'helm', 'Helm', '', 'bring-own', 1);
@@ -491,8 +495,8 @@ INSERT INTO projects VALUES ('ruby', 8, 0, 'hub', 4, 'https://rubygems.org/gems/
 INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('ruby', '1.2.3', '', 1, '20200318', '');
 
-INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
-INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'test', 1);
+INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'unixODBC Driver for PGSQL-IO', 'https://odbc.postgresql.org');
+INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'unixODBC', '', 'test', 1);
 INSERT INTO versions VALUES ('odbc', '12.02-1', 'amd', 1, '20200526', '');
 
 INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
