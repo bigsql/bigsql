@@ -218,6 +218,14 @@ function configureComp {
         rc=$?
     fi
 
+    if [ "$comp" == "backrest" ]; then
+        echo "# configure backrest..."
+        export LD_LIBRARY_PATH=$buildLocation/lib
+        cd src
+        ./configure --prefix=$buildLocation >> $make_log 2>&1 
+        rc=$?
+    fi
+
     if [ "$comp" == "bouncer" ]; then
         echo "# configure bouncer..."
         opt="--prefix=$buildLocation --disable-rpath --with-cares --with-pam"
@@ -257,7 +265,7 @@ function buildComp {
         src="$5"
         ##echo "#         src: $src"
 
-        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ]; then
+        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ] || [ "$comp" == "backrest" ]; then
             componentName="$comp$shortV-$fullV-$buildV-$buildOS"
         else
             componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"

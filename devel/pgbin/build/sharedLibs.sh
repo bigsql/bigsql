@@ -24,7 +24,7 @@ if [ `uname` == "Darwin" ]; then
   cp -v /usr/local/opt/openssl@1.1/lib/libcrypto.1.1.dylib $shared_lib
   exit 0
 fi
-
+cp -v $lib64/libbz2.so.1     $shared_lib/.
 cp -v $lib64/libz.so.1       $shared_lib/.
 cp -v $lib64/libssl*         $shared_lib/.
 cp -v $lib64/libcrypt.so.1   $shared_lib/.

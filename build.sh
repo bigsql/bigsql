@@ -31,7 +31,7 @@ printUsageMessage () {
   echo "# -e cstarfdw-$cstarfdwV  cstar-$cstarV  timescale-$timescaleV"
   echo "#    hivefdw-$hivefdwV  presto-$prestoV  hadoop-$hadoopV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
-  echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
+  echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV"
   echo "#    citus-$citusV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
@@ -39,7 +39,7 @@ printUsageMessage () {
   echo "#    elasticsearch-$esV  esfdw-$esfdwV  multicorn-$multicornV"
   echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  sqlsvr-$sqlsvrV  tdsfdw-$tdsfdwV"
-  echo "#    bouncer-$bouncerV  pgtop-$pgtopV  proctab-$proctabV"
+  echo "#    bouncer-$bouncerV  backrest-$backrestV  pgtop-$pgtopV  proctab-$proctabV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
   echo "#--------------------------------------------------------------------------#"
@@ -206,7 +206,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
-  copy-pgXX "spock"
+  ##copy-pgXX "spock"
   copy-pgXX "orafce"
   copy-pgXX "pglogical"
   copy-pgXX "timescaledb"
@@ -440,6 +440,7 @@ initPG () {
   fi
 
   if [ "$outPlat" == "amd" ] || [ "$outPlat" == "arm" ]; then
+      initC "backrest" "backrest" "$backrestV" "$outPlat" "postgres/backrest" "" "" "nil"
       initC "bouncer" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
   fi
 

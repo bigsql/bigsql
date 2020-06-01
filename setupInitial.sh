@@ -21,7 +21,7 @@ if [ `uname` == 'Linux' ]; then
     ## tested on CentOS 7 & Amazon Linux 2
     sudo yum -y install -y epel-release python-pip
     sudo yum -y groupinstall 'development tools'
-    sudo yum -y install bison-devel libedit-devel zlib-devel \
+    sudo yum -y install bison-devel libedit-devel zlib-devel bzip2-devel \
       openssl-devel libmxl2-devel libxslt-devel libevent-devel c-ares-devel \
       perl-ExtUtils-Embed sqlite-devel wget tcl-devel java-11-openjdk-devel \
       openjade pam-devel openldap-devel boost-devel \

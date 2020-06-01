@@ -299,7 +299,7 @@ INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '2019082
 
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
-INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'soon', 1);
+INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'prod', 1);
 INSERT INTO versions VALUES ('backrest', '2.27-1', 'arm, amd', 1, '20200526', '');
 
 INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
@@ -417,8 +417,8 @@ INSERT INTO versions VALUES ('agent', '4.0.0', 'amd', 1, '20180712', '');
 -- ##
 
 INSERT INTO projects VALUES ('docker', 4, 0, 'hub', 1, 'https://github.com/docker/docker-ce/releases', 'docker', 0, 'docker.png', 'Container Runtime', 'https://github.com/docker/docker-ce/#docker-ce');
-INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.9', '', 'prod', 1);
-INSERT INTO versions VALUES ('docker', '19', '', 1, '20200514', '');
+INSERT INTO releases VALUES ('docker', 1, 'docker', 'Docker CE 19.03.10', '', 'prod', 1);
+INSERT INTO versions VALUES ('docker', '19', '', 1, '20200529', '');
 
 INSERT INTO projects VALUES ('minikube', 4, 0, 'hub', 2, 'https://github.com/kubernetes/minikube/releases', 'minikube', 0, 'minikube.png', 'Kubernetes (MiniKube)', 'https://minikube.sigs.k8s.io/');
 INSERT INTO releases VALUES ('minikube', 2, 'minikube', 'Local Kubernetes', '', 'bring-own', 1);
