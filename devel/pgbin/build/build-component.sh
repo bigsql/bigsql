@@ -227,6 +227,15 @@ function configureComp {
         rc=$?
     fi
 
+    if [ "$comp" == "odbc" ]; then
+        echo "# bootstrap odbc..."
+        ./bootstrap >> $make_log 2>&1
+        rc=$?
+        echo "# configure odbc..."
+        ./configure --prefix=$buildLocation >> $make_log 2>&1 
+        rc=$?
+    fi
+
     if [ "$comp" == "bouncer" ]; then
         echo "# configure bouncer..."
         opt="--prefix=$buildLocation --disable-rpath --with-cares --with-pam"
@@ -266,7 +275,8 @@ function buildComp {
         src="$5"
         ##echo "#         src: $src"
 
-        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ] || [ "$comp" == "backrest" ]; then
+        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ] || 
+           [ "$comp" == "backrest" ] || [ "$comp" == "odbc" ]; then
             componentName="$comp$shortV-$fullV-$buildV-$buildOS"
         else
             componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"

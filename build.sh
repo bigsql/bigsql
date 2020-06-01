@@ -37,7 +37,7 @@ printUsageMessage () {
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV  pgadmin-$pgadminV"
   echo "#    elasticsearch-$esV  esfdw-$esfdwV  multicorn-$multicornV"
-  echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV"
+  echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV  odbc-$odbcV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  sqlsvr-$sqlsvrV  tdsfdw-$tdsfdwV"
   echo "#    bouncer-$bouncerV  backrest-$backrestV  pgtop-$pgtopV  proctab-$proctabV"
   echo "#--------------------------------------------------------------------------#"
@@ -437,11 +437,12 @@ initPG () {
     initC "hadoop" "hadoop" "$hadoopV" "" "apache" "" "" "nil"
     initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"
     initC "oracle_xe" "oracle_xe" "$oracle_xeV" "$outPlat" "oracle" "" "" "nil"
+    initC "backrest" "backrest" "$backrestV" "$outPlat" "postgres/backrest" "" "" "nil"
+    initC "odbc" "odbc" "$odbcV" "$outPlat" "postgres/odbc" "" "" "nil"
   fi
 
   if [ "$outPlat" == "amd" ] || [ "$outPlat" == "arm" ]; then
-      initC "backrest" "backrest" "$backrestV" "$outPlat" "postgres/backrest" "" "" "nil"
-      initC "bouncer" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
+    initC "bouncer" "bouncer" "$bouncerV" "$outPlat" "postgres/bouncer" "" "" "nil"
   fi
 
   if [ "$pgM" == "11" ]; then 

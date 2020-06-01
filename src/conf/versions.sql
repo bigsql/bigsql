@@ -299,8 +299,8 @@ INSERT INTO versions VALUES ('plprofiler-pg12', '4.1-1', 'arm, amd', 1, '2019082
 
 INSERT INTO projects VALUES ('backrest', 2, 0, 'hub', 0, 'https://pgbackrest.org/release.html',
   'backrest', 0, 'backrest.png', 'Backup & Restore', 'https://pgbackrest.org');
-INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'prod', 1);
-INSERT INTO versions VALUES ('backrest', '2.27-1', 'arm, amd', 1, '20200526', '');
+INSERT INTO releases VALUES ('backrest', 9, 'backrest', 'pgBackRest', '', 'test', 1);
+INSERT INTO versions VALUES ('backrest', '2.27-1', 'amd', 1, '20200526', '');
 
 INSERT INTO projects VALUES ('audit', 2, 0, 'hub', 0, 'https://github.com/pgaudit/pgaudit/releases',
   'audit', 1, 'audit.png', 'Audit Logging', 'https://github.com/pgaudit/pgaudit');
@@ -492,8 +492,8 @@ INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('ruby', '1.2.3', '', 1, '20200318', '');
 
 INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver', 'https://odbc.postgresql.org');
-INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'soon', 1);
-INSERT INTO versions VALUES ('odbc', '12.02-1', 'arm, amd', 1, '20200526', '');
+INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'ODBC', '', 'test', 1);
+INSERT INTO versions VALUES ('odbc', '12.02-1', 'amd', 1, '20200526', '');
 
 INSERT INTO projects VALUES ('http', 3, 0, 'hub', 6, 'https://github.com/pramsey/pgsql-http/releases', 'http',  1, 'http.png', 'Invoke Web Services', 'https://github.com/pramsey/pgsql-http');
 INSERT INTO releases VALUES ('http-pg11', 13, 'http', 'HTTP Client', '', 'prod', 1);

@@ -16,6 +16,7 @@ pgadminV=4
 esfdwV=0.7.4
 esV=7.6.2
 
+odbcV=12.02-1
 backrestV=2.27-1
 bouncerV=1.13.0-1
 pgtopV=3.7.0-1
