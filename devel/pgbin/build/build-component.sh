@@ -116,15 +116,16 @@ function updateSharedLibs {
           suffix="*so*"
         fi
 
-	if [[ -d bin ]]; then
-		cd $buildLocation/bin
-		for file in `ls -d *` ; do
-			chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
-        	done
+        if [[ -d $buildLocation/bin ]]; then
+          cd $buildLocation/bin
+          for file in `ls -d *` ; do
+            echo "# chrpath $file"
+	        chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
+      	  done
         fi
 
         cd $buildLocation/lib
-	for file in `ls -d $suffix 2>/dev/null` ; do
+        for file in `ls -d $suffix 2>/dev/null` ; do
                 chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
         done
 

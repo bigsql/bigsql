@@ -383,7 +383,7 @@ function copySharedLibs {
 
 
 function updateSharedLibPaths {
-        libPathLog=$baseDir/$workDir/logs/libPath.log
+	libPathLog=$baseDir/$workDir/logs/libPath.log
 	echo "#"
 	echo "# updateSharedLibPaths()"
 
