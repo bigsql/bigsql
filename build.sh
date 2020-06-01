@@ -42,6 +42,7 @@ printUsageMessage () {
   echo "#    bouncer-$bouncerV  backrest-$backrestV  pgtop-$pgtopV  proctab-$proctabV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P12 -p 12 -b"
   echo "#--------------------------------------------------------------------------#"
 }
 
