@@ -495,7 +495,7 @@ INSERT INTO projects VALUES ('ruby', 8, 0, 'hub', 4, 'https://rubygems.org/gems/
 INSERT INTO releases VALUES ('ruby', 7, 'ruby', 'Ruby', '', 'bring-own', 1);
 INSERT INTO versions VALUES ('ruby', '1.2.3', '', 1, '20200318', '');
 
-INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'unixODBC Driver for PGSQL-IO', 'https://odbc.postgresql.org');
+INSERT INTO projects VALUES ('odbc', 8, 0, 'hub', 5, 'https://www.postgresql.org/ftp/odbc/versions/msi/', 'odbc', 0, 'odbc.png', 'ODBC Driver for PGSQL.IO', 'https://odbc.postgresql.org');
 INSERT INTO releases VALUES ('odbc', 8, 'odbc',  'unixODBC', '', 'test', 1);
 INSERT INTO versions VALUES ('odbc', '12.02-1', 'amd', 1, '20200526', '');
 
