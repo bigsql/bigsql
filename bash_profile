@@ -9,15 +9,13 @@ export BUCKET=s3://pgsql-io-download
 export DEV=$HOME/dev
 export IN=$DEV/in
 export OUT=$DEV/out
+export HIST=$DEV/history
 export IO=$DEV/pgsql-io
 export SRC=$IN/sources
 export BLD=/opt/pgbin-build/pgbin/bin
-export VER=$APG/src/conf/versions.sql
 
 export DEVEL=$IO/devel
 export PG=$DEVEL/pg
-export PGB=$DEVEL/pgbin
-export UTL=$DEVEL/util
 export CLI=$IO/cli/scripts
 export REPO=http://localhost:8000
 
