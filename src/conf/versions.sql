@@ -411,7 +411,8 @@ INSERT INTO versions VALUES ('pgbadger', '11.1', '', 0, '20190916', '');
 INSERT INTO projects VALUES ('bouncer', 2, 0, 'hub', 3, 'http://pgbouncer.org',
   'bouncer',  0, 'bouncer.png', 'Lightweight Connection Pooler', 'http://pgbouncer.org');
 INSERT INTO releases VALUES ('bouncer', 5, 'bouncer',  'pgBouncer', '', 'prod', 1);
-INSERT INTO versions VALUES ('bouncer', '1.13.0-1', 'arm, amd', 1, '20200427', '');
+INSERT INTO versions VALUES ('bouncer', '1.13.0-1', 'arm, amd', 0, '20200427', '');
+INSERT INTO versions VALUES ('bouncer', '1.14.0-1', 'arm, amd', 1, '20200611', '');
 
 INSERT INTO projects VALUES ('agent', 2, 0, 'hub', 3, 'http://github.com/postgres/pgagent/releases',
   'agent',  0, 'agent.png', 'Job Scheduler for pgAdmin4', 'http://github.com/postgres/pgagent');
