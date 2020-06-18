@@ -18,7 +18,7 @@ if [ `uname` == 'Linux' ]; then
     YUM="n"
   fi
   if [ "$YUM" == "y" ]; then
-    ## tested on CentOS 7 & Amazon Linux 2
+    ## CentOS 7
     sudo yum -y install -y epel-release python-pip
     sudo yum -y groupinstall 'development tools'
     sudo yum -y install bison-devel libedit-devel zlib-devel bzip2-devel \
@@ -32,15 +32,13 @@ if [ `uname` == 'Linux' ]; then
     sudo yum -y install llvm-toolset-7-llvm devtoolset-7 llvm-toolset-7-clang
     sudo yum -y install python3 python3-devel
   else
-    ## experimental on Ubuntu 16+
-    sudo add-apt-repository universe
+    ## Debian 10 (buster)
     sudo apt install sqlite3 python3 curl wget \
-      openjdk-8-jdk build-essential flex bison zlib1g-dev libldap-dev \
+      openjdk-11-jdk build-essential flex bison zlib1g-dev libldap2-dev \
       libxml2-dev libxslt1-dev libedit-dev libssl-dev chrpath \
       libperl-dev libpython3-dev pkg-config libevent-dev cmake \
-      libpam-dev libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
-      libossp-uuid-dev odbc-postgresql llvm-8-dev \
-      libkrb5-dev tcl-dev 
+      libpam0g-dev libcurl4-openssl-dev unixodbc-dev unixodbc-bin \
+      libossp-uuid-dev libkrb5-dev llvm-8 clang-8 python3-distutils
   fi
 fi
 
