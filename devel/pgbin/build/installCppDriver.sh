@@ -1,4 +1,4 @@
-cpdV=2.15.1
+cpdV=2.15.2
 
 rm -rf *.rpm*
 cas=https://downloads.datastax.com/cpp-driver/centos/7/cassandra

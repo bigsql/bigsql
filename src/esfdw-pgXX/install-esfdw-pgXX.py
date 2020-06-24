@@ -5,11 +5,11 @@
 
 import util, os
 
-cmd='pip3 install --user "elasticsearch>=7,<8"'
+cmd='pip install elasticsearch'
 print('   ' + cmd)
 os.system(cmd)
 
-cmd='pip3 install --user pg_es_fdw'
+cmd='pip install pg_es_fdw'
 print('   ' + cmd)
 os.system(cmd)
 

@@ -3,7 +3,7 @@ bundle=pgsql
 api=io
 hubV=6.26
 
-P13=13beta1-1
+P13=13beta2-1
 P12=12.3-1
 P11=11.8-1
 P10=10.13-1
@@ -13,10 +13,10 @@ P95=9.5.22-1
 dockerV=19
 pgadminV=4
 
-esfdwV=0.7.4
-esV=7.6.2
+esfdwV=0.8.0
+esV=7.8.0
 
-bouncerV=1.13.0-1
+bouncerV=1.14.0-1
 pgtopV=3.7.0-1
 proctabV=0.0.8.1-1
 citusV=9.3.0-1

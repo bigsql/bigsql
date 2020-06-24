@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pg13V="13beta1"
+pg13V="13beta2"
 pg13BuildV=1
 
 pg12V="12.3"
@@ -21,7 +21,7 @@ pg95BuildV=1
 ##odbcV=12.01.0000
 ##backrestV=2.26
 
-bouncerFullV=1.13.0
+bouncerFullV=1.14.0
 bouncerShortV=
 bouncerBuildV=1
 
