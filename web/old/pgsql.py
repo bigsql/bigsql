@@ -19,7 +19,7 @@ PGSQL is the PostgreSQL Community Edition that is developer friendly and cross-p
 We fully embrace both core PostgreSQL and it's rich eco-system of over
 50 enterprise-class extensions, applications & connectors.
 We support Linux (both AMD64 & ARM64), and Windows 10 Subsystem for Linux.
-Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
+Our Linux support includes Centos, Ubuntu, Debian, and openSUSE.
 \
 """
   print("  <tr><td colspan=2><h2>Introduction</h2></td></tr>")
@@ -36,15 +36,15 @@ Our Linux support includes Centos/RHEL, Ubuntu/Debian/Raspbian, and openSUSE.
 <table>
   <tr>
     <td width=275><h2>Download & Usage</h2></td>
-    <td><img width=55% src=img/platforms.png /></td>
+    <td><img width=65% src=img/platforms3.png /></td>
   </tr>
 </table>
 </td></tr>
 
 <tr><td colspan=2>
-We are verified & tested with Python 2.7 & 3.5+; Amazon Linux 2; 
-CentOS/RHEL 7 & 8; Ubuntu LTS 16, 18 & 20; Debian 9 & 10; 
-opensSUSE 12 & 15; Windows 10 Subsytem for Linux.
+We are verified & tested with Python 2.7 & 3.5+; 
+CentOS/RHEL 7+; Ubuntu 16.04+; Debian 9+; 
+openSUSE 12+; Windows 10 Subsytem for Linux.
 We run in a sandboxed environment that is perfect for running
 in the development, container, bare metal, or cloud environment
 of your choice.

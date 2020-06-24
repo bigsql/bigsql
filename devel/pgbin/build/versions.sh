@@ -18,8 +18,13 @@ pg96BuildV=1
 pg95V="9.5.22"
 pg95BuildV=1
 
-##odbcV=12.01.0000
-##backrestV=2.26
+odbcFullV=12.02
+odbcShortV=
+odbcBuildV=1
+
+backrestFullV=2.27
+backrestShortV=
+backrestBuildV=1
 
 bouncerFullV=1.14.0
 bouncerShortV=
@@ -70,7 +75,7 @@ cassFullV=3.1.5
 cassShortV=
 cassBuildV=1
 
-orafceFullV=3.12.0
+orafceFullV=3.13.4
 orafceShortV=
 orafceBuildV=1
 
@@ -159,7 +164,7 @@ spockFullV=3.1.1
 spockShortV=
 spockBuildV=1
 
-pgLogicalFullV=2.3.1
+pgLogicalFullV=2.3.2
 pgLogicalShortV=
 pgLogicalBuildV=1
 

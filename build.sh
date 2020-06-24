@@ -31,17 +31,18 @@ printUsageMessage () {
   echo "# -e cstarfdw-$cstarfdwV  cstar-$cstarV  timescale-$timescaleV"
   echo "#    hivefdw-$hivefdwV  presto-$prestoV  hadoop-$hadoopV"
   echo "#    anon-$anonV  ddlx-$ddlxV  hypopg-$hypoV  http-$httpV"
-  echo "#    pglogical-$logicalV  spock-$spockV plprofiler-$profV  pgtsql-$tsqlV"
+  echo "#    pglogical-$logicalV  plprofiler-$profV  pgtsql-$tsqlV"
   echo "#    partman-$partmanV  bulkload-$bulkloadV  pljava-$pljavaV"
   echo "#    citus-$citusV  cron-$cronV"
   echo "#    audit-$audit11V,$audit12V  pldebugger-$debuggerV  agent-$agentV"
   echo "#    badger-$badgerV  ora2pg-$ora2pgV  docker-$dockerV  pgadmin-$pgadminV"
   echo "#    elasticsearch-$esV  esfdw-$esfdwV  multicorn-$multicornV"
-  echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV"
+  echo "#    repack-$repackV  oracle_xe-$oracle_xeV  oraclefdw-$oraclefdwV  odbc-$odbcV"
   echo "#    postgis-$postgis30V  mysqlfdw-$mysqlfdwV  sqlsvr-$sqlsvrV  tdsfdw-$tdsfdwV"
-  echo "#    bouncer-$bouncerV  pgtop-$pgtopV  proctab-$proctabV"
+  echo "#    bouncer-$bouncerV  backrest-$backrestV  pgtop-$pgtopV  proctab-$proctabV"
   echo "#--------------------------------------------------------------------------#"
   echo "# ./build.sh -X l64 -c $bundle -N $P11 -p 11 -b"
+  echo "# ./build.sh -X l64 -c $bundle -N $P12 -p 12 -b"
   echo "#--------------------------------------------------------------------------#"
 }
 
@@ -206,7 +207,7 @@ initDir () {
     $cpCmd $SRC/$pComponent/*  $myNewDir/.
   fi
 
-  copy-pgXX "spock"
+  ##copy-pgXX "spock"
   copy-pgXX "orafce"
   copy-pgXX "pglogical"
   copy-pgXX "timescaledb"
@@ -436,6 +437,8 @@ initPG () {
     initC "presto" "presto" "$prestoV" "" "apache" "" "" "nil"
     initC "hadoop" "hadoop" "$hadoopV" "" "apache" "" "" "nil"
     initC "oracle_xe" "oracle_xe" "$oracle_xeV" "$outPlat" "oracle" "" "" "nil"
+    initC "backrest" "backrest" "$backrestV" "$outPlat" "postgres/backrest" "" "" "nil"
+    initC "odbc" "odbc" "$odbcV" "$outPlat" "postgres/odbc" "" "" "nil"
   fi
 
   initC "elasticsearch" "elasticsearch" "$esV" "$outPlat" "apache" "" "" "nil"

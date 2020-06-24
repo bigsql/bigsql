@@ -116,15 +116,16 @@ function updateSharedLibs {
           suffix="*so*"
         fi
 
-	if [[ -d bin ]]; then
-		cd $buildLocation/bin
-		for file in `ls -d *` ; do
-			chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
-        	done
+        if [[ -d $buildLocation/bin ]]; then
+          cd $buildLocation/bin
+          for file in `ls -d *` ; do
+            echo "# chrpath $file"
+	        chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
+      	  done
         fi
 
         cd $buildLocation/lib
-	for file in `ls -d $suffix 2>/dev/null` ; do
+        for file in `ls -d $suffix 2>/dev/null` ; do
                 chrpath -r "\${ORIGIN}/../lib" "$file" >> $baseDir/$workDir/logs/libPath.log 2>&1
         done
 
@@ -218,6 +219,23 @@ function configureComp {
         rc=$?
     fi
 
+    if [ "$comp" == "backrest" ]; then
+        echo "# configure backrest..."
+        export LD_LIBRARY_PATH=$buildLocation/lib
+        cd src
+        ./configure --prefix=$buildLocation >> $make_log 2>&1 
+        rc=$?
+    fi
+
+    if [ "$comp" == "odbc" ]; then
+        echo "# bootstrap odbc..."
+        ./bootstrap >> $make_log 2>&1
+        rc=$?
+        echo "# configure odbc..."
+        ./configure --prefix=$buildLocation >> $make_log 2>&1 
+        rc=$?
+    fi
+
     if [ "$comp" == "bouncer" ]; then
         echo "# configure bouncer..."
         opt="--prefix=$buildLocation --disable-rpath --with-cares --with-pam"
@@ -257,7 +275,8 @@ function buildComp {
         src="$5"
         ##echo "#         src: $src"
 
-        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ]; then
+        if [ "$comp" == "bouncer" ] || [ "$comp" == "agent" ] || 
+           [ "$comp" == "backrest" ] || [ "$comp" == "odbc" ]; then
             componentName="$comp$shortV-$fullV-$buildV-$buildOS"
         else
             componentName="$comp$shortV-pg$pgShortVersion-$fullV-$buildV-$buildOS"
@@ -617,7 +636,7 @@ function buildTimeScaleDBComponent {
         packageComponent $componentBundle
 }
 
-TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-agent:,build-citus:,build-number: -- "$@"`
+TEMP=`getopt -l no-tar, copy-bin,no-copy-bin,with-pgver:,with-pgbin:,build-hypopg:,build-postgis:,build-bouncer:,build-hvefdw:,build-cassandrafdw:,build-pgtsql:,build-tdsfdw:,build-mongofdw:,build-mysqlfdw:,build-oraclefdw:,build-orafce:,build-audit:,build-set-user:,build-partman:,build-pldebugger:,build-plr:,build-pljava:,build-plv8:,build-plprofiler:,build-background:,build-bulkload:,build-backrest:,build-odbc:,build-cstore-fdw:,build-parquet-fdw:,build-repack:,build-spock:,build-pglogical:,build-hintplan:,build-timescaledb:,build-cron:,build-multicorn:,build-pgmp:,build-fixeddecimal:,build-anon,build-ddlx:,build-http:,build-pgtop:,build-proctab:,build-agent:,build-citus:,build-number: -- "$@"`
 
 if [ $? != 0 ] ; then
 	echo "Required parameters missing, Terminating..."
@@ -653,6 +672,8 @@ while true; do
     --build-plprofiler ) buildPlProfiler=true; plProfilerSource=$2; shift; shift ;;
     --build-background ) buildBackground=true; backgroundSource=$2; shift; shift ;;
     --build-bulkload ) buildBulkLoad=true; Source=$2; shift; shift ;;
+    --build-odbc ) buildODBC=true; Source=$2; shift; shift ;;
+    --build-backrest ) buildBackrest=true; Source=$2; shift; shift ;;
     --build-cstore-fdw ) buildCstoreFDW=true; cstoreFDWSource=$2; shift; shift ;;
     --build-parquet-fdw ) buildParquetFDW=true; parquetFDWSource=$2; shift; shift ;;
     --build-repack ) buildRepack=true; Source=$2; shift; shift ;;
@@ -761,11 +782,9 @@ fi
 if [[ $buildPlr == "true" ]]; then
 	buildPlRComponent
 fi
-
 if [[ $buildPlJava == "true" ]]; then
 	buildPlJavaComponent
 fi
-
 if [[ $buildPlV8 == "true" ]]; then
     buildComp plv8  "$plv8ShortV" "$plv8FullV" "$plv8BuildV" "$Source"
 fi
@@ -776,10 +795,16 @@ if [[ $buildPlProfiler == "true" ]]; then
 	buildPlProfilerComponent
 fi
 if [[ $buildBackground == "true" ]]; then
-        buildBackgroundComponent
+	buildBackgroundComponent
 fi
 if [[ $buildBulkLoad == "true" ]]; then
-        buildComp bulkload "$bulkloadShortV" "$bulkloadFullV" "$bulkloadBuildV" "$Source"
+	buildComp bulkload "$bulkloadShortV" "$bulkloadFullV" "$bulkloadBuildV" "$Source"
+fi
+if [[ $buildODBC == "true" ]]; then
+	buildComp odbc "$odbcShortV" "$odbcFullV" "$odbcBuildV" "$Source"
+fi
+if [[ $buildBackrest == "true" ]]; then
+	buildComp backrest "$backrestShortV" "$backrestFullV" "$backrestBuildV" "$Source"
 fi
 if [[ $buildCstoreFDW == "true" ]]; then
 	buildCstoreFDWComponent
@@ -788,16 +813,16 @@ if [[ $buildParquetFDW == "true" ]]; then
 	buildParquetFDWComponent
 fi
 if [[ $buildHintPlan == "true" ]]; then
-        buildComp hintplan "$hintplanShortV" "$hintplanFullV" "$hintplanBuildV" "$Source"
+	buildComp hintplan "$hintplanShortV" "$hintplanFullV" "$hintplanBuildV" "$Source"
 fi
 if [[ $buildTimeScaleDB == "true" ]]; then
-        buildTimeScaleDBComponent
+	buildTimeScaleDBComponent
 fi
 if [[ $buildPgMp == "true" ]]; then
-        buildPgMpComponent
+	buildPgMpComponent
 fi
 if [[ $buildBouncer == "true" ]]; then
-    buildComp bouncer "$bouncerShortV" "$bouncerFullV" "$bouncerBuildV" "$Source"
+	buildComp bouncer "$bouncerShortV" "$bouncerFullV" "$bouncerBuildV" "$Source"
 fi
 if [[ $buildFD == "true" ]]; then
 	buildComp fixeddecimal "$fdShortV" "$fdFullV" "$fdBuildV" "$Source"

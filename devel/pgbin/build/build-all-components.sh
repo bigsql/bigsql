@@ -30,6 +30,14 @@ fi
 
 ## WIP across platforms ###########################
 
+if [ "$1" == "odbc" ]; then
+  build odbc $odbcFullV $2 odbc
+fi
+
+if [ "$1" == "backrest" ]; then
+  build backrest $backrestFullV $2 backrest
+fi
+
 if [ "$1" == "agent" ]; then
   build agent $agentFullV $2 agent
 fi
