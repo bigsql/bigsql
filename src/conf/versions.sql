@@ -213,7 +213,6 @@ INSERT INTO versions VALUES ('presto', '0.237.1', '',  1, '20200619', '');
 
 INSERT INTO projects VALUES ('elasticsearch', 5, 0, 'hub', 1, 'https://www.elastic.co/downloads/elasticsearch',
   'elasticsearch', 0, 'elastic-search.png', 'ElasticSearch', 'https://github.com/elastic/elasticsearch#elasticsearch');
-<<<<<<< HEAD
 INSERT INTO releases VALUES ('elasticsearch', 5, 'elasticsearch', 'ElasticSearch', '', 'test', 1);
 INSERT INTO versions VALUES ('elasticsearch', '7.8.0', 'arm, amd',  1, '20200618', '');
 
@@ -223,17 +222,6 @@ INSERT INTO releases VALUES ('esfdw-pg11', 5, 'esfdw', 'ElasticSearchFDW', '', '
 INSERT INTO releases VALUES ('esfdw-pg12', 5, 'esfdw', 'ElasticSearchFDW', '', 'test', 1);
 INSERT INTO versions VALUES ('esfdw-pg11', '0.8.0', 'arm, amd',  1, '20200609', 'pg11');
 INSERT INTO versions VALUES ('esfdw-pg12', '0.8.0', 'arm, amd',  1, '20200609', 'pg12');
-=======
-INSERT INTO releases VALUES ('elasticsearch', 5, 'elasticsearch', 'ElasticSearch', '', 'prod', 1);
-INSERT INTO versions VALUES ('elasticsearch', '7.6.2', 'amd',  1, '20200415', '');
-
-INSERT INTO projects VALUES ('esfdw', 5, 0, 'multicorn', 1, 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw/releases',
-  'esfdw', 1, 'esfdw.png', 'Elastic Search from PG', 'https://github.com/matthewfranglen/postgres-elasticsearch-fdw#postgresql-elastic-search-foreign-data-wrapper');
-INSERT INTO releases VALUES ('esfdw-pg11', 5, 'esfdw', 'ElasticSearchFDW', '', 'prod', 1);
-INSERT INTO releases VALUES ('esfdw-pg12', 5, 'esfdw', 'ElasticSearchFDW', '', 'prod', 1);
-INSERT INTO versions VALUES ('esfdw-pg11', '0.8.0', 'arm',  1, '20200609', 'pg11');
-INSERT INTO versions VALUES ('esfdw-pg12', '0.8.0', 'arm',  1, '20200609', 'pg12');
->>>>>>> e8cbeec7db775a6c4bb6196dc5e551a61e566ce4
 
 INSERT INTO projects VALUES ('ora2pg', 2, 0, 'hub', 0, 'https://github.com/darold/ora2pg/releases',
   'ora2pg', 0, 'ora2pg.png', 'Migrate from Oracle to PG', 'https://ora2pg.darold.net');
