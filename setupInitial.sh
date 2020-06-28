@@ -10,7 +10,7 @@ git config --global credential.helper store
 
 if [ `uname` == 'Linux' ]; then
   owner_group="$USER:$USER"
-  yum --version
+  yum --version 2>&1
   rc=$?
   if [ "$rc" == "0" ]; then
     YUM="y"
@@ -58,12 +58,10 @@ wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
 rm get-pip.py
 
-if [ ! -d ~/.aws ]; then
-  aws --version
-  rc = $?
-  if [ ! "$rc" == "0" ]; then
-    pip install awscli
-  fi
+aws --version 2>&1
+rc=$?
+if [ ! "$rc" == "0" ]; then
+  pip install awscli
   mkdir -p ~/.aws
   cd ~/.aws
   touch config
@@ -71,17 +69,25 @@ if [ ! -d ~/.aws ]; then
   chmod 600 config
 fi
 
-export WORKON_HOME=~/Envs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-mkdir -p $WORKON_HOME
-pip install virtualenvwrapper
+virtualenv --version
+rc=$?
+if [ ! "$rc" == "0" ]; then
+  export WORKON_HOME=~/Envs
+  export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+  mkdir -p $WORKON_HOME
+  pip install virtualenvwrapper
+fi
 
 cd ~/dev/pgsql-io
-source bash_profile
 if [ -f ~/.bashrc ]; then
-  cat bash_profile >> ~/.bashrc
+  bf=~/.bashrc
 else
-  cat bash_profile >> ~/.bash_profile
+  bf=~/.bash_profile
+fi
+grep IO $bf
+rc=$?
+if [ ! "$rc" == "0" ]; then
+  cat bash_profile >> $bf
 fi
 
 echo ""
